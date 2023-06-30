@@ -4,7 +4,7 @@
         "ltc": "http://rs.tdwg.org/ltc/"
     },
     "@type": "ltc:OrganisationalUnit",
-    "ltc: Identifier":
+    "ltc:hasIdentifier":
     [
         {
             "@type": "ltc:Identifier",
