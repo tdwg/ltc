@@ -1,0 +1,95 @@
+name: "LtC Wiki Issue"
+description: "Issue associated with the wiki"
+title: "LtC Wiki Issue"
+labels: ["Public Review:Wiki", "Public Review"]
+assignees:
+  - ben-norton
+body:
+- type: markdown
+  attributes:
+    value: |
+      <div style="background-color: rgb(50, 50, 50); padding: 10px;">
+      <h3><strong>Please read!</strong></h3>
+      Please use the appropriate template for your issue according to the following guide:<br>
+      1. If you have a general <strong>QUESTION</strong>, please visit the <a href="https://github.com/tdwg/ltc/discussions">LtC Discussions</a><br>
+      2. If your issue is related to a specific <strong>TERM</strong>, please use the Term Issue Template: <a href="https://github.com/tdwg/ltc/issues/new?template=ltc-term-pr-template.md">Term Issue</a><br>
+      3. If your issue is related to the <strong>WIKI</strong>, you're in the right place!</a><br>
+      </div>
+- type: input
+  id: submitter
+  attributes:
+    label: Submitter
+    description: "Please enter your name (preferably with your GitHub tag @name). If an issue is submitted on someone's behalf, please enter both names."
+    placeholder: "Example:  Ben Norton (@ben-norton)"
+- type: textarea
+  id: justification
+  attributes: 
+    label: "Justification"
+    description: "Please describe why this change is necessary." 
+- type: dropdown
+  id: wikiSection
+  attributes:
+    label: "Wiki Section"
+    description: "Which section of the wiki is associated with your issue?"
+    multiple: false
+    options:
+      - Home
+      - 1. Overview of Latimer Core
+      - 2. Glossary
+      - 3. Latimer Core Schemes
+      - 4. Classes
+      - 5. Metrics and narratives
+      - 6. Structural Connections
+      - 7. Relationships
+      - 8. Reference examples and implementations
+      - 9. Use Cases
+      - Presentations & Publications
+      - Release Notes
+  validations:
+    required: true
+- type: input
+  id: sectionUrl
+  attributes:
+    label: "Url"
+    description: "Please provide the URL to the specific section of the wiki associated with your issue."
+    placeholder: "Example: https://github.com/tdwg/ltc/wiki/1.-Overview-of-Latimer-Core#audiences"
+- type: dropdown
+  id: action
+  attributes:
+    label: "Suggested Action"
+    description: "Please select the type of action associated with your issue"
+    options:
+      - Addition
+      - Improvement
+      - Question
+      - Removal
+      - Revision
+      - Other
+  validations:
+    required: true
+- type: textarea
+  id: issueDescription
+  attributes:
+    label: "Description"
+    description: "Please describe the issue"
+  validations:
+    required: true
+- type: textarea
+  id: currentText
+  attributes:
+    label: "Current Text"
+    description: "Please copy and paste the current text associated with your issue"
+  validations:
+    required: false
+- type: textarea
+  id: replacementText
+  attributes:
+    label: "Replacement Text"
+    description: "Please enter the proposed replacement content for the current text"
+  validations:
+    required: false
+- type: textarea
+  id: comments
+  attributes:
+    label: "Additional Comments"
+    description: "Please enter any additional comments not captured in previous form fields"
