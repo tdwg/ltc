@@ -1,0 +1,2 @@
+domainRoot,coreClassFile,documentClass,creator,outputDirectory,outFileNameAfter,separator,baseIriColumn,modifiedColumn
+http://rs.tdwg.org/ltc/terms/,ltc.csv,foaf:document,Biodiversity Information Standards (TDWG),D:\python\projects\tdwg-build\output,,",",term_localName,document_modified
