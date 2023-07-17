@@ -1,44 +1,102 @@
-<dl>
-  <dt>Title</dt>
-  <dd>Latimer Core List of Terms</dd>
-  <dt>Namespace IRI:</dt>
-  <dd>http://rs.tdwg.org/ltc/terms/</dd>
-  <dt>Preferred namespace abbreviation</dt>
-  <dd>chrono:</dd>
-  <dt>Date version issued</dt>
-  <dd>2023-xx-xx</dd>
-  <dt>Date created</dt>
-  <dd>2023-xx-xx</dd>
-  <dt>Part of TDWG Standard</dt>
-  <dd><a href="http://www.tdwg.org/standards/xx">http://www.tdwg.org/standards/xxx</a></dd>
-  <dt>This version</dt>
-  <dd><a href="http://rs.tdwg.org/dwc/doc/ltc/2023-xx-xx">http://rs.tdwg.org/dwc/doc/ltc/2023-xx-xx</a></dd>
-  <dt>Latest version</dt>
-  <dd><a href="http://rs.tdwg.org/dwc/doc/ltc/">http://rs.tdwg.org/dwc/doc/ltc/</a></dd>
-  <dt>Abstract</dt>
-  <dd>Latimer Core (LtC) is a data standard for describing collections, proposed by the Collection Descriptions Task Group. It has been designed to support the representation and discovery of groups of items that are encompassed in collections and their subcomponents. The LtC classes and their properties (collectively called terms) aim to represent information that describes these groups of things in enough detail to inform deeper discovery of the resources they contain.</dd>
-  <dt>Contributors</dt>
-  <dd>Sharon Grant, Janeen Jones, Kate Webbink, Matt Woodburn, Jutta Buschbom, Sarah Vincent, Maarten Trekels, Quentin Groom</dd>
-  <dt>Creator</dt>
-  <dd>TDWG Darwin Core Latimer Core Extension Task Group</dd>
-  <dt>Bibliographic citation</dt>
-  <dd>xxx 2021. Latimer Core. Biodiversity Information Standards (TDWG). <a href="http://rs.tdwg.org/dwc/doc/ltc/2023-xx-xx">http://rs.tdwg.org/dwc/doc/ltc/2023-xx-xx</a></dd>
-</dl>
+# Latimer Core List of Terms
+
+<dt>Title</dt>
+<dd>Latimer Core List of Terms
+
+<dt>Date version issued</dt>
+<dd>yyyy-mm-dd
+
+<dt>Date created</dt>
+<dd>yyyy-mm-dd
+
+<dt>Part of TDWG Standard</dt>
+<dd><a href="http://www.tdwg.org/standards/643">http://www.tdwg.org/standards/643</a></dd>
+
+<dt>This version</dt>
+<dd><a href="http://rs.tdwg.org/ltc/doc/list/yyyy-mm-dd">http://rs.tdwg.org/ltc/doc/list/yyyy-mm-dd</a></dd>
+
+<dt>Latest version</dt>
+<dd><a href="http://rs.tdwg.org/ltc/doc/list/">http://rs.tdwg.org/ltc/doc/list/</a></dd>
+
+<dt>Abstract</dt>
+<dd>Latimer Core (LtC) is a data standard designed to support the representation, discovery and communication of natural science collections. A Latimer Core record may represent a grouping of objects at any level of granularity above the level of a single object, from an entire collection of an institution to a few objects in a single drawer. The classes within the standard aim to allow the high-level representation of any given collection by providing a framework within which the defining characteristics shared by objects in the collection can be described. Among others, these include their taxonomic, geographic, stratigraphic and temporal coverage, and a framework for adding quantative metrics and narratives to help to quantify and describe the collections. The creation of collection-level records is intended to promote visibility and use of items in collections that are otherwise wholly or partially undigitised at a granular level. This document contains a list of attributes of each Latimer Core term, including a documentation name, a specified URI, a recommended English label for user interfaces, a definition, and some ancillary notes.</dd>
+
+<dt>Contributors</dt>
+<dd>Matt Woodburn, Kate Webbink, Janeen Jones, Sharon Grant, Deborah Paul, Maarten Trekels, Quentin Groom, Sarah Vincent, Gabi Droege, William Ulate, Mike Trizna, Niels Raes, Jutta Buschbom</dd>
+
+<dt>Creator</dt>
+<dd>TDWG Collection Descriptions (CD) Interest Group</dd>
+
+<dt>Bibliographic citation</dt>
+<dd>Latimer Core Maintenance Group. 2022. Latimer Core List of Terms. Biodiversity Information Standards (TDWG). <a href="http://rs.tdwg.org/ltc/doc/list/yyyy-mm-dd">http://rs.tdwg.org/ltc/doc/list/yyyy-mm-dd</a></dd>
+
 
 <h2 id="1-introduction">1 Introduction</h2>
 
-<p>This document contains all versions of terms in the Latimer Core (<a href="http://rs.tdwg.org/version/ltc/2023-xx-xx">http://rs.tdwg.org/version/ltc/2023-xx-xx</a>). The vocabulary uses the namespace abbreviation <code class="language-plaintext highlighter-rouge">chrono:</code>. Earlier term versions using the <code class="language-plaintext highlighter-rouge">zooarchnet:</code> namespace are deprecated and should no longer be used. These deprecated terms can be found at <a href="http://rs.tdwg.org/ltc/zooarchnet/">http://rs.tdwg.org/ltc/zooarchnet/</a>.</p>
-
-<p>For a simplified list that contains only the currently recommended terms, see the Latimer Core Quick Reference Guide (<a href="https://tdwg.github.io/ltc/terms/">https://tdwg.github.io/ltc/terms/</a>).</p>
-
 <h3 id="11-status-of-the-content-of-this-document">1.1 Status of the content of this document</h3>
-
-<p>In Section 4, the values of the <code class="language-plaintext highlighter-rouge">Term IRI</code>, and <code class="language-plaintext highlighter-rouge">Definition</code> are normative. The values of <code class="language-plaintext highlighter-rouge">Term Name</code> are non-normative, although one can expect that the namespace abbreviation prefix is one commonly used for the term namespace.  <code class="language-plaintext highlighter-rouge">Label</code> and the values of all other properties (such as <code class="language-plaintext highlighter-rouge">Notes</code> and <code class="language-plaintext highlighter-rouge">Examples</code>) are non-normative.</p>
+<p>Sections 2 through 3 are normative, except for Table 1. In Section 4 and its subparts, the values of the Normative URI, Definition, Required, and Repeatable are normative. The value of Usage (if it exists for a given term) is normative in that it specifies how a borrowed term should be used as part of Latimer Core. The values of Term Name is non-normative, although one can expect that the namespace abbreviation prefix is one commonly used for the term namespace. Labels and the values of all other properties (such as notes) are non-normative.</p>
 
 <h3 id="12-rfc-2119-key-words">1.2 RFC 2119 key words</h3>
-<p>The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in <a href="https://tools.ietf.org/html/rfc2119">RFC 2119</a>.</p>
+<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in [RFC 2119](https://tools.ietf.org/html/rfc2119).</p>
 
-<h2 id="2-use-of-terms">2 Use of Terms</h2>
+<h3 id="13-categories-of-terms">1.3 Categories of terms</h3>
+<p>A Latimer Core (LtC) record is a description of a grouping of collection objects using the LtC vocabularies. It is primarily focused on the description of natural science collections, but not exclusively. The terms in this document can be loosely grouped into several categories.</p>
 
-<p>The terms in this standard are meant to provide stable definitions that can be used in a variety of contexts, but were envisioned principally to function together as an extension to Darwin Core, where each core record may be annotated by one or more Latimer Cores.</p>
+<p>Terms describing the nature and scope of the collection objects within the group.** These include a number of terms within `ltc:ObjectGroup` class, and associated classes that provide information about the scope of the collection being described such as the `ltc:GeographicOrigin`, `ltc:GeologicalContext` and `ltc:Taxon` classes. Due to the potentially heterogeneous nature of the objects within any given group, these classes and terms will often be repeatable within a LtC record.</p>
 
+<p>Terms describing the group as a whole.** These are terms that relate to the group as a single entity, mapping to the concept of a 'collection'. They include basic information terms within the `ltc:ObjectGroup` class, such as `ltc:collectionName` and `ltc:description`, but also include terms relating to the management, accessibility and tracking of the collection such as the `ltc:CollectionHistory` class and `ltc:conditionsOfAccess` property. There is also some overlap with the generic terms in the category below, in the association of people, institutions and other organisational units with the collections.  </p>
+
+<p>Generic, reusable terms that can be applied in several contexts within the standard.** Latimer Core uses a flexible approach to the representation of concepts that may be applicable in more than one concept within the class. For example, rather than specifying a separate term for each type of relevant identifier (for collections, people, organisations, taxa and so on), LtC has a generic `ltc:Identifier` class. The type of identifier is defined in each instance of the class using the `ltc:identifierType` property, and the object to which it relates (such as an instance of `ltc:Person` or `ltc:OrganisationalUnit`) is defined by the association with that class in the dataset. A similar approach applies to other classes in LtC, including `ltc:Address`, `ltc:ContactDetail` and `ltc:OrganisationalUnit`. Similarly, `ltc:Person` is reusable, but uses the `ltc:PersonRole` class in conjunction with the `ltc:Role` class to associate the person with instances of other classes in a particular role context (e.g. 'Collector', 'Record creator').</p>
+
+<p>Terms providing machine-readable metadata about the LtC record.** These terms are predominantly found in the `ltc:RecordLevel` class, and are intended to support the publication of LtC records as FAIR (Findable, Accessible, Interoperable and Reusable) data. These include support for licensing and rights (`dcterms:license`, `dcterms:rights` and `dcterms:rightsHolder`). The `ltc:LatimerCoreScheme` class also fits into this category, and is intended to provide a mechanism to group LtC records under a common scheme and profile that allows the data to be appropriately aggregated and validated.</p>
+
+<h2 id="2-borrowed-vocabulary">2 Borrowed Vocabulary</h2>
+<p>When terms are borrowed from other vocabularies, LtC uses the URIs, common abbreviations, and namespace prefixes in use in those vocabularies. The URIs are normative, but abbreviations and namespace prefixes have no impact except as an aid to reading the documentation.</p>
+
+<p>Table 1. Vocabularies from which terms have been borrowed (non-normative)</p>
+
+<p>Note: URIs for terms in most of these namespaces do not dereference to anything.  The authoritative documentation can be obtained by clicking on the vocabulary names in the table.</p>
+
+<table>
+    <tr>
+        <td>Vocabulary</td>
+        <td>Abbreviation</td>
+        <td>Namespaces and abbreviations</td>
+    </tr>
+    <tr>
+        <td>[Darwin Core](https://dwc.tdwg.org/terms/)</td>
+        <td>DwC</td>
+        <td>`dwc: = http://rs.tdwg.org/dwc/terms/`</td>
+    </tr>
+    <tr>
+        <td>[Darwin Core Chronometric Age Vocabulary](https://tdwg.github.io/chrono/)</td>
+        <td>Chrono</td>
+        <td>`chrono: = http://rs.tdwg.org/chrono/terms/`</td>
+    </tr>
+    <tr>
+        <td>[Dublin Core](http://dublincore.org/documents/dcmi-terms/)</td>
+        <td>DC</td>
+        <td>`dcterms: = http://purl.org/dc/terms/`</td>
+    </tr>
+    <tr>
+        <td>[Schema.org](https://schema.org/)</td>
+        <td>Schema</td>
+        <td>`schema: =  https://schema.org/version/latest/schemaorg-current-https.rdf`</td>
+    </tr>
+    <tr>
+        <td>[Access to Biological Collection Data](https://abcd.tdwg.org/)</td>
+        <td>ABCD</td>
+        <td>`abcd: = https://abcd.tdwg.org/terms/`</td>
+    </tr>
+</table>
+
+
+<h2 id="3-namespace-prefixes-term-names">3 Namespaces, Prefixes and Term Names</h2>
+<p>The namespace of terms borrowed from other vocabularies is that of the original. The namespace of de novo LtC terms is <a href="http://rs.tdwg.org/ltc/terms/">http://rs.tdwg.org/ltc/terms/</a>. In the table of 
+	terms, each term entry has a row with the term name. This term name is generally an “unqualified name” preceded by a widely accepted prefix designating an abbreviation 
+	for the namespace It is RECOMMENDED that implementers who need a namespace prefix for the LtC namespace use ltc. In this web document, hovering over a term in the 
+	[Index By Term Name](https://ltc.tdwg.org/termlist/#index-by-term-name) list below will reveal a complete URL that can be used in other web documents to link to this 
+	document’s treatment of that term, even if it is from a borrowed vocabulary. It is very important to note that some vocabularies, e.g those of the [Dublin Core Metadata 
+	Initiative (DCMI)](http://dublincore.org/), provide versions of the same term in two different namespaces, one providing for string values and one providing for URIs, 
+	even where that separation is simply a recommendation, not a mandate. See this [DCMI wiki entry](<a href="https://web.archive.org/web/20171126043657/https://github.com/dcmi/repository/blob/master/mediawiki_wiki/FAQ/DC_and_DCTERMS_Namespaces.md">
+	https://web.archive.org/web/20171126043657/https://github.com/dcmi/repository/blob/master/mediawiki_wiki/FAQ/DC_and_DCTERMS_Namespaces.md">https://web.archive.org/web/20171126043657/https://github.com/dcmi/repository/blob/master/mediawiki_wiki/FAQ/DC_and_DCTERMS_Namespaces.md</a>) on this topic.</p>
