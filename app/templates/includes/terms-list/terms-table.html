@@ -1,0 +1,88 @@
+<<<<<<< Updated upstream
+<h2 id="#5-vocabulary">5 Vocabulary</h2>
+    {% for term in terms %}
+				<div class="table-responsive">
+=======
+<h2 id="5-vocabulary">5 Vocabulary</h2>
+    {% for term in terms %}
+				<div class="table-responsive print-avoid">
+>>>>>>> Stashed changes
+					<table class="table table-compact">
+						<thead>
+							<tr>
+                                <th colspan="2"><a id="ltc_{{ term.term_name }}"></a>Term Name  <span class="title">{{ term.term_ns_name }}</span></th>
+							</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<th scope="row">Term IRI</th>
+							<td><a href="{{ term.term_iri }}">{{ term.term_iri }}</a></td>
+						</tr>
+						{% if term.modified %}
+						<tr>
+							<th scope="row">Modified</th>
+							<td>{{ term.modified }}</td>
+						</tr>
+						{% else %}
+						{% endif %}
+
+						{% if term.term_version_iri %}
+						<tr>
+							<th scope="row">Term version IRI</th>
+							<td><a href="{{ term.term_version_iri }}">{{ term.term_version_iri }}</a></td>
+						</tr>
+						{% else %}
+						{% endif %}
+						
+						<tr>
+							<th scope="row">Label</td>
+							<td>{{ term.label }}</td>
+						</tr>
+						<tr>
+							<th scope="row">Definition</td>
+							<td>{{ term.definition }}</td>
+						</tr>
+						{% if term.usage %}
+						<tr>
+							<th scope="row">Usage</td>
+							<td>{{ term.usage }}</td>
+						</tr>
+						{% else %}
+						{% endif %}
+
+						{% if term.notes %}
+						<tr>
+							<th scope="row">Notes</td>
+							<td>{{ term.notes }}</td>
+						</tr>
+						{% else %}
+						{% endif %}
+
+						{% if term.examples %}
+						<tr>
+							<th scope="row">Examples</td>
+							<td>{{ term.examples }}</td>
+						</tr>
+						{% else %}
+						{% endif %}
+
+						<tr>
+							<th scope="row">Datatype</td>
+							<td>{{ term.datatype }}</td>
+						</tr>
+						<tr>
+							<th scope="row">Namespace</td>
+                            <td><a href="{{  term.pref_ns }}">{{ term.pref_ns }}</a></td>
+						</tr>
+						<tr>
+							<th scope="row">Type</td>
+                            {%  if(term.type == 'http://www.w3.org/1999/02/22-rdf-syntax-ns#Property') %}
+                                <td class="property"><a href="{{ term.type }}">rdf:Property</a></td>
+                            {%  elif(term.type == 'http://www.w3.org/2000/01/rdf-schema#Class') %}
+                                <td class="class"><a href="{{ term.type }}">rdfs:Class</a></td>
+                            {%  endif %}
+						</tr>
+						</tbody>
+					</table>
+				</div>
+				{% endfor %} 

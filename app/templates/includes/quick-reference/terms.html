@@ -1,0 +1,67 @@
+<<<<<<< Updated upstream
+=======
+<a id="latimerCore"></a>
+>>>>>>> Stashed changes
+{% for v in grplists %}
+<h2 id="{{ v }}">{{  v.class }}</h2>
+<div class="my-4">
+     {% for k in v.terms %}
+        <a class="btn btn-sm btn-outline-primary m-1" href="#{{ k[0] }}">{{  k[0] }}</a>
+    {% endfor %}
+</div>
+    {% for k in v.terms %}
+        <div class="table-responsive">
+            <table class="table table-compact">
+                <thead>
+                    <tr>
+                        {%  if(k[8] == 'http://www.w3.org/1999/02/22-rdf-syntax-ns#Property') %}
+                        <th class="property" colspan="2">
+                            <a id="{{ k[0] }}"></a> <span class="title">{{ k[1] }}</span>
+                            <span class="badge badge-property float-end">Property</span>
+                        </th>
+                        {%  elif(k[8] == 'http://www.w3.org/2000/01/rdf-schema#Class') %}
+                        <th class="class" colspan="2"><a id="{{ k[0] }}"></a>
+                            <span class="title">{{ k[1] }}</span>
+                            <span class="badge badge-class float-end">Class</span>
+                        </th>
+                        {%  endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">Term IRI</th>
+                        <td><a href="{{ k[3] }}">{{ k[3] }}</a></td>
+                    </tr>
+					<tr>
+                        <th scope="row">Definition</td>
+                        <td>{{ k[5] }}</td>
+                    </tr>
+                    
+                    {% if k[7] %}
+                    <tr>
+                        <th scope="row">Comments</td>
+                        <td>
+                            {% if(k[7] != -1) %}
+                                {{ k[7] }}
+                            {%  endif %}
+                        </td>
+                    </tr>
+                    {% else %}
+                    {% endif %}
+
+                    {% if k[6] %}
+                    <tr>
+                        <th scope="row">Examples</td>
+                        <td>
+                            {% if(k[6] != -1) %}
+                                {{ k[6] }}
+                            {%  endif %}
+                        </td>
+                    </tr>
+                    {% else %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    {% endfor %}
+{% endfor %}

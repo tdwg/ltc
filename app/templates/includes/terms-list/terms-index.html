@@ -1,0 +1,26 @@
+<h2 id="4-term-index">4 Term index</h2>
+
+<h3 id="41-index-by-term-name">4.1 Index By Term Name</h3>
+
+<div class="class-set-wrapper">
+<h5><strong>Classes</strong></h5>
+<ul class="cls-list list-2-col">
+{% for gc in ltcCls %}
+    <li><a href="#ltc_{{ gc }}">ltc:{{ gc }}</a></li>
+{% endfor %}
+</ul>
+</div>
+
+ {% for v in grplists %}
+     <div class="term-set-by-class-wrapper">
+    <h5>{{ v.class }}</h5>
+    <ul class="term-list list-3-col">
+    {% for k in v.terms %}
+        <li><a href="#ltc_{{ k[1] }}">{{ k[0] }}</a></li>
+    {%  endfor %}
+    </ul>
+     </div>
+{%  endfor %}
+
+
+

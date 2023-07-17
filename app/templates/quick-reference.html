@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block main %}
+{% include 'includes/navbar.html' %}
+<main>
+	{% include 'includes/quick-reference/page-header.html' %}
+	<div class="container content">
+		<div class="row">
+			<div class="col-lg-3 mx-auto">
+				{% include 'includes/quick-reference/sidebar.html' %}
+			</div>
+			<div class="col-lg-9 order-lg-first mx-auto">
+                <h3 class="text-danger">DRAFT</h3>
+				{% include 'includes/quick-reference/terms-header.html' %}
+                {%  include 'includes/quick-reference/terms.html' %}
+<<<<<<< Updated upstream
+                {%  include 'includes/quick-reference/skos.html' %}
+=======
+                {%  include 'includes/skos.html' %}
+>>>>>>> Stashed changes
+	 		</div>
+	 	</div>
+ 	</div>
+</main>
+
+
+
+{% endblock %}
+

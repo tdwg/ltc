@@ -1,0 +1,22 @@
+{
+    "fields": [
+        {
+            "name": "term_localName",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "skos_mappingRelation",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "related_termName",
+            "type": "string",
+            "format": "default"
+        }
+    ],
+    "missingValues": [
+        ""
+    ]
+}
