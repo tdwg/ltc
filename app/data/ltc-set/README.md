@@ -2,8 +2,7 @@
 ### ltc-set
 The csv files in this folder are the formal standardized set used to produce the
 Latimer Core documentation pages (terms list and quick reference). The fields are set specifically to
-support the documentation. The source data is located in the ltc-source folder. These were transformed
-to adhere to the standardized fields in the documentation.
+support the documentation. The source csv files are located in the tdwg/ltc/docs/terms/source folder. 
 
 Last Modified: 20230716
 Modified By: Ben Norton
