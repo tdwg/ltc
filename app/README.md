@@ -8,11 +8,11 @@ improve readability and contrast. In addition, a print stylesheet was added to i
   3. Run App >python app.py
   4. Open localhost:5000 in browser
 
-Assuming Windows 10/11
->python -m venv venv
->venv\Scripts\activate.bat
->pip install -r requirements.txt
->python app.py
+Assuming Windows 10/11  
+>python -m venv venv 
+>venv\Scripts\activate.bat  
+>pip install -r requirements.txt  
+>python app.py  
 
 To-do
 1. Finalize the print stylesheet
