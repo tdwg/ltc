@@ -11,7 +11,7 @@ app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['FREEZER_DESTINATION'] = '../docs'
 freezer = Freezer(app) # Added
 app.config['FREEZER_RELATIVE_URLS'] = True
-app.config['FREEZER_BASE_URL'] = '/'
+app.config['FREEZER_BASE_URL'] = 'https://tdwg.github.io/ltc/'
 
 @app.route('/')
 def home():
