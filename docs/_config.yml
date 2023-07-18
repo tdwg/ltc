@@ -1,7 +1,7 @@
 # SITE SETTINGS
 title: Latimer Core
 url: "https://tdwg.github.io"
-baseurl: "/ltc"
+baseurl: "https://tdwg.github.io/ltc"
 
 # SOCIAL PROFILES
 social:
