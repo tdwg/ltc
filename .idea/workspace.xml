@@ -5,50 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60a561a5-3d33-44bc-991d-77087c87fcbb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/configs/site-schemas.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/content/home-content.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/content/terms-list-header.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/data/ltc-set/deprecated/terms-list.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/data/ltc-set/ltc-skos-sssom-mappings.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/utils/csvwlib-generator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/utils/generate-csvstats.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/utils/merge.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/utils/table-schemas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/.idea/csv-editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/.idea/csv-editor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/static/assets/ltc.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/static/assets/ltc.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build/static/assets/print.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/static/assets/print.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/ltc-set/ltc-quick-ref-schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/ltc-set/ltc-quick-ref.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/ltc-set/ltc-skos-schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/ltc-set/ltc-skos.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/ltc-set/ltc-term-list-schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/ltc-set/ltc-term-list.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/ltc-set/schemas/ltc-quick-ref-schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/data/ltc-set/deprecated/ltc-quick-ref-schema.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/ltc-set/schemas/ltc-skos-schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/data/ltc-set/deprecated/ltc-skos-schema.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/ltc-set/schemas/ltc-term-list-schema.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/data/ltc-set/deprecated/ltc-term-list-schema.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/ltc-set/schemas/table-schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/data/ltc-set/deprecated/table-schemas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/data/ltc-set/table-schemas.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/index.md" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app-build.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/20230717/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/quick-reference/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/20230717/quick-reference/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/static/assets/ltc.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/20230717/static/assets/ltc.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/static/assets/print.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/20230717/static/assets/print.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/static/assets/theme/css/academicons.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/20230717/static/assets/theme/css/academicons.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/static/assets/theme/css/fontawesome-all.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/20230717/static/assets/theme/css/fontawesome-all.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/static/assets/theme/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/20230717/static/assets/theme/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/static/assets/theme/css/pygments.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/20230717/static/assets/theme/css/pygments.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/static/assets/theme/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/20230717/static/assets/theme/js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/static/assets/theme/js/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/20230717/static/assets/theme/js/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/static/assets/theme/js/popper.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/20230717/static/assets/theme/js/popper.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/static/images/tdwg-logo-short.svg" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/20230717/static/images/tdwg-logo-short.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build/terms-list/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/build/20230717/terms-list/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/pages.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/pages.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/includes/home/home-content.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/includes/home/home-content.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/includes/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/includes/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/includes/quick-reference/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/includes/quick-reference/sidebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/includes/quick-reference/terms.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/includes/quick-reference/terms.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/includes/terms-list/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/includes/terms-list/sidebar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/includes/terms-list/terms-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/includes/terms-list/terms-index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/includes/terms-list/terms-table.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/includes/terms-list/terms-table.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/navbar.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/quick-reference.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/quick-reference.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/terms-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/terms-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/assets/ltc.css" beforeDir="false" afterPath="$PROJECT_DIR$/docs/static/assets/ltc.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/static/assets/print.css" beforeDir="false" afterPath="$PROJECT_DIR$/docs/static/assets/print.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +49,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/Data/TDWG/repos/ltc/app/data/ltc-set",
+    "last_opened_file_path": "E:/Data/TDWG/repos/ltc/app",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -90,14 +61,15 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Data\TDWG\repos\ltc\app" />
       <recent name="E:\Data\TDWG\repos\ltc\app\data\ltc-set" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Data\TDWG\repos\ltc\app\build\20230717" />
       <recent name="E:\Data\TDWG\repos\ltc\app\templates\includes\terms-list" />
       <recent name="E:\Data\TDWG\repos\ltc\app\templates\includes\quick-reference" />
       <recent name="E:\Data\TDWG\repos\ltc\app\templates\includes\home" />
       <recent name="E:\Data\TDWG\repos\ltc\app\data\ltc-set\schemas" />
-      <recent name="E:\Data\TDWG\repos\ltc\app\data\ltc-set\deprecated" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -112,7 +84,7 @@
       <workItem from="1689716471770" duration="688000" />
       <workItem from="1689720921833" duration="463000" />
       <workItem from="1689721393326" duration="902000" />
-      <workItem from="1689722678225" duration="6388000" />
+      <workItem from="1689722678225" duration="7392000" />
     </task>
     <servers />
   </component>

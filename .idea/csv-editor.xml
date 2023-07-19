@@ -3,6 +3,13 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="\app\data\ltc-rs.tdwg.org\ltc.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\app\data\ltc-set\ltc-datatypes.csv">
           <value>
             <Attribute>
@@ -81,6 +88,41 @@
           </value>
         </entry>
         <entry key="\app\utils\ltc-terms-list.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\source\rs.tdwg.org\ltc.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\source\terms\dwc.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\source\terms\ltc.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\source\terms\ltc_terms_source.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\source\terms\mapping\ltc_sssom_mapping.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

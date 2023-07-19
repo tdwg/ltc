@@ -1,19 +1,23 @@
-# importing flask
 from flask import Flask, render_template
-from flask_frozen import Freezer # Added
-import sys
-# importing pandas module
+from flask_frozen import Freezer
 import pandas as pd
 import csv
+import sys
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
-app.config['FREEZER_DESTINATION'] = 'build/20230718'
+app.config['FREEZER_DESTINATION'] = '/build/20230718'
 freezer = Freezer(app) # Added
-app.config['FREEZER_RELATIVE_URLS'] = True
-app.config['FREEZER_BASE_URL'] = 'https://tdwg.github.io/ltc/'
-app.testing = True
-app.config['FREEZER_IGNORE_MIMETYPE_WARNINGS'] = True
+FREEZER_DESTINATION = '../build'
+FREEZER_IGNORE_MIMETYPE_WARNINGS = True
+#app.config['FREEZER_RELATIVE_URLS'] = True
+#app.config['FREEZER_BASE_URL'] = 'https://tdwg.github.io/ltc/'
+
+@freezer.register_generator
+def url_generator():
+    yield '/'
+    yield '/terms-list'
+    yield '/quick-reference'
 
 @app.route('/')
 def home():
@@ -21,7 +25,8 @@ def home():
     "home.html"
   )
 
-@app.route('/terms-list')
+
+@app.route('/terms-list/')
 def table():
     df = pd.read_csv('data/ltc-set/ltc-terms-list.csv', encoding='utf8')
     ltcCls = df["class_name"].dropna().unique()
@@ -82,7 +87,7 @@ def table():
         skos=skos
     )
 
-@app.route('/quick-reference')
+@app.route('/quick-reference/')
 def ref():
     df = pd.read_csv('data/ltc-set/ltc-terms-list.csv', encoding='utf8')
 
@@ -117,8 +122,9 @@ def ref():
         grplists=grplists,
         skos=skos
     )
-if __name__ == "__main__":
+
+if (__name__ == "__main__"):
     if len(sys.argv) > 1 and sys.argv[1] == "build":
         freezer.freeze()
     else:
-        app.run(port=8000)
+        app.run(port=5000)
