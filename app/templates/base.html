@@ -9,29 +9,24 @@
 	<meta property="og:title" content="Latimer Core List of Terms">
 	<link rel="icon" type="image/x-icon" href="https://tdwg.github.io/ltc/favicon.ico">
 
-<<<<<<< Updated upstream
-	<link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i&display=swap" rel="stylesheet">
-
-	<link rel="stylesheet" href="{{ url_for('static',filename='assets/theme/css/main.css') }}">
-=======
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Marck+Script&display=swap" rel="stylesheet">
 
       <link rel="stylesheet" href="{{ url_for('static',filename='assets/theme/css/main.css') }}">
->>>>>>> Stashed changes
 	<link rel="stylesheet" href="{{ url_for('static',filename='assets/theme/css/fontawesome-all.min.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static',filename='assets/theme/css/academicons.min.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static',filename='assets/theme/css/pygments.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static',filename='assets/ltc.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static',filename='assets/print.css') }}" media="print">
 
-	<script src="{{ url_for('static',filename='assets/theme/js/jquery.min.js') }}"></script>
-	<script src="{{ url_for('static',filename='assets/theme/js/popper.min.js') }}"></script>
-	<script src="{{ url_for('static',filename='assets/theme/js/bootstrap.min.js') }}"></script>
 </head>
 <body>
 {% block main %}
 {% endblock %}
+	<script src="{{ url_for('static',filename='assets/theme/js/jquery.min.js') }}"></script>
+	<script src="{{ url_for('static',filename='assets/theme/js/popper.min.js') }}"></script>
+	<script src="{{ url_for('static',filename='assets/theme/js/bootstrap.min.js') }}"></script>
+
 </body>
 </html>

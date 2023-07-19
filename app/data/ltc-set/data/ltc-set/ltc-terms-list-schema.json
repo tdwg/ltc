@@ -1,27 +1,12 @@
 {
     "fields": [
         {
-            "name": "term_name",
+            "name": "namespace",
             "type": "string",
             "format": "default"
         },
         {
-            "name": "class_name",
-            "type": "string",
-            "format": "default"
-        },
-        {
-            "name": "term_ns_name",
-            "type": "string",
-            "format": "default"
-        },
-        {
-            "name": "term_iri",
-            "type": "string",
-            "format": "default"
-        },
-        {
-            "name": "term_version_iri",
+            "name": "term_local_name",
             "type": "string",
             "format": "default"
         },
@@ -51,7 +36,32 @@
             "format": "default"
         },
         {
-            "name": "type",
+            "name": "rdf_type",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "class_name",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "is_required",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "is_repeatable",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "compound_term_name",
+            "type": "string",
+            "format": "default"
+        },
+        {
+            "name": "datatype",
             "type": "string",
             "format": "default"
         }
