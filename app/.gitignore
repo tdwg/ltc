@@ -2,6 +2,5 @@
 /venv
 /.idea
 /build
-=======
-config.py
->>>>>>> Stashed changes
+config.yaml
+

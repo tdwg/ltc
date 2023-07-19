@@ -1,3 +1,151 @@
+<<<<<<< Updated upstream
+/* Table Adjustments */
+.content table td:first-of-type {
+
+}
+table thead tr th {
+	font-size: 18px;
+	font-weight: 400;
+}
+table thead tr th span {
+	font-weight: 700;
+}
+table tbody > tr > th {
+	width: 25%;
+	font-size: 16px;
+	font-weight: 600;
+}
+table tbody > tr > td {
+	font-size: 16px;
+	padding: 7px 10px;
+}
+table tbody tr:nth-child(even) {
+	background-color: rgba(230,230,230,0.3);
+}
+a.class {
+	color: #660A10;
+}
+a.property {
+	color: #09591D;
+}
+.btn.class {
+	color: #660A10;
+    border-color: #660A10;
+}
+.btn.property {
+	color: #09591D;
+    border-color: #09591D;
+}
+thead tr.class a,
+thead tr th.class a,
+tbody tr.class a,
+tbody tr td.class a {
+	color: rgba(102,10,16,1);
+}
+thead tr th.class,
+thead tr th.property,
+thead tr th.class a,
+thead tr th.property a,
+tbody tr td.class a,
+tbody tr td.property a {
+	color: #FFFFFF;
+}
+thead tr th.property,
+tbody tr td.property {
+	background-color: rgba(7,166,49,0.8);
+}
+thead tr th.class,
+tbody tr td.class {
+	background-color: rgba(102, 14, 17, 0.8);
+}
+thead tr th span.title {
+	letter-spacing: 0.02em;
+
+}
+
+.badge.badge-class {
+	background-color: #FFFFFF;
+	color: rgba(102, 14, 17, 1);
+	font-weight: 500;
+}
+.badge.badge-property {
+	background-color: #FFFFFF;
+	color: rgba(7,166,49,1);
+	font-weight: 500;
+
+}
+
+
+/* List Adjustments */
+ul.term-list,
+ul.cls-list {
+	list-style-type: none;
+	padding-left: 0;
+}
+.list-2-col {
+	-moz-column-count: 2;
+	column-count: 2;
+	-webkit-column-count: 2;
+    -moz-column-gap: 24px;
+	column-gap: 24px;
+	-webkit-column-gap: 24px;
+}
+
+.list-3-col {
+	-moz-column-count: 3;
+	column-count: 3;
+	-webkit-column-count: 3;
+    -moz-column-gap: 16px;
+	column-gap: 16px;
+	-webkit-column-gap: 16px;
+}
+.list-4-col {
+	-moz-column-count: 4;
+	column-count: 4;
+	-webkit-column-count: 4;
+    -moz-column-gap: 12px;
+	column-gap: 12px;
+	-webkit-column-gap: 12px;
+}
+.class-set-wrapper h5,
+.term-set-by-class-wrapper h5 {
+	margin-bottom: 5px;
+	font-size: 18px;
+	font-weight: 600;
+}
+.class-set-wrapper,
+.term-set-by-class-wrapper {
+	padding: 1rem 0 0 0;
+	border-bottom: 1px solid rgb(150,150,150);
+}
+/* Buttons */
+.btn-outline-primary {
+    color: #560D59;
+    border-color: #560D59;
+		font-weight: 500;
+}
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+	background-color: #560D59;
+	color: #FFFFFF;
+	font-weight: 500;
+
+}
+
+
+nav.navbar.bg-ltc,
+.header.bg-no-image {
+    background-color: #560D59;
+}
+/* Alt Colors
+Original:#043B58;
+Red: #8C3515
+Green: #235900
+Green 2: #006653
+Purple: #560D59
+*/
+
+=======
 /* Table Adjustments */
 
 p span.signature {
@@ -193,3 +341,4 @@ Green 2: #006653
 Purple: #560D59
 */
 
+>>>>>>> Stashed changes

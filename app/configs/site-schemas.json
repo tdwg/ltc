@@ -1,0 +1,46 @@
+{
+	"schemas": [
+		"root": {
+			"namespace": "ltc",
+			"site_baseurl": "https://tdwg.github.io/ltc"
+		},
+		"data_sources": [
+			{
+				"source_id": "skos",
+				"table_id": "skos",
+				"source_file": "data/ltc-set/skos/ltc-skos.csv"
+			}, {
+				"source_id": "terms-list",
+				"table_id": "terms-list",
+				"source_file": "data/ltc-set/ltc-term-list",
+			}, {
+				"source_id": "quick_reference",
+				"table_id": "quick_ref",
+				"source_path": "data/ltc-set/",
+			}
+		],
+		"columns": [
+			{
+				"table_column": "subject_label",
+				"table_column_name": "subject_label",
+				"csv_column_name": "subject_label",
+				"table_id": "skos"
+			}, {
+				"table_column": "predicate_id",
+				"table_column_name": "predicate_id",
+				"csv_column_name": "predicate_id",
+				"table_id": "skos"
+			}, {
+				"table_column": "object_label",
+				"table_column_name": "object_label",
+				"csv_column_name": "object_label",
+				"table_id": "skos",
+			}, {
+				"table_column": "object_source",
+				"table_column_name": "object_source",
+				"csv_column_name": "object_source",
+				"table_id": "skos"
+			}
+		]
+	]
+}
