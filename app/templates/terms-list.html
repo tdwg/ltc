@@ -11,7 +11,8 @@
 			<div class="col-lg-9 order-lg-first mx-auto">
 			    <h1 id="ltc-list-of-terms">Latimer Core List of Terms</h1>
                 <h3 class="text-danger">DRAFT</h3>
-                {{ terms_list_md|safe }}
+                {%  include 'includes/terms-list/terms-header.html' %}
+
 
 				{% include 'includes/terms-list/terms-index.html' %}
 

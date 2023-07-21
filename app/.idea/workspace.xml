@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2934fc3a-5bf8-4276-bad4-8976ef4f454b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-build.py" beforeDir="false" afterPath="$PROJECT_DIR$/app-build.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/deprecated/terms-header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/terms-list/terms-header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/markdown/terms-list-header.md" beforeDir="false" afterPath="$PROJECT_DIR$/templates/markdown/terms-list-header.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/terms-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/terms-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +57,7 @@
       <recent name="A:\ltc\repos\ltc\app\templates\tests" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="A:\ltc\repos\ltc\app\templates\includes\terms-list" />
       <recent name="A:\ltc\repos\ltc\app\data\ltc-set\schemas" />
       <recent name="A:\ltc\repos\ltc\app\templates\includes\deprecated" />
       <recent name="A:\ltc\repos\ltc\app\templates\markdown" />
@@ -83,7 +90,7 @@
       <updated>1689710155821</updated>
       <workItem from="1689710158228" duration="609000" />
       <workItem from="1689786726815" duration="74000" />
-      <workItem from="1689786814419" duration="14242000" />
+      <workItem from="1689786814419" duration="14975000" />
     </task>
     <servers />
   </component>

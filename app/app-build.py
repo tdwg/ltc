@@ -12,8 +12,8 @@ freezer = Freezer(app) # Added
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['FREEZER_DESTINATION'] = '../docs'
 app.config['FREEZER_RELATIVE_URLS'] = True
-#app.config['FREEZER_BASE_URL'] = 'https://tdwg.github.io/ltc/'
-#app.config['FREEZER_BASE_URL'] = '/'
+app.config['FREEZER_BASE_URL'] = 'https://tdwg.github.io/ltc/'
+#app.config['FREEZER_BASE_URL'] = '/ltc'
 app.testing = True
 app.config['FREEZER_IGNORE_MIMETYPE_WARNINGS'] = True
 
@@ -31,11 +31,6 @@ def home():
 
 @app.route('/terms-list/')
 def table():
-    terms_list_header_md = open("templates/markdown/home-content.md", "r")
-    terms_list_md = markdown.markdown(
-        terms_list_header_md.read(), extensions=["fenced_code"]
-    )
-
     df = pd.read_csv('data/ltc-set/ltc-terms-list.csv', encoding='utf8')
     ltcCls = df["class_name"].dropna().unique()
 
@@ -80,8 +75,7 @@ def table():
         ltcCls=ltcCls,
         terms=terms,
         termsByClass=termsByClass,
-        skos=skos,
-        terms_list_md=terms_list_md
+        skos=skos
     )
 
 @app.route('/quick-reference/')

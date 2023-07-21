@@ -23,7 +23,7 @@ def home():
 
 @app.route('/terms-list/')
 def table():
-    terms_list_header_md = open("templates/markdown/home-content.md", "r")
+    terms_list_header_md = open("templates/markdown/terms-list-header-content.md", "r")
     terms_list_md = markdown.markdown(
         terms_list_header_md.read(), extensions=["fenced_code"]
     )
