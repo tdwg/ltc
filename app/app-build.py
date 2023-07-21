@@ -13,7 +13,7 @@ app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['FREEZER_DESTINATION'] = '../docs'
 app.config['FREEZER_RELATIVE_URLS'] = True
 #app.config['FREEZER_BASE_URL'] = 'https://tdwg.github.io/ltc'
-app.config['FREEZER_BASE_URL'] = '/ltc'
+app.config['FREEZER_BASE_URL'] = '/'
 app.testing = True
 app.config['FREEZER_IGNORE_MIMETYPE_WARNINGS'] = True
 
