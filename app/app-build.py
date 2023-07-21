@@ -29,7 +29,7 @@ def home():
     )
 
 
-@app.route('/terms-list')
+@app.route('/terms-list/')
 def table():
     terms_list_header_md = open("templates/markdown/home-content.md", "r")
     terms_list_md = markdown.markdown(
@@ -84,7 +84,7 @@ def table():
         terms_list_md=terms_list_md
     )
 
-@app.route('/quick-reference')
+@app.route('/quick-reference/')
 def ref():
     df = pd.read_csv('data/ltc-set/ltc-terms-list.csv', encoding='utf8')
 
@@ -107,6 +107,16 @@ def ref():
         "quick-reference.html",
         grplists=grplists,
         skos=skos
+    )
+@app.route('/resources/')
+def home():
+    resources_md = open("templates/markdown/resources-content.md", "r")
+    resources_md_content = markdown.markdown(
+        resources_md.read(), extensions=["fenced_code"]
+    )
+    return render_template(
+        "resources.html",
+        resources_md_content=resources_md_content
     )
 
 

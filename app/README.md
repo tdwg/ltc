@@ -7,7 +7,7 @@ In order to use this app to generate documentation, the fields in the CSV must b
 names and column order must be maintained. Please see the schema files for specifics regarding each csv file. The original documentation styles were adjusted to improve readability and contrast. In addition, a print stylesheet was added to improve print media.
 
 - app.py - Test pages
-- pages.py - Production, generates static html version of the test pages
+- app-build.py - Production, generates static html version of the test pages
 Changes to app.py script must be propagated to the pages.py file to push to the site. Changes to the CSV files, assets, or templates are automatically propagated to the static build.
 
 To build documentation pages
@@ -23,13 +23,13 @@ To build documentation pages
 6. The LtC website should now be displayed.
 To build the webpages for production
 1. Run the build version
->python pages.py build
+>python app-build.py build
 
 To-do
-1. Finalize the print stylesheet
-2. Test 508
-3. Review content
-4. Test Anchor Links
+1. Complete the resources page
+2. Finalize the Quick Reference fields
+3. Generate term identifiers (URIs)
+4. Establish unique identifiers for each term with class qualifier to distinguish between terms of the same name but belong to separate classes.
 
 Ben Norton
 michaelnorton.ben@gmail.com
