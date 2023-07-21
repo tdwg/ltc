@@ -5,41 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2934fc3a-5bf8-4276-bad4-8976ef4f454b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/includes/resources/page-header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/markdown/resources-content.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app-build.py" beforeDir="false" afterPath="$PROJECT_DIR$/app-build.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-pages.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ltc-set/data/ltc-set/ltc-skos-sssom-mappings-schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ltc-set/data/ltc-set/ltc-terms-list-schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ltc-set/schemas/ltc-skos-sssom-mappings-schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ltc-set/schemas/ltc-skos-sssom-mappings-stats.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ltc-set/schemas/ltc-terms-list-schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ltc-set/schemas/ltc-terms-list-stats.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/install-packages.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/includes/home/page-header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/home/page-header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/includes/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/includes/quick-reference/page-header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/quick-reference/page-header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/includes/terms-list/page-header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/terms-list/page-header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/resources.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resources.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/csvwlib-generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/csvwlib-generator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/table-schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/table-schemas.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/quick-reference/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/static/assets/ltc.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/static/assets/print.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/static/assets/theme/css/academicons.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/static/assets/theme/css/fontawesome-all.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/static/assets/theme/css/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/static/assets/theme/css/pygments.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/static/assets/theme/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/static/assets/theme/js/jquery.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/static/assets/theme/js/popper.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/static/images/tdwg-logo-short.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../docs/terms-list/index.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +83,7 @@
       <updated>1689710155821</updated>
       <workItem from="1689710158228" duration="609000" />
       <workItem from="1689786726815" duration="74000" />
-      <workItem from="1689786814419" duration="14130000" />
+      <workItem from="1689786814419" duration="14242000" />
     </task>
     <servers />
   </component>

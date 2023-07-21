@@ -109,7 +109,7 @@ def ref():
         skos=skos
     )
 @app.route('/resources/')
-def home():
+def resources():
     resources_md = open("templates/markdown/resources-content.md", "r")
     resources_md_content = markdown.markdown(
         resources_md.read(), extensions=["fenced_code"]
