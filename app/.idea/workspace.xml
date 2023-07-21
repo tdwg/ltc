@@ -5,15 +5,67 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2934fc3a-5bf8-4276-bad4-8976ef4f454b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/data/ltc-set/ltc-quick-ref-schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ltc-set/ltc-quick-ref.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/ltc-set/ltc-quick-ref.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ltc-set/ltc-skos-schema.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ltc-set/ltc-term-list-schema.json" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/app-pages.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/filters/markdown.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/install-packages.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pages/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reference/jinja2-markdown-reference.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/settings.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/tests/base.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/tests/md-test.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/csv-utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-build.py" beforeDir="false" afterPath="$PROJECT_DIR$/app-build.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/20230717/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/20230717/quick-reference/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/20230717/static/assets/ltc.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/20230717/static/assets/print.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/20230717/static/assets/theme/css/academicons.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/20230717/static/assets/theme/css/fontawesome-all.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/20230717/static/assets/theme/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/20230717/static/assets/theme/css/pygments.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/20230717/static/assets/theme/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/20230717/static/assets/theme/js/jquery.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/20230717/static/assets/theme/js/popper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/20230717/static/images/tdwg-logo-short.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/20230717/terms-list/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/app-markdown.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/home-content.md" beforeDir="false" afterPath="$PROJECT_DIR$/templates/markdown/home-content.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/terms-list-header.md" beforeDir="false" afterPath="$PROJECT_DIR$/templates/markdown/terms-list-header.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ltc-set/ltc-skos-sssom-mappings.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/ltc-set/ltc-skos-sssom-mappings.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/ltc.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/ltc.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/print.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/print.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/home/home-content.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/deprecated/home-content.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/quick-reference/skos.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/quick-reference/terms.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/quick-reference/terms.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/skos.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/skos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/terms-list/skos.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/terms-list/terms-header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/deprecated/terms-header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/terms-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/terms-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/_config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/quick-reference/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/quick-reference/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/static/assets/ltc.css" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/static/assets/ltc.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/static/assets/print.css" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/static/assets/print.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/terms-list/bak/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/terms-list/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/terms-list/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -31,13 +83,42 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "A:/ltc/repos/ltc/app/templates/tests",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="A:\ltc\repos\ltc\app\templates\tests" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="A:\ltc\repos\ltc\app\templates\includes\deprecated" />
+      <recent name="A:\ltc\repos\ltc\app\templates\markdown" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="app" type="Python.FlaskServer">
+      <module name="app" />
+      <option name="target" value="$PROJECT_DIR$/app.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -47,10 +128,17 @@
       <option name="presentableId" value="Default" />
       <updated>1689710155821</updated>
       <workItem from="1689710158228" duration="609000" />
+      <workItem from="1689786726815" duration="74000" />
+      <workItem from="1689786814419" duration="12275000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/app$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1689885092955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/app$Flask__app_markdown_py_.coverage" NAME="Flask (app-markdown.py) Coverage Results" MODIFIED="1689901433856" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/app$csv_utils.coverage" NAME="csv-utils Coverage Results" MODIFIED="1689902825548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
   </component>
 </project>
