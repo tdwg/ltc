@@ -2,4 +2,12 @@
 /.idea
 /build
 config.yaml
+.idea
 
+
+/.idea
+/__pycache__
+/build
+/venv
+/templates/tests
+workspace.xml

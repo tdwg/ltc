@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block main %}
 {% include 'includes/navbar.html' %}
-<main class="ltc-content">
-	{% include 'includes/home/page-header.html' %}
+<main>
+	{% include 'includes/resources/page-header.html' %}
 	<div class="container content">
 		<div class="row">
             <div class="col-md-10 col-lg-8 mx-auto">
-                {{ home_md_content|safe }}
+                {{ resources_md_content|safe }}
             </div>
         </div>
     </div>
