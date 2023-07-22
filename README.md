@@ -1,4 +1,5 @@
 # Latimer Core 
+[https://tdwg.github.io/ltc/](https://tdwg.github.io/ltc/)  
 
 Latimer Core (LtC) is a data standard for describing collections, proposed by the Collection Descriptions Task Group. It has been designed to support the representation and discovery of groups of items that are encompassed in collections and their subcomponents. The LtC classes and their properties (collectively called terms) aim to represent information that describes these groups of things in enough detail to inform deeper discovery of the resources they contain.  
 
