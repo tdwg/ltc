@@ -9,7 +9,6 @@
 
  */
 main.ltc-content .container.content h1 {
-
 	color: rgb(17, 24, 39);
 }
 main.ltc-content .container.content h2 {
@@ -39,25 +38,40 @@ a:hover,
 a:focus {
 	color: #0E608C;
 }
+li.navbar-item a.nav-link {
+	padding-bottom: 0.25rem;
+}
+.navbar-dark .navbar-nav a.nav-link.nav-link-active {
+	color: #FFFFFF;
+	text-decoration: none;
+	border-bottom: 2px solid #FFFFFF;
+}
 ul.resources-list li a,
 p a {
 	text-decoration: underline;
 }
 
 /* Table Adjustments ------------------------------- */
+main .container.content table {
+	width: 100%;
+}
+table.table-terms thead tr {
+	background-color: rgba(230,230,230,.8);
+}
+
 table.quick-reference tbody tr th {
 	width: 10%;
 }
-
 table tbody tr:hover,
 table tbody tr:focus {
 	background-color: rgba(243,244,246,.3);
 }
 table thead > tr > th {
 	font-size: 1.0rem;
+	font-weight: 400;
 }
 table thead > tr > th span {
-	font-weight: 500;
+	font-weight: 700;
 }
 table tbody > tr > th {
 	width: 15%;
@@ -67,11 +81,12 @@ table tbody > tr > th {
     white-space: nowrap;
 }
 table tbody > tr > td {
+	vertical-align: baseline;
 	font-size: 0.9rem;
 	padding: 7px 10px;
 }
 table tbody tr:nth-child(even) {
-	background-color: rgba(230,230,230,0.3);
+	background-color: rgba(230,230,230,0.2);
 }
 a.class {
 	color: #660A10;

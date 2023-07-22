@@ -1,15 +1,20 @@
 <h2 id="5-vocabulary">5 Vocabulary</h2>
     {% for term in terms %}
         <div class="table-responsive print-avoid">
-            <table class="table table-compact">
+            <table class="table table-compact table-terms">
                 <thead>
                     <tr>
-                        <th colspan="2"><a id="ltc_{{ term.term_local_name }}"></a>Term Name  <span class="title">{{ term.term_ns_name }}</span></th>
+                        <th colspan="2"><a id="ltc_{{ term.term_local_name }}"></a>Term Name  <span class="title">{{ term.term_local_name }}</span></th>
                     </tr>
                 </thead>
                 <tbody>
+                        <tr>
+							<th scope="row">Qualified Term</th>
+							<td>{{ term.term_ns_name }}</td>
+						</tr>
+
 						<tr>
-							<th scope="row">Label</th>
+							<th scope="row">rdfs:Label</th>
 							<td>{{ term.label }}</td>
 						</tr>
 						<tr>

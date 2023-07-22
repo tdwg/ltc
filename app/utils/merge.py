@@ -21,6 +21,8 @@ df2['compound_term_name'] = df2['class_name'] + '.' + df2['term_local_name']
 df3 = pd.merge(df1, df2[['compound_term_name','datatype']], on=["compound_term_name"], how='left')
 df3['term_ns_name'] = df3['namespace'] + df3['term_local_name']
 
-
 #df3 = df1.merge(df2, on=["term_local_name"])
+
+# Boolean Value Replacement
+
 df3.to_csv("../data/ltc-set/ltc-terms-list.csv", index=False, encoding="utf8")

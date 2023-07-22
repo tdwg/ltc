@@ -4,7 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2934fc3a-5bf8-4276-bad4-8976ef4f454b" name="Changes" comment="" />
+    <list default="true" id="2934fc3a-5bf8-4276-bad4-8976ef4f454b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/md-tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/errors/404.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/markdown/ac-content.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/markdown/quick-reference-header.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/ns-resolutions.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/utils/value-replacements.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-build.py" beforeDir="false" afterPath="$PROJECT_DIR$/app-build.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app-markdown.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ltc-set/ltc-terms-list.csv" beforeDir="false" afterPath="$PROJECT_DIR$/data/ltc-set/ltc-terms-list.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.cfg" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/assets/ltc.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/assets/ltc.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/terms-list/page-header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/terms/page-header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/terms-list/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/terms/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/terms-list/terms-header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/terms/terms-header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/terms-list/terms-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/terms/terms-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/includes/terms-list/terms-table.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/includes/terms/terms-table.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/markdown/terms-list-header.md" beforeDir="false" afterPath="$PROJECT_DIR$/templates/markdown/terms-list-header.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/quick-reference.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/quick-reference.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/resources.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/resources.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/terms-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/terms.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/tests/base.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/tests/md-test.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/md-test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/csv-utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/csv-utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/merge.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/merge.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/table-schemas.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/table-schemas.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/quick-reference/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/quick-reference/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/resources/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/static/assets/ltc.css" beforeDir="false" afterPath="$PROJECT_DIR$/../docs/static/assets/ltc.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../docs/terms-list/index.html" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,27 +64,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "A:/ltc/repos/ltc/app/templates/includes/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;A:/ltc/repos/ltc/app/templates/includes/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="A:\ltc\repos\ltc\app\templates\includes\resources" />
       <recent name="A:\ltc\repos\ltc\app\templates\tests" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="A:\ltc\repos\ltc\app\templates" />
       <recent name="A:\ltc\repos\ltc\app\templates\includes\terms-list" />
       <recent name="A:\ltc\repos\ltc\app\data\ltc-set\schemas" />
       <recent name="A:\ltc\repos\ltc\app\templates\includes\deprecated" />
@@ -83,6 +120,8 @@
       <workItem from="1689710158228" duration="609000" />
       <workItem from="1689786726815" duration="74000" />
       <workItem from="1689786814419" duration="15802000" />
+      <workItem from="1689937207239" duration="2247000" />
+      <workItem from="1689982087507" duration="8018000" />
     </task>
     <servers />
   </component>
@@ -92,7 +131,11 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/app$Flask__app_py_.coverage" NAME="Flask (app.py) Coverage Results" MODIFIED="1689885092955" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/app$Flask__app_markdown_py_.coverage" NAME="Flask (app-markdown.py) Coverage Results" MODIFIED="1689901433856" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/app$value_replacements.coverage" NAME="value-replacements Coverage Results" MODIFIED="1689965559655" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/app$app.coverage" NAME="app Coverage Results" MODIFIED="1689985459294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/app$Flask__app_build_py_.coverage" NAME="Flask (app-build.py) Coverage Results" MODIFIED="1689993504502" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/app$Flask__md_tests_py_.coverage" NAME="Flask (md-tests.py) Coverage Results" MODIFIED="1689992998832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/app$csvwlib_generator.coverage" NAME="csvwlib-generator Coverage Results" MODIFIED="1689909943581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
-    <SUITE FILE_PATH="coverage/app$csv_utils.coverage" NAME="csv-utils Coverage Results" MODIFIED="1689902825548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
+    <SUITE FILE_PATH="coverage/app$csv_utils.coverage" NAME="csv-utils Coverage Results" MODIFIED="1689987127120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/utils" />
   </component>
 </project>
