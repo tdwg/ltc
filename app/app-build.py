@@ -12,9 +12,6 @@ freezer = Freezer(app) # Added
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['FREEZER_DESTINATION'] = '../docs'
 app.config['FREEZER_RELATIVE_URLS'] = True
-#app.config['FREEZER_BASE_URL'] = 'https://tdwg.github.io/ltc'
-app.config['FREEZER_BASE_URL'] = '/'
-app.testing = True
 app.config['FREEZER_IGNORE_MIMETYPE_WARNINGS'] = True
 
 @app.route('/')
@@ -25,12 +22,19 @@ def home():
     )
     return render_template(
         "home.html",
-        home_md_content=home_md_content
+        home_md_content=home_md_content,
+        title = 'Home',
+        slug='home'
     )
 
 
-@app.route('/terms-list/')
-def table():
+@app.route('/terms/')
+def terms():
+    terms_list_header_md = open("templates/markdown/terms-list-header.md", "r")
+    terms_list_md = markdown.markdown(
+        terms_list_header_md.read(), extensions=["fenced_code"]
+    )
+
     df = pd.read_csv('data/ltc-set/ltc-terms-list.csv', encoding='utf8')
     ltcCls = df["class_name"].dropna().unique()
 
@@ -61,7 +65,8 @@ def table():
                     "examples": row[6],
                     "rdf_type": row[7],
                     "datatype": row[12],
-                    'is_required': row[9]
+                    'is_required': row[9],
+                    'term_uri': row[15]
                 })
             else:
                 first_line = False
@@ -71,15 +76,18 @@ def table():
 
 
     return render_template(
-        "terms-list.html",
+        "terms.html",
         ltcCls=ltcCls,
         terms=terms,
         termsByClass=termsByClass,
-        skos=skos
+        skos=skos,
+        terms_list_md=terms_list_md,
+        title = 'Terms List',
+        slug='terms-list'
     )
 
 @app.route('/quick-reference/')
-def ref():
+def quickReference():
     df = pd.read_csv('data/ltc-set/ltc-terms-list.csv', encoding='utf8')
 
     grpdict = df.fillna(-1).groupby('class_name')[['namespace', 'term_local_name', 'label', 'definition',
@@ -100,17 +108,9 @@ def ref():
     return render_template(
         "quick-reference.html",
         grplists=grplists,
-        skos=skos
-    )
-@app.route('/resources/')
-def resources():
-    resources_md = open("templates/markdown/resources-content.md", "r")
-    resources_md_content = markdown.markdown(
-        resources_md.read(), extensions=["fenced_code"]
-    )
-    return render_template(
-        "resources.html",
-        resources_md_content=resources_md_content
+        skos=skos,
+        title='Quick Reference',
+        slug='quick-reference'
     )
 
 
@@ -118,4 +118,4 @@ if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "build":
         freezer.freeze()
     else:
-        app.run(port=8000)
+        freezer.run(debug=True,port=8000)

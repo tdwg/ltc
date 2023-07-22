@@ -1,15 +1,12 @@
 {% extends "base.html" %}
 {% block main %}
-{% include 'navbar.html' %}
 <main class="ltc-content">
-	{% include 'includes/home/page-header.html' %}
-	<div class="container content">
+    <div class="container content">
 		<div class="row">
             <div class="col-md-10 col-lg-8 mx-auto">
-                {{ home_md_content|safe }}
+    {{md_content|safe}}
             </div>
         </div>
     </div>
 </main>
-
-{% endblock %}
+{%  endblock %}

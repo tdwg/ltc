@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block main %}
-{% include 'includes/navbar.html' %}
+{% include 'navbar.html' %}
 <main>
 	{% include 'includes/quick-reference/page-header.html' %}
 	<div class="container content">
@@ -10,7 +10,7 @@
 			</div>
 			<div class="col-lg-9 order-lg-first mx-auto">
                 <h3 class="text-danger">DRAFT</h3>
-				{% include 'includes/quick-reference/terms-header.html' %}
+                {{ qr_md|safe }}
                 {%  include 'includes/quick-reference/terms.html' %}
                 {%  include 'includes/skos.html' %}
 	 		</div>

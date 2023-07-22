@@ -5,8 +5,7 @@ import markdown
 import markdown.extensions.fenced_code
 
 app = Flask(__name__)
-app.config['TEMPLATES_AUTO_RELOAD'] = True
-#app.config.from_pyfile('settings.cfg')
+app.config.from_pyfile("config.py")
 
 # Homepage with content stored in markdown file
 @app.route('/')
@@ -17,13 +16,14 @@ def home():
     )
     return render_template(
         "home.html",
-        home_md_content=home_md_content
+        home_md_content=home_md_content,
+        title = 'Home'
     )
 
 
-@app.route('/terms-list/')
-def table():
-    terms_list_header_md = open("templates/markdown/terms-list-header-content.md", "r")
+@app.route('/terms')
+def terms():
+    terms_list_header_md = open("templates/markdown/terms-list-header.md", "r")
     terms_list_md = markdown.markdown(
         terms_list_header_md.read(), extensions=["fenced_code"]
     )
@@ -68,18 +68,23 @@ def table():
 
 
     return render_template(
-        "terms-list.html",
+        "terms.html",
         ltcCls=ltcCls,
         terms=terms,
         termsByClass=termsByClass,
         skos=skos,
-        terms_list_md=terms_list_md
+        terms_list_md=terms_list_md,
+        title = 'Terms List'
     )
 
-@app.route('/quick-reference/')
-def ref():
-    df = pd.read_csv('data/ltc-set/ltc-terms-list.csv', encoding='utf8')
+@app.route('/quick-reference')
+def quickReference():
+    qr_md = open("templates/markdown/quick-reference-header.md", "r")
+    qr_content = markdown.markdown(
+        qr_md.read(), extensions=["fenced_code"]
+    )
 
+    df = pd.read_csv('data/ltc-set/ltc-terms-list.csv', encoding='utf8')
     grpdict = df.fillna(-1).groupby('class_name')[['namespace', 'term_local_name', 'label', 'definition',
                                                    'usage', 'notes','examples', 'rdf_type', 'class_name',
                                                    'is_required', 'is_repeatable', 'compound_term_name',
@@ -98,18 +103,21 @@ def ref():
     return render_template(
         "quick-reference.html",
         grplists=grplists,
-        skos=skos
+        skos=skos,
+        qr_md=qr_md,
+        title='Quick Reference'
     )
 
 @app.route('/resources/')
-def home():
+def resources():
     resources_md = open("templates/markdown/resources-content.md", "r")
     resources_md_content = markdown.markdown(
         resources_md.read(), extensions=["fenced_code"]
     )
     return render_template(
         "resources.html",
-        resources_md_content=resources_md_content
+        resources_md_content=resources_md_content,
+        title='Resources'
     )
 
 

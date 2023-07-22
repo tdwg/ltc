@@ -1,0 +1,10 @@
+namespace,namespace_uri
+ltc:,http://rs.tdwg.org/ltc/terms/
+chrono:,http://rs.tdwg.org/chrono/terms/
+dwc:,http://rs.tdwg.org/dwc/terms/
+abcd:,http://rs.tdwg.org/abcd/terms/
+skos:,http://www.w3.org/2004/02/skos/core#
+dcterms:,http://purl.org/dc/terms/
+schema:,https://schema.org/
+rdf:,http://www.w3.org/1999/02/22-rdf-syntax-ns#
+rdfs:,http://www.w3.org/2000/01/rdf-schema#

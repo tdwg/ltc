@@ -9,7 +9,7 @@ parser.add_argument('-p', '--path', help='Path to CSV (using backslashes)', requ
 args = parser.parse_args()
 csvpath = args.path
 
-path = csvpath + "\*.csv"
+#path = csvpath + "\*.csv"
 #for csv in glob.glob(path):
 #   filename = os.path.splitext(csv)[0]
 #    table = Table(csv)

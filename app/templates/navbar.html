@@ -10,16 +10,16 @@
 		<div class="collapse navbar-collapse" id="navbar-menu">
 			<ul class="navbar-nav ms-auto">
 				<li class="navbar-item">
-					<a class="nav-link" href="/ltc/">Home</a>
+					<a class="nav-link {{ 'nav-link-active' if slug == 'home' }}"
+                       href="{{ url_for('home') }}">Home</a>
 				</li>
 				<li class="navbar-item">
-					<a class="nav-link" href="terms-list">Terms</a>
+					<a class="nav-link {{ 'nav-link-active' if slug == 'terms-list' }}"
+					href="{{ url_for('terms') }}">Terms</a>
 				</li>
 				<li class="navbar-item">
-					<a class="nav-link" href="quick-reference">Guide</a>
-				</li>
-                <li class="navbar-item">
-					<a class="nav-link" href="resources">Resources</a>
+					<a class="nav-link {{ 'nav-link-active' if slug == 'quick-reference' }}"
+					href="{{ url_for('quickReference') }}">Guide</a>
 				</li>
 				<li class="navbar-item">
 					<a class="nav-link" href="https://dwc.tdwg.org/">Darwin Core</a>
