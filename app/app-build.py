@@ -65,7 +65,8 @@ def terms():
                     "examples": row[6],
                     "rdf_type": row[7],
                     "datatype": row[12],
-                    'is_required': row[9]
+                    'is_required': row[9],
+                    'term_uri': row[15]
                 })
             else:
                 first_line = False
