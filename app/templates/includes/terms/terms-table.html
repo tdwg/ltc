@@ -1,83 +1,84 @@
 <h2 id="5-vocabulary">5 Vocabulary</h2>
-    {% for term in terms %}
+  {% for k,v in terms.iterrows() %}
         <div class="table-responsive print-avoid">
             <table class="table table-compact table-terms">
                 <thead>
                     <tr>
-                        <th colspan="2"><a id="ltc_{{ term.term_local_name }}"></a>Term Name  <span class="title">{{ term.term_local_name }}</span></th>
+                        <th colspan="2"><a id="ltc_{{ v['term_local_name'] }}"></a>Term Name
+                        <span class="title">{{ v['term_local_name'] }}</span></th>
                     </tr>
                 </thead>
                 <tbody>
                         <tr>
 							<th scope="row">Qualified Term</th>
-							<td>{{ term.term_ns_name }}</td>
+							<td>{{ v['term_ns_name'] }}</td>
 						</tr>
                         <tr>
 							<th scope="row">Term URI</th>
-							<td>{{ term.term_uri }}</td>
+							<td>{{ v['term_uri'] }}</td>
 						</tr>
 
 						<tr>
 							<th scope="row">rdfs:Label</th>
-							<td>{{ term.label }}</td>
+							<td>{{ v['label'] }}</td>
 						</tr>
 						<tr>
 							<th scope="row">Definition</th>
-							<td>{{ term.definition }}</td>
+							<td>{{ v['definition'] }}</td>
 						</tr>
-						{% if term.usage %}
+						{% if v['usage'] %}
 						<tr>
 							<th scope="row">Usage</th>
-							<td>{{ term.usage }}</td>
+							<td>{{ v['usage'] }}</td>
 						</tr>
 						{% else %}
 						{% endif %}
 
-						{% if term.notes %}
+						{% if v['notes'] %}
 						<tr>
 							<th scope="row">Notes</th>
-							<td>{{ term.notes }}</td>
+							<td>{{ v['notes'] }}</td>
 						</tr>
 						{% else %}
 						{% endif %}
 
-						{% if term.examples %}
+						{% if v['examples'] %}
 						<tr>
 							<th scope="row">Examples</th>
-							<td>{{ term.examples }}</td>
+							<td>{{ v['examples'] }}</td>
 						</tr>
 						{% else %}
 						{% endif %}
 
 						<tr>
 							<th scope="row">Datatype</th>
-                            {% if term.datatype %}
-							<td>{{ term.datatype }}</td>
+                            {% if v['datatype'] %}
+							<td>{{ v['datatype'] }}</td>
                             {% else %}
                             <td>array< self ></td>
                             {%  endif %}
 						</tr>
 
-                        {%  if(term.rdf_type == 'Property') %}
+                        {%  if(v['rdf_type'] == 'Property') %}
                         <tr>
                             <th scope="row">Belongs to Class</th>
-                            <td>{{ term.class_name }}</td>
+                            <td>{{ v['class_name'] }}</td>
                         </tr>
                         {%  endif %}
 
-                        {% if term.is_required %}
+                        {% if v['is_required'] %}
                         <tr>
 							<th scope="row">Required</th>
-							<td>{{ term.is_required }}</td>
+							<td>{{ v['is_required'] }}</td>
 						</tr>
                         {%  endif %}
 
                         <tr>
 							<th scope="row">RDF Type</th>
-                            {%  if(term.rdf_type == 'http://www.w3.org/1999/02/22-rdf-syntax-ns#Property')  %}
-                                <td class="property"><a href="{{ term.rdf_type }}">rdf:Property</a></td>
+                            {%  if(v['rdf_type'] == 'http://www.w3.org/1999/02/22-rdf-syntax-ns#Property')  %}
+                                <td class="property"><a href="{{ v['rdf_type'] }}">rdf:Property</a></td>
                             {%  else %}
-                                <td class="class"><a href="{{ term.rdf_type }}">rdfs:Class</a></td>
+                                <td class="class"><a href="{{ v['rdf_type'] }}">rdfs:Class</a></td>
                             {%  endif %}
 						</tr>
 						</tbody>

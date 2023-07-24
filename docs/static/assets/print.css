@@ -3,12 +3,30 @@
 	margin: 0.75cm;
 }
 body {
-	font: 12pt "Times New Roman", Times, serif;
+	font-size: 12pt;
 	line-height: 1.3;
 	background: #fff !important;
 	color: #000;
 }
-
+.navbar {
+display: none;
+}
+.header {
+    padding: 2rem 1rem 0 1rem;
+}
+.col-lg-3,
+.toc {
+	display: none;
+}
+.col-lg-9 {
+	width: 100%;
+}
+main,
+main .container {
+	max-width: 100%;
+	width: 100%;
+	position: relative;
+}
 a[href^="https://"]:after {
 	content: " (" attr(href) ")";
 	font-size: 90%;
@@ -42,6 +60,8 @@ img {
 	page-break-inside:avoid;
     page-break-after:avoid;
     }
+
+
 table, pre {
 	page-break-inside:avoid
 	}
