@@ -22,8 +22,10 @@
 
 </head>
 <body>
+{% include 'navbar.html' %}
 {% block main %}
 {% endblock %}
+
 	<script src="{{ url_for('static',filename='assets/theme/js/jquery.min.js') }}"></script>
 	<script src="{{ url_for('static',filename='assets/theme/js/popper.min.js') }}"></script>
 	<script src="{{ url_for('static',filename='assets/theme/js/bootstrap.min.js') }}"></script>

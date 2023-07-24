@@ -11,3 +11,12 @@ config.yaml
 /venv
 /templates/tests
 workspace.xml
+
+/templates/includes/deprecated/
+/configs/
+/utils/
+/configs/
+/reference/
+/static/tables/
+/templates/includes/deprecated/
+/utils/

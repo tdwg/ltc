@@ -17,6 +17,10 @@
 					<a class="nav-link {{ 'nav-link-active' if slug == 'terms-list' }}"
 					href="{{ url_for('terms') }}">Terms</a>
 				</li>
+                <li class="navbar-item">
+					<a class="nav-link {{ 'nav-link-active' if slug == 'skos-mappings' }}"
+					href="{{ url_for('skosMappings') }}">SKOS</a>
+				</li>
 				<li class="navbar-item">
 					<a class="nav-link {{ 'nav-link-active' if slug == 'quick-reference' }}"
 					href="{{ url_for('quickReference') }}">Guide</a>

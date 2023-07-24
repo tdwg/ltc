@@ -13,31 +13,49 @@ app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['FREEZER_DESTINATION'] = '../docs'
 app.config['FREEZER_RELATIVE_URLS'] = True
 app.config['FREEZER_IGNORE_MIMETYPE_WARNINGS'] = True
-
 @app.route('/')
 def home():
-    home_md = open("templates/markdown/home-content.md", "r")
-    home_md_content = markdown.markdown(
-        home_md.read(), extensions=["fenced_code"]
-    )
+    home_md = 'templates/markdown/home-content.md'
+    markdown.markdownFromFile(input=home_md,
+                              output='templates/includes/home/home-content.html',
+                              extensions=['tables'])
     return render_template(
         "home.html",
-        home_md_content=home_md_content,
         title = 'Home',
         slug='home'
     )
 
+@app.route('/skos-mappings/')
+def skosMappings():
+    skoscsv = 'data/ltc-set/ltc-skos-mapping.csv'
+    skos = pd.read_csv(skoscsv, encoding='utf8')
+
+    sssomcsv = 'data/ltc-set/ltc-sssom-mapping.csv'
+    sssom = pd.read_csv(sssomcsv, encoding='utf8')
+
+    return render_template(
+        "skos.html",
+        sssom=sssom,
+        skos=skos,
+        title='SKOS Mappings',
+        slug='skos-mappings'
+    )
 
 @app.route('/terms/')
 def terms():
-    terms_list_header_md = open("templates/markdown/terms-list-header.md", "r")
-    terms_list_md = markdown.markdown(
-        terms_list_header_md.read(), extensions=["fenced_code"]
-    )
+    terms_md = 'templates/markdown/terms-list-header.md'
+    markdown.markdownFromFile(input=terms_md,
+                              output='templates/includes/terms/terms-list-header.html',
+                              extensions=['tables'])
+    #Main Datafile
+    terms_csv = 'data/ltc-set/ltc-terms-list.csv'
+    df = pd.read_csv(terms_csv, encoding='utf8')
+    terms = df.dropna()
 
-    df = pd.read_csv('data/ltc-set/ltc-terms-list.csv', encoding='utf8')
+    # Unique Class Names
     ltcCls = df["class_name"].dropna().unique()
 
+    # Terms by Class
     grpdict2 = df.groupby('class_name')[['term_ns_name', 'term_local_name']].apply(
         lambda g: list(map(tuple, g.values.tolist()))).to_dict()
     termsByClass = []
@@ -47,47 +65,22 @@ def terms():
             'terms': grpdict2[i]
         })
 
-    with open('data/ltc-set/ltc-terms-list.csv', encoding='utf8') as csv_file:
-        data = csv.reader(csv_file, delimiter=',')
-        first_line = True
-        terms = []
-        for row in data:
-            if not first_line:
-                terms.append({
-                    "namespace": row[0],
-                    "term_local_name": row[1],
-                    "class_name": row[8],
-                    "term_ns_name": row[13],
-                    "label": row[2],
-                    "definition": row[3],
-                    "usage": row[4],
-                    "notes": row[5],
-                    "examples": row[6],
-                    "rdf_type": row[7],
-                    "datatype": row[12],
-                    'is_required': row[9],
-                    'term_uri': row[15]
-                })
-            else:
-                first_line = False
-
-    skoscsv = 'data/ltc-set/ltc-skos-sssom-mappings.csv'
-    skos = pd.read_csv(skoscsv, encoding='utf8')
-
-
     return render_template(
         "terms.html",
         ltcCls=ltcCls,
         terms=terms,
         termsByClass=termsByClass,
-        skos=skos,
-        terms_list_md=terms_list_md,
         title = 'Terms List',
         slug='terms-list'
     )
 
 @app.route('/quick-reference/')
 def quickReference():
+    ref_md = 'templates/markdown/quick-reference-header.md'
+    markdown.markdownFromFile(input=ref_md,
+                              output='templates/includes/quick-reference/quick-reference-content.html',
+                              extensions=['tables'])
+
     df = pd.read_csv('data/ltc-set/ltc-terms-list.csv', encoding='utf8')
 
     grpdict = df.fillna(-1).groupby('class_name')[['namespace', 'term_local_name', 'label', 'definition',
@@ -102,16 +95,13 @@ def quickReference():
             'terms': grpdict[i]
         })
 
-    skoscsv = 'data/ltc-set/ltc-skos-sssom-mappings.csv'
-    skos = pd.read_csv(skoscsv, encoding='utf8')
-
     return render_template(
         "quick-reference.html",
         grplists=grplists,
-        skos=skos,
         title='Quick Reference',
         slug='quick-reference'
     )
+
 
 
 if __name__ == "__main__":

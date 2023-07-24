@@ -1,0 +1,19 @@
+<div class="table-responsive">
+    <table class="table skos-table dc-table">
+    <thead>
+        <tr>
+            <th class="w-18">Term URI</th>
+            <th class="w-18">Relationship</th>
+            <th class="w-18">Related Term URI</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for k,v in skos.iterrows() %}
+            <tr>
+                <td>{{ v['term_localName']|urlize() }}</td>
+                <td>{{ v['skos_mappingRelation'] }}</td>
+                <td>{{ v['related_termName']|urlize() }}</td>
+            </tr>
+        {%  endfor %}
+    </tbody>
+</table>
