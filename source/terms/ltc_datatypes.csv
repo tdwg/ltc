@@ -1,4 +1,5 @@
-﻿schema:,Address,addressCountry,string
+﻿namespace,tdwgutility_organizedInClass,term_localName,datatype
+schema:,Address,addressCountry,string
 schema:,Address,addressLocality,string
 schema:,Address,addressRegion,string
 ltc:,Address,addressType,string
@@ -17,9 +18,6 @@ ltc:,ChronometricAge,hasReference,array<ltc:Reference>
 dwc:,ChronometricAge,latestChronometricAge,number
 dwc:,ChronometricAge,latestChronometricAgeReferenceSystem,string
 dwc:,ChronometricAge,verbatimChronometricAge,string
-ltc:,CollectionDescriptionScheme,basisOfScheme,string
-ltc:,CollectionDescriptionScheme,isDistinctObjects,boolean
-ltc:,CollectionDescriptionScheme,schemeName,string
 ltc:,CollectionStatusHistory,hasIdentifier,array<ltc:Identifier>
 ltc:,CollectionStatusHistory,hasMeasurementOrFact,array<ltc:MeasurementOrFact>
 ltc:,CollectionStatusHistory,hasReference,array<ltc:Reference>
@@ -56,7 +54,6 @@ dwc:,GeographicContext,continent,string
 dwc:,GeographicContext,country,string
 dwc:,GeographicContext,countryCode,string
 dwc:,GeographicContext,county,string
-ltc:,GeographicContext,ecoRegion,string
 ltc:,GeographicContext,hasIdentifier,array<ltc:Identifier>
 ltc:,GeographicContext,hasMeasurementOrFact,array<ltc:MeasurementOrFact>
 ltc:,GeographicContext,hasReference,array<ltc:Reference>
@@ -65,7 +62,6 @@ dwc:,GeographicContext,islandGroup,string
 dwc:,GeographicContext,locality,string
 dwc:,GeographicContext,municipality,string
 ltc:,GeographicContext,region,string
-ltc:,GeographicContext,salinityType,string
 dwc:,GeographicContext,stateProvince,string
 dwc:,GeographicContext,waterBody,string
 ltc:,GeographicContext,waterBodyType,string
@@ -86,15 +82,19 @@ dwc:,GeologicalContext,latestEpochOrHighestSeries,string
 dwc:,GeologicalContext,latestEraOrHighestErathem,string
 dwc:,GeologicalContext,latestPeriodOrHighestSystem,string
 dwc:,GeologicalContext,member,string
+ltc:,GeologicalContext,supergroup,string
 ltc:,Identifier,hasReference,array<ltc:Reference>
 ltc:,Identifier,identifierSource,string
 ltc:,Identifier,identifierType,string
 ltc:,Identifier,identifierValue,string
+ltc:,LatimerCoreScheme,basisOfScheme,string
 ltc:,LatimerCoreScheme,hasIdentifier,array<ltc:Identifier>
 ltc:,LatimerCoreScheme,hasObjectGroup,array<ltc:ObjectGroup>
 ltc:,LatimerCoreScheme,hasReference,array<ltc:Reference>
 ltc:,LatimerCoreScheme,hasSchemeMeasurementOrFact,array<ltc:SchemeMeasurementOrFact>
 ltc:,LatimerCoreScheme,hasSchemeTerm,array<ltc:SchemeTerm>
+ltc:,LatimerCoreScheme,isDistinctObjects,boolean
+ltc:,LatimerCoreScheme,schemeName,string
 ltc:,MeasurementOrFact,hasIdentifier,array<ltc:Identifier>
 ltc:,MeasurementOrFact,hasReference,array<ltc:Reference>
 dwc:,MeasurementOrFact,measurementAccuracy,string
@@ -177,11 +177,11 @@ ltc:,RecordLevel,hasReference,array<ltc:Reference>
 ltc:,RecordLevel,hasResourceRelationship,array<ltc:ResourceRelationship>
 ltc:,RecordLevel,isDerivedCollection,boolean
 dc:,RecordLevel,license,string
-dc:,RecordLevel,recordRights,string
+dc:,RecordLevel,rights,string
 dc:,RecordLevel,rightsHolder,string
 ltc:,Reference,hasIdentifier,array<ltc:Identifier>
 ltc:,Reference,referenceDetails,string
-ltc:,Reference,referenceText,string
+ltc:,Reference,referenceName,string
 ltc:,Reference,referenceType,string
 abcd:,Reference,resourceURI,string
 ltc:,ResourceRelationship,hasIdentifier,array<ltc:Identifier>
@@ -193,7 +193,6 @@ dwc:,ResourceRelationship,relationshipEstablishedDate,string
 dwc:,ResourceRelationship,relationshipOfResource,string
 dwc:,ResourceRelationship,relationshipRemarks,string
 dwc:,ResourceRelationship,resourceID,string
-dwc:,ResourceRelationship,resourceRelationshipID,string
 ltc:,Role,hasIdentifier,array<ltc:Identifier>
 ltc:,Role,roleName,string
 ltc:,SchemeMeasurementOrFact,hasIdentifier,array<ltc:Identifier>
@@ -221,7 +220,6 @@ ltc:,Taxon,hasReference,array<ltc:Reference>
 dwc:,Taxon,kingdom,string
 dwc:,Taxon,scientificName,string
 dwc:,Taxon,taxonRank,string
-namespace,tdwgutility_organizedInClass,term_localName,datatype
 ltc:,TemporalCoverage,hasMeasurementOrFact,array<ltc:MeasurementOrFact>
 ltc:,TemporalCoverage,hasReference,array<ltc:Reference>
 ltc:,TemporalCoverage,temporalCoverageEndDateTime,string
