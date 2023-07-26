@@ -8,6 +8,9 @@
 1.5rem 24px
 
  */
+.content-header-wrapper table tr td:first-of-type {
+	width: 30%;
+}
 main.ltc-content .container.content h1 {
 	color: rgb(17, 24, 39);
 }
@@ -113,16 +116,50 @@ tbody tr td.class {
 thead tr th span.title {
 	letter-spacing: 0.02em;
 }
+table tbody tr td ul.td-list {
+	list-style-type: none;
+	padding-left: 0;
+	margin-left: 0;
+}
+table tbody tr td ul.td-list li {
+	display: inline-block;
+	float: left;
+	margin-right: 10px;
+}
+table tbody tr td ul.td-list li span {
+	padding: 0.2em 0.4em;
+	margin: 0;
+	font-size: 85%;
+	white-space: break-spaces;
+	background-color: rgba(230, 230, 230, 1);
+	border-radius: 6px;
+	font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas, Liberation Mono, monospace;
+	font-size: 0.9rem;
+}
+table tbody tr.skos-tr,
+table tbody tr.skos-tr td {
+	position: relative;
+}
+table tbody tr.skos-tr td span.w-50 {
+	display: inline;
+	width: 50%;
+	position: relative;
+}
+table tbody tr.skos-tr td span:first-of-type {
+	margin-right: 0;
+	padding-right: 15px;
+	border-right: 2px solid rgb(66, 72, 82);
+}
+table tbody tr.skos-tr td span.skos-term {
+	margin-left: 0;
+	padding-left: 15px;
+}
+
+
 /* DC Table (Adopted from Dublin Core */
 table.dc-table {
 	font-size: 0.8rem;
 }
-
-/* SKOS TABLE */
-table.skos-table {
-
-}
-
 table tr th.w-18 {
 	width: 18%;
 }
@@ -130,6 +167,7 @@ table tr th.w-26 {
 	width: 26%;
 }
 
+/* RDF Badges ---------------------- */
 .badge.badge-class {
 	background-color: #FFFFFF;
 	color: rgb(33, 37, 41);
