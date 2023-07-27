@@ -53,7 +53,16 @@ ul.resources-list li a,
 p a {
 	text-decoration: underline;
 }
-
+.ref-wrapper ul {
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+.ref-wrapper ul li {
+	line-height: 1.4;
+	font-size: 1rem;
+	padding-bottom: 10px;
+}
 /* Table Adjustments ------------------------------- */
 main .container.content table {
 	width: 100%;
@@ -154,8 +163,31 @@ table tbody tr.skos-tr td span.skos-term {
 	margin-left: 0;
 	padding-left: 15px;
 }
-
-
+main .container.content table.table-terms {
+	margin-bottom: 0;
+}
+.term-table-wrapper {
+	margin-bottom: 1.2rem;
+}
+table.table-child.table-sssom thead th {
+	font-size: 0.9rem;
+}
+table.table-child.table-sssom thead th {
+	text-align: right;
+}
+table.table-child.table-sssom thead th a {
+	font-weight: 500;
+}
+table.table-child.table-sssom tbody tr td.col-1 {
+	width: 15%;
+	text-align: right;
+}
+table.table-child.table-sssom tbody tr td.col-2 {
+	width: 20%;
+}
+table.table-child.table-sssom tbody tr td.col-3 {
+	width: 65%;
+}
 /* DC Table (Adopted from Dublin Core */
 table.dc-table {
 	font-size: 0.8rem;
@@ -344,3 +376,61 @@ Green: #235900
 Green 2: #006653
 Purple: #560D59
 */
+/* Fullscreen */
+.mermaid {
+	background-color: #FFFFFF;
+}
+.toggle-fullscreen-btn {
+	top: 10px;
+	right: 10px;
+	border: 0;
+	padding: 0;
+	background: none;
+	cursor: pointer;
+	outline: none;
+}
+
+
+.toggle-fullscreen-svg {
+	display: block;
+	height: auto;
+}
+
+.toggle-fullscreen-svg path {
+	transform-box: view-box;
+	transform-origin: 12px 12px;
+	fill: none;
+	stroke: rgb(150,150,151);
+	stroke-width: 3;
+	transition: .15s;
+}
+
+
+.toggle-fullscreen-btn:hover path:nth-child(1),
+.toggle-fullscreen-btn:focus path:nth-child(1) {
+	transform: translate(-2px, -2px);
+}
+
+.toggle-fullscreen-btn:hover path:nth-child(2),
+.toggle-fullscreen-btn:focus path:nth-child(2) {
+	transform: translate(2px, -2px);
+}
+
+.toggle-fullscreen-btn:hover path:nth-child(3),
+.toggle-fullscreen-btn:focus path:nth-child(3) {
+	transform: translate(2px, 2px);
+}
+
+.toggle-fullscreen-btn:hover path:nth-child(4),
+.toggle-fullscreen-btn:focus path:nth-child(4) {
+	transform: translate(-2px, 2px);
+}
+
+
+.toggle-fullscreen-btn:not(.on) .icon-fullscreen-leave {
+	display: none;
+}
+
+.toggle-fullscreen-btn.on .icon-fullscreen-enter {
+	display: none;
+}
