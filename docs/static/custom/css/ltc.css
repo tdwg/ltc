@@ -8,6 +8,21 @@
 1.5rem 24px
 
  */
+body,
+.container,
+.row,
+table thead th,
+table tbody tr,
+ul li,
+p,
+h1,
+h2,
+h3,
+h4,
+a,
+span {
+	font-family: Roboto, sans-serif;
+}
 .content-header-wrapper table tr td:first-of-type {
 	width: 30%;
 }
@@ -169,25 +184,6 @@ main .container.content table.table-terms {
 .term-table-wrapper {
 	margin-bottom: 1.2rem;
 }
-table.table-child.table-sssom thead th {
-	font-size: 0.9rem;
-}
-table.table-child.table-sssom thead th {
-	text-align: right;
-}
-table.table-child.table-sssom thead th a {
-	font-weight: 500;
-}
-table.table-child.table-sssom tbody tr td.col-1 {
-	width: 15%;
-	text-align: right;
-}
-table.table-child.table-sssom tbody tr td.col-2 {
-	width: 20%;
-}
-table.table-child.table-sssom tbody tr td.col-3 {
-	width: 65%;
-}
 /* DC Table (Adopted from Dublin Core */
 table.dc-table {
 	font-size: 0.8rem;
@@ -329,7 +325,63 @@ main.ltc-content .toc ul {
 	list-style-type: none;
 	padding-left: 0;
 }
+.table.table-sssom>:not(:first-child),
+table.table-sssom thead,
+table.table-sssom tbody {
+	border: none;
 
+}
+table.table-child.table-sssom thead th {
+	font-size: 0.9rem;
+	text-align: right;
+	border-bottom: none;
+}
+table.table-child.table-sssom thead th a {
+	font-weight: 500;
+}
+table.table-child.table-sssom tbody tr td {
+	border-top: 1px solid rgb(222, 226, 230);
+	border-bottom: 1px solid rgb(222, 226, 230);
+}
+table.table-child.table-sssom tbody tr td.col-1 {
+	width: 15%;
+	text-align: right;
+}
+table.table-child.table-sssom tbody tr td.col-2 {
+	width: 30%;
+}
+table.table-child.table-sssom tbody tr td.col-3 {
+	width: 55%;
+}
+/* Mermaid Diagram ----------------------------------- */
+[id^="mermaid"] {
+}
+.diagram-wrapper {
+	position: relative;
+	border: 2px solid rgba(230,230,230,1);
+	margin: 10px 0;
+	padding: 10px;
+}
+.diagram-wrapper button {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+.diagram-wrapper svg[id^="mermaid"] .node rect.title-state {
+	fill: rgba(86,13,89,0.9) !important;
+	stroke: rgba(220,220,220,0.8) !important;
+}
+.diagram-wrapper svg[id^="mermaid"] g.label .classTitle span.nodeLabel {
+	font-weight: 600;
+	font-size: 1.2rem;
+}
+.diagram-wrapper svg[id^="mermaid"] g.label span.nodeLabel {
+	color: #FFFFFF !important;
+	font-weight: 400;
+}
+.diagram-wrapper svg[id^="mermaid"] line.divider {
+	stroke: rgba(250,250,250,0.5) !important;
+}
 /* Responsives ----------------- */
 @media only screen and (max-width: 767px) {
 	main {
@@ -348,6 +400,48 @@ main.ltc-content .toc ul {
 		column-gap: 12px;
 		-webkit-column-gap: 12px;
 	}
+	/*
+	table.table-sssom,
+	table.table-sssom tbody,
+	table.table-sssom tbody tr,
+	table.table-sssom tbody td {
+	  display: flex;
+	  flex-direction: column;
+	  width: 100%;
+	  word-break: break-all;
+	}
+	*/
+	table.table-sssom thead th:not(:first-child) {
+        display: none;
+    }
+
+    table.table-sssom td {
+        display: block;
+    }
+	table.table-child.table-sssom thead tr th {
+		text-align: left;
+		border-bottom: 1px solid rgb(222, 226, 230);
+	}
+	table tbody tr.skos-tr td span.w-50,
+	tr.skos-tr td span,
+	table.table-child.table-sssom tbody tr td.col-1,
+	table.table-child.table-sssom tbody tr td.col-2,
+	table.table-child.table-sssom tbody tr td.col-3 {
+		border: none;
+		width: 100%;
+		text-align: left;
+	}
+
+	table.table-child.table-sssom tbody tr td {
+	}
+	table tbody tr.skos-tr td span.w-50,
+	tr.skos-tr td span {
+		width: 100%;
+		padding-left: 0;
+		line-height: 2;
+		border-right: none !important
+	}
+
 }
 @media only screen and (max-width: 480px) {
 	main .container.content {
@@ -434,3 +528,5 @@ Purple: #560D59
 .toggle-fullscreen-btn.on .icon-fullscreen-enter {
 	display: none;
 }
+
+
