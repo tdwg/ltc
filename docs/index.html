@@ -147,9 +147,11 @@ Thanks! <br />
 	<script>
 		$(document).ready(function () {
 			mermaid.initialize({
-				startOnLoad:true,
+				theme: 'forest'
+			})
+			mermaidAPI.initialize({
+			  securityLevel: 'loose',
 			});
-
 		});
 
 	</script>

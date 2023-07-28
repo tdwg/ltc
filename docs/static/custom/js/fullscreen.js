@@ -2,8 +2,11 @@ var elemA = document.getElementById("er-diagram-1");
 var elemB = document.getElementById("er-diagram-2");
 var elemC = document.getElementById("er-diagram-3");
 var elemD = document.getElementById("er-diagram-4");
+var elemE = document.getElementById("green-class-diagram");
+var elemF = document.getElementById("master-class-diagram");
+
+
 function openFullscreen(diagram) {
-	console.log(diagram);
 	if(diagram == 'A') {
 		if (elemA.requestFullscreen) {
 			elemA.requestFullscreen();
@@ -38,6 +41,24 @@ function openFullscreen(diagram) {
 			elemD.webkitRequestFullscreen();
 		  } else if (elemD.msRequestFullscreen) { /* IE11 */
 			elemD.msRequestFullscreen();
+		  }
+	}
+			if(diagram == 'C1') {
+		if (elemE.requestFullscreen) {
+			elemE.requestFullscreen();
+		  } else if (elemE.webkitRequestFullscreen) { /* Safari */
+			elemE.webkitRequestFullscreen();
+		  } else if (elemE.msRequestFullscreen) { /* IE11 */
+			elemE.msRequestFullscreen();
+		  }
+	}
+				if(diagram == 'C2') {
+		if (elemF.requestFullscreen) {
+			elemF.requestFullscreen();
+		  } else if (elemF.webkitRequestFullscreen) { /* Safari */
+			elemF.webkitRequestFullscreen();
+		  } else if (elemF.msRequestFullscreen) { /* IE11 */
+			elemF.msRequestFullscreen();
 		  }
 	}
 
