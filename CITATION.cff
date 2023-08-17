@@ -1,88 +1,71 @@
 cff-version: 1.2.0
-title: Latimer Core (LtC) GitHub Repository
-message: If you use this software, please cite it using the metadata from this file.
+title: "Latimer Core (LtC) GitHub Repository"
+message: "If you use this software, please cite it using the metadata from this file."
 type: software
+license: "CC0-1.0"
 authors:
-  - given-names: Sharon
-    family-names: Grant
-    email: sgrant@fieldmuseum.org
-    affiliation: Field Museum of Natural History, Chicago, IL, US
-    orcid: 'https://orcid.org/0000-0002-0201-732X'
-  - given-names: Janeen
-    family-names: Jones
-    email: jjones@fieldmuseum.org
-    affiliation: Field Museum of Natural History, Chicago, IL, US
-    orcid: 'https://orcid.org/0000-0002-1261-8049'
-  - given-names: Kate
-    family-names: Webbink
-    email: kwebbink@fieldmuseum.org
-    affiliation: Field Museum of Natural History, Chicago, IL, US
-    orcid: 'https://orcid.org/0000-0002-8347-0942'
-  - given-names: Matt
-    family-names: Woodburn
-    email: m.woodburn@nhm.ac.uk
-    affiliation: Natural History Museum, London, UK
-    orcid: 'https://orcid.org/0000-0001-6496-1423'
-  - given-names: Sarah
-    family-names: Vincent
-    email: s.vincent@nhm.ac.uk
-    affiliation: Natural History Museum, London, UK
-    orcid: 'https://orcid.org/0000-0002-4012-0571'
-  - given-names: Jutta
-    family-names: Buschbom
-    email: jutta.buschbom@statistical-genetics.de
-    affiliation: Statistical Genetics, DE
-    orcid: 'https://orcid.org/0000-0002-7697-9214'
-  - given-names: Quentin
-    family-names: Groom
-    email: quentin.groom@plantentuinmeise.be
-    affiliation: Meise Botanic Garden, Meise, BE
-    orcid: 'https://orcid.org/0000-0002-0596-5376'
-  - given-names: Maarten
-    family-names: Trekels
-    email: maarten.trekels@plantentuinmeise.be
-    affiliation: Meise Botanic Garden, Meise, BE
-    orcid: 'https://orcid.org/0000-0001-8282-8765'
-  - given-names: Ben
-    family-names: Norton
-    email: ben.norton@naturalsciences.org
-    affiliation: North Carolina Museum of Natural Sciences, xxx, xx, US
-    orcid: 'https://orcid.org/0000-0002-5819-9134'
-  - given-names: Robert
-    family-names: Sanderson
-    email: robert.sanderson@yale.edu
-    affiliation: Yale University, xxx, xx, US
-    orcid: ''
-  - given-names: Ian
-    family-names: Engelbrecht
-    email: ianicus.za@gmail.com
-    affiliation: University of Pretoria, xxx, ZA
-    orcid: ''
-  - given-names: Steven James
-    family-names: Baskauf
-    email: steve.baskauf@vanderbilt.edu
-    affiliation: Vanderbilt University, xxx, xx, US
-    orcid: ''
-  - name: Biodiversity Information Standards (TDWG)
-    address: 1342 34th Ave.
-    city: San Francisco
-    country: US
-    post-code: CA 94122
-    website: 'https://www.tdwg.org/'
-    email: secretary@tdwg.org
+  - given-names: "Sharon"
+    family-names: "Grant"
+    affiliation: "Field Museum of Natural History, Chicago, IL, US"
+    orcid: "https://orcid.org/0000-0002-0201-732X"
+  - given-names: "Janeen"
+    family-names: "Jones"
+    affiliation: "Field Museum of Natural History, Chicago, IL, US"
+    orcid: https://orcid.org/0000-0002-1261-8049
+  - given-names: "Kate"
+    family-names: "Webbink"
+    affiliation: "Field Museum of Natural History, Chicago, IL, US"
+    orcid: "https://orcid.org/0000-0002-8347-0942"
+  - given-names: "Matt"
+    family-names: "Woodburn"
+    affiliation: "Natural History Museum, London, UK"
+    orcid: "https://orcid.org/0000-0001-6496-1423"
+  - given-names: "Sarah"
+    family-names: "Vincent"
+    affiliation: "Natural History Museum, London, UK"
+    orcid: "https://orcid.org/0000-0002-4012-0571"
+  - given-names: "Jutta"
+    family-names: "Buschbom"
+    affiliation: "Statistical Genetics, DE & Natural History Museum, London, UK"
+    orcid: "https://orcid.org/0000-0002-7697-9214"
+  - given-names: "Maarten"
+    family-names: "Trekels"
+    affiliation: "Meise Botanic Garden, Meise, BE"
+    orcid: "https://orcid.org/0000-0001-8282-8765"
+  - given-names: "Ben"
+    family-names: "Norton"
+    affiliation: "North Carolina Museum of Natural Sciences, xxx, xx, US"
+    orcid: "https://orcid.org/0000-0002-5819-9134"
+  - given-names: "Robert"
+    family-names: "Sanderson"
+    affiliation: "Yale University, xxx, xx, US"
+    orcid: ""
+  - given-names: "Ian"
+    family-names: "Engelbrecht"
+    affiliation: "University of Pretoria, xxx, ZA"
+    orcid: ""
+  - given-names: "Steven James"
+    family-names: "Baskauf"
+    affiliation: "Vanderbilt University, xxx, xx, US"
+    orcid: ""
+  - name: "Biodiversity Information Standards (TDWG)"
+    address: "1342 34th Ave."
+    city: "San Francisco"
+    country: "US"
+    post-code: "CA 94122"
+    website: "https://www.tdwg.org/"
 identifiers:
-  - type: 'doi' 
-    value: 10.xxxxxx
-    description: DOI for this repository archived in Zenodo
-repository-code: 'https://github.com/tdwg/ltc'
-url: 'https://tdwg.github.io/ltc/' ******* wiki URL
-abstract: Latimer Core (LtC) is a data standard for describing collections, proposed by the Collection Descriptions Task Group. It has been designed to support the representation and discovery of groups of items that are encompassed in collections and their subcomponents. The LtC classes and their properties (collectively called terms) aim to represent information that describes these groups of things in enough detail to inform deeper discovery of the resources they contain.  This is the repository for sharing, developing and extending the standard through ongoing community collaboration.
+  - type: "doi"
+    value: "10.xxxxxx"
+    description: "DOI for this repository archived in Zenodo"
+repository-code: "https://github.com/tdwg/ltc"
+url: "https://github.com/tdwg/ltc/wiki"
+abstract: "Latimer Core (LtC) is a data standard for describing collections, proposed by the Collection Descriptions Task Group. It has been designed to support the representation and discovery of groups of items that are encompassed in collections and their subcomponents. The LtC classes and their properties (collectively called terms) aim to represent information that describes these groups of things in enough detail to inform deeper discovery of the resources they contain.  This is the repository for sharing, developing and extending the standard through ongoing community collaboration."
 keywords:
-  - FAIR
-  - Natural Science Collections
-  - Biodiversity Data
-  - Digitization
-  - Data Mobilization
-  - Collection Description
-  - Data Standards
-license: CC0-1.0
+  - "FAIR"
+  - "Natural Science Collections"
+  - "Biodiversity Data"
+  - "Digitization"
+  - "Data Mobilization"
+  - "Collection Description"
+  - "Data Standards"
