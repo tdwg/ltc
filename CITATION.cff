@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 title: "Latimer Core (LtC) GitHub Repository"
 message: "If you use this software, please cite it using the metadata from this file."
-type: software
+type: "software"
 license: "CC0-1.0"
 authors:
   - given-names: "Sharon"
