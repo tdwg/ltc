@@ -1,0 +1,253 @@
+cff-version: 1.2.0
+title: Latimer Core (LtC)
+message: If you use this software, please cite it using the metadata from this file.
+type: software
+authors:
+  - given-names: Sharon
+    family-names: Grant
+    email: sgrant@fieldmuseum.org
+    affiliation: Field Museum of Natural History, Chicago, IL, US
+    orcid: 'https://orcid.org/0000-0002-0201-732X'
+  - given-names: Janeen
+    family-names: Jones
+    email: jjones@fieldmuseum.org
+    affiliation: Field Museum of Natural History, Chicago, IL, US
+    orcid: ''
+  - given-names: Kate
+    family-names: Webbink
+    email: kwebbink@fieldmuseum.org
+    affiliation: Field Museum of Natural History, Chicago, IL, US
+    orcid: 'https://orcid.org/0000-0002-8347-0942'
+  - given-names: Matt
+    family-names: Woodburn
+    email: m.woodburn@nhm.ac.uk
+    affiliation: Natural History Museum, London, UK
+    orcid: 'https://orcid.org/0000-0001-6496-1423'
+  - given-names: Sarah
+    family-names: Vincent
+    email: s.vincent@nhm.ac.uk
+    affiliation: Natural History Museum, London, UK
+    orcid: 'https://orcid.org/0000-0002-4012-0571'
+  - given-names: Jutta
+    family-names: Buschbom
+    email: jutta.buschbom@statistical-genetics.de
+    affiliation: Statistical Genetics, DE
+    orcid: 'https://orcid.org/0000-0002-7697-9214'
+  - given-names: Quentin
+    family-names: Groom
+    email: quentin.groom@plantentuinmeise.be
+    affiliation: Meise Botanic Garden, Meise, BE
+    orcid: 'https://orcid.org/0000-0002-0596-5376'
+  - given-names: Maarten
+    family-names: Trekels
+    email: maarten.trekels@plantentuinmeise.be
+    affiliation: Meise Botanic Garden, Meise, BE
+    orcid: 'https://orcid.org/0000-0001-8282-8765'
+  - given-names: Ben
+    family-names: Norton
+    email: ben.norton@naturalsciences.org
+    affiliation: North Carolina Museum of Natural Sciences, xxx, xx, US
+    orcid: ''
+  - given-names: Robert
+    family-names: Sanderson
+    email: robert.sanderson@yale.edu
+    affiliation: Yale University, xxx, xx, US
+    orcid: ''
+  - given-names: Ian
+    family-names: Engelbrecht
+    email: ianicus.za@gmail.com
+    affiliation: University of Pretoria, xxx, ZA
+    orcid: ''
+  - given-names: Steven James
+    family-names: Baskauf
+    email: steve.baskauf@vanderbilt.edu
+    affiliation: Vanderbilt University, xxx, xx, US
+    orcid: ''
+  - given-names: David
+    family-names: Bloom
+    email: 
+    affiliation: VertNet
+    orcid: ''
+  - given-names: Gabriele
+    family-names: Dröge
+    email: g.droege@bgbm.org
+    affiliation: Botanic Garden and Botanical Museum Berlin, Berlin, DE
+    orcid: ''
+  - given-names: Deborah
+    family-names: Paul
+    email: 
+    affiliation: 
+    orcid: ''
+  - given-names: Niels
+    family-names: Raes
+    email: 
+    affiliation: Naturalis Biodiversity Center, Leiden, NL
+    orcid: ''
+  - given-names: Mike
+    family-names: Trizna
+    email: 
+    affiliation: Smithonian
+    orcid: ''
+  - given-names: William
+    family-names: Ulate
+    email: 
+    affiliation: Missouri Botanical Garden / Centro de Investigación en Informática de la Biodiversidad (CRBio.org)
+    orcid: ''
+  - given-names: 
+    family-names: 
+    email: 
+    affiliation: 
+    orcid: ''
+  - given-names: 
+    family-names: 
+    email: 
+    affiliation: 
+    orcid: ''
+| Wouter Addink | Naturalis Biodiversity Center | @wouteraddink |  
+| James Beach | University of Kansas | beach53 AT gmail.com |  
+| Allison Becker | Smithsonian Institution / National Museum of Natural History |  |  
+| Joana Beja | Flanders Marine Institute |  |  
+| Stan Blum | TDWG | @stanblum |  
+| Ana Casino | CETAF | ana.casino AT cetaf.org |  
+| Terry Catapano | UCB | @tcatapano |  
+| Arthur Chapman | Australian Biodiversity Information Services |  |  
+| Cat Chapman | iDigBio |  |  
+| Heather Cole | Ag Canada | Heather.Cole AT AGR.GC.CA |  
+| Johanna Eder | State Museum of Natural History Stuttgart |  |  
+| Dag Endresen | Univerity of Oslo Natural History Museum | @dagendresen |  
+| Falko Glöckler | MfN Berlin | falko.gloeckler AT mfn-berlin.de |  
+| Andrea Hahn | GBIF | @ahahn-gbif |  
+| Jean-Marc Herpers | RBINS |  |  
+| Olle Hints | Tallinn University of Technology |  |  
+| Donald Hobern | GBIF | @dhobern |  
+| Jana Hoffman | MfN Berlin | jana.hoffmann AT mfn-berlin.de |  
+| Morten Høfft | GBIF |  |  
+| Sharif Islam | Naturalis Biodiversity Center | @sharifX |  
+| Natalya Ivanova | Institute of Mathematical Problems of Biology, Russian Academy of Sciences |  |  
+| Shelley James | Department of Biodiversity, Conservation & Attractions, Western Australia; TDWG | @grungle |  
+| Gail Kampmeier | TDWG |  |  
+| Talia Karim | Museum of Natural History, Museum of Colorado |  |  
+| Niels Klazenga | Royal Botanic Gardens Victoria |  |  
+| Dimitris Koureas | Naturalis | @dkoureas |  
+| Erica Krimmel | iDigBio / Florida State University |  |  
+| Kerstin Lehnert | Columbia University | @klehnert55 |  
+| Holly Little | Smithsonian Institution / National Museum of Natural History | @hollyel |  
+| Tina Loo | Naturalis Biodiversity Center |  |  
+| Anissa Lybaert | Ag Canada | Anissa.lybaert AT agr.gc.ca |  
+| James Macklin | Ag Canada | @jmacklin |  
+| Patricia Mergen | Meise Botanic Garden |  |  
+| Giles Miller | Natural History Museum London |  |  
+| Gil Nelson | iDigBio |  |  
+| Raoul Palese | Conservatoire et Jardin botaniques de la Ville de Genève |  |  
+| Mareike Petersen | MfN | Mareike.Petersen AT mfn.berlin |  
+| Judith Price | CMN (retired) |  |  
+| Joel Ramirez | NYBG | @jlramirez |  
+| Isabel Reu | Consejo Superior de Investigaciones Científicas, CSIC |  |  
+| Connie Rinaldo | Harvard University | crinaldo AT oeb.harvard.edu |  
+| Tim Robertson | GBIF |  |  
+| Hanieh Saeedi | Senckenberg Research Institute and Natural History Museum |  |  
+| Íris Sampaio | University of the Azores / Senckenberg am Meer |  |  
+| Celia Santos | Consejo Superior de Investigaciones Científicas, CSIC |  |  
+| Dave Smith | Natural History Museum London | d.a.smith AT nhm.ac.uk |  
+| Rebecca Snyder | Smithsonian Institution / National Museum of Natural History |  |  
+| Barbara Thiers | NYBG | bthiers AT nybg.org |  
+| Caitlin Thorn | MfN Berlin |  |  
+| Laura Tilley | CETAF |  |  
+| Mike Trizna | Smithsonian Institution |  |  
+| Pascal Tschudin | University of Basel |  |  
+| Melissa Tulig | NYBG | mtulig AT nybg.org |  
+| William Ulate | Missouri Botanical Garden |  |  
+| Wim van Dongen | Picturae | @cannedit |  
+| Sabine Von Mering | MfN Berlin |  |  
+| Wiebke Walbaum | State Museum of Natural History Stuttgart |  |  
+| Ramona Walls | CyVerse | @ramonawalls |  
+| Karin Wiltschke | Natural History Museum Vienna |  |  
+| Paula Zermoglio | Universidad de Buenos Aires |  |  
+
+  - name: Biodiversity Information Standards (TDWG)
+    address: 1342 34th Ave.
+    city: San Francisco
+    country: US
+    post-code: CA 94122
+    website: 'https://www.tdwg.org/'
+    email: secretary@tdwg.org
+identifiers:
+  - type: 'doi' *** 'url' ***
+    value: https://doi.org/10.3897/biss.6.91159
+    description: Biodiversity Information Science and Standards 6: e91159
+  - type: 'doi'
+    value: '10.1093/database/baac035'
+  - type: 'url'
+    value: 'http://dx.doi.org/10.1093/database/baac035'
+  - type: 'other'
+    value: 'urn:issn:1758-0463'
+repository-code: 'https://github.com/tdwg/ltc'
+url: 'https://tdwg.github.io/ltc/'
+abstract: Latimer Core (LtC) is a data standard for describing collections, proposed by the Collection Descriptions Task Group. It has been designed to support the representation and discovery of groups of items that are encompassed in collections and their subcomponents. The LtC classes and their properties (collectively called terms) aim to represent information that describes these groups of things in enough detail to inform deeper discovery of the resources they contain.
+keywords:
+  - FAIR
+  - FAIR Digital Object
+  - Digital Object Architecture
+  - Natural Science Collections
+  - Biodiversity Data
+  - Digitization
+  - Data Mobilization
+  - Collection Description
+license: CC0-1.0
+commit: xxx
+version: '0.01'
+date-released: '2023-08-09'
+preferred-citation:
+  authors:
+  - given-names: Matt
+    family-names: Woodburn
+    email: m.woodburn@nhm.ac.uk
+    affiliation: Natural History Museum, London, UK
+    orcid: 'https://orcid.org/0000-0001-6496-1423'
+  - given-names: Jutta
+    family-names: Buschbom
+    email: jutta.buschbom@statistical-genetics.de
+    affiliation: Statistical Genetics, DE
+    orcid: 'https://orcid.org/0000-0002-7697-9214'
+  - given-names: Gabriele
+    family-names: Dröge
+    email: g.droege@bgbm.org
+    affiliation: Botanic Garden and Botanical Museum Berlin, Berlin, DE
+    orcid: ''
+  - given-names: Sharon
+    family-names: Grant
+    email: sgrant@fieldmuseum.org
+    affiliation: Field Museum of Natural History, Chicago, IL, US
+    orcid: 'https://orcid.org/0000-0002-0201-732X'
+  - given-names: Quentin
+    family-names: Groom
+    email: quentin.groom@plantentuinmeise.be
+    affiliation: Meise Botanic Garden, Meise, BE
+    orcid: 'https://orcid.org/0000-0002-0596-5376'
+  - given-names: Janeen
+    family-names: Jones
+    email: jjones@fieldmuseum.org
+    affiliation: Field Museum of Natural History, Chicago, IL, US
+    orcid: ''
+  - given-names: Maarten
+    family-names: Trekels
+    email: maarten.trekels@plantentuinmeise.be
+    affiliation: Meise Botanic Garden, Meise, BE
+    orcid: 'https://orcid.org/0000-0001-8282-8765'
+  - given-names: Sarah
+    family-names: Vincent
+    email: s.vincent@nhm.ac.uk
+    affiliation: Natural History Museum, London, UK
+    orcid: 'https://orcid.org/0000-0002-4012-0571'
+  - given-names: Kate
+    family-names: Webbink
+    email: kwebbink@fieldmuseum.org
+    affiliation: Field Museum of Natural History, Chicago, IL, US
+    orcid: 'https://orcid.org/0000-0002-8347-0942'
+  title: "Latimer Core: A new data standard for collection descriptions"
+  type: article
+  year: 2022
+  identifiers:
+    - description: Biodiversity Information Science and Standards 6: e91159
+      type: doi
+      value: https://doi.org/10.3897/biss.6.91159
