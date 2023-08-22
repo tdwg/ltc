@@ -15,7 +15,7 @@ authors:
   - given-names: "Janeen"
     family-names: "Jones"
     affiliation: "Field Museum of Natural History, Chicago, IL, US"
-    orcid: https://orcid.org/0000-0002-1261-8049
+    orcid: "https://orcid.org/0000-0002-1261-8049"
   - given-names: "Jutta"
     family-names: "Buschbom"
     affiliation: "Statistical Genetics, DE & Natural History Museum, London, UK"
