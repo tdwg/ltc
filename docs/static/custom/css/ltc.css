@@ -149,6 +149,7 @@ table tbody tr td ul.td-list li {
 	display: inline-block;
 	float: left;
 	margin-right: 10px;
+	line-height: 1.8;
 }
 table tbody tr td ul.td-list li span {
 	padding: 0.2em 0.4em;
@@ -325,11 +326,18 @@ main.ltc-content .toc ul {
 	list-style-type: none;
 	padding-left: 0;
 }
-.table.table-sssom>:not(:first-child),
+
+.content table.table-terms td:first-of-type{
+	width:120px
+}
+
+table.table-sssom>:not(:first-child),
 table.table-sssom thead,
 table.table-sssom tbody {
 	border: none;
-
+}
+table.table-sssom tbody > tr > th:first-of-type {
+	width: 4%;
 }
 table.table-child.table-sssom thead th {
 	font-size: 0.9rem;
@@ -343,16 +351,177 @@ table.table-child.table-sssom tbody tr td {
 	border-top: 1px solid rgb(222, 226, 230);
 	border-bottom: 1px solid rgb(222, 226, 230);
 }
-table.table-child.table-sssom tbody tr td.col-1 {
-	width: 15%;
+table.table-child.table-sssom tbody tr.hide-table-padding td.hide-td {
+	width: 0%;
+}
+/* Collapse Tables ----------------------------------------- */
+/* chevron up f077
+chevron down f078
+
+ */
+td .fa:before,
+[data-toggle="collapse"] .fa:before,
+[data-bs-toggle="collapse"] .fa:before {
+	font-family: "Font Awesome 5 Free";
+	content: "\f0d7";
+}
+[data-toggle="collapse"].collapsed .fa:before,
+[data-bs-toggle="collapse"].collapsed .fa:before {
+	font-family: "Font Awesome 5 Free";
+	content: "\f0d8";
+}
+table.table-sssom thead tr th {
+	padding: 0;
+	text-align: left;
+}
+a.th-collapser {
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-align: left;
+	margin: 0;
+	padding: 6px;
+	font-weight: 600;
+	color: #212529;
+	transition: .5s all;
+}
+a.th-collapser:hover {
+	text-decoration: underline;
+	background: rgba(230,230,230,0.4);
+}
+.th-collapser i.fa {
+	background: transparent;
+	color: #560D59;
+	font-size: 18px;
+	margin-left: 10px;
+}
+span.skos-th-label {
+	display: inline-block;
+	text-align: left;
+}
+table.table-sssom tr.hide-table-padding td {
+  padding: 0;
+}
+table.table-sssom tbody > tr > th {
+	text-align: left;
+}
+
+table.table-sssom .expand-button {
+	position: relative;
+}
+table.table-sssom .accordion-toggle .expand-button:after {
+    position: absolute;
+    left:.75rem;
+    top: 50%;
+    transform: translate(0, -50%);
+    content: '-';
+}
+table.table-sssom .accordion-toggle.collapsed .expand-button:after {
+	content: '+';
+}
+/* Nested Table */
+.inner-table-grid .row {
+	font-size: 0.75rem;
+}
+.inner-table-grid .row span.label {
+	display: inline-block;
+	position: relative;
+	width: 40%;
 	text-align: right;
+	border-right: 2px solid #DCDCDC;
+	padding-right: 4px;
 }
-table.table-child.table-sssom tbody tr td.col-2 {
-	width: 30%;
+table.nested-table tbody tr td {
+	padding: 4px 4px 4px 8px;
 }
-table.table-child.table-sssom tbody tr td.col-3 {
+table.nested-table tbody tr td:first-of-type {
+	width: 4%;
+	padding: 0 0.5rem;
+}
+
+
+
+/* Footer --------------------------------------------- */
+body > footer {
+	background-color: #560D59;
+}
+.footer-logo {
+	max-width: 150px;
+	height: auto;
+}
+body > footer p {
+	color: #FFFFFF;
+}
+body > footer p a {
+	color: rgb(160,140,230);
+}
+
+/* Testing Collapse */
+td.indicator-td {
+	color: rgba(120,120,120,0.8);
+	text-align: center;
+}
+table.table-sssom tbody tr th {
+	text-align: left;
+	font-size: 0.8rem;
+	font-weight: 500;
+	padding: .25rem .25rem;
+}
+table.table-sssom tbody tr th.col-w-4 {
+	width: 4%;
+}
+table.table-sssom tbody tr th.col-w-16  {
+	width: 16%;
+}
+table.table-sssom tbody tr th.col-w-25 {
+	width: 25%;
+}
+table.table-sssom tbody tr th.col-w-55 {
 	width: 55%;
 }
+table.table-sssom tbody table.nested-table {
+	border: 2px solid rgba(100,100,100,0.5);
+}
+table.table-sssom tbody table.nested-table tbody tr th {
+	width: 15%;
+	padding: 4px 8px 4px 0;
+	border-top: 1px solid rgb(222, 226, 230);
+	border-bottom: 1px solid rgb(222, 226, 230);
+}
+table.table-sssom tbody table.nested-table tbody tr td {
+	width: 85%;
+	padding: 4px 8px;
+}
+table.table-sssom tbody table.nested-table tbody tr th,
+table.table-sssom tbody table.nested-table tbody tr td {
+	font-size: 12px;
+}
+table.table-sssom tbody table.nested-table tbody tr th {
+	padding-left: 48px;
+	border-bottom: none;
+}
+
+
+/* Logo ------------------------------------------- */
+main.ltc-content,
+header.header .container {
+	position: relative;
+}
+.logo-wrapper {
+	position: absolute;
+	right: 18%;
+	top: 100px;
+	z-index: 100;
+}
+.logo-wrapper img.ltc-logo {
+	max-width: 120px;
+	height: auto;
+}
+
+
+
+
+
 /* Mermaid Diagram ----------------------------------- */
 [id^="mermaid"] {
 }
@@ -400,21 +569,9 @@ table.table-child.table-sssom tbody tr td.col-3 {
 		column-gap: 12px;
 		-webkit-column-gap: 12px;
 	}
-	/*
-	table.table-sssom,
-	table.table-sssom tbody,
-	table.table-sssom tbody tr,
-	table.table-sssom tbody td {
-	  display: flex;
-	  flex-direction: column;
-	  width: 100%;
-	  word-break: break-all;
-	}
-	*/
 	table.table-sssom thead th:not(:first-child) {
         display: none;
     }
-
     table.table-sssom td {
         display: block;
     }
@@ -432,8 +589,6 @@ table.table-child.table-sssom tbody tr td.col-3 {
 		text-align: left;
 	}
 
-	table.table-child.table-sssom tbody tr td {
-	}
 	table tbody tr.skos-tr td span.w-50,
 	tr.skos-tr td span {
 		width: 100%;
@@ -441,7 +596,9 @@ table.table-child.table-sssom tbody tr td.col-3 {
 		line-height: 2;
 		border-right: none !important
 	}
-
+	.logo-wrapper {
+		display: none;
+	}
 }
 @media only screen and (max-width: 480px) {
 	main .container.content {
@@ -463,6 +620,7 @@ table.table-child.table-sssom tbody tr td.col-3 {
 	}
 }
 
+/* Mermaid E-R Diagrams --------------------------------------------------- */
 /* Alt Colors
 Original:#043B58;
 Red: #8C3515
@@ -483,13 +641,10 @@ Purple: #560D59
 	cursor: pointer;
 	outline: none;
 }
-
-
 .toggle-fullscreen-svg {
 	display: block;
 	height: auto;
 }
-
 .toggle-fullscreen-svg path {
 	transform-box: view-box;
 	transform-origin: 12px 12px;
@@ -498,33 +653,25 @@ Purple: #560D59
 	stroke-width: 3;
 	transition: .15s;
 }
-
-
 .toggle-fullscreen-btn:hover path:nth-child(1),
 .toggle-fullscreen-btn:focus path:nth-child(1) {
 	transform: translate(-2px, -2px);
 }
-
 .toggle-fullscreen-btn:hover path:nth-child(2),
 .toggle-fullscreen-btn:focus path:nth-child(2) {
 	transform: translate(2px, -2px);
 }
-
 .toggle-fullscreen-btn:hover path:nth-child(3),
 .toggle-fullscreen-btn:focus path:nth-child(3) {
 	transform: translate(2px, 2px);
 }
-
 .toggle-fullscreen-btn:hover path:nth-child(4),
 .toggle-fullscreen-btn:focus path:nth-child(4) {
 	transform: translate(-2px, 2px);
 }
-
-
 .toggle-fullscreen-btn:not(.on) .icon-fullscreen-leave {
 	display: none;
 }
-
 .toggle-fullscreen-btn.on .icon-fullscreen-enter {
 	display: none;
 }
