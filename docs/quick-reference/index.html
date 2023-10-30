@@ -17,7 +17,6 @@
 	<link rel="stylesheet" href="../static/assets/theme/css/fontawesome-all.min.css">
 	<link rel="stylesheet" href="../static/assets/theme/css/academicons.min.css">
     <link rel="stylesheet" href="../pygments.css">
-	<!--<link rel="stylesheet" href="../static/assets/theme/css/pygments.css">-->
 	<link rel="stylesheet" href="../static/custom/css/ltc.css">
 	<link rel="stylesheet" href="../static/custom/css/print.css" media="print">
 
@@ -12465,11 +12464,16 @@
 
 	<script>
 		$(document).ready(function () {
+            $('[data-bs-toggle="popover"]').popover({
+                trigger: 'hover',
+                container: '.popover-container',
+                placement: 'top',
+                customClass: 'help-popover',
+                html: true
+            });
 			mermaid.initialize({
-				theme: 'forest'
-			})
-			mermaidAPI.initialize({
-			  securityLevel: 'loose',
+                theme: 'forest',
+                securityLevel: 'loose',
 			});
 		});
 
