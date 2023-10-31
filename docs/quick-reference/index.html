@@ -12442,6 +12442,7 @@
  	</div>
 </main>
 
+<a href="#" id="back-to-top" class="back-to-top" style="display: inline;"><i class="fa fa-arrow-up"></i></a>
 <footer>
 	<div class="container">
 		<div class="row">
@@ -12463,20 +12464,53 @@
 	<script src="../static/custom/js/svg-pan-zoom.js"></script>
 
 	<script>
-		$(document).ready(function () {
-            $('[data-bs-toggle="popover"]').popover({
-                trigger: 'hover',
+        $(document).ready(function () {
+             $('[data-bs-toggle="popover"]').popover({
+                trigger: 'click',
                 container: '.popover-container',
                 placement: 'top',
                 customClass: 'help-popover',
                 html: true
+            });
+            $('[data-bs-toggle="popover"]').click(function (e) {
+                e.stopPropagation();
+            });
+            $('a.poplink').click(function(e) {
+              e.preventDefault();
+            });
+            $(document).click(function (e) {
+                if (($('.popover').has(e.target).length == 0) || $(e.target).is('.close')) {
+                   $('[data-bs-toggle="popover"]').popover('hide');
+                }
             });
 			mermaid.initialize({
                 theme: 'forest',
                 securityLevel: 'loose',
 			});
 		});
+        var link = document.getElementById("back-to-top");
+        var amountScrolled = 250;
 
+        window.addEventListener('scroll', function(e) {
+            if ( window.pageYOffset > amountScrolled ) {
+                link.classList.add('show');
+            } else {
+                link.className = 'back-to-top';
+            }
+        });
+        <!-- Scrolls to Top -->
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var distance = 0 - window.pageYOffset;
+            var increments = distance/(500/16);
+            function animateScroll() {
+                window.scrollBy(0, increments);
+                if (window.pageYOffset <= document.body.offsetTop) {
+                  clearInterval(runAnimation);
+                }
+            };
+            var runAnimation = setInterval(animateScroll, 16);
+        });
 	</script>
 </body>
 </html>

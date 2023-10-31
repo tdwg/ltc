@@ -336,9 +336,7 @@ table.table-sssom thead,
 table.table-sssom tbody {
 	border: none;
 }
-table.table-sssom tbody > tr > th:first-of-type {
-	width: 4%;
-}
+
 table.table-sssom thead th {
 	font-size: 0.9rem;
 	text-align: right;
@@ -359,19 +357,32 @@ table.table-sssom tbody tr.hide-table-padding td.hide-td {
 chevron down f078
 
  */
+
 table.table-sssom thead th .fa:before,
-table.table-sssom thead [data-toggle="collapse"] .indicator-td .fa:before,
-table.table-sssom thead [data-bs-toggle="collapse"] .indicator-td .fa:before {
+table.table-sssom tbody [data-bs-toggle="collapse"] .indicator-td .fa:before {
 	font-family: "Font Awesome 5 Free";
 	content: "\f0d7";
 }
-table.table-sssom thead [data-toggle="collapse"].collapsed .indicator-td .fa:before,
-table.table-sssom thead [data-bs-toggle="collapse"].collapsed .indicator-td .fa:before,
-[data-toggle="collapse"].collapsed .fa:before,
+table.table-sssom tbody [data-bs-toggle="collapse"].collapsed .indicator-td .fa:before,
 [data-bs-toggle="collapse"].collapsed .fa:before {
 	font-family: "Font Awesome 5 Free";
 	content: "\f0d8";
 }
+table.table-sssom tbody [data-bs-toggle="collapse"] .indicator-td .fa:after {
+	content: 'Hide';
+	font-family: "Roboto", sans-serif;
+	color: rgb(33, 37, 41);
+	font-weight: 400;
+	padding-left: 10px;
+}
+table.table-sssom tbody [data-bs-toggle="collapse"].collapsed .indicator-td .fa:after {
+	content: 'Show';
+	font-weight: 400;
+	padding-left: 10px;
+}
+
+
+
 table.table-sssom thead tr th {
 	padding: 0;
 	text-align: left;
@@ -437,7 +448,6 @@ table.nested-table tbody tr td {
 	padding: 4px 4px 4px 8px;
 }
 table.nested-table tbody tr td:first-of-type {
-	width: 4%;
 	padding: 0 0.5rem;
 }
 
@@ -481,10 +491,10 @@ table.table-sssom tbody tr th.col-w-16  {
 	width: 16%;
 }
 table.table-sssom tbody tr th.col-w-25 {
-	width: 25%;
+	width: 28%;
 }
 table.table-sssom tbody tr th.col-w-55 {
-	width: 55%;
+	width: 52%;
 }
 table.table-sssom tbody table.nested-table {
 	border-top: 2px solid rgba(100,100,100,0.5);
@@ -506,7 +516,7 @@ table.table-sssom tbody table.nested-table tbody tr td {
 }
 table.table-sssom tbody table.nested-table tbody tr th,
 table.table-sssom tbody table.nested-table tbody tr td {
-	font-size: 12px;
+	font-size: 14px;
 }
 table.table-sssom tbody table.nested-table tbody tr th {
 	padding-left: 8px;
@@ -522,8 +532,19 @@ th.popover-container .popover .popover-body {
 }
 table.table-sssom-nested th i.fa-question-circle {
 	font-size: 12px;
+	cursor: pointer;
 }
-
+span.close:hover {
+	text-decoration: underline;
+}
+span.close,
+.popover a.close,
+.popover .close,
+.popover .btn-close {
+	cursor: pointer;
+	float: right;
+	color: #FFFFFF;
+}
 
 /* Logo ------------------------------------------- */
 main.ltc-content,
@@ -642,10 +663,10 @@ header.header .container {
 	table.table-sssom tbody table.nested-table tbody tr th {
 		paddin-right: 0;
 		padding-left: 10px;
-		width: 20%;
+		width: 24%;
 	}
 	table.table-sssom tbody table.nested-table tbody tr td {
-		width: 78%;
+		width: 72%;
 		padding-right: 0;
 		padding-left: 0;
 	}
@@ -653,8 +674,30 @@ header.header .container {
 		height: 0;
 		display: none;
 	}
+	i.fa.fa-question-circle.doc-help-tip {
+		display: none;
+	}
+	table.table-sssom tbody [data-bs-toggle="collapse"].collapsed .indicator-td,
+	table.table-sssom tbody [data-bs-toggle="collapse"] .indicator-td {
+		width: 80%;
+		display: inline-block;
+	}
+	table.table-sssom tbody [data-bs-toggle="collapse"] .indicator-td {
+		text-align: left;
+	}
+	table.table-sssom tbody [data-bs-toggle="collapse"] .indicator-td .fa:after {
+		content: 'Hide Additional Details';
+	}
+	table.table-sssom tbody [data-bs-toggle="collapse"].collapsed .indicator-td .fa:after {
+		content: 'Show Additional Details';
+	}
+
+
 }
+
+
 @media only screen and (max-width: 480px) {
+
 	main .container.content {
 		max-width: 100%;
 		width: 100%;
@@ -729,5 +772,42 @@ Purple: #560D59
 .toggle-fullscreen-btn.on .icon-fullscreen-enter {
 	display: none;
 }
+/* Back to Top */
+
+  .back-to-top {
+    background-color: #560D59;
+    color: #FFFFFF;
+    opacity: 0;
+    transition: opacity .6s ease-in-out;
+    z-index: 999;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+    border-radius: 0%;
+  }
+.back-to-top i.fa {
+	color: #FFFFFF;
+}
+  a.back-to-top {
+    font-weight: 1000;
+    letter-spacing: 2px;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.6;
+    padding-left: 2px;
+    padding-top: 14px;
+  }
+
+  .back-to-top:hover, .back-to-top:focus, .back-to-top:visited {
+    color: #FFFFFF;
+  }
+
+  .back-to-top.show {
+    opacity: 1;
+  }
 
 
