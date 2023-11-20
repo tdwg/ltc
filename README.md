@@ -11,7 +11,7 @@ Latimer Core's public review period is planned for August 2023.
 
 1. Read an overview of Latimer Core's structure and purpose by reading the [wiki](https://github.com/tdwg/ltc/wiki/1.-Overview-of-Latimer-Core).
 2. See how classes fit together in the [Standard Browser](https://rebrand.ly/tdwg-cd-standard-browser).
-3. Get familiar with the classes and terms defined in the [normative documentation](https://github.com/tdwg/ltc/tree/main/docs/terms/source).
+3. Get familiar with the classes and terms defined in the [normative documentation](https://tdwg.github.io/ltc/terms/).
 4. Add or join a [discussion](https://github.com/tdwg/ltc/discussions).
 
 
@@ -20,7 +20,7 @@ Latimer Core's public review period is planned for August 2023.
 Documentation
 - [Latimer Core Wiki](https://github.com/tdwg/ltc/wiki) - introduction to Latimer Core's structure and purpose.
 - [LtC Standard Browser](https://rebrand.ly/tdwg-cd-standard-browser).
-- [List of terms & classes documents](https://github.com/tdwg/ltc/tree/main/docs/terms/source) - official definitions and usage for current classes and terms.
+- [List of terms & classes documents](https://tdwg.github.io/ltc/terms/) - official definitions and usage for current classes and terms.
 
 Latimer Core Task Group - formerly Collection Description Task Group
 - The [Collection Descriptions Interest Group](https://www.tdwg.org/community/cd/) is the parent [interest group](https://www.tdwg.org/about/process/) that chartered this task group to develop a Collection Descriptions metadata standard. For further information about the parent interest group, see https://github.com/tdwg/cd
