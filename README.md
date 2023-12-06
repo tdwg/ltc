@@ -21,6 +21,7 @@ Documentation
 - [Latimer Core Wiki](https://github.com/tdwg/ltc/wiki) - introduction to Latimer Core's structure and purpose.
 - [LtC Standard Browser](https://rebrand.ly/tdwg-cd-standard-browser).
 - [List of terms & classes documents](https://tdwg.github.io/ltc/terms/) - official definitions and usage for current classes and terms.
+- [CITATION.cff](https://github.com/tdwg/ltc/blob/main/CITATION.cff) - how to cite the standard and provide attribution
 
 Latimer Core Task Group - formerly Collection Description Task Group
 - The [Collection Descriptions Interest Group](https://www.tdwg.org/community/cd/) is the parent [interest group](https://www.tdwg.org/about/process/) that chartered this task group to develop a Collection Descriptions metadata standard. For further information about the parent interest group, see https://github.com/tdwg/cd
