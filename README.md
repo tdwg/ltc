@@ -12,7 +12,7 @@ Latimer Core's public review period is planned for August 2023.
 1. Read an overview of Latimer Core's structure and purpose by reading the [wiki](https://github.com/tdwg/ltc/wiki/1.-Overview-of-Latimer-Core).
 2. See how classes fit together in the [Standard Browser](https://rebrand.ly/tdwg-cd-standard-browser).
 3. Get familiar with the classes and terms defined in the [normative documentation](https://tdwg.github.io/ltc/terms/).
-4. Add or join a [discussion](https://github.com/tdwg/ltc/discussions).
+4. Join a [discussion](https://github.com/tdwg/ltc/discussions).
 
 
 ## About Latimer Core
