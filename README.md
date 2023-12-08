@@ -42,13 +42,18 @@ at [michaelnorton.ben@gmail.com](mailto:michaelnorton.ben@gmail.com).
 - [Latimer Core Wiki](https://github.com/tdwg/ltc/wiki) - introduction to Latimer Core's structure and purpose.
 - [LtC Standard Browser](https://rebrand.ly/tdwg-cd-standard-browser) - Novel interactive tool to explore the Latimer Core standard
 - [Discussion Board](https://github.com/tdwg/ltc/discussions) - Submit a question or provide feedback
-- [Implementation Guide and Use Cases](https://biss.pensoft.net/article/113766/) - Implementation Experience Report for the Developing Latimer Core Standard: The DiSSCo Flanders use-case
+- [Implementation Guide and Use Cases](https://biss.pensoft.net/article/113766/) - "Implementation Experience Report for the Developing Latimer Core Standard: The DiSSCo Flanders use-case"
 
 #### Latimer Core Task Group - formerly Collection Description Task Group
 - The [Collection Descriptions Interest Group](https://www.tdwg.org/community/cd/) is the parent [interest group](https://www.tdwg.org/about/process/) that chartered this task group to develop a Collection Descriptions metadata standard. For further information about the parent interest group, see https://github.com/tdwg/cd
 
 #### How to cite Latimer Core
-- [CITATION.CFF to cite the current release](https://github.com/tdwg/ltc/blob/main/CITATION_release.cff) - How to cite the Github repository of LtC, provide attribution and thus support the work of the authors and TDWG
-- [CITATION.CFF to cite repository](https://github.com/tdwg/ltc/blob/main/CITATION.cff) - How to cite the Github repository of LtC, provide attribution and thus support the work of the authors and TDWG
+Citations provide attribution, visibilty and thus support to the work of the authors and of Biodiversity Information Standards (TDWG) as not-for profit organization. At the same time they promote transparency and accountability, enabling a rights-based approach to standard development.
+
+To cite this GitHub repository of LtC with its information and ongoing work
+- [CITATION_release.CFF](https://github.com/tdwg/ltc/blob/main/CITATION_release.cff) - 
+
+To cite the current release of the LtC standard
+- [CITATION.CFF](https://github.com/tdwg/ltc/blob/main/CITATION.cff) 
 
 #### License
