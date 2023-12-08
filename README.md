@@ -42,7 +42,8 @@ at [michaelnorton.ben@gmail.com](mailto:michaelnorton.ben@gmail.com).
 - [Latimer Core Wiki](https://github.com/tdwg/ltc/wiki) - introduction to Latimer Core's structure and purpose.
 - [LtC Standard Browser](https://rebrand.ly/tdwg-cd-standard-browser) - Novel interactive tool to explore the Latimer Core standard
 - [Discussion Board](https://github.com/tdwg/ltc/discussions) - Submit a question or provide feedback
-- [CITATION.CFF](https://github.com/tdwg/ltc/blob/main/CITATION.cff) - How to cite the standard, provide attribution and thus support the work of the authors and TDWG
+- [CITATION.CFF to cite the current release](https://github.com/tdwg/ltc/blob/main/CITATION_release.cff) - How to cite the Github repository of LtC, provide attribution and thus support the work of the authors and TDWG
+- [CITATION.CFF to cite repository](https://github.com/tdwg/ltc/blob/main/CITATION.cff) - How to cite the Github repository of LtC, provide attribution and thus support the work of the authors and TDWG
 - [Implementation Guide and Use Cases](https://biss.pensoft.net/article/113766/)
 
 #### Latimer Core Task Group - formerly Collection Description Task Group
