@@ -51,9 +51,11 @@ at [michaelnorton.ben@gmail.com](mailto:michaelnorton.ben@gmail.com).
 Citations provide attribution, visibilty and thus support to the work of the authors and of Biodiversity Information Standards (TDWG) as not-for profit organization. At the same time they promote transparency and accountability, enabling a rights-based approach to standard development.
 
 To cite this GitHub repository of LtC with its information and ongoing work
+- Norton, B., Woodburn, M., Grant, S., Jones, J., Webbink, K., Vincent, S., Trekels, M., Buschbom, J., Baskauf, S. J., & Biodiversity Information Standards (TDWG). Latimer Core (LtC) GitHub Repository [Computer software]. https://github.com/tdwg/ltc
 - [CITATION_release.CFF](https://github.com/tdwg/ltc/blob/main/CITATION_release.cff) - 
 
 To cite the current release of the LtC standard
+- sss
 - [CITATION.CFF](https://github.com/tdwg/ltc/blob/main/CITATION.cff) 
 
 #### License
