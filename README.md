@@ -52,10 +52,10 @@ Citations provide attribution, visibilty and thus support to the work of the aut
 
 To cite this GitHub repository of LtC with its information and ongoing work
 - Norton, B., Woodburn, M., Grant, S., Jones, J., Webbink, K., Vincent, S., Trekels, M., Buschbom, J., Baskauf, S. J. & Biodiversity Information Standards (TDWG). Latimer Core (LtC) GitHub Repository [Standard]. https://github.com/tdwg/ltc
-- [CITATION_release.CFF](https://github.com/tdwg/ltc/blob/main/CITATION_release.cff) - 
+- [CITATION_release.CFF](https://github.com/tdwg/ltc/blob/main/CITATION_release.cff) - a machine-readable version of the citation
 
 To cite the current release of the LtC standard
-- sss
-- [CITATION.CFF](https://github.com/tdwg/ltc/blob/main/CITATION.cff) 
+- Grant, S., Jones, J., Webbink, K., Woodburn, M., Vincent, S., Trekels, M., Buschbom, J., Groom, Q. J., Norton, B., Sanderson, R., Engelbrecht, I., Baskauf, S. J., Addink, W., Bloom, D., Breugelmans, L., Chapman, C., Dröge, G., Grosjean, M., Hahn, A., Krimmel, E., Paul, D., Raes, N., Robertson, T., Ulate, W. & Biodiversity Information Standards (TDWG). TDWG Latimer Core (LtC) Standard [Standard]. https://github.com/tdwg/ltc
+- [CITATION.CFF](https://github.com/tdwg/ltc/blob/main/CITATION.cff) - a machine-readable version of the citation
 
 #### License
