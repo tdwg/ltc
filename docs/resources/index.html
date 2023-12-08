@@ -16,7 +16,7 @@
 	<link rel="stylesheet" href="../static/assets/theme/css/main.css">
 	<link rel="stylesheet" href="../static/assets/theme/css/fontawesome-all.min.css">
 	<link rel="stylesheet" href="../static/assets/theme/css/academicons.min.css">
-    <link rel="stylesheet" href="../pygments.css">
+    <link rel="stylesheet" href="../static/assets/theme/css/pygments.css">
 	<link rel="stylesheet" href="../static/custom/css/ltc.css">
 	<link rel="stylesheet" href="../static/custom/css/print.css" media="print">
 
@@ -845,9 +845,12 @@ erDiagram
 			});
 		});
         var link = document.getElementById("back-to-top");
-        var amountScrolled = 250;
+        link.classList.add('show');
+        var amountScrolled = 450;
 
         window.addEventListener('scroll', function(e) {
+            var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+            console.log(scrollTop);
             if ( window.pageYOffset > amountScrolled ) {
                 link.classList.add('show');
             } else {
@@ -865,7 +868,7 @@ erDiagram
                   clearInterval(runAnimation);
                 }
             };
-            var runAnimation = setInterval(animateScroll, 16);
+            var runAnimation = setInterval(animateScroll, 10);
         });
 	</script>
 </body>
