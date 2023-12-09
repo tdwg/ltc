@@ -9,7 +9,7 @@ The Public Review for the Latimer Core Standard is planned for December 2023. Mu
 > [!NOTE]
 > Only the [Normative Term List](https://tdwg.github.io/ltc/terms/index.html) is subject to review.
 > All other documentation, including the [wiki](https://github.com/tdwg/ltc/wiki/1.-Overview-of-Latimer-Core)
-> and [resources page](https://tdwg.github.io/ltc/resources/), are non-normative and therefore not under formal review. The purpose of the non-normative documentation is to improve understanding and clarify the normative documentation.
+> and [resources page](https://tdwg.github.io/ltc/resources/), are non-normative and, therefore, not under formal review. The purpose of the non-normative documentation is to improve understanding and clarify the normative documentation.
 
 ### How to Participate
 
@@ -20,7 +20,7 @@ To aid your review of the normative terms list, please take advantage of the col
 #### Step 2. Provide Feedback on the Discussion Forum
 To provide feedback during the Public Review, please use the [discussion forum](https://github.com/tdwg/ltc/discussions). We will host open
 question and answer sessions via Zoom on Thursdays from 10am - 11am EST beginning in January. Please
-see the announcements in the discussion forum for additional information, including the Zoom link and
+take a look at the announcements in the discussion forum for additional information, including the Zoom link and
 schedule. We are also willing to accommodate additional times upon request (contact below).
 
 The Public Review Moderator and LtC Team will create issues from the discussion forum when needed.
@@ -29,7 +29,7 @@ respond to all comments and questions posted on the discussion forum within the
 public review period.
 
 For questions, comments, or critiques, please contact Ben Norton, Review Manager of Latimer Core
-at [michaelnorton.ben@gmail.com](mailto:michaelnorton.ben@gmail.com).
+at [ben@geoapis.io](mailto:ben@geoapis.io).
 
 
 ## About Latimer Core
@@ -39,7 +39,7 @@ at [michaelnorton.ben@gmail.com](mailto:michaelnorton.ben@gmail.com).
 #### Non-normative Resources <a name="non-norm"></a>
 - [Quick Reference Guide](https://tdwg.github.io/ltc/quick-reference/) - Quick guide to the normative terms and definitions.
 - [LtC Resources](https://tdwg.github.io/ltc/quick-reference/) - Additional informative resources include Entity-Relationship Diagrams
-- [Latimer Core Wiki](https://github.com/tdwg/ltc/wiki) - introduction to Latimer Core's structure and purpose.
+- [Latimer Core Wiki](https://github.com/tdwg/ltc/wiki) - Introduction to Latimer Core's structure and purpose.
 - [LtC Standard Browser](https://rebrand.ly/tdwg-cd-standard-browser) - Novel interactive tool to explore the Latimer Core standard
 - [Discussion Board](https://github.com/tdwg/ltc/discussions) - Submit a question or provide feedback
 - [Implementation Guide and Use Cases](https://biss.pensoft.net/article/113766/) - "Implementation Experience Report for the Developing Latimer Core Standard: The DiSSCo Flanders use-case"
@@ -48,7 +48,7 @@ at [michaelnorton.ben@gmail.com](mailto:michaelnorton.ben@gmail.com).
 - The [Collection Descriptions Interest Group](https://www.tdwg.org/community/cd/) is the parent [interest group](https://www.tdwg.org/about/process/) that chartered this task group to develop a Collection Descriptions metadata standard. For further information about the parent interest group, see https://github.com/tdwg/cd
 
 #### How to cite Latimer Core
-Citations provide attribution, visibilty and thus support to the work of the authors and of Biodiversity Information Standards (TDWG) as not-for profit organization. At the same time they promote transparency and accountability, enabling a rights-based approach to standard development.
+Citations provide attribution, visibility, and thus support to the work of the authors and of Biodiversity Information Standards (TDWG) as a not-for-profit organization. At the same time, they promote transparency and accountability, enabling a rights-based approach to standard development.
 
 To cite the current release of the LtC standard
 - Grant, S., Jones, J., Webbink, K., Woodburn, M., Vincent, S., Trekels, M., Buschbom, J., Groom, Q. J., Norton, B., Sanderson, R., Engelbrecht, I., Baskauf, S. J., Addink, W., Bloom, D., Breugelmans, L., Chapman, C., Dröge, G., Grosjean, M., Hahn, A., Krimmel, E., Paul, D., Raes, N., Robertson, T., Ulate, W. & Biodiversity Information Standards (TDWG). TDWG Latimer Core (LtC) Standard [Standard]. https://github.com/tdwg/ltc
