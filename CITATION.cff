@@ -8,7 +8,7 @@ authors:
     family-names: "Grant"
     affiliation: "Field Museum of Natural History: Chicago, IL, US"
     orcid: "https://orcid.org/0000-0002-0201-732X"
- - name: "Biodiversity Information Standards (TDWG)"
+  - name: "Biodiversity Information Standards (TDWG)"
     address: "1342 34th Ave."
     city: "San Francisco"
     country: "US"
