@@ -76,7 +76,7 @@ body:
   id: termIdentifier
   attributes:
     label: Term Identifier
-    description: Please enter the term identifier (uri) associated with your issue
+    description: Please enter the term identifier (IRI) associated with your issue
 - type: markdown
   attributes:
     value: |
