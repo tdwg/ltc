@@ -55,8 +55,6 @@ When terms are borrowed from other vocabularies, LtC uses the IRIs, common abbre
 
 Table 1. Vocabularies from which terms have been borrowed (non-normative)
 
-Note: URIs for terms in most of these namespaces do not dereference to anything.  The authoritative documentation can be obtained by clicking on the vocabulary names in the table.
-
 | Vocabulary | Abbreviation | Namespaces and abbreviations |
 |------------|--------------|------------------------------|
 | [Darwin Core](https://dwc.tdwg.org/terms/) | DwC         | `dwc: = http://rs.tdwg.org/dwc/terms/`
