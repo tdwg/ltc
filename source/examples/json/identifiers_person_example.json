@@ -10,19 +10,19 @@
     [
         {
             "@type": "ltc:Identifier",
-            "ltc:identifierType": "URI",
+            "ltc:identifierType": "IRI",
             "ltc:identifierSource": "https://www.worldcat.org/identities/",
             "ltc:identifier": "lccn-n85816396"
         },
         {
             "@type": "ltc:Identifier",
-            "ltc:identifierType": "URI",
+            "ltc:identifierType": "IRI",
             "ltc:identifierSource": "https://www.wikidata.org/wiki/",
             "ltc:identifier": "Q371568"
         },
         {
             "@type": "ltc:Identifier",
-            "ltc:identifierType": "URI",
+            "ltc:identifierType": "IRI",
             "ltc:identifierSource": "https://viaf.org/viaf/",
             "ltc:identifier": "38383989"
         }

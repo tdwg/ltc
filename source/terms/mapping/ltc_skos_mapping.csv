@@ -122,7 +122,7 @@ http://rs.tdwg.org/ltc/terms/hasIdentifier,broadMatch,http://purl.org/dc/terms/r
 http://rs.tdwg.org/ltc/terms/referenceDetails,broadMatch,http://rs.tdwg.org/abcd/terms/details
 http://rs.tdwg.org/ltc/terms/referenceName,broadMatch,http://purl.org/dc/terms/title
 http://rs.tdwg.org/ltc/terms/referenceType,broadMatch,http://purl.org/dc/terms/type
-http://rs.tdwg.org/ltc/terms/resourceURI,broadMatch,http://rs.tdwg.org/abcd/terms/resourceURI
+http://rs.tdwg.org/ltc/terms/resourceIRI,broadMatch,http://rs.tdwg.org/abcd/terms/resourceURI
 http://rs.tdwg.org/ltc/terms/ResourceRelationship,closeMatch,http://rs.tdwg.org/dwc/terms/ResourceRelationship
 http://rs.tdwg.org/ltc/terms/hasIdentifier,broadMatch,http://purl.org/dc/terms/relation
 http://rs.tdwg.org/ltc/terms/hasReference,broadMatch,http://purl.org/dc/terms/relation
