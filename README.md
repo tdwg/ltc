@@ -8,7 +8,7 @@ Public Review has begun!
 The Public Review for the Latimer Core Standard is currently underway and will remain open until January 11th, 2024. Multiple ways are available to contribute during the review period. Please read the following to figure out which is best for you.
 
 > [!NOTE]
-> Only the [Normative Term List](https://tdwg.github.io/ltc/terms/index.html) is subject to review. All other documentation, including the [wiki](https://github.com/tdwg/ltc/wiki/1.-Overview-of-Latimer-Core) and [resources page](https://tdwg.github.io/ltc/resources/), are non-normative and, therefore, not under formal review. The purpose of the non-normative documentation is to improve understanding and clarify the normative documentation.
+> Only the [Normative Term List](https://tdwg.github.io/ltc/terms/index.html) is subject to review. All other documentation, including the [wiki](https://github.com/tdwg/ltc/wiki/1.-Overview-of-Latimer-Core) and [resources page](https://tdwg.github.io/ltc/resources/index.html), are non-normative and, therefore, not under formal review. The purpose of the non-normative documentation is to improve understanding and clarify the normative documentation.
 
 ### How to Participate
 
@@ -47,7 +47,8 @@ For questions, comments, or critiques, please contact Ben Norton, Review Manager
 - [LtC Standard Browser](https://rebrand.ly/tdwg-cd-standard-browser) - Novel interactive tool to explore the Latimer Core standard
 - [Discussion Board](https://github.com/tdwg/ltc/discussions) - Submit a question or provide feedback
 - [Implementation Guide and Use Cases](https://biss.pensoft.net/article/113766/) - "Implementation Experience Report for the Developing Latimer Core Standard: The DiSSCo Flanders use-case"
-
+- [Latimer Core Entity-Relationship Diagrams](https://tdwg.github.io/ltc/resources/index.html)
+  
 #### Latimer Core Task Group - formerly Collection Description Task Group
 - The [Collection Descriptions Interest Group](https://www.tdwg.org/community/cd/) is the parent [interest group](https://www.tdwg.org/about/process/) that chartered this task group to develop a Collection Descriptions metadata standard. For further information about the parent interest group, see https://github.com/tdwg/cd
 
