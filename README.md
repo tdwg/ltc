@@ -5,7 +5,7 @@ Latimer Core (LtC) is a data standard for describing collections, proposed by th
 
 ## Public Review
 Public Review has begun! 
-The Public Review for the Latimer Core Standard is currently underway and will remain open until January 11th. 2024. Multiple ways are available to contribute during the review period. Please read the following to figure out which is best for you.
+The Public Review for the Latimer Core Standard is currently underway and will remain open until January 11th, 2024. Multiple ways are available to contribute during the review period. Please read the following to figure out which is best for you.
 
 > [!NOTE]
 > Only the [Normative Term List](https://tdwg.github.io/ltc/terms/index.html) is subject to review. All other documentation, including the [wiki](https://github.com/tdwg/ltc/wiki/1.-Overview-of-Latimer-Core) and [resources page](https://tdwg.github.io/ltc/resources/), are non-normative and, therefore, not under formal review. The purpose of the non-normative documentation is to improve understanding and clarify the normative documentation.
@@ -13,24 +13,29 @@ The Public Review for the Latimer Core Standard is currently underway and will r
 ### How to Participate
 
 #### Step 1. Explore the Standard
-We offer several ways to explore the standard during the review. These include the following: 1. Read the Latimer Core Wiki 2. Read the Quick Reference Guide 3. Read the Normative Term list 4. View the Standard Browser (Power BI) 5. Read the Implementation Guide and Use Cases
+We offer several ways to explore the standard during the review. These include the following: 
+1. Read the [Latimer Core Wiki](https://github.com/tdwg/ltc/wiki)
+2. Read the [Quick Reference Guide](https://tdwg.github.io/ltc/quick-reference/) 
+3. Read the [Normative Term List](https://tdwg.github.io/ltc/terms/)
+4. View the [Standard Browser (Power BI)](https://rebrand.ly/tdwg-cd-standard-browser)
+5. Read the [Implementation Guide and Use Cases](https://biss.pensoft.net/article/113766/)
 Please begin by reviewing the subject of the public review, the normative terms list found here: [Normative Term List](https://tdwg.github.io/ltc/terms/)
 
 #### Step 2. Provide Feedback on the Discussion Forum
 1. To provide feedback of any kind during the Public Review, please use the [discussion forum](https://github.com/tdwg/ltc/discussions).  
-2. We will host a series of weekly open question and answer sessions via Zoom on Thursdays from 10am - 11am EST beginning on January 4th. Please see the [announcements](https://github.com/tdwg/ltc/discussions/categories/announcements) in the discussion forum for additional information, including the Zoom link and schedule. We are also willing to accommodate additional times upon request (contact below).  
 
-##### Open Forums
+#### Public Forum Sessions
+We will host a series of weekly open question and answer sessions via Zoom on Thursdays from 10am - 11am EST beginning on January 4th. Please see the [announcements](https://github.com/tdwg/ltc/discussions/categories/announcements) in the discussion forum for additional information, including the Zoom link. We are also willing to accommodate additional times upon request (contact below).  
+
 All forums take place from 10 am - 11 am EST
 Thursday, January 4th
 Thursday, January 11th
 Thursday, January 18th
 
 The Public Review Moderator and LtC Team will create issues from the discussion forum when needed. The discussion originator and applicable participants will be tagged on the issue. The LtC team will respond to all comments and questions posted on the discussion forum within the public review period.
-
 For questions, comments, or critiques, please contact Ben Norton, Review Manager of Latimer Core, by email at [michaelnorton.ben@gmail.com](mailto:michaelnorton.ben@gmail.com).
 
-
+---
 ## About Latimer Core
 #### Normative Documentation
 - [Normative Terms List](https://tdwg.github.io/ltc/terms/) - Official normative documentation for all classes and terms
