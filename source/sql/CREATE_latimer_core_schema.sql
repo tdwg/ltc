@@ -1,6 +1,17 @@
+﻿--
+-- Create Latimer Core MySQL Schema
+-- MySQL Server version: 8.0.34
+-- Created By: Ben Norton
+-- Created On: 20240109
+--
+-- Notes
+-- The database schema retains naming conventions used in the data standard. Future usage should
+-- strongly consider altering the TDWG naming conventions for conventions better suited to SQL databases.
+-- All foreign keys are nullable and use the standard syntax prefix has.
+
 CREATE SCHEMA latimer_core_schema;
 
-CREATE  TABLE latimer_core_schema.ltc_termlist ( 
+CREATE  TABLE latimer_core_schema.ltc_termlist (
 	namespace            VARCHAR(50)   CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci    ,
 	term_local_name      VARCHAR(50)   CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci    ,
 	label                VARCHAR(100)   CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci    ,
@@ -16,16 +27,16 @@ CREATE  TABLE latimer_core_schema.ltc_termlist (
 	namespace_iri        VARCHAR(50)   CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci    ,
 	term_iri             VARCHAR(100)   CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci    ,
 	term_ns_name         VARCHAR(100)   CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci    ,
-	datatype             VARCHAR(50)   CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci    
+	datatype             VARCHAR(50)   CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci AVG_ROW_LENGTH=718 ROW_FORMAT=DYNAMIC;
 
-CREATE  TABLE latimer_core_schema.address ( 
+CREATE  TABLE latimer_core_schema.address (
 	id                   INT    NOT NULL   PRIMARY KEY,
 	`addressCountry`     VARCHAR(255)   COLLATE utf8mb4_general_ci NOT NULL   ,
-	`addressLocality`    VARCHAR(255)   COLLATE utf8mb4_general_ci    
+	`addressLocality`    VARCHAR(255)   COLLATE utf8mb4_general_ci
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
-CREATE  TABLE latimer_core_schema.chronometricage ( 
+CREATE  TABLE latimer_core_schema.chronometricage (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	`chronometricAgeProtocol` VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
 	`chronometricAgeRemarks` VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
@@ -38,14 +49,14 @@ CREATE  TABLE latimer_core_schema.chronometricage (
 	`hasIdentifier`      INT       ,
 	`hasMeasurementOrFact` INT       ,
 	`hasReference`       INT       ,
-	CONSTRAINT unq_chronometricage_hasreference UNIQUE ( `hasReference` ) 
+	CONSTRAINT unq_chronometricage_hasreference UNIQUE ( `hasReference` )
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE INDEX fk_chronometricage_indentifier ON latimer_core_schema.chronometricage ( `hasIdentifier` );
 
 CREATE INDEX fk_chronometricage_measurementorfact ON latimer_core_schema.chronometricage ( `hasMeasurementOrFact` );
 
-CREATE  TABLE latimer_core_schema.collectionstatushistory ( 
+CREATE  TABLE latimer_core_schema.collectionstatushistory (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	`hasTemporalCoverage` INT       ,
 	`status`             VARCHAR(255)   COLLATE utf8mb4_general_ci NOT NULL   ,
@@ -54,7 +65,7 @@ CREATE  TABLE latimer_core_schema.collectionstatushistory (
 	`hasIdentifier`      INT       ,
 	`hasMeasurementOrFact` INT       ,
 	`hasReference`       INT       ,
-	CONSTRAINT unq_collectionstatushistory_hasmeasurementorfact UNIQUE ( `hasMeasurementOrFact` ) 
+	CONSTRAINT unq_collectionstatushistory_hasmeasurementorfact UNIQUE ( `hasMeasurementOrFact` )
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE INDEX fk_collectionstatushistory_indentifier ON latimer_core_schema.collectionstatushistory ( `hasIdentifier` );
@@ -63,17 +74,17 @@ CREATE INDEX fk_collectionstatushistory_reference ON latimer_core_schema.collect
 
 CREATE INDEX fk_collectionstatushistory_temporalcoverage ON latimer_core_schema.collectionstatushistory ( `hasTemporalCoverage` );
 
-CREATE  TABLE latimer_core_schema.contactdetail ( 
+CREATE  TABLE latimer_core_schema.contactdetail (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	`contactDetailCategory` VARCHAR(255)   COLLATE utf8mb4_general_ci NOT NULL   ,
 	`contactDetailFunction` JSON       ,
 	`contactDetailValue` VARCHAR(255)   COLLATE utf8mb4_general_ci NOT NULL   ,
-	`hasIdentifier`      INT       
+	`hasIdentifier`      INT
  ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE INDEX fk_contactdetail_indentifier ON latimer_core_schema.contactdetail ( `hasIdentifier` );
 
-CREATE  TABLE latimer_core_schema.ecologicalcontext ( 
+CREATE  TABLE latimer_core_schema.ecologicalcontext (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	`biogeographicRealm` VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
 	biome                VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
@@ -84,7 +95,7 @@ CREATE  TABLE latimer_core_schema.ecologicalcontext (
 	habitat              VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
 	`hasIdentifier`      INT       ,
 	`hasMeasurementOrFact` INT       ,
-	`hasReference`       INT       
+	`hasReference`       INT
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE INDEX fk_ecologicalcontext_indentifier ON latimer_core_schema.ecologicalcontext ( `hasIdentifier` );
@@ -93,7 +104,7 @@ CREATE INDEX fk_ecologicalcontext_measurementorfact ON latimer_core_schema.ecolo
 
 CREATE INDEX fk_ecologicalcontext_reference ON latimer_core_schema.ecologicalcontext ( `hasReference` );
 
-CREATE  TABLE latimer_core_schema.event ( 
+CREATE  TABLE latimer_core_schema.event (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	`eventName`          VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
 	`hasEcologicalContext` INT       ,
@@ -110,7 +121,7 @@ CREATE  TABLE latimer_core_schema.event (
 	CONSTRAINT unq_event_haspersonrole UNIQUE ( `hasPersonRole` ) ,
 	CONSTRAINT unq_event_hasparentevent UNIQUE ( `hasParentEvent` ) ,
 	CONSTRAINT unq_event_hasecologicalcontext UNIQUE ( `hasEcologicalContext` ) ,
-	CONSTRAINT unq_event_hasreference UNIQUE ( `hasReference` ) 
+	CONSTRAINT unq_event_hasreference UNIQUE ( `hasReference` )
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE INDEX fk_event_indentifier ON latimer_core_schema.event ( `hasIdentifier` );
@@ -119,7 +130,7 @@ CREATE INDEX fk_event_measurementorfact ON latimer_core_schema.event ( `hasMeasu
 
 CREATE INDEX fk_event_temporalcoverage ON latimer_core_schema.event ( `hasTemporalCoverage` );
 
-CREATE  TABLE latimer_core_schema.geographiccontext ( 
+CREATE  TABLE latimer_core_schema.geographiccontext (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	continent            VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
 	country              VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
@@ -135,7 +146,7 @@ CREATE  TABLE latimer_core_schema.geographiccontext (
 	`waterBodyType`      VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
 	`hasIdentifier`      INT       ,
 	`hasMeasurementOrFact` INT       ,
-	`hasReference`       INT       
+	`hasReference`       INT
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE INDEX fk_geographiccontext_indentifier ON latimer_core_schema.geographiccontext ( `hasIdentifier` );
@@ -144,7 +155,7 @@ CREATE INDEX fk_geographiccontext_measurementorfact ON latimer_core_schema.geogr
 
 CREATE INDEX fk_geographiccontext_reference ON latimer_core_schema.geographiccontext ( `hasReference` );
 
-CREATE  TABLE latimer_core_schema.geologicalcontext ( 
+CREATE  TABLE latimer_core_schema.geologicalcontext (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	supergroup           VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
 	`_group`             VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
@@ -164,22 +175,22 @@ CREATE  TABLE latimer_core_schema.geologicalcontext (
 	`hasIdentifier`      INT       ,
 	`hasMeasurementOrFact` INT       ,
 	`hasReference`       INT       ,
-	CONSTRAINT unq_geologicalcontext_hasreference UNIQUE ( `hasReference` ) 
+	CONSTRAINT unq_geologicalcontext_hasreference UNIQUE ( `hasReference` )
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE INDEX fk_geologicalcontext_indentifier ON latimer_core_schema.geologicalcontext ( `hasIdentifier` );
 
 CREATE INDEX fk_geologicalcontext_measurementorfact ON latimer_core_schema.geologicalcontext ( `hasMeasurementOrFact` );
 
-CREATE  TABLE latimer_core_schema.identifier ( 
+CREATE  TABLE latimer_core_schema.identifier (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	`identifierSource`   VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
 	`identifierType`     VARCHAR(255)   COLLATE utf8mb4_general_ci NOT NULL   ,
 	`identifierValue`    VARCHAR(255)   COLLATE utf8mb4_general_ci NOT NULL   ,
-	hasreference         INT   COLLATE utf8mb4_general_ci    
+	hasreference         INT   COLLATE utf8mb4_general_ci
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
-CREATE  TABLE latimer_core_schema.latimercorescheme ( 
+CREATE  TABLE latimer_core_schema.latimercorescheme (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	`basisOfScheme`      VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
 	`hasObjectGroup`     INT       ,
@@ -190,7 +201,7 @@ CREATE  TABLE latimer_core_schema.latimercorescheme (
 	`hasIdentifier`      INT       ,
 	`hasReference`       INT       ,
 	CONSTRAINT unq_latimercorescheme_hasobjectgroup UNIQUE ( `hasObjectGroup` ) ,
-	CONSTRAINT unq_latimercorescheme_hasreference UNIQUE ( `hasReference` ) 
+	CONSTRAINT unq_latimercorescheme_hasreference UNIQUE ( `hasReference` )
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE INDEX fk_latimercorescheme_indentifier ON latimer_core_schema.latimercorescheme ( `hasIdentifier` );
@@ -199,7 +210,7 @@ CREATE INDEX fk_latimercorescheme_schememeasurementorfact ON latimer_core_schema
 
 CREATE INDEX fk_latimercorescheme_schemeterm ON latimer_core_schema.latimercorescheme ( `hasSchemeTerm` );
 
-CREATE  TABLE latimer_core_schema.measurementorfact ( 
+CREATE  TABLE latimer_core_schema.measurementorfact (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	`measurementAccuracy` VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
 	`measurementDerivation` VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
@@ -211,12 +222,12 @@ CREATE  TABLE latimer_core_schema.measurementorfact (
 	`measurementValue`   DECIMAL(10,0)       ,
 	`hasIdentifier`      INT       ,
 	`hasReference`       INT       ,
-	CONSTRAINT unq_measurementorfact_hasreference UNIQUE ( `hasReference` ) 
+	CONSTRAINT unq_measurementorfact_hasreference UNIQUE ( `hasReference` )
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE INDEX fk_measurementorfact_indentifier ON latimer_core_schema.measurementorfact ( `hasIdentifier` );
 
-CREATE  TABLE latimer_core_schema.objectclassification ( 
+CREATE  TABLE latimer_core_schema.objectclassification (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	`hasObjectClassification` INT       ,
 	`isTopParent`        BOOLEAN       ,
@@ -225,14 +236,14 @@ CREATE  TABLE latimer_core_schema.objectclassification (
 	`hasIdentifier`      INT       ,
 	`hasMeasurementOrFact` INT       ,
 	`hasReference`       INT       ,
-	CONSTRAINT unq_objectclassification_hasreference UNIQUE ( `hasReference` ) 
+	CONSTRAINT unq_objectclassification_hasreference UNIQUE ( `hasReference` )
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE INDEX fk_objectclassification_indentifier ON latimer_core_schema.objectclassification ( `hasIdentifier` );
 
 CREATE INDEX fk_objectclassification_measurementorfact ON latimer_core_schema.objectclassification ( `hasMeasurementOrFact` );
 
-CREATE  TABLE latimer_core_schema.objectgroup ( 
+CREATE  TABLE latimer_core_schema.objectgroup (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	`alternativeCollectionName` JSON       ,
 	`baseTypeOfObjectGroup` JSON    NOT NULL   ,
@@ -266,7 +277,7 @@ CREATE  TABLE latimer_core_schema.objectgroup (
 	`hasIdentifier`      INT       ,
 	`hasReference`       INT       ,
 	`hasMeasurementOrFact` INT       ,
-	CONSTRAINT unq_objectgroup_hascollectionstatushistory UNIQUE ( `hasCollectionStatusHistory` ) 
+	CONSTRAINT unq_objectgroup_hascollectionstatushistory UNIQUE ( `hasCollectionStatusHistory` )
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE INDEX fk_objectgroup_chronometricage ON latimer_core_schema.objectgroup ( `hasChronometricAge` );
@@ -295,7 +306,7 @@ CREATE INDEX fk_objectgroup_storagelocation ON latimer_core_schema.objectgroup (
 
 CREATE INDEX fk_objectgroup_taxon ON latimer_core_schema.objectgroup ( `hasTaxon` );
 
-CREATE  TABLE latimer_core_schema.organisationalunit ( 
+CREATE  TABLE latimer_core_schema.organisationalunit (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	`hasAddress`         INT       ,
 	`hasContactDetail`   INT       ,
@@ -306,7 +317,7 @@ CREATE  TABLE latimer_core_schema.organisationalunit (
 	`hasIdentifier`      INT       ,
 	`hasMeasurementOrFact` INT       ,
 	`hasReference`       INT       ,
-	CONSTRAINT unq_organisationalunit_haspersonrole UNIQUE ( `hasPersonRole` ) 
+	CONSTRAINT unq_organisationalunit_haspersonrole UNIQUE ( `hasPersonRole` )
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE INDEX fk_organisationalunit_address ON latimer_core_schema.organisationalunit ( `hasAddress` );
@@ -319,7 +330,7 @@ CREATE INDEX fk_organisationalunit_organisationalunit ON latimer_core_schema.org
 
 CREATE INDEX fk_organisationalunit_reference ON latimer_core_schema.organisationalunit ( `hasReference` );
 
-CREATE  TABLE latimer_core_schema.person ( 
+CREATE  TABLE latimer_core_schema.person (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	`fullName`           VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
 	`givenName`          VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
@@ -329,7 +340,7 @@ CREATE  TABLE latimer_core_schema.person (
 	`hasContactDetail`   INT       ,
 	`hasIdentifier`      INT       ,
 	`hasMeasurementOrFact` INT       ,
-	`hasReference`       INT       
+	`hasReference`       INT
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE INDEX fk_person_address ON latimer_core_schema.person ( `hasAddress` );
@@ -342,7 +353,7 @@ CREATE INDEX fk_person_measurementorfact ON latimer_core_schema.person ( `hasMea
 
 CREATE INDEX fk_person_reference ON latimer_core_schema.person ( `hasReference` );
 
-CREATE  TABLE latimer_core_schema.personrole ( 
+CREATE  TABLE latimer_core_schema.personrole (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	`hasAddress`         INT       ,
 	`hasContactDetail`   INT       ,
@@ -353,7 +364,7 @@ CREATE  TABLE latimer_core_schema.personrole (
 	`hasMeasurementOrFact` INT       ,
 	`hasReference`       INT       ,
 	CONSTRAINT unq_personrole_hasperson UNIQUE ( `hasPerson` ) ,
-	CONSTRAINT unq_personrole_hasrole UNIQUE ( `hasRole` ) 
+	CONSTRAINT unq_personrole_hasrole UNIQUE ( `hasRole` )
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE INDEX fk_personrole_address ON latimer_core_schema.personrole ( `hasAddress` );
@@ -368,7 +379,7 @@ CREATE INDEX fk_personrole_reference ON latimer_core_schema.personrole ( `hasRef
 
 CREATE INDEX fk_personrole_temporalcoverage ON latimer_core_schema.personrole ( `hasTemporalCoverage` );
 
-CREATE  TABLE latimer_core_schema.recordlevel ( 
+CREATE  TABLE latimer_core_schema.recordlevel (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	`hasObjectGroup`     INT       ,
 	`hasPersonRole`      INT       ,
@@ -379,7 +390,7 @@ CREATE  TABLE latimer_core_schema.recordlevel (
 	`rightsHolder`       VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
 	`hasIdentifier`      INT    NOT NULL   ,
 	`hasReference`       INT       ,
-	CONSTRAINT unq_recordlevel_haspersonrole UNIQUE ( `hasPersonRole` ) 
+	CONSTRAINT unq_recordlevel_haspersonrole UNIQUE ( `hasPersonRole` )
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE INDEX fk_recordlevel_indentifier ON latimer_core_schema.recordlevel ( `hasIdentifier` );
@@ -388,16 +399,16 @@ CREATE INDEX fk_recordlevel_reference ON latimer_core_schema.recordlevel ( `hasR
 
 CREATE INDEX fk_recordlevel_resourcerelationship ON latimer_core_schema.recordlevel ( `hasResourceRelationship` );
 
-CREATE  TABLE latimer_core_schema.reference ( 
+CREATE  TABLE latimer_core_schema.reference (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	`referenceDetails`   VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
 	`referenceName`      VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
 	`referenceType`      VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
 	`resourceIRI`        VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
-	`hasIdentifier`      INT       
+	`hasIdentifier`      INT
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
-CREATE  TABLE latimer_core_schema.resourcerelationship ( 
+CREATE  TABLE latimer_core_schema.resourcerelationship (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	`relatedResourceID`  VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
 	`relatedResourceName` VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
@@ -408,44 +419,44 @@ CREATE  TABLE latimer_core_schema.resourcerelationship (
 	`resourceID`         VARCHAR(255)   COLLATE utf8mb4_general_ci NOT NULL   ,
 	`hasIdentifier`      INT       ,
 	`hasReference`       INT       ,
-	CONSTRAINT unq_resourcerelationship_hasreference UNIQUE ( `hasReference` ) 
+	CONSTRAINT unq_resourcerelationship_hasreference UNIQUE ( `hasReference` )
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE INDEX fk_resourcerelationship_indentifier ON latimer_core_schema.resourcerelationship ( `hasIdentifier` );
 
-CREATE  TABLE latimer_core_schema.role ( 
+CREATE  TABLE latimer_core_schema.role (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	`roleName`           VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
-	`hasIdentifier`      INT       
+	`hasIdentifier`      INT
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE INDEX fk_role_indentifier ON latimer_core_schema.role ( `hasIdentifier` );
 
-CREATE  TABLE latimer_core_schema.schememeasurementorfact ( 
+CREATE  TABLE latimer_core_schema.schememeasurementorfact (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	`isMandatoryMetric`  BOOLEAN    NOT NULL   ,
 	`isRepeatableMetric` BOOLEAN    NOT NULL   ,
 	`schemeMeasurementType` VARCHAR(255)   COLLATE utf8mb4_general_ci NOT NULL   ,
 	`hasIdentifier`      INT       ,
 	`hasReference`       INT       ,
-	CONSTRAINT unq_schememeasurementorfact_hasreference UNIQUE ( `hasReference` ) 
+	CONSTRAINT unq_schememeasurementorfact_hasreference UNIQUE ( `hasReference` )
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE INDEX fk_schememeasurementorfact_indentifier ON latimer_core_schema.schememeasurementorfact ( `hasIdentifier` );
 
-CREATE  TABLE latimer_core_schema.schemeterm ( 
+CREATE  TABLE latimer_core_schema.schemeterm (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	`isMandatoryTerm`    BOOLEAN    NOT NULL   ,
 	`isRepeatableTerm`   BOOLEAN    NOT NULL   ,
 	`termName`           VARCHAR(255)   COLLATE utf8mb4_general_ci NOT NULL   ,
 	`hasIdentifier`      INT       ,
 	`hasReference`       INT       ,
-	CONSTRAINT unq_schemeterm_hasreference UNIQUE ( `hasReference` ) 
+	CONSTRAINT unq_schemeterm_hasreference UNIQUE ( `hasReference` )
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE INDEX fk_schemeterm_indentifier ON latimer_core_schema.schemeterm ( `hasIdentifier` );
 
-CREATE  TABLE latimer_core_schema.storagelocation ( 
+CREATE  TABLE latimer_core_schema.storagelocation (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	`hasAddress`         INT       ,
 	`hasParentStorageLocation` INT       ,
@@ -456,7 +467,7 @@ CREATE  TABLE latimer_core_schema.storagelocation (
 	`hasMeasurementOrFact` INT       ,
 	`hasReference`       INT       ,
 	CONSTRAINT unq_storagelocation_hasaddress UNIQUE ( `hasAddress` ) ,
-	CONSTRAINT unq_storagelocation_hasparentstoragelocation UNIQUE ( `hasParentStorageLocation` ) 
+	CONSTRAINT unq_storagelocation_hasparentstoragelocation UNIQUE ( `hasParentStorageLocation` )
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE INDEX fk_storagelocation_indentifier ON latimer_core_schema.storagelocation ( `hasIdentifier` );
@@ -465,7 +476,7 @@ CREATE INDEX fk_storagelocation_measurementorfact ON latimer_core_schema.storage
 
 CREATE INDEX fk_storagelocation_reference ON latimer_core_schema.storagelocation ( `hasReference` );
 
-CREATE  TABLE latimer_core_schema.taxon ( 
+CREATE  TABLE latimer_core_schema.taxon (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	genus                VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
 	kingdom              VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
@@ -473,20 +484,20 @@ CREATE  TABLE latimer_core_schema.taxon (
 	`taxonRank`          VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
 	`hasIdentifier`      INT       ,
 	`hasMeasurementOrFact` INT       ,
-	`hasReference`       INT       
+	`hasReference`       INT
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE INDEX fk_taxon_measurementorfact ON latimer_core_schema.taxon ( `hasMeasurementOrFact` );
 
 CREATE INDEX fk_taxon_reference ON latimer_core_schema.taxon ( `hasReference` );
 
-CREATE  TABLE latimer_core_schema.temporalcoverage ( 
+CREATE  TABLE latimer_core_schema.temporalcoverage (
 	id                   INT    NOT NULL AUTO_INCREMENT  PRIMARY KEY,
 	`temporalCoverageEndDateTime` VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
 	`temporalCoverageStartDateTime` VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
 	`temporalCoverageType` VARCHAR(255)   COLLATE utf8mb4_general_ci    ,
 	`hasMeasurementOrFact` INT       ,
-	`hasReference`       INT       
+	`hasReference`       INT
  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci ROW_FORMAT=DYNAMIC;
 
 CREATE INDEX fk_temporalcoverage_measurementorfact ON latimer_core_schema.temporalcoverage ( `hasMeasurementOrFact` );
