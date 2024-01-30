@@ -2,7 +2,7 @@ cff-version: 1.2.0
 title: "TDWG Latimer Core (LtC) Standard"
 message: "If you use this standard, please cite it using the metadata from this file."
 type: "standard"
-license: "CC0-1.0"
+license: "CC-BY-4.0"
 authors:
   - given-names: "Sharon"
     family-names: "Grant"
