@@ -185,9 +185,11 @@ ltc:,Reference,referenceName,string
 ltc:,Reference,referenceType,string
 abcd:,Reference,resourceURI,string
 ltc:,ResourceRelationship,hasIdentifier,array<ltc:Identifier>
+ltc:,ResourceRelationship,hasMeasurementOrFact,array<ltc:MeasurementOrFact>
 ltc:,ResourceRelationship,hasReference,array<ltc:Reference>
 dwc:,ResourceRelationship,relatedResourceID,string
 ltc:,ResourceRelationship,relatedResourceName,string
+ltc:,ResourceRelationship,relatedResourceType,string
 dwc:,ResourceRelationship,relationshipAccordingTo,list
 dwc:,ResourceRelationship,relationshipEstablishedDate,string
 dwc:,ResourceRelationship,relationshipOfResource,string

@@ -125,8 +125,10 @@ http://rs.tdwg.org/ltc/terms/referenceType,broadMatch,http://purl.org/dc/terms/t
 http://rs.tdwg.org/ltc/terms/resourceIRI,broadMatch,http://rs.tdwg.org/abcd/terms/resourceURI
 http://rs.tdwg.org/ltc/terms/ResourceRelationship,closeMatch,http://rs.tdwg.org/dwc/terms/ResourceRelationship
 http://rs.tdwg.org/ltc/terms/hasIdentifier,broadMatch,http://purl.org/dc/terms/relation
+http://rs.tdwg.org/ltc/terms/hasMeasurementOrFact,broadMatch,http://purl.org/dc/terms/relation
 http://rs.tdwg.org/ltc/terms/hasReference,broadMatch,http://purl.org/dc/terms/relation
 http://rs.tdwg.org/ltc/terms/relatedResourceName,broadMatch,http://purl.org/dc/terms/title
+http://rs.tdwg.org/ltc/terms/relatedResourceType,broadMatch,http://purl.org/dc/terms/type
 http://rs.tdwg.org/ltc/terms/relationshipOfResource,closeMatch,http://rs.tdwg.org/dwc/terms/relationshipOfResource
 http://rs.tdwg.org/ltc/terms/Role,broadMatch,http://www.w3.org/ns/prov#Role
 http://rs.tdwg.org/ltc/terms/hasIdentifier,broadMatch,http://purl.org/dc/terms/relation
