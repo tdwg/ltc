@@ -56,7 +56,7 @@ For questions, comments, or critiques, please contact Ben Norton, Review Manager
 Citations provide attribution, visibility, and thus support to the work of the authors and of Biodiversity Information Standards (TDWG) as a not-for-profit organization. At the same time, they promote transparency and accountability, enabling a rights-based approach to standard development.
 
 To cite the current release of the LtC standard
-- Grant, S., Jones, J., Webbink, K., Woodburn, M., Vincent, S., Trekels, M., Buschbom, J., Groom, Q. J., Norton, B., Sanderson, R., Engelbrecht, I., Baskauf, S. J., Addink, W., Bloom, D., Breugelmans, L., Chapman, C., Dröge, G., Grosjean, M., Hahn, A., Krimmel, E., Paul, D., Raes, N., Robertson, T., Ulate, W. & Biodiversity Information Standards (TDWG). TDWG Latimer Core (LtC) Standard [Standard]. https://github.com/tdwg/ltc
+- Grant, S., Jones, J., Webbink, K., Woodburn, M., Vincent, S., Trekels, M., Buschbom, J., Groom, Q. J., Norton, B., Sanderson, R., Engelbrecht, I., Baskauf, S. J., Addink, W., Bloom, D., Breugelmans, L., Chapman, C., Dröge, G., Grosjean, M., Hahn, A., Krimmel, E., Paul, D., Raes, N., Robertson, T., Ulate, W. & Biodiversity Information Standards (TDWG). TDWG Latimer Core (LtC) Standard [Standard]. https://tdwg.github.io/ltc/
 - [CITATION_release.CFF](https://github.com/tdwg/ltc/blob/main/CITATION_release.cff) - a machine-readable version of the citation
 
 To cite this GitHub repository of LtC with its developing information and ongoing work
