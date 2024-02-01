@@ -55,7 +55,7 @@ http://rs.tdwg.org/ltc/terms/hasIdentifier,broadMatch,http://purl.org/dc/terms/r
 http://rs.tdwg.org/ltc/terms/hasReference,broadMatch,http://purl.org/dc/terms/relation
 http://rs.tdwg.org/ltc/terms/hasIdentifier,broadMatch,http://purl.org/dc/terms/relation
 http://rs.tdwg.org/ltc/terms/hasMeasurementOrFact,broadMatch,http://purl.org/dc/terms/relation
-http://rs.tdwg.org/ltc/terms/hasObjectClassification,broadMatch,http://purl.org/dc/terms/relation
+http://rs.tdwg.org/ltc/terms/hasParentObjectClassification,broadMatch,http://purl.org/dc/terms/relation
 http://rs.tdwg.org/ltc/terms/hasReference,broadMatch,http://purl.org/dc/terms/relation
 http://rs.tdwg.org/ltc/terms/objectClassificationName,broadMatch,http://purl.org/dc/terms/title
 http://rs.tdwg.org/ltc/terms/ObjectGroup,broadMatch,http://purl.org/dc/dcmitype/Collection

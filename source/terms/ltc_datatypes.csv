@@ -107,7 +107,7 @@ dwc:,MeasurementOrFact,measurementUnit,string
 dwc:,MeasurementOrFact,measurementValue,number
 ltc:,ObjectClassification,hasIdentifier,array<ltc:Identifier>
 ltc:,ObjectClassification,hasMeasurementOrFact,array<ltc:MeasurementOrFact>
-ltc:,ObjectClassification,hasObjectClassification,array<ltc:ObjectClassification>
+ltc:,ObjectClassification,hasParentObjectClassification,array<ltc:ObjectClassification>
 ltc:,ObjectClassification,hasReference,array<ltc:Reference>
 ltc:,ObjectClassification,isTopParent,boolean
 ltc:,ObjectClassification,objectClassificationLevel,string
