@@ -1,4 +1,5 @@
-*** Originally posted under TDWG News on 2023-12-08 (https://www.tdwg.org/news/2023/latimer-core-public-review/)***
+***Originally posted under TDWG News on 2023-12-08 (https://www.tdwg.org/news/2023/latimer-core-public-review/)***  
+  
 # Public review of the Latimer Core begins
 ### Public comment period open until 19 January 2024  
 
