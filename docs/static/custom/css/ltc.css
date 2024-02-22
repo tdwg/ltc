@@ -113,12 +113,15 @@ table tbody > tr > td {
 table tbody tr:nth-child(even) {
 	background-color: rgba(230,230,230,0.2);
 }
+
 thead tr.class a,
 thead tr th.class a,
 tbody tr.class a,
 tbody tr td.class a {
 	color: rgba(102,10,16,1);
 }
+caption.class,
+caption.property,
 thead tr th.class,
 thead tr th.property,
 thead tr th.class a,
@@ -127,10 +130,12 @@ tbody tr td.class a,
 tbody tr td.property a {
 	color: #FFFFFF;
 }
+caption.property,
 thead tr th.property,
 tbody tr td.property {
 	background-color: rgba(4, 130, 37, 0.8);
 }
+caption.class,
 thead tr th.class,
 tbody tr td.class {
 	background-color: rgba(102, 14, 17, 0.8);
