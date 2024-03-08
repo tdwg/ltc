@@ -76,6 +76,10 @@ p a {
 	font-size: 1rem;
 	padding-bottom: 10px;
 }
+body > footer {
+	color: #FFFFFF;
+	border-top-color: #FFFFFF;
+}
 /* Table Adjustments ------------------------------- */
 main .container.content table {
 	width: 100%;
@@ -472,6 +476,10 @@ body > footer {
 .footer-logo {
 	max-width: 150px;
 	height: auto;
+}
+.list-inline-item .footer-logo {
+	height: 40px;
+	width: auto;
 }
 body > footer p {
 	color: #FFFFFF;
