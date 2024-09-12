@@ -112,16 +112,16 @@
 : Latimer Core List of Terms</p>
 
 <p><strong>Date version issued</strong>
-: 2024-02-28</p>
+: yyyy-mm-dd</p>
 
 <p><strong>Date created</strong>
-: 2024-02-28</p>
+: yyyy-mm-dd</p>
 
 <p><strong>Part of TDWG Standard</strong>
 : <a href="http://www.tdwg.org/standards/643">http://www.tdwg.org/standards/643</a></p>
 
 <p><strong>This version</strong>
-: <a href="http://rs.tdwg.org/ltc/doc/list/2024-02-28">http://rs.tdwg.org/ltc/doc/list/2024-02-28</a></p>
+: <a href="http://rs.tdwg.org/ltc/doc/list/yyyy-mm-dd">http://rs.tdwg.org/ltc/doc/list/yyyy-mm-dd</a></p>
 
 <p><strong>Latest version</strong>
 : <a href="http://rs.tdwg.org/ltc/doc/list/">http://rs.tdwg.org/ltc/doc/list/</a></p>
@@ -138,9 +138,9 @@
 : TDWG Collection Descriptions (CD) Interest Group</p>
 
 <p><strong>Bibliographic citation</strong>
-: Latimer Core Maintenance Group. 2022. Latimer Core List of Terms. Biodiversity Information Standards (TDWG). <a href="http://rs.tdwg.org/ltc/doc/list/2024-02-28">http://rs.tdwg.org/ltc/doc/list/2024-02-28</a></p>
+: Latimer Core Maintenance Group. 2022. Latimer Core List of Terms. Biodiversity Information Standards (TDWG). <a href="http://rs.tdwg.org/ltc/doc/list/yyyy-mm-dd">http://rs.tdwg.org/ltc/doc/list/yyyy-mm-dd</a></p>
 
-<h2>1 Introduction <span id="1-introduction"></span></h2>
+<h2>1 Introduction <span id="1-introduction"><span></h2>
 
 <h3>1.1 Status of the content of this document <span id="11-status-of-the-content-of-this-document"></span></h3>
 
@@ -148,7 +148,7 @@
 
 <h3>1.2 RFC 2119 key words <span id="12-rfc-2119-key-words"></span></h3>
 
-<p>The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in BCP 14 <a href="https://tools.ietf.org/html/rfc2119">RFC 2119</a> and <a href="https://datatracker.ietf.org/doc/html/rfc8174">RFC 8174</a> when, and only when, they appear in all capitals, as shown here.</p>
+<p>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="https://tools.ietf.org/html/rfc2119">RFC 2119</a>.</p>
 
 <h3>1.3 Categories of terms <span id="13-categories-of-terms"></span></h3>
 
@@ -156,7 +156,7 @@
 
 <p><strong>Terms describing the nature and scope of the collection objects within the group.</strong> These include a number of terms within <code>ltc:ObjectGroup</code> class, and associated classes that provide information about the scope of the collection being described such as the <code>ltc:GeographicOrigin</code>, <code>ltc:GeologicalContext</code> and <code>ltc:Taxon</code> classes. Due to the potentially heterogeneous nature of the objects within any given group, these classes and terms will often be repeatable within a LtC record.</p>
 
-<p><strong>Terms describing the group as a whole.</strong> These are terms that relate to the group as a single entity, mapping to the concept of a 'collection'. They include basic information terms within the <code>ltc:ObjectGroup</code> class, such as <code>ltc:collectionName</code> and <code>ltc:description</code>, but also include terms relating to the management, accessibility and tracking of the collection such as the <code>ltc:CollectionHistory</code> class and <code>ltc:conditionsOfAccess</code> property. There is also some overlap with the generic terms in the category below, in the association of people, institutions and other organisational units with the collections.</p>
+<p><strong>Terms describing the group as a whole.</strong> These are terms that relate to the group as a single entity, mapping to the concept of a 'collection'. They include basic information terms within the <code>ltc:ObjectGroup</code> class, such as <code>ltc:collectionName</code> and <code>ltc:description</code>, but also include terms relating to the management, accessibility and tracking of the collection such as the <code>ltc:CollectionHistory</code> class and <code>ltc:conditionsOfAccess</code> property. There is also some overlap with the generic terms in the category below, in the association of people, institutions and other organisational units with the collections.  </p>
 
 <p><strong>Generic, reusable terms that can be applied in several contexts within the standard.</strong> Latimer Core uses a flexible approach to the representation of concepts that may be applicable in more than one concept within the class. For example, rather than specifying a separate term for each type of relevant identifier (for collections, people, organisations, taxa and so on), LtC has a generic <code>ltc:Identifier</code> class. The type of identifier is defined in each instance of the class using the <code>ltc:identifierType</code> property, and the object to which it relates (such as an instance of <code>ltc:Person</code> or <code>ltc:OrganisationalUnit</code>) is defined by the association with that class in the dataset. A similar approach applies to other classes in LtC, including <code>ltc:Address</code>, <code>ltc:ContactDetail</code> and <code>ltc:OrganisationalUnit</code>. Similarly, <code>ltc:Person</code> is reusable, but uses the <code>ltc:PersonRole</code> class in conjunction with the <code>ltc:Role</code> class to associate the person with instances of other classes in a particular role context (e.g. 'Collector', 'Record creator').</p>
 
@@ -195,30 +195,19 @@
 <tr>
   <td><a href="https://schema.org/">Schema.org</a></td>
   <td>Schema</td>
-  <td><code>schema: =  https://schema.org/version/latest/schemaorg-current-https.rdf</code></td>
+  <td><code>schema: =  https://schema.org/</code></td>
 </tr>
 <tr>
   <td><a href="https://abcd.tdwg.org/">Access to Biological Collection Data</a></td>
   <td>ABCD</td>
-  <td><code>abcd: = https://abcd.tdwg.org/terms/</code></td>
+  <td><code>abcd: = http://rs.tdwg.org/abcd/terms/</code></td>
 </tr>
 </tbody>
 </table>
 
 <h2>3 Namespaces, Prefixes and Term Names <span id="3-namespace-prefixes-term-names"></span></h2>
 
-<p>The namespace of terms borrowed from other vocabularies is that of the original.
-The namespace of de novo LtC terms is http://rs.tdwg.org/ltc/terms/. In the table of terms,
-each term entry has a row with the term name. This term name is generally an “unqualified name”
-preceded by a widely accepted prefix designating an abbreviation for the namespace It is
-RECOMMENDED that implementers who need a namespace prefix for the LtC namespace use ltc.
-In this web document, hovering over a term in the <a href="https://ltc.tdwg.org/termlist/#index-by-term-name">Index By Term Name</a> list below will
-reveal a complete URL that can be used in other web documents to link to this document’s treatment
-of that term, even if it is from a borrowed vocabulary. It is very important to note that some
-vocabularies, e.g those of the <a href="http://dublincore.org/">Dublin Core Metadata Initiative (DCMI)</a>, provide versions
-of the same term in two different namespaces, one providing for string values and one providing
-for IRIs, even where that separation is simply a recommendation, not a mandate. See this
-<a href="https://web.archive.org/web/20171126043657/https://github.com/dcmi/repository/blob/master/mediawiki_wiki/FAQ/DC_and_DCTERMS_Namespaces.md">DCMI wiki entry</a> on this topic.</p>
+<p>The namespace of terms borrowed from other vocabularies is that of the original. The namespace of de novo LtC terms is http://rs.tdwg.org/ltc/terms/. In the table of terms, each term entry has a row with the term name. This term name is generally an “unqualified name” preceded by a widely accepted prefix designating an abbreviation for the namespace It is RECOMMENDED that implementers who need a namespace prefix for the LtC namespace use ltc. In this web document, hovering over a term in the <a href="https://ltc.tdwg.org/termlist/#index-by-term-name">Index By Term Name</a> list below will reveal a complete URL that can be used in other web documents to link to this document’s treatment of that term, even if it is from a borrowed vocabulary. It is very important to note that some vocabularies, e.g those of the <a href="http://dublincore.org/">Dublin Core Metadata Initiative (DCMI)</a>, provide versions of the same term in two different namespaces, one providing for string values and one providing for IRIs, even where that separation is simply a recommendation, not a mandate. See this <a href="https://web.archive.org/web/20171126043657/https://github.com/dcmi/repository/blob/master/mediawiki_wiki/FAQ/DC_and_DCTERMS_Namespaces.md">DCMI wiki entry</a> on this topic.</p>
 
 				</div>
 				<h2 id="4-term-index">4 Term index</h2>
