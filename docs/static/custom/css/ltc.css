@@ -24,7 +24,7 @@ span {
 	font-family: Roboto, sans-serif;
 }
 .content-header-wrapper table tr td:first-of-type {
-	width: 30%;
+	width: 35%;
 }
 main.ltc-content .container.content h1 {
 	color: rgb(17, 24, 39);
@@ -115,9 +115,11 @@ table tbody > tr > td {
 	padding: 7px 10px;
 }
 table tbody tr:nth-child(even) {
-	background-color: rgba(230,230,230,0.2);
+	background-color: rgba(230,230,230,0.3);
 }
-
+.content-header-wrapper table tbody tr:nth-child(even) {
+	background-color: rgba(230, 230, 230, 0.3);
+}
 thead tr.class a,
 thead tr th.class a,
 tbody tr.class a,
