@@ -1,13 +1,28 @@
-/* Units
+/*
+StaDocGen Custom Page Styling
+Ben Norton
+Last Modified: 202411060
 
+
+Units
 0.8rem 12.8px
 0.9rem 14.4px
 1.0rem 16px
 1.2rem 19.2px
 1.2rem
 1.5rem 24px
+*/
 
- */
+/* Smooth Scrolling */
+html,body {
+	scroll-behavior: smooth;
+}
+@media screen and (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+
 body,
 .container,
 .row,
@@ -503,7 +518,8 @@ table.table-sssom tbody tr th {
 table.table-sssom tbody tr td.indicator-td {
 	width: 4%;
 	border: none;
-	test-align: center;
+	text-align: center;
+	cursor: pointer;
 }
 table.table-sssom tbody tr th.col-w-4:hover {
 	background-color: #560D59;
@@ -794,42 +810,5 @@ Purple: #560D59
 .toggle-fullscreen-btn.on .icon-fullscreen-enter {
 	display: none;
 }
-/* Back to Top */
-
-  .back-to-top {
-    background-color: #560D59;
-    color: #FFFFFF;
-    opacity: 0;
-    transition: opacity .6s ease-in-out;
-    z-index: 999;
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    width: 50px;
-    height: 50px;
-    box-sizing: border-box;
-    border-radius: 0%;
-  }
-.back-to-top i.fa {
-	color: #FFFFFF;
-}
-  a.back-to-top {
-    font-weight: 1000;
-    letter-spacing: 2px;
-    font-size: 14px;
-    text-transform: uppercase;
-    text-align: center;
-    line-height: 1.6;
-    padding-left: 2px;
-    padding-top: 14px;
-  }
-
-  .back-to-top:hover, .back-to-top:focus, .back-to-top:visited {
-    color: #FFFFFF;
-  }
-
-  .back-to-top.show {
-    opacity: 1;
-  }
 
 

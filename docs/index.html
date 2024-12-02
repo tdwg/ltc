@@ -3,7 +3,7 @@
   <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Home - Latimer Core</title>
+	<title>Latimer Core Home</title>
 	<meta property="og:url" content="https://tdwg.github.io/ltc/list/">
 	<meta property="og:type" content="website">
 	<meta property="og:title" content="Latimer Core List of Terms">
@@ -21,12 +21,12 @@
 
 
 </head>
-<body>
+<body id="page-top">
 <nav class="navbar navbar-expand-lg navbar-dark bg-ltc" id="main-nav">
 	<div class="container">
 	    <a class="navbar-brand d-flex align-items-center" href="https://ltc.tdwg.org/">
 	        <img class="me-3" src="https://tdwg.github.io/chrono/assets/theme/images/tdwg-logo-short.svg" alt="Latimer Core">
-			Latimer Core      
+            Latimer Core
 	    </a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
 			Menu <i class="fas fa-bars"></i>
@@ -69,7 +69,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 col-lg-8 position-relative mx-auto">
-				<h1> Home </h1>
+				<h1> Latimer Core </h1>
 				<div class="lead"></div>
 			</div>
 		</div>
@@ -100,7 +100,7 @@
 </main>
 
 
-<a href="#" id="back-to-top" class="back-to-top" style="display: inline;"><i class="fa fa-arrow-up"></i></a>
+
 <footer>
 	<div class="container">
         <div class="row">
@@ -179,6 +179,7 @@
 
 	<script>
         $(document).ready(function () {
+			// Help popovers for SKOS terms
              $('[data-bs-toggle="popover"]').popover({
                 trigger: 'click',
                 container: '.popover-container',
@@ -197,37 +198,14 @@
                    $('[data-bs-toggle="popover"]').popover('hide');
                 }
             });
+			// Mermaid E-R Diagrams
 			mermaid.initialize({
                 theme: 'forest',
                 securityLevel: 'loose',
 			});
 		});
-        var link = document.getElementById("back-to-top");
-        link.classList.add('show');
-        var amountScrolled = 450;
 
-        window.addEventListener('scroll', function(e) {
-            var scrollTop = (window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop;
-            console.log(scrollTop);
-            if ( window.pageYOffset > amountScrolled ) {
-                link.classList.add('show');
-            } else {
-                link.className = 'back-to-top';
-            }
-        });
-        <!-- Scrolls to Top -->
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            var distance = 0 - window.pageYOffset;
-            var increments = distance/(500/16);
-            function animateScroll() {
-                window.scrollBy(0, increments);
-                if (window.pageYOffset <= document.body.offsetTop) {
-                  clearInterval(runAnimation);
-                }
-            };
-            var runAnimation = setInterval(animateScroll, 10);
-        });
+
 	</script>
 </body>
 </html>
