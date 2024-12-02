@@ -1,19 +1,19 @@
-# Latimer Core List of Terms 
+# Latimer Core List of Terms
 
 **Title**
 : Latimer Core List of Terms
 
 **Date version issued**
-: yyyy-mm-dd
+: 2024-02-28
 
 **Date created**
-: yyyy-mm-dd
+: 2024-02-28
 
 **Part of TDWG Standard**
 : <http://www.tdwg.org/standards/643>
 
 **This version**
-: <http://rs.tdwg.org/ltc/doc/list/yyyy-mm-dd>
+: <http://rs.tdwg.org/ltc/doc/list/2024-02-28>
 
 **Latest version**
 : <http://rs.tdwg.org/ltc/doc/list/>
@@ -30,7 +30,7 @@ The creation of collection-level records is intended to promote visibility and u
 : TDWG Collection Descriptions (CD) Interest Group
 
 **Bibliographic citation**
-: Latimer Core Maintenance Group. 2022. Latimer Core List of Terms. Biodiversity Information Standards (TDWG). <http://rs.tdwg.org/ltc/doc/list/yyyy-mm-dd>
+: Latimer Core Maintenance Group. 2022. Latimer Core List of Terms. Biodiversity Information Standards (TDWG). <http://rs.tdwg.org/ltc/doc/list/2024-02-28>
 
 ## 1 Introduction <span id="1-introduction"><span>
 ### 1.1 Status of the content of this document <span id="11-status-of-the-content-of-this-document"></span>
@@ -44,7 +44,7 @@ A Latimer Core (LtC) record is a description of a grouping of collection objects
 
 **Terms describing the nature and scope of the collection objects within the group.** These include a number of terms within `ltc:ObjectGroup` class, and associated classes that provide information about the scope of the collection being described such as the `ltc:GeographicOrigin`, `ltc:GeologicalContext` and `ltc:Taxon` classes. Due to the potentially heterogeneous nature of the objects within any given group, these classes and terms will often be repeatable within a LtC record.
 
-**Terms describing the group as a whole.** These are terms that relate to the group as a single entity, mapping to the concept of a 'collection'. They include basic information terms within the `ltc:ObjectGroup` class, such as `ltc:collectionName` and `ltc:description`, but also include terms relating to the management, accessibility and tracking of the collection such as the `ltc:CollectionHistory` class and `ltc:conditionsOfAccess` property. There is also some overlap with the generic terms in the category below, in the association of people, institutions and other organisational units with the collections.  
+**Terms describing the group as a whole.** These are terms that relate to the group as a single entity, mapping to the concept of a 'collection'. They include basic information terms within the `ltc:ObjectGroup` class, such as `ltc:collectionName` and `ltc:description`, but also include terms relating to the management, accessibility and tracking of the collection such as the `ltc:CollectionHistory` class and `ltc:conditionsOfAccess` property. There is also some overlap with the generic terms in the category below, in the association of people, institutions and other organisational units with the collections.
 
 **Generic, reusable terms that can be applied in several contexts within the standard.** Latimer Core uses a flexible approach to the representation of concepts that may be applicable in more than one concept within the class. For example, rather than specifying a separate term for each type of relevant identifier (for collections, people, organisations, taxa and so on), LtC has a generic `ltc:Identifier` class. The type of identifier is defined in each instance of the class using the `ltc:identifierType` property, and the object to which it relates (such as an instance of `ltc:Person` or `ltc:OrganisationalUnit`) is defined by the association with that class in the dataset. A similar approach applies to other classes in LtC, including `ltc:Address`, `ltc:ContactDetail` and `ltc:OrganisationalUnit`. Similarly, `ltc:Person` is reusable, but uses the `ltc:PersonRole` class in conjunction with the `ltc:Role` class to associate the person with instances of other classes in a particular role context (e.g. 'Collector', 'Record creator').
 
