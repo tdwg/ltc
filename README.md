@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14418253.svg)](https://doi.org/10.5281/zenodo.14418253)
+
 # Latimer Core
 [https://tdwg.github.io/ltc/](https://tdwg.github.io/ltc/)
 
