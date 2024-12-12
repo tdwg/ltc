@@ -108,7 +108,7 @@ authors:
     website: "https://www.tdwg.org/"
 identifiers:
   - type: "doi"
-    value: "10.xxxxxx"
+    value: "https://doi.org/10.5281/zenodo.14418253"
     description: "DOI for this repository archived in Zenodo"
 repository-code: "https://github.com/tdwg/ltc/"
 url: "https://tdwg.github.io/ltc/"
