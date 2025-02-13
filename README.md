@@ -25,7 +25,7 @@ Latimer Core (LtC) is a data standard for describing collections, proposed by th
 Citations provide attribution, visibility, and thus support to the work of the authors and of Biodiversity Information Standards (TDWG) as a not-for-profit organization. At the same time, they promote transparency and accountability, enabling a rights-based approach to standard development.
 
 To cite the current release of the LtC standard
-- Grant, S., Jones, J., Webbink, K., Woodburn, M., Vincent, S., Trekels, M., Buschbom, J., Groom, Q. J., Norton, B., Sanderson, R., Engelbrecht, I., Baskauf, S. J., Addink, W., Bloom, D., Breugelmans, L., Chapman, C., Dröge, G., Grosjean, M., Hahn, A., Krimmel, E., Paul, D., Raes, N., Robertson, T., Ulate, W. & Biodiversity Information Standards (TDWG). TDWG Latimer Core (LtC) Standard. First formal release. Zenodo https://doi.org/10.5281/zenodo.14418253 
+- Grant, S., Jones, J., Webbink, K., Woodburn, M., Vincent, S., Trekels, M., Buschbom, J., Groom, Q. J., Norton, B., Sanderson, R., Engelbrecht, I., Baskauf, S. J., Addink, W., Bloom, D., Breugelmans, L., Chapman, C., Dröge, G., Grosjean, M., Hahn, A., Krimmel, E., Paul, D., Raes, N., Robertson, T., Ulate, W. & Biodiversity Information Standards (TDWG). TDWG Latimer Core (LtC) Standard (v1.0.0). Zenodo https://doi.org/10.5281/zenodo.14418253 
 - [CITATION_release.CFF](https://github.com/tdwg/ltc/blob/main/CITATION_release.cff) - a machine-readable version of the citation
 
 To cite this GitHub repository of LtC with its developing information and ongoing work
