@@ -71,7 +71,7 @@ authors:
   - given-names: "Gabriele"
     family-names: "Droege"
     affiliation: "Botanic Garden and Botanical Museum Berlin Dahlem: Berlin, DE"
-    orcid: ""
+    orcid: "https://orcid.org/0009-0007-6673-7274"
   - given-names: "Marie"
     family-names: "Grosjean"
     affiliation: "Global Biodiversity Information Facility: Copenhagen, DK"
