@@ -3,10 +3,10 @@
   <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Latimer Core Resources</title>
+	<title>Latimer Core Home</title>
 	<meta property="og:url" content="https://tdwg.github.io/ltc/list/">
 	<meta property="og:type" content="website">
-	<meta property="og:title" content="Latimer Core List of Terms">
+	<meta property="og:title" content="Latimer Core Documentation">
 	<link rel="icon" type="image/x-icon" href="https://tdwg.github.io/ltc/favicon.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,15 +16,16 @@
     <link rel="stylesheet" href="../static/assets/theme/css/pygments.css">
 	<link rel="stylesheet" href="../static/assets/theme/css/main.css">
 
-	<link rel="stylesheet" href="../static/custom/css/ltc.css">
+	<link rel="stylesheet" href="../static/custom/css/custom.css">
+    <link rel="stylesheet" href="../static/custom/css/logo.css">
 	<link rel="stylesheet" href="../static/custom/css/print.css" media="print">
 
 
 </head>
 <body id="page-top">
-<nav class="navbar navbar-expand-lg navbar-dark bg-ltc" id="main-nav">
+<nav class="navbar navbar-expand-lg navbar-dark custom-bg-color" id="main-nav">
 	<div class="container">
-	    <a class="navbar-brand d-flex align-items-center" href="https://ltc.tdwg.org/">
+	    <a class="navbar-brand d-flex align-items-center" href="https://ltc.tdwg.org">
 	        <img class="me-3" src="https://tdwg.github.io/chrono/assets/theme/images/tdwg-logo-short.svg" alt="Latimer Core">
             Latimer Core
 	    </a>
@@ -64,11 +65,11 @@
 
 
 <main>
-	<header class="header bg-no-image">
+	<header class="header custom-bg-color">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 col-lg-8 position-relative mx-auto">
-				<h1>Resources</h1>
+				<h1>Home</h1>
 				<div class="lead"></div>
 			</div>
 		</div>
@@ -798,7 +799,7 @@ erDiagram
 </main>
 
 
-<footer>
+<footer class="custom-bg-color">
 	<div class="container">
         <div class="row">
 
@@ -873,36 +874,7 @@ erDiagram
 	<script src="../static/custom/js/fullscreen.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 	<script src="../static/custom/js/svg-pan-zoom.js"></script>
+	<script src="../static/custom/js/app-script.js"></script>
 
-	<script>
-        $(document).ready(function () {
-			// Help popovers for SKOS terms
-             $('[data-bs-toggle="popover"]').popover({
-                trigger: 'click',
-                container: '.popover-container',
-                placement: 'top',
-                customClass: 'help-popover',
-                html: true
-            });
-            $('[data-bs-toggle="popover"]').click(function (e) {
-                e.stopPropagation();
-            });
-            $('a.poplink').click(function(e) {
-              e.preventDefault();
-            });
-            $(document).click(function (e) {
-                if (($('.popover').has(e.target).length == 0) || $(e.target).is('.close')) {
-                   $('[data-bs-toggle="popover"]').popover('hide');
-                }
-            });
-			// Mermaid E-R Diagrams
-			mermaid.initialize({
-                theme: 'forest',
-                securityLevel: 'loose',
-			});
-		});
-
-
-	</script>
 </body>
 </html>

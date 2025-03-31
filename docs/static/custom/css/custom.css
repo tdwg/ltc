@@ -13,6 +13,43 @@ Units
 1.5rem 24px
 */
 
+.custom-bg-color {
+	background-color: #560D59 !important;
+}
+.custom-text-color {
+	color: #560D59 !important;
+}
+.btn-outline-primary {
+    color: #560D59;
+    border-color: #560D59;
+	font-weight: 500;
+}
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+	background-color: #560D59;
+	color: #FFFFFF;
+	font-weight: 500;
+}
+.th-collapser i.fa {
+	background: transparent;
+	color: #560D59;
+	font-size: 18px;
+	margin-left: 10px;
+}
+td.indicator-td {
+	color: #560D59;
+	text-align: center;
+}
+table.table-sssom tbody tr th.col-w-4:hover {
+	background-color: #560D59;
+	color: #FFFFFF;
+}
+th.popover-container .popover .popover-header {
+	background-color: #560D59;
+	color: #FFFFFF;
+}
+
+
 /* Smooth Scrolling */
 html,body {
 	scroll-behavior: smooth;
@@ -41,18 +78,18 @@ span {
 .content-header-wrapper table tr td:first-of-type {
 	width: 35%;
 }
-main.ltc-content .container.content h1 {
+main.wrapper .container.content h1 {
 	color: rgb(17, 24, 39);
 }
-main.ltc-content .container.content h2 {
+main.wrapper .container.content h2 {
 	font-size: 2rem;
 	margin: 2rem 0 1rem 0;
 }
-main.ltc-content .container.content h3 {
+main.wrapper .container.content h3 {
 	font-size: 1.6rem;
 	margin: 1.6rem 0 .8rem 0;
 }
-main.ltc-content.ltc-home .container.content h4 {
+main.wrapper.home-content .container.content h4 {
 	font-size: 1.4rem;
 	margin: 1.6rem 0 .4rem 0;
 }
@@ -261,27 +298,27 @@ table tr th.w-26 {
 	-webkit-column-gap: 12px;
 }
 
-main.ltc-content ol,
-main.ltc-content ul {
+main.wrapper ol,
+main.wrapper ul {
 	padding-left: 15px;
 }
-main.ltc-content ul {
+main.wrapper ul {
 	list-style-type: disc;
 	margin-top: 1.25em;
 	margin-bottom: 1.25em;
 	padding-left: 15px;
 }
-main.ltc-content ul {
+main.wrapper ul {
 	list-style-type: disc;
 	margin-top: 0;
 	margin-bottom: 1.25em;
 	padding-left: 15px;
 }
-main.ltc-content ul li {
+main.wrapper ul li {
 	margin: .5em 0;
 	padding-left: .375em;
 }
-main.ltc-content.ltc-home ul li {
+main.wrapper.home-content ul li {
 	margin: 0;
 	line-height: 1.5;
 }
@@ -291,11 +328,11 @@ ul.cls-list {
 	list-style-type: none;
 	padding-left: 0;
 }
-main.ltc-content ol {
+main.wrapper ol {
     list-style-type: decimal;
 	list-style-position: outside;
 }
-main.ltc-content ol li {
+main.wrapper ol li {
 	padding-left: .4em;
     margin-top: .5em;
     margin-bottom: .5em;
@@ -339,23 +376,8 @@ a.property {
     border-color: #09591D;
 }
 
-.btn-outline-primary {
-    color: #560D59;
-    border-color: #560D59;
-		font-weight: 500;
-}
-.btn-outline-primary:hover,
-.btn-outline-primary:focus {
-	background-color: #560D59;
-	color: #FFFFFF;
-	font-weight: 500;
 
-}
-nav.navbar.bg-ltc,
-.header.bg-no-image {
-    background-color: #560D59;
-}
-main.ltc-content .toc ul {
+main.wrapper .toc ul {
 	list-style-type: none;
 	padding-left: 0;
 }
@@ -435,12 +457,7 @@ a.th-collapser:hover {
 	text-decoration: underline;
 	background: rgba(230,230,230,0.4);
 }
-.th-collapser i.fa {
-	background: transparent;
-	color: #560D59;
-	font-size: 18px;
-	margin-left: 10px;
-}
+
 span.skos-th-label {
 	display: inline-block;
 	text-align: left;
@@ -487,9 +504,7 @@ table.nested-table tbody tr td:first-of-type {
 
 
 /* Footer --------------------------------------------- */
-body > footer {
-	background-color: #560D59;
-}
+
 .footer-logo {
 	max-width: 150px;
 	height: auto;
@@ -505,10 +520,7 @@ body > footer p a {
 	color: rgb(160,140,230);
 }
 /* Testing Collapse */
-td.indicator-td {
-	color: #560D59;
-	text-align: center;
-}
+
 table.table-sssom tbody tr th {
 	text-align: left;
 	font-size: 0.8rem;
@@ -521,10 +533,7 @@ table.table-sssom tbody tr td.indicator-td {
 	text-align: center;
 	cursor: pointer;
 }
-table.table-sssom tbody tr th.col-w-4:hover {
-	background-color: #560D59;
-	color: #FFFFFF;
-}
+
 table.table-sssom tbody tr th.col-w-16  {
 	width: 16%;
 }
@@ -560,10 +569,7 @@ table.table-sssom tbody table.nested-table tbody tr th {
 	padding-left: 8px;
 	border-bottom: none;
 }
-th.popover-container .popover .popover-header {
-	background-color: #560D59;
-	color: #FFFFFF;
-}
+
 th.popover-container .popover .popover-header,
 th.popover-container .popover .popover-body {
 	font-size: 14px;
@@ -582,22 +588,6 @@ span.close,
 	cursor: pointer;
 	float: right;
 	color: #FFFFFF;
-}
-
-/* Logo ------------------------------------------- */
-main.ltc-content,
-header.header .container {
-	position: relative;
-}
-.logo-wrapper {
-	position: absolute;
-	right: 10%;
-	top: 60px;
-	z-index: 100;
-}
-.logo-wrapper img.ltc-logo {
-	max-width: 120px;
-	height: auto;
 }
 
 /* Mermaid Diagram ----------------------------------- */
