@@ -38,10 +38,18 @@
 					<a class="nav-link nav-link-active"
                        href="index.html">Home</a>
 				</li>
-				<li class="navbar-item">
-					<a class="nav-link "
-					href="terms/index.html">Terms</a>
-				</li>
+                <li class="navbar-item">
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Terms
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="terms/index.html">English (en)</a></li>
+                            <li><a class="dropdown-item btn-fr" href="terms/fr">Français (fr)</a></li>
+                        </ul>
+                    </div>
+                </li>
+
 				<li class="navbar-item">
 					<a class="nav-link "
 					href="quick-reference/index.html">Guide</a>
@@ -51,13 +59,8 @@
 					href="resources/index.html">Resources</a>
 				</li>
 				<li class="navbar-item">
-					<a class="nav-link" href="https://github.com/tdwg/ltc">LtC GitHub</a>
+					<a class="nav-link" href="https://github.com/tdwg/ltc">GitHub</a>
 				</li>
-
-                <li class="navbar-item">
-                    <a class="nav-link" href="https://dwc.tdwg.org/">Darwin Core</a>
-                </li>
-
             </ul>
 		</div>
 	</div>
