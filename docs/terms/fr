@@ -12,13 +12,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Marck+Script&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="../static/assets/theme/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="../static/assets/theme/css/pygments.css">
-	<link rel="stylesheet" href="../static/assets/theme/css/main.css">
+	<link rel="stylesheet" href="/static/assets/theme/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/static/assets/theme/css/pygments.css">
+	<link rel="stylesheet" href="/static/assets/theme/css/main.css">
 
-	<link rel="stylesheet" href="../static/custom/css/custom.css">
-    <link rel="stylesheet" href="../static/custom/css/logo.css">
-	<link rel="stylesheet" href="../static/custom/css/print.css" media="print">
+	<link rel="stylesheet" href="/static/custom/css/custom.css">
+    <link rel="stylesheet" href="/static/custom/css/logo.css">
+	<link rel="stylesheet" href="/static/custom/css/print.css" media="print">
 
 
 </head>
@@ -36,7 +36,7 @@
 			<ul class="navbar-nav ms-auto">
 				<li class="navbar-item">
 					<a class="nav-link "
-                       href="../index.html">Home</a>
+                       href="/">Home</a>
 				</li>
                 <li class="navbar-item">
                     <div class="dropdown">
@@ -44,19 +44,19 @@
                             Terms
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="index.html">English (en)</a></li>
-                            <li><a class="dropdown-item btn-fr" href="fr">Français (fr)</a></li>
+                            <li><a class="dropdown-item" href="/terms/">English (en)</a></li>
+                            <li><a class="dropdown-item btn-fr" href="/terms/fr">Français (fr)</a></li>
                         </ul>
                     </div>
                 </li>
 
 				<li class="navbar-item">
 					<a class="nav-link "
-					href="../quick-reference/index.html">Guide</a>
+					href="/quick-reference/">Guide</a>
 				</li>
 				<li class="navbar-item">
 					<a class="nav-link "
-					href="../resources/index.html">Resources</a>
+					href="/resources/">Resources</a>
 				</li>
 				<li class="navbar-item">
 					<a class="nav-link" href="https://github.com/tdwg/ltc">GitHub</a>
@@ -1127,7 +1127,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -1777,7 +1777,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -2427,7 +2427,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -3073,7 +3073,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -3725,7 +3725,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -4342,7 +4342,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -4984,7 +4984,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -5626,7 +5626,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -6272,7 +6272,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -6888,7 +6888,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -7542,7 +7542,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -8194,7 +8194,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -8834,7 +8834,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -9472,7 +9472,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -10112,7 +10112,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -10750,7 +10750,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -11390,7 +11390,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -12038,7 +12038,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -12965,7 +12965,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -13613,7 +13613,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -14253,7 +14253,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -14956,7 +14956,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -15583,7 +15583,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -16210,7 +16210,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -16837,7 +16837,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -17737,7 +17737,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -18471,7 +18471,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -19229,7 +19229,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -19280,7 +19280,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -19331,7 +19331,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -19969,7 +19969,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -20020,7 +20020,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -20071,7 +20071,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -20709,7 +20709,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -20760,7 +20760,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -20811,7 +20811,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -21428,7 +21428,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -22876,7 +22876,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -23493,7 +23493,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -24120,7 +24120,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -24747,7 +24747,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -25363,7 +25363,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -26007,7 +26007,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -26634,7 +26634,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -27261,7 +27261,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -27878,7 +27878,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -28505,7 +28505,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -29132,7 +29132,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -29759,7 +29759,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -30386,7 +30386,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -31013,7 +31013,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -31869,7 +31869,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -32958,7 +32958,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -33585,7 +33585,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -34212,7 +34212,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -35320,7 +35320,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -36200,7 +36200,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -36816,7 +36816,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -38381,7 +38381,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -39008,7 +39008,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -39635,7 +39635,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -41148,7 +41148,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -41796,7 +41796,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -42440,7 +42440,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -43092,7 +43092,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -43917,7 +43917,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -44544,7 +44544,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -45171,7 +45171,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -45798,7 +45798,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -46425,7 +46425,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -47181,7 +47181,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -47886,7 +47886,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -48513,7 +48513,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -50154,7 +50154,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -50781,7 +50781,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -51408,7 +51408,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -52035,7 +52035,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -52917,7 +52917,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -53533,7 +53533,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -54175,7 +54175,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -54819,7 +54819,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -55469,7 +55469,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -56115,7 +56115,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -56997,7 +56997,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -57754,7 +57754,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -58381,7 +58381,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -59008,7 +59008,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -59635,7 +59635,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -60262,7 +60262,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -60889,7 +60889,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -61506,7 +61506,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -62133,7 +62133,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -62760,7 +62760,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -63387,7 +63387,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -64014,7 +64014,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -64641,7 +64641,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -65268,7 +65268,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -65895,7 +65895,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -66522,7 +66522,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -67392,7 +67392,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -68074,7 +68074,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -68718,7 +68718,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -69380,7 +69380,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -70084,7 +70084,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -70746,7 +70746,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -71396,7 +71396,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -72012,7 +72012,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -72063,7 +72063,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -72776,7 +72776,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -73403,7 +73403,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -74020,7 +74020,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -74647,7 +74647,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -75274,7 +75274,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -75901,7 +75901,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -76528,7 +76528,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -77172,7 +77172,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -77812,7 +77812,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -78428,7 +78428,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -79523,7 +79523,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -80150,7 +80150,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -80767,7 +80767,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -81394,7 +81394,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -82021,7 +82021,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -82637,7 +82637,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -83264,7 +83264,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -83891,7 +83891,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -84508,7 +84508,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -85135,7 +85135,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -85762,7 +85762,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -86389,7 +86389,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -87016,7 +87016,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -87643,7 +87643,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -88346,7 +88346,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -88973,7 +88973,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -89600,7 +89600,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -90227,7 +90227,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -90854,7 +90854,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -91934,7 +91934,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -92551,7 +92551,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -93195,7 +93195,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -93845,7 +93845,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -94491,7 +94491,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -95127,7 +95127,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -95743,7 +95743,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -96360,7 +96360,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -96987,7 +96987,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -97614,7 +97614,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -98372,7 +98372,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -99018,7 +99018,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -99902,7 +99902,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -100744,7 +100744,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -101361,7 +101361,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -102033,7 +102033,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -102736,7 +102736,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -103363,7 +103363,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -104235,7 +104235,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -104938,7 +104938,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -105565,7 +105565,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -106435,7 +106435,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -107051,7 +107051,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -107678,7 +107678,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -108295,7 +108295,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -108922,7 +108922,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -109549,7 +109549,7 @@
                                                     <td>nan</td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -110176,7 +110176,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -110816,7 +110816,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -111460,7 +111460,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -112110,7 +112110,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -112726,7 +112726,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -113457,7 +113457,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -114084,7 +114084,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -114711,7 +114711,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -115782,7 +115782,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -116409,7 +116409,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -117289,7 +117289,7 @@
                                                     <td><a href="https://orcid.org/0000-0001-6496-1423" rel="noopener">https://orcid.org/0000-0001-6496-1423</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <td colspan="2" class="text-center"><a href="../resources/index.html#sssom-ref" class="text-center">SSSOM Specification</a></td>
+                                                    <td colspan="2" class="text-center"><a href="/resources/#sssom-ref" class="text-center">SSSOM Specification</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -117382,13 +117382,13 @@
 
 
 
-	<script src="../static/assets/theme/js/jquery.min.js"></script>
-	<script src="../static/assets/theme/js/popper.min.js"></script>
-	<script src="../static/assets/theme/js/bootstrap.min.js"></script>
-	<script src="../static/custom/js/fullscreen.js"></script>
+	<script src="/static/assets/theme/js/jquery.min.js"></script>
+	<script src="/static/assets/theme/js/popper.min.js"></script>
+	<script src="/static/assets/theme/js/bootstrap.min.js"></script>
+	<script src="/static/custom/js/fullscreen.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-	<script src="../static/custom/js/svg-pan-zoom.js"></script>
-	<script src="../static/custom/js/app-script.js"></script>
+	<script src="/static/custom/js/svg-pan-zoom.js"></script>
+	<script src="/static/custom/js/app-script.js"></script>
 
 </body>
 </html>
