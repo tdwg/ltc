@@ -112,7 +112,7 @@ identifiers:
     description: "DOI for this repository archived in Zenodo"
 repository-code: "https://github.com/tdwg/ltc/"
 url: "https://tdwg.github.io/ltc/"
-abstract: "Latimer Core (LtC) is a data standard for describing collections, proposed by the Collection Descriptions Task Group. It has been designed to support the representation and discovery of groups of items that are encompassed in collections and their subcomponents. The LtC classes and their properties (collectively called terms) aim to represent information that describes these groups of things in enough detail to inform deeper discovery of the resources they contain.  This is the repository for sharing, developing and extending the standard through ongoing community collaboration."
+abstract: "Latimer Core (LtC) is a data standard for describing collections, developed by the TDWG Collection Descriptions Task Group. It has been designed to support the representation and discovery of groups of items that are encompassed in collections and their subcomponents. The LtC classes and their properties (collectively called terms) aim to represent information that describes these groups of things in enough detail to inform deeper discovery of the resources they contain.  This is the repository for sharing, developing and extending the standard through ongoing community collaboration."
 keywords:
   - "biodiversity data"
   - "collection description"
