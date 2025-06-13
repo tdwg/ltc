@@ -1,0 +1,101 @@
+/*!
+ * Callouts - Nicer message boxes for Twitter bootstrap
+ * @author Martin Zaloudek - https://github.com/ma-zal
+ * @version 1 2015-09-21
+ * @license MIT
+ */
+.bs-callout {
+	padding: 20px;
+	margin: 20px 0;
+	border: 1px solid #eee;
+	border-left-width: 5px;
+	border-radius: 3px;
+}
+.bs-callout h1,
+.bs-callout h2,
+.bs-callout h3,
+.bs-callout h4,
+.bs-callout h5,
+.bs-callout h6 {
+	margin-top: 0;
+	margin-bottom: 5px;
+}
+.bs-callout p:last-child {
+	margin-bottom: 0;
+}
+.bs-callout code {
+	border-radius: 3px;
+}
+.bs-callout+.bs-callout {
+	margin-top: -5px;
+}
+
+.bs-callout-default {
+	border-left-color: #777;
+}
+.bs-callout-default h1,
+.bs-callout-default h2,
+.bs-callout-default h3,
+.bs-callout-default h4,
+.bs-callout-default h5,
+.bs-callout-default h6 {
+	color: #777;
+}
+.bs-callout-primary {
+	border-left-color: #428bca;
+}
+.bs-callout-primary h1,
+.bs-callout-primary h2,
+.bs-callout-primary h3,
+.bs-callout-primary h4,
+.bs-callout-primary h5,
+.bs-callout-primary h6 {
+	color: #428bca;
+}
+
+.bs-callout-success {
+	border-left-color: #5cb85c;
+}
+.bs-callout-success h1,
+.bs-callout-success h2,
+.bs-callout-success h3,
+.bs-callout-success h4,
+.bs-callout-success h5,
+.bs-callout-success h6 {
+	color: #5cb85c;
+}
+.bs-callout-danger {
+	border-left-color: #d9534f;
+}
+.bs-callout-danger h1,
+.bs-callout-danger h2,
+.bs-callout-danger h3,
+.bs-callout-danger h4,
+.bs-callout-danger h5,
+.bs-callout-danger h6 {
+	color: #d9534f;
+}
+
+.bs-callout-warning {
+	border-left-color: #f0ad4e;
+}
+.bs-callout-warning h1,
+.bs-callout-warning h2,
+.bs-callout-default h3,
+.bs-callout-default h4,
+.bs-callout-default h5,
+.bs-callout-default h6 {
+	color: #f0ad4e;
+}
+
+.bs-callout-info {
+	border-left-color: #5bc0de;
+}
+.bs-callout-info h1,
+.bs-callout-info h2,
+.bs-callout-info h3,
+.bs-callout-info h4,
+.bs-callout-info h5,
+.bs-callout-info h6 {
+	color: #5bc0de;
+}
