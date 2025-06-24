@@ -6,7 +6,7 @@ The Latimer Core Maintenance Group is currently responsible for actively maintai
 - Janeen Jones - Field Museum, Chicago, IL, USA <jjones@fieldmuseum.org>
 - Ben Norton - Independent, USA <michaelnorton.ben@gmail.com>
 - Elie Saliba - Muséum National d’Histoire Naturelle, Paris, France <elie.saliba@mnhn.fr>
-- Maarten Trekels - Meise Botanic Garden/Synthesys+ <maarten.trekels@plantentuinmeise.be>
+- Maarten Trekels - Meise Botanic Garden, Meise, Belgium <maarten.trekels@plantentuinmeise.be>
 - Kate Webbink - Field Museum, Chicago, IL, USA <kwebbink@fieldmuseum.org>
 
 Getting started[](#getting-started)
