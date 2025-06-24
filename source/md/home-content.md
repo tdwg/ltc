@@ -5,7 +5,16 @@ The Latimer Core Maintenance Group is currently responsible for actively maintai
 - <a href="https://orcid.org/0000-0002-2771-9344">Sofia Maria Garcia Hernandez's ORCID record <img src="/ORCID-iD_icon-vector.svg" alt=""/></a>
 - [![An old rock in the desert](/assets/images/shiprock.jpg "Shiprock, New Mexico by Beau Rogers")](https://www.)
 - <img src="image.png" width="200" height="100">
-- <a href="https://orcid.org/0000-0002-7697-9214">Jutta Buschbom <img src="/ORCID-iD_icon-vector.svg" alt=""/></a> - Statistical Genetics, Ahrensburg, Germany <jutta.buschbom@statistical-genetics.de> 
+
+- <a href="https://orcid.org/0000-0002-7697-9214">Jutta Buschbom <img src="/ORCID-iD_icon-vector.svg" alt=""/></a> - Statistical Genetics, Ahrensburg, Germany 
+- <a href="https://orcid.org/0000-0002-0201-732X">Sharon Grant <img src="/ORCID-iD_icon-vector.svg" alt=""/></a> - Field Museum, Chicago, IL, USA 
+- <a href="https://orcid.org/0000-0002-1261-8049">Janeen Jones <img src="/ORCID-iD_icon-vector.svg" alt=""/></a> - Field Museum, Chicago, IL, USA
+- <a href="https://orcid.org/0000-0002-5819-9134">Ben Norton <img src="/ORCID-iD_icon-vector.svg" alt=""/></a> - Independent, USA
+- <a href="https://orcid.org/0000-0001-9591-5016">Elie Saliba <img src="/ORCID-iD_icon-vector.svg" alt=""/></a> - Muséum National d’Histoire Naturelle, Paris, France 
+- <a href="https://orcid.org/0000-0001-8282-8765">Maarten Trekels <img src="/ORCID-iD_icon-vector.svg" alt=""/></a> - Meise Botanic Garden, Meise, Belgium
+- <a href="https://orcid.org/0000-0002-8347-0942">Kate Webbink <img src="/ORCID-iD_icon-vector.svg" alt=""/></a> - Field Museum, Chicago, IL, USA
+- <a href=""> <img src="/ORCID-iD_icon-vector.svg" alt=""/></a>
+- <a href=""> <img src="/ORCID-iD_icon-vector.svg" alt=""/></a>
 
 - Jutta Buschbom - Statistical Genetics, Ahrensburg, Germany <jutta.buschbom@statistical-genetics.de> <https://orcid.org/0000-0002-7697-9214>
 - Sharon Grant - Field Museum, Chicago, IL, USA <sgrant@fieldmuseum.org> <https://orcid.org/0000-0002-0201-732X>
