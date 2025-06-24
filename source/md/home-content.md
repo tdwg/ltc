@@ -3,7 +3,10 @@ Latimer Core (LtC) is a data standard for describing collections, proposed by th
 The Latimer Core Maintenance Group is currently responsible for actively maintaining the Latimer Core standard per Section 2.1 of the TDWG Vocabulary Maintenance Specification. The group consists of the following members:
 - <a href="https://www.markdownguide.org" target="_blank">Learn Markdown!</a>
 - <a href="https://orcid.org/0000-0002-2771-9344">Sofia Maria Garcia Hernandez's ORCID record <img src="/ORCID-iD_icon-vector.svg" alt=""/></a>
-- <a href="https://orcid.org/0000-0002-7697-9214">Jutta Buschbom <img src="/ORCID-iD_icon-vector.svg" alt=""/></a>
+- [![An old rock in the desert](/assets/images/shiprock.jpg "Shiprock, New Mexico by Beau Rogers")](https://www.)
+- <img src="image.png" width="200" height="100">
+- <a href="https://orcid.org/0000-0002-7697-9214" target="_blank">Jutta Buschbom <img src="/ORCID-iD_icon-vector.svg" alt=""/></a> - Statistical Genetics, Ahrensburg, Germany <jutta.buschbom@statistical-genetics.de> 
+
 - Jutta Buschbom - Statistical Genetics, Ahrensburg, Germany <jutta.buschbom@statistical-genetics.de> <https://orcid.org/0000-0002-7697-9214>
 - Sharon Grant - Field Museum, Chicago, IL, USA <sgrant@fieldmuseum.org> <https://orcid.org/0000-0002-0201-732X>
 - Janeen Jones - Field Museum, Chicago, IL, USA <jjones@fieldmuseum.org> <https://orcid.org/0000-0002-1261-8049>
