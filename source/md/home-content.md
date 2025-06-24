@@ -1,7 +1,7 @@
 Latimer Core (LtC) is a data standard for describing collections, proposed by the Collection Descriptions Task Group. It has been designed to support the representation and discovery of groups of items that are encompassed in collections and their subcomponents. The LtC classes and their properties (collectively called terms) aim to represent information that describes these groups of things in enough detail to inform more profound discovery of the resources they contain.
 
 The Latimer Core Maintenance Group is currently responsible for actively maintaining the Latimer Core standard per Section 2.1 of the TDWG Vocabulary Maintenance Specification. The group consists of the following members:
-- Jutta Buschbom - Statistical Genetics <jutta.buschbom@statistical-genetics.de>
+- Jutta Buschbom - Statistical Genetics, Ahrensburg, Germany <jutta.buschbom@statistical-genetics.de>
 - Sharon Grant - Field Museum, Chicago, IL, USA <sgrant@fieldmuseum.org>
 - Janeen Jones - Field Museum, Chicago, IL, USA <jjones@fieldmuseum.org>
 - Ben Norton - Independent, USA <michaelnorton.ben@gmail.com>
