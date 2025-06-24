@@ -1,12 +1,7 @@
 Latimer Core (LtC) is a data standard for describing collections, proposed by the Collection Descriptions Task Group. It has been designed to support the representation and discovery of groups of items that are encompassed in collections and their subcomponents. The LtC classes and their properties (collectively called terms) aim to represent information that describes these groups of things in enough detail to inform more profound discovery of the resources they contain.
 
 The Latimer Core Maintenance Group is currently responsible for actively maintaining the Latimer Core standard per Section 2.1 of the TDWG Vocabulary Maintenance Specification. The group consists of the following members:
-- <a href="https://www.markdownguide.org" target="_blank">Learn Markdown!</a>
-- <a href="https://orcid.org/0000-0002-2771-9344">Sofia Maria Garcia Hernandez's ORCID record <img src="/ORCID-iD_icon-vector.svg" alt=""/></a>
-- [![An old rock in the desert](/assets/images/shiprock.jpg "Shiprock, New Mexico by Beau Rogers")](https://www.)
-- <img src="image.png" width="200" height="100">
-
-- <a href="https://orcid.org/0000-0002-7697-9214">Jutta Buschbom <img src="/ORCID-iD_icon-vector.svg" alt=""/></a> - Statistical Genetics, Ahrensburg, Germany 
+- <a href="https://orcid.org/0000-0002-7697-9214">Jutta Buschbom <img src="assets/images/logos/ORCID-iD_icon_24x24.png" alt=""/></a> - Statistical Genetics, Ahrensburg, Germany 
 - <a href="https://orcid.org/0000-0002-0201-732X">Sharon Grant <img src="/ORCID-iD_icon-vector.svg" alt=""/></a> - Field Museum, Chicago, IL, USA 
 - <a href="https://orcid.org/0000-0002-1261-8049">Janeen Jones <img src="/ORCID-iD_icon-vector.svg" alt=""/></a> - Field Museum, Chicago, IL, USA
 - <a href="https://orcid.org/0000-0002-5819-9134">Ben Norton <img src="/ORCID-iD_icon-vector.svg" alt=""/></a> - Independent, USA
