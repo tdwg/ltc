@@ -1,0 +1,48 @@
+{
+    "ltc:LatimerCoreScheme": [
+        {
+            "ltc:schemeName": "GrSCiColl Institution Scheme",
+            "ltc:basisOfScheme": "Collections registry",
+            "ltc:isDistinctObjects": true,
+            "ltc:hasObjectGroup": [
+                {
+                    "ltc:collectionName": "Dino University Museum Collections",
+                    "ltc:hasOrganisationalUnit": [
+                        {
+                            "ltc:hasParentOrganisationalUnit": [
+                                {
+                                    "ltc:identifier": "https://ror.org/01dinos01",
+                                    "ltc:identifierType": "ROR"
+                                }
+                            ],
+                            "ltc:hasIdentifier": [
+                                {
+                                    "ltc:identifier": "02",
+                                    "ltc:identifierType": "pid"
+                                }
+                            ],
+                            "ltc:organisationalUnitName": "Dino Museum",
+                            "ltc:organisationalUnitType": "museum",
+                            "ltc:parentOrganisationalUnitID": "01",
+                            "ltc:hasPersonRole": [
+                                {
+                                    "ltc:hasTemporalCoverage": "forever",
+                                    "ltc:hasRole": [
+                                        {
+                                            "ltc:roleName": "superhuman"
+                                        }
+                                    ],
+                                    "ltc:hasPerson": [
+                                        {
+                                            "abcd:fullName": "Zein"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

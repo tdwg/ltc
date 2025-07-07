@@ -1,0 +1,119 @@
+{
+    "ltc:LatimerCoreScheme": [
+        {
+            "ltc:schemeName": "GrSCiColl Collection Scheme",
+            "ltc:basisOfScheme": "Collection inventory",
+            "ltc:isDistinctObjects": true,
+            "ltc:hasObjectGroup": [
+                {
+                    "ltc:hasIdentifier": [
+                        {
+                            "ltc:identifier": "11",
+                            "ltc:identifierType": "pid"
+                        }
+                    ],
+                    "ltc:collectionName": "Herbarium",
+                    "ltc:ObjectClassificationName": "Plant",
+                    "ltc:preservationMethod": "dried",
+                    "dwc:scientificName": "Plantae",
+                    "ltc:description": "Dried plant specimens",
+                    "ltc:hasOrganisationalUnit": {
+                        "ltc:hasIdentifier": [
+                            {
+                                "ltc:identifier": "DU",
+                                "ltc:identifierType": "acronym"
+                            },
+                            {
+                                "ltc:identifier": "01",
+                                "ltc:identifierType": "pid"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "ltc:hasIdentifier": [
+                        {
+                            "ltc:identifier": "12",
+                            "ltc:identifierType": "pid"
+                        }
+                    ],
+                    "ltc:collectionName": "Teaching collection",
+                    "ltc:ObjectClassificationName": "Vertebrate",
+                    "dwc:scientificName": "Chordata",
+                    "ltc:hasGeographicContext": {
+                        "ltc:region": "South East Asia",
+                        "dwc:continent": "Asia"
+                    },
+                    "dwc:eventDate": "1970",
+                    "ltc:hasOrganisationalUnit": {
+                        "ltc:hasIdentifier": [
+                            {
+                                "ltc:identifier": "DU",
+                                "ltc:identifierType": "acronym"
+                            },
+                            {
+                                "ltc:identifier": "01",
+                                "ltc:identifierType": "pid"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "ltc:hasIdentifier": [
+                        {
+                            "identifier": "21",
+                            "name": "pid"
+                        }
+                    ],
+                    "ltc:collectionName": "Fossils",
+                    "ltc:hasObjectClassification": [
+                        {
+                            "ltc:objectClassificationName": "Paleontology",
+                            "ltc:objectClassificationLevel": "Discipline"
+                        }
+                    ],
+                    "ltc:hasGeologicalContext": {
+                        "dwc:earliestEraOrLowestErathem": "Precambrian",
+                        "latestEraOrHighestErathem": "Cenozoic"
+                    },
+                    "ltc:hasOrganisationalUnit": {
+                        "ltc:organisationalUnitName": "Dino Museum",
+                        "ltc:hasIdentifier": [
+                            {
+                                "ltc:identifier": "02",
+                                "ltc:identifierType": "pid"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "ltc:hasIdentifier": [
+                        {
+                            "identifier": "22",
+                            "name": "pid"
+                        }
+                    ],
+                    "ltc:collectionName": "Rocks but not fossil",
+                    "ltc:hasObjectClassification": [
+                        {
+                            "ltc:objectClassificationName": "Geology",
+                            "ltc:objectClassificationLevel": "Discipline"
+                        }
+                    ],
+                    "ltc:hasGeographicContext": {
+                        "dwc:continent": "Europe"
+                    },
+                    "ltc:hasOrganisationalUnit": {
+                        "ltc:organisationalUnitName": "Dino Museum",
+                        "ltc:hasIdentifier": [
+                            {
+                                "ltc:identifier": "02",
+                                "ltc:identifierType": "pid"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
