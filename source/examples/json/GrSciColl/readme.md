@@ -12,35 +12,44 @@ Use this record structure for the GrSciColl example records if they use a Latime
 ---
 displayMode: compact
 config:
-  look: handDrawn
   theme: forest
+  themeVariables:
+    lineColor: '#aaa'
 ---
 flowchart LR
+
 
     subgraph LtC["LtC record"]
 
     g1["**Latimer Core Scheme**<br /> isDistinctObjects = **true**"]
 
     subgraph OG1 [**Object Group** - Herbarium]
-        2("Identifiers: \[ ... \]<br />Organisational Units: \[...\]")
+        c2("Identifiers: \[...\]<br />Organisational Units: \[...\]")
     end
 
     subgraph OG2 [**Object Group** - Zoology]
-        3("Identifiers: \[ ... \]<br />Organisational Units: \[...\]")
+        c3("Identifiers: \[...\]<br />Organisational Units: \[...\]")
     end
 
     subgraph OG3 [**Object Group** - Fossils]
-        4("Identifiers: \[ ... \]<br />Organisational Units: \[...\]")
+        c4("Identifiers: \[...\]<br />Organisational Units: \[...\]")
     end
 
     end
 
 LtC:::top
-g1 --> OG1
-g1 --> OG2
-g1 --> OG3
+g1:::scheme --> OG1:::main
+g1 --> OG2:::main
+g1 --> OG3:::main
+
+c2:::guts
+c3:::guts
+c4:::guts
 
 classDef top fill:#fff,stroke:#6eaa49;
+classDef scheme fill:#5bb0d4;
+classDef main fill:#c3e7b0,stroke:#6eaa49;
+classDef guts fill:#feb,stroke:#bbb;
 
 ```
 
@@ -53,52 +62,56 @@ Note:
 - **ltc:ObjectGroup** classes cannot be nested within each other in a Latimer Core record. Instead, they should reference identifiers for related **ltc:ObjectGroup** using the **ltc:ResourceRelationship** class.
 
 
+
 ```mermaid
 ---
 displayMode: compact
 config:
-  look: handDrawn
   theme: 'base'
   themeVariables:
-    primaryColor: '#cde498'
+    primaryColor: '#5bb0d4'
     primaryTextColor: '#000'
     primaryBorderColor: '#13540c'
-    lineColor: '#000'
-    secondaryColor: '#cdffb2'
+    lineColor: '#aaa'
+    secondaryColor: '#c3e7b0'
     tertiaryColor: '#fff'
 ---
 flowchart LR
 
-    subgraph LtC["LtC record"]
 
+    subgraph LtC["LtC record"]
+    
     g1["**Latimer Core Scheme**<br /> isDistinctObjects = **false**"]
 
-
     subgraph OG1 [**Object Group**: Zoology]
-        2("Identifiers: \[ ... \]<br />Organisational Units: \[...\]")
+        c2("Identifiers: \[...\]<br />Organisational Units: \[...\]")
     end
 
     subgraph OG2 [**Object Group**: Bird Skulls]
-        3("Resource Relationships: \[...\]<br/>Identifiers: \[ ... \]<br />Organisational Units: \[...\]")
+        c3("Identifiers: \[...\]<br />Organisational Units: \[...\]<br />Resource Relationships: \[...\]")
     end
 
     subgraph OG3 [**Object Group**: Amphibians]
-        4("Resource Relationships: \[...\]<br/>Identifiers: \[ ... \]<br />Organisational Units: \[...\]")
+        c4("Identifiers: \[...\]<br />Organisational Units: \[...\]<br />Resource Relationships: \[...\]")
     end
 
     end
 
-LtC:::top
+
 g1 --> OG1:::main
-OG1 <--> 3:::low
+OG1 <--> c3
 g1 --> OG2:::overlap
 g1 --> OG3:::overlap
-OG1 <--> 4:::low
+OG1 <--> c4
+
+c2:::guts
+c3:::guts
+c4:::guts
 
 classDef top fill:#fff,stroke:#6eaa49;
-classDef main fill:#cdffb2,stroke:#6eaa49;
-classDef overlap stroke:#F8B229;
-classDef low fill:#dec,stroke:#cdc;
+classDef main fill:#c3e7b0,stroke:#6eaa49;
+classDef overlap fill:#fdbf62,stroke:#F8B229;
+classDef guts fill:#feb,stroke:#bbb;
 
 linkStyle 1,4 stroke:#F8B229,stroke-width:2px;
 
