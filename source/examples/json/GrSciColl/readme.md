@@ -7,12 +7,16 @@ An aggregator -- e.g. GrSciColl -- can define a preferred Latimer Core schema us
 ## Records with distinct Object Groups
 Use this record structure for the GrSciColl example records if they use a Latimer Core Scheme where [**`ltc:isDistinctObjects`**](https://ltc.tdwg.org/terms/#LatimerCoreScheme_isDistinctObjects) is `true`.
 
+Example JSON records:
+- [dino_v2a1_isDistinctTRUE.json](./dino_v2a1_isDistinctTRUE.json) - this LtC record includes ObjectGroups for four overall collections: Herbarium, Teaching collection, Paleontology, Rocks.
+- [dino_v2a2_isDistinctTRUE.json](./dino_v2a2_isDistinctTRUE.json) - this LtC record includes ObjectGroups for 8 sub-collections: Amphibians, Bird Skulls, Elephant skeleton, Petrified wood, Fossil bivalves, Fossil vertebrates, Sedimentary rocks, Volcanic rocks, Gems.
+
 
 ```mermaid
 ---
 displayMode: compact
 config:
-  theme: forest
+  theme: neutral
   themeVariables:
     lineColor: '#aaa'
 ---
@@ -58,8 +62,11 @@ classDef guts fill:#feb,stroke:#bbb;
 ## Records with overlapping Object Groups
 Use this record structure for the GrSciColl example records if they use a Latimer Core Scheme where [**`ltc:isDistinctObjects`**](https://ltc.tdwg.org/terms/#LatimerCoreScheme_isDistinctObjects) is `false`.
 
-Note: 
-- **ltc:ObjectGroup** classes cannot be nested within each other in a Latimer Core record. Instead, they should reference identifiers for related **ltc:ObjectGroup** using the **ltc:ResourceRelationship** class.
+For a JSON example, [dino_v2b_isDistinctFALSE.json](./dino_v2b_isDistinctFALSE.json) is an LtC record containing ObjectGroups for four overall collections -- Herbarium, Teaching collection, Paleontology, Rocks -- as well as ObjectGroups for their respective subcollections.
+
+
+**Note:**  
+**ltc:ObjectGroup** classes cannot be nested within each other in a Latimer Core record. Instead, they should reference identifiers for related **ltc:ObjectGroup** using the **ltc:ResourceRelationship** class.
 
 
 
