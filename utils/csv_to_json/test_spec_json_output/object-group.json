@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema",
+  "$id": "https://raw.githubusercontent.com/tdwg/ltc/add-json-examples/source/json-schema/object-group.json",
+  "title": "Object Group",
+  "description": "An intentionally grouped set of objects with one or more common characteristics.",
+  "type": "object",
+  "properties": {
+    "collectionManagementSystem": {
+      "description": "The collection management system which is used to hold and manage the primary data for the objects contained within the ObjectGroup.",
+      "type": "list"
+    },
+    "conditionsOfAccess": {
+      "description": "Information about who can access the collection being described or an indication of its security status.",
+      "type": "list"
+    },
+    "degreeOfEstablishment": {
+      "description": "The degree to which an Organism survives, reproduces, and expands its range at the given place and time.",
+      "type": "list"
+    },
+    "discipline": {
+      "description": "A high level classification of the scientific discipline to which the objects within the collection belong or are related.",
+      "type": "list"
+    },
+    "hasChronometricAge": {
+      "description": "This property refers to one or more related instances of the ChronometricAge class.",
+      "type": "array<ltc:ChronometricAge>"
+    },
+    "hasCollectionStatusHistory": {
+      "description": "This property refers to one or more related instances of the CollectionStatusHistory class.",
+      "type": "array<ltc:CollectionStatusHistory>"
+    },
+    "hasEvent": {
+      "description": "This property refers to one or more related instances of the Event class.",
+      "type": "array<ltc:Event>"
+    },
+    "hasGeographicOrigin": {
+      "description": "This property refers to one or more related instances of the GeographicOrigin class.",
+      "type": null
+    },
+    "hasGeologicalContext": {
+      "description": "This property refers to one or more related instances of the GeologicalContext class.",
+      "type": "array<ltc:GeologicalContext>"
+    },
+    "hasIdentifier": {
+      "description": "This property refers to one or more related instances of the Identifier class.",
+      "type": "array<ltc:Identifier>"
+    },
+    "hasMeasurementOrFact": {
+      "description": "This property refers to one or more related instances of the MeasurementOrFact class.",
+      "type": "array<ltc:MeasurementOrFact>"
+    },
+    "hasObjectClassification": {
+      "description": "This property refers to one or more related instances of the ObjectClassification class.",
+      "type": "array<ltc:ObjectClassification>"
+    },
+    "hasOrganisationalUnit": {
+      "description": "This property refers to one or more related instances of the OrganisationalUnit class.",
+      "type": "array<ltc:OrganisationalUnit>"
+    },
+    "hasPersonRole": {
+      "description": "This property refers to one or more related instances of the PersonRole class.",
+      "type": "array<ltc:PersonRole>"
+    },
+    "hasReference": {
+      "description": "This property refers to one or more related instances of the Reference class.",
+      "type": "array<ltc:Reference>"
+    },
+    "hasResourceRelationship": {
+      "description": "This property refers to one or more related instances of the ResourceRelationship class.",
+      "type": "array<ltc:ResourceRelationship>"
+    },
+    "hasStorageLocation": {
+      "description": "This property refers to one or more related instances of the StorageLocation class.",
+      "type": "array<ltc:StorageLocation>"
+    },
+    "hasTaxon": {
+      "description": "This property refers to one or more related instances of the Taxon class.",
+      "type": "array<ltc:Taxon>"
+    },
+    "material": {
+      "description": "Material denotes the raw substance(s) from which the object is formed, in whole or in part.",
+      "type": "list"
+    },
+    "objectType": {
+      "description": "High-level terms for the classification of curated objects.",
+      "type": "list"
+    },
+    "period": {
+      "description": "Used to describe prehistoric or historic periods.",
+      "type": "list"
+    },
+    "preparationType": {
+      "description": "A term used to classify or describe an object that indicates the actions that have been taken upon it and/or the processes it has been put through to prepare it for scientific use or study.",
+      "type": "list"
+    },
+    "preservationMethod": {
+      "description": "A term used to classify or describe an object that indicates the primary or most recent action, measure or process that has been used in order to preserve the objects in the collection for long-term storage.",
+      "type": "list"
+    },
+    "preservationMode": {
+      "description": "The means by which a palaeontological specimen was preserved or created e.g. body, cast, mold, trace fossil, soft parts mineralised etc.",
+      "type": "list"
+    },
+    "typeOfCollection": {
+      "description": "Additional information that exists that describes the object(s) in the collection.",
+      "type": null
+    },
+    "isCurrentCollection": {
+      "description": "A flag to indicate whether the collection still exists as a single entity.",
+      "type": "boolean"
+    },
+    "isKnownToContainTypes": {
+      "description": "Flag property to indicate that the collection is known to include type specimens.",
+      "type": "boolean"
+    },
+    "baseTypeOfCollection": {
+      "description": "High-level term describing the fundamental nature of objects in the ObjectGroup.",
+      "type": null
+    },
+    "collectionName": {
+      "description": "A short title that summarises the collection objects contained within the ObjectGroup.",
+      "type": "string"
+    },
+    "alternativeCollectionName": {
+      "description": "A short title different to the one given in ObjectGroup.collectionName that is used to summarise the collection objects contained within the ObjectGroup.",
+      "type": "list"
+    },
+    "description": {
+      "description": "A free text description or narrative about the collection.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "baseTypeOfCollection",
+    "collectionName",
+    "alternativeCollectionName"
+  ]
+}

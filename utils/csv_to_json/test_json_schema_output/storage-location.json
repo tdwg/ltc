@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema",
+  "$id": "https://raw.githubusercontent.com/tdwg/ltc/add-json-examples/source/json-schema/storage-location.json",
+  "title": "Storage Location",
+  "description": "A physical location (such as a building, room, cabinet or drawer) within the holding institution where objects associated with the collection description are stored or exhibited.",
+  "type": "object",
+  "properties": {}
+}

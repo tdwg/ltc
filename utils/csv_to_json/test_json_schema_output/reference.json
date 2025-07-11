@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema",
+  "$id": "https://raw.githubusercontent.com/tdwg/ltc/add-json-examples/source/json-schema/reference.json",
+  "title": "Reference",
+  "description": "A reference to external resources and information related to the class. In Latimer Core, this class can be used to store references to publications, policies, datasets and other online resources such as websites, related to classes within the standard.",
+  "type": "object",
+  "properties": {}
+}
