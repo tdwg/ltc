@@ -1,8 +1,0 @@
-{
-  "$schema": "https://json-schema.org/draft-04/schema",
-  "$id": "https://raw.githubusercontent.com/tdwg/ltc/add-json-examples/source/json-schema/record-level.json",
-  "title": "Record Level",
-  "description": "The machine-actionable information profile for the collection description digital object. Linked to the RDA PID Kernel recommendation (https://www.rd-alliance.org/system/files/RDA%20Recommendation%20on%20PID%20Kernel%20Information_final.pdf)",
-  "type": "object",
-  "properties": {}
-}

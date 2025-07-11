@@ -1,8 +1,0 @@
-{
-  "$schema": "https://json-schema.org/draft-04/schema",
-  "$id": "https://raw.githubusercontent.com/tdwg/ltc/add-json-examples/source/json-schema/geographic-context.json",
-  "title": "Geographic Context",
-  "description": "The geographic location from which objects associated with the ObjectGroup were collected, or where an Event took place.",
-  "type": "object",
-  "properties": {}
-}

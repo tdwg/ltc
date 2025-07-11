@@ -1,8 +1,0 @@
-{
-  "$schema": "https://json-schema.org/draft-04/schema",
-  "$id": "https://raw.githubusercontent.com/tdwg/ltc/add-json-examples/source/json-schema/object-group.json",
-  "title": "Object Group",
-  "description": "An intentionally grouped set of objects with one or more common characteristics.",
-  "type": "object",
-  "properties": {}
-}

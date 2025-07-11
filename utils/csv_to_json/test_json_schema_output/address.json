@@ -1,8 +1,0 @@
-{
-  "$schema": "https://json-schema.org/draft-04/schema",
-  "$id": "https://raw.githubusercontent.com/tdwg/ltc/add-json-examples/source/json-schema/address.json",
-  "title": "Address",
-  "description": "A physical address for an organisational unit or person.",
-  "type": "object",
-  "properties": {}
-}

@@ -1,8 +1,0 @@
-{
-  "$schema": "https://json-schema.org/draft-04/schema",
-  "$id": "https://raw.githubusercontent.com/tdwg/ltc/add-json-examples/source/json-schema/role.json",
-  "title": "Role",
-  "description": "The function of a Person with respect to an activity or entity. While this class contains no mandatory properties, it's recommended that at least one of the roleName and hasIdentifier properties are used to specify the intended role. Where appropriate, the use of controlled vocabularies such as the CRediT contributor roles taxonomy (https://credit.niso.org) is encouraged.",
-  "type": "object",
-  "properties": {}
-}

@@ -1,8 +1,0 @@
-{
-  "$schema": "https://json-schema.org/draft-04/schema",
-  "$id": "https://raw.githubusercontent.com/tdwg/ltc/add-json-examples/source/json-schema/scheme-term.json",
-  "title": "Scheme Term",
-  "description": "A Latimer Core term used by the LatimerCoreScheme and the rules relating to its application. This class can be used to define which of the terms (classes and/or properties) within the standard (e.g. GeographicContext, Taxon, preservationMethod) are expected to be used within the scheme, and specify whether they're mandatory and/or repeatable. This information can be used by software and queries to validate the data and understand the rules by which metrics can be reported against the specified term.",
-  "type": "object",
-  "properties": {}
-}

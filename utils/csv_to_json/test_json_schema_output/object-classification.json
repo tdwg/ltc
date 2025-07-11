@@ -1,8 +1,0 @@
-{
-  "$schema": "https://json-schema.org/draft-04/schema",
-  "$id": "https://raw.githubusercontent.com/tdwg/ltc/add-json-examples/source/json-schema/object-classification.json",
-  "title": "Object Classification",
-  "description": "An informal classification of the type of objects within the ObjectGroup, using a hierarchical structure. This class is used to categorise the ObjectGroup according to an informal, self-referential hierarchy. For example, this can be used to create a hierarchy encompassing biological, geological and anthropological collections, where a single formal taxonomy isn't appropriate.",
-  "type": "object",
-  "properties": {}
-}
