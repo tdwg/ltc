@@ -1,6 +1,6 @@
-# GrSciColl - Aggregator schema example
+# LtC examples of a Museum's Collections - in JSON
 
-This is an example of how to structure LtC records in JSON-format to represent collections at a museum within a larger organization.
+This is an example of how to structure Latimer Core records in JSON-format to represent collections at a museum within a larger organization -- related to the ['Dino University' GRSciColl modeling exercise](https://training.gbif.org/en/grscicoll/modelling-exercise).
 
 An aggregator -- e.g. GrSciColl -- can define a preferred Latimer Core schema using the **ltc:LatimerCoreScheme** class to ensure that contributed records are parsed properly.  The [**`ltc:isDistinctObjects`**](https://ltc.tdwg.org/terms/#LatimerCoreScheme_isDistinctObjects) term will indicate to data-publishers whether Object Groups within a Latimer Core record should represent distinct or overlapping collections.
 
@@ -123,3 +123,12 @@ classDef guts fill:#feb,stroke:#bbb;
 linkStyle 1,4 stroke:#F8B229,stroke-width:2px;
 
 ```
+
+## What about Organisational Units?
+
+How should related departments or other institutional or administrative areas be structured in Latimer Core?  This can seem complicated for collections with details about multiple levels of sub-collections and/or departmental areas, but a few LtC terms and record-structures can help data publishers, aggregators and users.
+
+- The [`ltc:basisOfRecord`](http://rs.tdwg.org/ltc/terms/basisOfScheme) term in the `LatimerCoreScheme` Class indicates what a given LtC record represents (e.g. an `Institution` vs a `Collection`).
+- A `Collection` LtC record's ObjectGroup can use the [`ltc:OrganisationalUnit`](https://ltc.tdwg.org/terms/#ObjectGroup_hasOrganisationalUnit) Class to reference the identifiers of related department or administrative area without documenting the whole organisational hierarchy.  This is similar to how a Darwin Core Occurrence dataset can use [`dwc:eventId`](http://rs.tdwg.org/dwc/terms/eventID) to reference Darwin Core Events rather than trying to document entire project contexts within each occurrence record.
+
+
