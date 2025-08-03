@@ -1,0 +1,279 @@
+{
+    "ltc:LatimerCoreScheme": [
+        {
+            "ltc:schemeName": "GrSCiColl Collection Scheme",
+            "ltc:basisOfScheme": "Collection inventory",
+            "ltc:isDistinctObjects": true,
+            "ltc:hasObjectGroup": [
+                {
+                    "ltc:hasIdentifier": [
+                        {
+                            "ltc:identifier": "121",
+                            "ltc:identifierType": "pid"
+                        }
+                    ],
+                    "ltc:collectionName": "Amphibians",
+                    "ltc:ObjectClassificationName": "Herpetology",
+                    "dwc:scientificName": "Amphibia",
+                    "ltc:preservationMethod": "Fluid preserved",
+                    "ltc:hasMeasurementOrFact": [
+                        {
+                            "dwc:measurementType": "Object count",
+                            "dwc:measurementUnit": "jars",
+                            "dwc:measurementValue": 12
+                        }
+                    ],
+                    "ltc:hasResourceRelationship": [
+                        {
+                            "ltc:relationshipOfResource": "is part of",
+                            "dwc:relatedResourceID": "12",
+                            "ltc:relatedResourceName": "Teaching collection"
+                        }
+                    ],
+                    "ltc:hasOrganisationalUnit": {
+                        "ltc:hasIdentifier": [
+                            {
+                                "ltc:identifier": "DU",
+                                "ltc:identifierType": "acronym"
+                            },
+                            {
+                                "ltc:identifier": "01",
+                                "ltc:identifierType": "pid"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "ltc:hasIdentifier": [
+                        {
+                            "ltc:identifier": "122",
+                            "ltc:identifierType": "pid"
+                        }
+                    ],
+                    "ltc:collectionName": "Bird skulls",
+                    "ltc:ObjectClassificationName": "Ornithology",
+                    "dwc:scientificName": "Aves",
+                    "ltc:preservationMethod": "Skeletonized",
+                    "ltc:hasResourceRelationship": [
+                        {
+                            "ltc:relationshipOfResource": "is part of",
+                            "dwc:relatedResourceID": "12",
+                            "ltc:relatedResourceName": "Teaching collection"
+                        }
+                    ],
+                    "ltc:hasOrganisationalUnit": {
+                        "ltc:hasIdentifier": [
+                            {
+                                "ltc:identifier": "DU",
+                                "ltc:identifierType": "acronym"
+                            },
+                            {
+                                "ltc:identifier": "01",
+                                "ltc:identifierType": "pid"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "ltc:hasIdentifier": [
+                        {
+                            "ltc:identifier": "123",
+                            "ltc:identifierType": "pid"
+                        }
+                    ],
+                    "ltc:collectionName": "Elephant skeleton",
+                    "ltc:description": "Complete mounted skeleton of a juvenile elephant",
+                    "dwc:scientificName": "Elephas maximus",
+                    "ltc:preservationMethod": "Skeletonized",
+                    "dwc:lifeStage": "juvenile",
+                    "ltc:hasMeasurementOrFact": [
+                        {
+                            "dwc:measurementType": "Object count",
+                            "dwc:measurementUnit": "individual",
+                            "dwc:measurementValue": 1
+                        }
+                    ],
+                    "ltc:hasResourceRelationship": [
+                        {
+                            "ltc:relationshipOfResource": "is part of",
+                            "dwc:relatedResourceID": "12",
+                            "ltc:relatedResourceName": "Teaching collection"
+                        }
+                    ],
+                    "ltc:hasOrganisationalUnit": {
+                        "ltc:hasIdentifier": [
+                            {
+                                "ltc:identifier": "DU",
+                                "ltc:identifierType": "acronym"
+                            },
+                            {
+                                "ltc:identifier": "01",
+                                "ltc:identifierType": "pid"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "ltc:hasIdentifier": [
+                        {
+                            "identifier": "211",
+                            "name": "pid"
+                        }
+                    ],
+                    "ltc:collectionName": "Petrified wood",
+                    "ltc:scientificName": "Plantae",
+                    "ltc:hasResourceRelationship": [
+                        {
+                            "ltc:relationshipOfResource": "is part of",
+                            "dwc:relatedResourceID": "21",
+                            "ltc:relatedResourceName": "Fossils"
+                        }
+                    ],
+                    "ltc:hasOrganisationalUnit": {
+                        "ltc:organisationalUnitName": "Dino Museum",
+                        "ltc:hasIdentifier": [
+                            {
+                                "ltc:identifier": "02",
+                                "ltc:identifierType": "pid"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "ltc:hasIdentifier": [
+                        {
+                            "identifier": "212",
+                            "name": "pid"
+                        }
+                    ],
+                    "ltc:collectionName": "Fossil bivalves",
+                    "ltc:scientificName": "Bivalvia",
+                    "ltc:hasResourceRelationship": [
+                        {
+                            "ltc:relationshipOfResource": "is part of",
+                            "dwc:relatedResourceID": "21",
+                            "ltc:relatedResourceName": "Fossils"
+                        }
+                    ],
+                    "ltc:hasOrganisationalUnit": {
+                        "ltc:organisationalUnitName": "Dino Museum",
+                        "ltc:hasIdentifier": [
+                            {
+                                "ltc:identifier": "02",
+                                "ltc:identifierType": "pid"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "ltc:hasIdentifier": [
+                        {
+                            "identifier": "213",
+                            "name": "pid"
+                        }
+                    ],
+                    "ltc:collectionName": "Fossil Vertebrate",
+                    "ltc:scientificName": "Chordata",
+                    "ltc:hasResourceRelationship": [
+                        {
+                            "ltc:relationshipOfResource": "is part of",
+                            "dwc:relatedResourceID": "21",
+                            "ltc:relatedResourceName": "Fossils"
+                        }
+                    ],
+                    "ltc:hasOrganisationalUnit": {
+                        "ltc:organisationalUnitName": "Dino Museum",
+                        "ltc:hasIdentifier": [
+                            {
+                                "ltc:identifier": "02",
+                                "ltc:identifierType": "pid"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "ltc:hasIdentifier": [
+                        {
+                            "identifier": "221",
+                            "name": "pid"
+                        }
+                    ],
+                    "ltc:collectionName": "Sedimentary rocks",
+                    "ltc:hasResourceRelationship": [
+                        {
+                            "ltc:relationshipOfResource": "is part of",
+                            "dwc:relatedResourceID": "22",
+                            "ltc:relatedResourceName": "Rocks but not fossil"
+                        }
+                    ],
+                    "ltc:hasOrganisationalUnit": {
+                        "ltc:organisationalUnitName": "Dino Museum",
+                        "ltc:hasIdentifier": [
+                            {
+                                "ltc:identifier": "02",
+                                "ltc:identifierType": "pid"
+                            }
+                        ]
+                    }
+                },
+                {
+                    "ltc:hasIdentifier": [
+                        {
+                            "identifier": "222",
+                            "name": "pid"
+                        }
+                    ],
+                    "ltc:collectionName": "Volcanic rocks",
+                    "ltc:hasResourceRelationship": [
+                        {
+                            "ltc:relationshipOfResource": "is part of",
+                            "dwc:relatedResourceID": "22",
+                            "ltc:relatedResourceName": "Rocks but not fossil"
+                        }
+                    ],
+                    "ltc:hasOrganisationalUnit": {
+                        "ltc:organisationalUnitName": "Dino Museum",
+                        "ltc:hasIdentifier": [
+                            {
+                                "ltc:identifier": "02",
+                                "ltc:identifierType": "pid"
+                            }
+                        ]
+                    }
+                },
+                                {
+                    "ltc:hasIdentifier": [
+                        {
+                            "identifier": "223",
+                            "name": "pid"
+                        }
+                    ],
+                    "ltc:collectionName": "Gems",
+                    "ltc:hasMeasurementOrFact": [
+                        {
+                            "dwc:measurementType": "Object count",
+                            "dwc:measurementUnit": "object",
+                            "dwc:measurementValue": 130
+                        }
+                    ],
+                    "ltc:hasResourceRelationship": [
+                        {
+                            "ltc:relationshipOfResource": "is part of",
+                            "dwc:relatedResourceID": "22",
+                            "ltc:relatedResourceName": "Rocks but not fossil"
+                        }
+                    ],
+                    "ltc:hasOrganisationalUnit": {
+                        "ltc:organisationalUnitName": "Dino Museum",
+                        "ltc:hasIdentifier": [
+                            {
+                                "ltc:identifier": "02",
+                                "ltc:identifierType": "pid"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

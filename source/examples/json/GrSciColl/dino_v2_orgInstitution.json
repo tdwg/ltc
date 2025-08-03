@@ -1,0 +1,38 @@
+{
+    "ltc:LatimerCoreScheme": [
+        {
+            "ltc:schemeName": "GrSCiColl Institution Scheme",
+            "ltc:basisOfScheme": "Institution",
+            "ltc:isDistinctObjects": true,
+            "ltc:hasObjectGroup": [
+                {
+                    "ltc:hasOrganisationalUnit": [
+                        {
+                            "ltc:hasIdentifier": [
+                                {
+                                    "ltc:identifier": "https://ror.org/01dinos01",
+                                    "ltc:identifierType": "ROR"
+                                },
+                                {
+                                    "ltc:identifier": "DU",
+                                    "ltc:identifierType": "acronym"
+                                },
+                                {
+                                    "ltc:identifier": "01",
+                                    "ltc:identifierType": "pid"
+                                }
+                            ],
+                            "ltc:organisationalUnitName": "Dino University",
+                            "ltc:organisationalUnitType": "University",
+                            "ltc:hasAddress": [
+                                {
+                                    "schema:addressLocality": "Dino City"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
