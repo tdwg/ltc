@@ -11,3 +11,5 @@ Desktop.ini
 RF13022024152609761334319.ico
 .env
 .DS_Store
+*/venv
+*/.env

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema",
+  "$id": "https://raw.githubusercontent.com/tdwg/ltc/2025-json-test/source/json-schema/temporal-coverage.json",
+  "title": "Temporal Coverage",
+  "description": "The time period during which the related event, activity or status was occurring. This class can be used to reflect the period of time in which specified activities, events and states occurred. Examples might include the time range of the `Event` in which the objects were collected, the period during a `CollectionStatusHistory` over which the collection was actively growing, or the span of time someone was working in a particular `PersonRole`. If the time period you are trying to describe is better described by a categorical label rather than a date, `GeologicalContext`, `ChronometricAge` or `ObjectGroup.period` may be more suitable. ",
+  "type": "object",
+  "properties": {}
+}

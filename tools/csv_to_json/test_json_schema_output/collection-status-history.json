@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema",
+  "$id": "https://raw.githubusercontent.com/tdwg/ltc/2025-json-test/source/json-schema/collection-status-history.json",
+  "title": "Collection Status History",
+  "description": "A record of current and past statuses of the object group and the reason for status changes. Use this class to record the history of and reason for changes in the status of the described collection. Types of status described by this class may, for example, include ownership, management, accessibility or accrual policy over time. Dates reflecting the start and end of the status described by this class should be recorded using an instance of TemporalCoverage. If temporalCoverageEndDateTime is empty, the status should be inferred to be the current status of the collection.",
+  "type": "object",
+  "properties": {}
+}

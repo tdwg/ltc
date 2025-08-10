@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema",
+  "$id": "https://raw.githubusercontent.com/tdwg/ltc/2025-json-test/source/json-schema/event.json",
+  "title": "Event",
+  "description": "An action that occurs at some location during some time. Derived from dwc Class event (http://rs.tdwg.org/dwc/terms/version/Event-2018-09-06). This class has been defined under the ltc namespace because it only has a subset of the properties of DwC:Event. All ltc:Event properties are borrowed from and reference the dwc namespace. Examples of an Event include: A specimen collection process. A camera trap image capture. A marine trawl.",
+  "type": "object",
+  "properties": {}
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema",
+  "$id": "https://raw.githubusercontent.com/tdwg/ltc/2025-json-test/source/json-schema/resource-relationship.json",
+  "title": "Resource Relationship",
+  "description": "A relationship of one rdfs:Resource (http://www.w3.org/2000/01/rdf-schema#Resource) to another, or to a simple named concept. Resources can be thought of as identifiable records or instances of classes and may include, but need not be limited to instances of ltc:ObjectGroup, ltc:OrganisationalUnit, ltc:Taxon, ltc:Event, ltc:GeographicContext, ltc:GeologicalContext, ltc:EcologicalContext, or ltc:ObjectClassification. In the context of Latimer Core, the main purposes of this class are 1. to define different semantic and hierarchical relationships between ObjectGroups, and 2. to support quantified and annotated relationships between ObjectGroups and other LtC classes (such as ltc:Taxon and ltc:GeographicContext) and properties (such as ltc:discipline and ltc:objectType) that describe the contents of the ObjectGroup, using the hasMeasurementOrFact property.",
+  "type": "object",
+  "properties": {}
+}
