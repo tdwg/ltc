@@ -22,7 +22,7 @@ def get_csv_as_dict(file_path: str, remote: bool=True) -> list:
                 rows.append(row)
 
     else:
-        response = requests.get(file_path)
+        response = requests.get(file_path, timeout=60)
         if response.status_code == 200:
             buffer = io.StringIO(response.text)
             reader = csv.DictReader(buffer, delimiter=',', quotechar='"')
@@ -255,7 +255,8 @@ def main():
 
         lookup = {x['term']: x for x in term_list}
         lookup.update({x['term']: x for x in spec_list})
-        [print(f"Using spec-definition for {x['term']}") for x in spec_list]
+        for x in spec_list:
+            print(f"Using spec-definition for {x['term']}")
         term_list = list(lookup.values())
 
         # For each class, setup terms as json-schema
