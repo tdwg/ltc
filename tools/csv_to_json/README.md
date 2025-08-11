@@ -1,6 +1,6 @@
 # csv-to-json
 
-A python script to convert CSVs formatted like the [LtC standard terms CSVs](../../standard/terms) into [JSON Schema](https://json-schema.org/) files, as shown [here](../../standard/json-schema)
+A python script to convert CSVs formatted like the [LtC standard terms CSVs](../../source/terms) into [JSON Schema](https://json-schema.org/) files, as shown [here](../../source/json-schema) (or in the test-version [here](./test_json_schema_output/))
 
 
 ## Setup/Requirements:
@@ -20,38 +20,37 @@ If not already:
 
 ## How to run csv_to_json.py or csv_to_json_spec.py
 
-1. Resave the `tools/csv_to_json/.env.example` file as  `tools/csv_to_json/.env`
-    - See [env variable descriptions](#env-variable-descriptions) below if you need help pointing to different paths or files.
+At a command line, do the following:
 
-2. At a command line, do the following:
-
-   2.1. Go to the directory containing this script
+1. Go to the directory containing this script
 
     `cd path/to/this-repo/tools/csv_to_json`
 
-   2.2  Optionally: Setup and activate a python virtual environment to avoid confusion with other python setup/s on your machine.  [**Detailed Instructions here.**](https://python.land/virtual-environments/virtualenv#How_to_create_a_Python_venv)
+
+2.  (Optionally) Setup and activate a python virtual environment to avoid confusion with other python setup/s on your machine.  [**Detailed Instructions here.**](https://python.land/virtual-environments/virtualenv#How_to_create_a_Python_venv)
      ```
-     # Note -- Use 'python' or 'python3' as appropriate for your python installation
      python -m venv venv
      source venv/bin/activate
      ```
 
-   2.3. Install required python modules listed in [`requirements.txt`](requirements.txt)
+
+3. Install required python modules listed in [`requirements.txt`](requirements.txt):
 
     `pip install -r requirements.txt`
 
-   2.4. Run this script
+
+4. Run this script
 
     `python csv_to_json.py` or `python csv_to_json_spec.py`
 
     - Command-line output should look similar to this:
 
-    ```
-    ltc_standard_terms_draft.csv valid -- required columns all present
-    ltc_categories.csv valid -- required columns all present
-    ltc_datatypes.csv valid -- required columns all present
-    ...JSON Schema output files are here: "test_json_schema_output/"
-    ```
+      ```
+      ltc_standard_terms_draft.csv valid -- required columns all present
+      ltc_categories.csv valid -- required columns all present
+      ltc_datatypes.csv valid -- required columns all present
+      ...JSON Schema output files are here: "test_json_schema_output/"
+      ```
 
     Check the **output-path** for JSON Schema output files
 
