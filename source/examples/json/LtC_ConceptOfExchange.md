@@ -53,6 +53,6 @@ To ensure that well-formed and quality-assured as well as quality-controlled dat
 
 Different registries or repositories storing collection records and their associated information and structure might have distinct specifications/profiles in use to which their records adhere. Yet, if all infrastructures involved in an exchange event base their specifications on the same foundation, the same standard or ontology, the exchange partners should still enable an interoperable exchange of data, or only require a limited, standardized set of transformations/modifications.
 
-The JSON Schema format was designed with data validation in the context of data sharing in mind. Up- or downloaded JSON/JSON-LD records are checked for adhering to a given set of rules and structures. 
+The **JSON Schema format** was designed with data validation in the context of data sharing in mind. Up- or downloaded JSON/JSON-LD records are checked for adhering to a given set of rules and structures. 
 
 
