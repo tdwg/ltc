@@ -26,13 +26,13 @@ Individual collection records or sets of stand-alone collection records can be s
 
 Users often require information about the organizational structures in which collection records are embedded. This can be information about the hosting organization, or relationships between collections and subcollections. Two approaches can be taken to share structural information:
 
-3. Completely denormalized and resolved (see identifiers) records are shared in the above table or serialized formats. Thereby, each record is a stand-alone information entity.
-    3.1 table format, eg. as csv files
-    3.2 serial formats, eg. JSON, YAML
+3. Completely denormalized and resolved (see identifiers) records are shared in the above table or serialized formats. Thereby, each record is a stand-alone information entity.  
+    3.1 table format, eg. as csv files  
+    3.2 serial formats, eg. JSON, YAML  
   
-4. A more or less normalized set of records is shared in which relationships and links are made possible through the use of identifiers and links, which characteristics are described though properties.
-    4.1 table format, eg. as csv files - values in cells can be identifiers (extra tables might be needed to share link-specific data)
-    4.2 serial formats designed for linked data are JSON-LD and LinkML
+4. A more or less normalized set of records is shared in which relationships and links are made possible through the use of identifiers and links, which characteristics are described though properties.  
+    4.1 table format, eg. as csv files - values in cells can be identifiers (extra tables might be needed to share link-specific data)  
+    4.2 serial formats designed for linked data are JSON-LD and LinkML  
 
 ## FAIR data exchange
 
