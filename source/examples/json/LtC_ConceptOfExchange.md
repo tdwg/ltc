@@ -1,4 +1,4 @@
-# Concept of Exchange
+# Introduction to Record Exchange
 
 Latimer Core's approach to sharing FAIR, reusable information on collection institutions and their collections.
 
