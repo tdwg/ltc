@@ -44,12 +44,12 @@ Only collection records that are associated with and accompanied by such compreh
 
 Thus, the FAIR exchange of FAIR data involves comprehensive information about a collection's structural and governmental context, the digital repository (registry) that provides or receives data, and the operations involved in the exchange. 
 
-Links to quality-assured records in moderated and well-governed repositories for (registered) registries, organizations, agents, license and similar legal information seem indispensable. Hence, for fully valid interactions, data exchange formats for linked data seem needed, eg. JSON-LD or LinkML.
+Links to quality-assured records in moderated and well-governed repositories for (registered) registries, organizations, agents, license and similar legal information seem indispensable. Hence, for fully valid interactions, **data exchange formats for linked data seem needed**, eg. JSON-LD or LinkML.
 
 
 ## Data and Record validation
 
-To ensure that well-formed and quality-assured as well as quality-controlled data and relationships/links governed by a suitable set of policies are exchanged between partners, schemata for exchanged data need to be defined. This is especially of interest to registries evaluating data upload. Yet, registries and data providers might also want to ensure that the data that they offer for download are of high quality and adhere to a set of selected standards on which users can rely during reuse.
+To ensure that well-formed and quality-assured as well as quality-controlled data and relationships/links governed by a suitable set of policies are exchanged between partners, **schemata for exchanged data** need to be defined. This is especially of interest to registries evaluating data upload. Yet, registries and data providers might also want to ensure that the data that they offer for download are of high quality and adhere to a set of selected standards on which users can rely during reuse.
 
 Different registries or repositories storing collection records and their associated information and structure might have distinct specifications/profiles in use to which their records adhere. Yet, if all infrastructures involved in an exchange event base their specifications on the same foundation, the same standard or ontology, the exchange partners should still enable an interoperable exchange of data, or only require a limited, standardized set of transformations/modifications.
 
