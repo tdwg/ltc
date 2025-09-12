@@ -34,17 +34,25 @@ Users often require information about the organizational structures in which col
 5. A more or less normalized set of records is shared in which relationships and links are made possible through the use of identifiers and links, which characteristics are described though properties.
 
     4.1 table format, eg. as csv files - values in cells can be identifiers (extra tables might be needed to share link-specific data)  
-    4.2 serial formats designed for linked data are JSON-LD and LinkML  
+    4.2 serial formats designed for the exchange of linked data are JSON-LD and LinkML  
 
 ## FAIR data exchange
 
+For shared data to be fully reusable, a full record of provenance and comprehensive data governance information need to accompany a collection record and set of (structured) records. In addition, such metadata also needs to accompany all operations, for example, including the agents associated with the transaction, that is who is the provider of the data and who downloaded the data; or who is the provider of the data who uploaded the data to which registry; etc. 
 
+Only collection records that are associated with and accompanied by such comprehensive metadata will be fully and with legal certainty reusable by providing the foundation for transparency, attribution and accountability.
 
-Provenance, operations: registry, agent information
+Thus, the FAIR exchange of FAIR data involves comprehensive information about a collections structural and governmental context, the digital repository (registry) that provides or receives data, and the operations involved in the exchange. 
+
+Links to moderated and quality assured records for (registered) registries, organizations, agents, license and similar legal information seem indispensable. Hence, for fully valid interactions, data exchange formats for linked data seem needed, eg. JSON-LD or LinkML.
 
 
 ## Data and Record validation
 
-JSON Schema designed to check for correctly assembled/well-designed status of exchanged records, during download and upload.
+To ensure that well-formed and quality assured as well as controlled data and relationships/links are exchanged between partners, schemata for exchanged data are defined. This is especially of interest to registries evaluating data upload, though registries and data providers might also want to ensure that the data that they offer for download adheres to a set of selected standards on which users can rely during reuse.
+
+Different registries or repositories storing collection records and their associated information and structure might have distinct specifications/profiles in use to which their records adhere. Yet, if all infrastructures involved in an exchange event base their specifications on the same foundation, the same standard or ontology, the exchange partners should still enable interoperable data exchange, or only require a limited, standardized set of transformations/modifications.
+
+The JSON Schema format was designed with data validation in the context of data sharing in mind. Up- or downloaded JSON/JSON-LD records are checked for adhering to a given set of rules and structures. 
 
 
