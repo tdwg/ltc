@@ -24,3 +24,15 @@ Getting started[](#getting-started)
 *   The [LtC Wiki](https://github.com/tdwg/ltc/wiki/1.-Overview-of-Latimer-Core) provides an overview of Latimer Core's structure and purpose
 *   See how classes fit together in the [Standard Browser](https://rebrand.ly/tdwg-cd-standard-browser).
 *   Add or join a [Discussion](https://github.com/tdwg/ltc/discussions)
+
+
+## How to Cite
+Citations provide attribution, visibility, and thus support to the work of the authors and of Biodiversity Information Standards (TDWG) as a not-for-profit organization. At the same time, they promote transparency and accountability, enabling a rights-based approach to standard development.  
+    
+To cite the **current release** of the LtC standard:  
+Grant, S., Jones, J., Webbink, K., Woodburn, M., Vincent, S., Trekels, M., Buschbom, J., Groom, Q. J., Norton, B., Sanderson, R., Engelbrecht, I., Baskauf, S. J., Addink, W., Bloom, D., Breugelmans, L., Chapman, C., Dröge, G., Grosjean, M., Hahn, A., Krimmel, E., Paul, D., Raes, N., Robertson, T., Ulate, W., Saliba E. M. & Biodiversity Information Standards (TDWG). TDWG Latimer Core (LtC) Standard (v1.0.0). Zenodo https://doi.org/10.5281/zenodo.14418253
+  
+To cite this **GitHub repository** of LtC with its development information and ongoing work:  
+Norton, B., Woodburn, M., Grant, S., Jones, J., Webbink, K., Vincent, S., Trekels, M., Buschbom, J., Baskauf, S. J., Saliba E. M., & Biodiversity Information Standards (TDWG). Latimer Core (LtC) GitHub Repository [Standard]
+
+
