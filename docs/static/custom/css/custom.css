@@ -806,5 +806,21 @@ Purple: #560D59
 .toggle-fullscreen-btn.on .icon-fullscreen-enter {
 	display: none;
 }
-
-
+#objectGroupERDiagram,
+#masterClassDiagram,
+#objectGroupClassDiagram {
+	min-height: 600px;
+	background: #FFFFFF;
+}
+#objectGroupERDiagram svg,
+#masterClassDiagram svg,
+#objectGroupClassDiagram svg {
+	height: 600px;
+}
+g.node g.text {
+	fill: #000000;
+}
+span.nodeLabel,
+span.nodeLabel p {
+	color: #000000;
+}

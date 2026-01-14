@@ -2,8 +2,8 @@ var elemA = document.getElementById("er-diagram-1");
 var elemB = document.getElementById("er-diagram-2");
 var elemC = document.getElementById("er-diagram-3");
 var elemD = document.getElementById("er-diagram-4");
-var elemE = document.getElementById("green-class-diagram");
-var elemF = document.getElementById("master-class-diagram");
+var elemE = document.getElementById("objectGroupClassDiagram");
+var elemF = document.getElementById("masterClassDiagram");
 
 
 function openFullscreen(diagram) {
