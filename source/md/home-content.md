@@ -5,7 +5,7 @@ The Latimer Core Maintenance Group is currently responsible for actively maintai
 - Jutta Buschbom - Statistical Genetics, Ahrensburg, Germany <jutta.buschbom@statistical-genetics.de> [![ORCiD Profile Link](/static/assets/images/logos/ORCID-iD_icon_16x16.png)](https://orcid.org/0000-0002-7697-9214)
 - Sharon Grant - Field Museum, Chicago, IL, USA <sgrant@fieldmuseum.org> [![ORCiD Profile Link](/static/assets/images/logos/ORCID-iD_icon_16x16.png)](https://orcid.org/0000-0002-0201-732X)
 - Janeen Jones - Field Museum, Chicago, IL, USA <jjones@fieldmuseum.org> [![ORCiD Profile Link](/static/assets/images/logos/ORCID-iD_icon_16x16.png)](https://orcid.org/0000-0002-1261-8049)
-- Ben Norton - Independent, USA <michaelnorton.ben@gmail.com> [![ORCiD Profile Link](/static/assets/images/logos/ORCID-iD_icon_16x16.png)](https://orcid.org/0000-0002-5819-9134)
+- Ben Norton - Yale University, USA <ben.norton@yale.edu> [![ORCiD Profile Link](/static/assets/images/logos/ORCID-iD_icon_16x16.png)](https://orcid.org/0000-0002-5819-9134)
 - Elie Saliba - Muséum National d’Histoire Naturelle, Paris, France <elie.saliba@mnhn.fr> [![ORCiD Profile Link](/static/assets/images/logos/ORCID-iD_icon_16x16.png)](https://orcid.org/0000-0001-9591-5016)
 - Maarten Trekels - Meise Botanic Garden, Meise, Belgium <maarten.trekels@plantentuinmeise.be> [![ORCiD Profile Link](/static/assets/images/logos/ORCID-iD_icon_16x16.png)](https://orcid.org/0000-0001-8282-8765)
 - Kate Webbink - Field Museum, Chicago, IL, USA <kwebbink@fieldmuseum.org> [![ORCiD Profile Link](/static/assets/images/logos/ORCID-iD_icon_16x16.png)](https://orcid.org/0000-0002-8347-0942)
