@@ -7,7 +7,7 @@ conveners of a standard. You may also reach out to the chair of the Technical Ar
 Thanks!  
 \- TDWG
 
-Latimer Core Translation **Point of Contact**: Elie Saliba <elie.saliba@mnhn.fr>  
+**Latimer Core Translation Point of Contact**: Elie Saliba <elie.saliba@mnhn.fr>  
     
 **Latimer Core Translation Attributions**  
 - French Translation: Elie Saliba [elie.saliba@mnhn.fr](mailto:elie.saliba@mnhn.fr)
