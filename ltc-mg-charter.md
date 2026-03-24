@@ -25,7 +25,7 @@ toc: true
 ## Core members
 - [Jutta Buschbom](jutta.buschbom@statistical-genetics.de) - Statistical Genetics, DE
 - [Elie Saliba](elie.saliba@mnhn.fr) - Muséum National d'Histoire Naturelle, Paris, FR
-- [Ben Norton](michaelnorton.ben@gmail.com) - Independent, USA
+- [Ben Norton](michaelnorton.ben@gmail.com) - Yale University, USA
 - [Maarten Trekels](maarten.trekels@plantentuinmeise.be) - Meise Botanic Garden, BE  
 
 
