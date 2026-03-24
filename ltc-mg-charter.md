@@ -33,7 +33,7 @@ toc: true
 The Latimer Core (LtC) schema, named after Marjorie Courtenay-Latimer, is a standard designed to support the representation and discovery of natural science collections by structuring data about the groups of objects that those collections and their subcomponents encompass. Individual items within those groups are represented through other emerging or current standards (e.g., Darwin Core, ABCD). The LtC classes and properties aim to represent information that describes these groupings in enough detail to inform deeper discovery of the resources contained within them.
 
 ## Goals, outputs, and outcomes
-This interest group is established to meet the requirements in [Section 2.1](https://github.com/tdwg/vocab/blob/master/vms/maintenance-specification.md#21-vocabulary-maintenance-interest-groups) of the [TDWG Vocabulary Maintenance Specification](https://github.com/tdwg/vocab/blob/master/vms/maintenance-specification.md): to maintain the [Latimer Core](/standards/ltc/) standard.
+This interest group is established to meet the requirements in [Section 2.1](https://github.com/tdwg/vocab/blob/master/vms/maintenance-specification.md#21-vocabulary-maintenance-interest-groups) of the [TDWG Vocabulary Maintenance Specification](https://github.com/tdwg/vocab/blob/master/vms/maintenance-specification.md): to maintain the [Latimer Core](https://ltc.tdwg.org) standard.
   
 ## Strategy and/or Framework
 The LtC maintenance group is holding monthly meetings, in which the current open issues on the standard are discussed and solutions to it are proposed.
