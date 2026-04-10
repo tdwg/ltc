@@ -5,10 +5,10 @@ published. Please contact the point of contact indicated below if you discover a
 You can help! To help us translate our normative and non-normative documents, please get in touch with the designated translation point of contact or the 
 conveners of a standard. You may also reach out to the chair of the Technical Architecture Group, Ben Norton <michaelnorton.ben@gmail.com>.  
 Thanks!  
-- TDWG
+\- TDWG
 
-Latimer Core Translation **Point of Contact**: Elie Saliba <elie.saliba@mnhn.fr>  
+**Latimer Core Translation Point of Contact**: Elie Saliba <elie.saliba@mnhn.fr>  
     
 **Latimer Core Translation Attributions**  
-* French Translation: Elie Saliba [mailto:elie.saliba@mnhn.fr](elie.saliba@mnhn.fr)
+- French Translation: Elie Saliba [elie.saliba@mnhn.fr](mailto:elie.saliba@mnhn.fr)
 
