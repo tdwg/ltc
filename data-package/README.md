@@ -7,8 +7,9 @@ The structure of Latimer Core defined in a frictionless data package inline with
 Darwin Core DP. The data package implementation in Darwin Core DP and Camtrap DP are included for reference. 
 Currently, the Latimer Core Data Package is based on version 1 of the Frictionless Data Package Specification. 
 
-To build the vocabulary, create a python virtual environment in this directory and install the required packages using pip. 
-Then, run the script to generate the vocabulary.
+To build the vocabulary, create a python virtual environment called .venv-ltc-data-package in this directory and 
+install the required packages using pip. Then, run the script to generate the vocabulary. On Windows, activate 
+the virtual environment by entering init.bat in a console window.
 
 ## Resources
 | Title | URL | Description                                                                             |
