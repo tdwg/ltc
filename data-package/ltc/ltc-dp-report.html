@@ -207,6 +207,81 @@ footer code{color:var(--text-2)}
   .wrap{padding:0 18px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+
+/* print ================================================================= *
+ * Printers drop background colours, so the dark palette would put near-white
+ * text on white paper. Force the light palette for print, whatever the
+ * viewer's theme, and give every surface an explicit ink colour.           */
+@media print{
+  :root,
+  :root[data-theme="dark"],
+  :root:not([data-theme="light"]){
+    --bg:#FFFFFF; --surface:#FFFFFF; --surface-2:#F1F4F6;
+    --text:#000000; --text-2:#1F2F39; --text-3:#3D525E;
+    --rule:#7E919C; --rule-2:#B9C7CF;
+    --prussian:#10364C; --cyan:#124A66; --wash:#E8F0F4; --brass:#6A461A;
+    --core:#10364C; --junction:#3F6274;
+  }
+  @page{margin:12mm}
+  html,body{background:#FFFFFF;color:#000000;font-size:9.6pt;line-height:1.45}
+  .wrap{max-width:none;padding:0}
+  .col{max-width:none}
+  a{color:#124A66;text-decoration:none}
+
+  /* chrome that means nothing on paper */
+  .nav,.tools,.more{display:none!important}
+
+  .mast{border-bottom:1.5pt solid #10364C}
+  .mast-in{padding:0 0 10pt;gap:12pt}
+  h1{font-size:22pt}
+  .sub{font-size:10.5pt}
+  .meta{text-align:left}
+
+  section{padding:14pt 0 10pt;border-bottom:.5pt solid #B9C7CF;
+    break-inside:auto}
+  h2{font-size:14pt}
+  h3{font-size:11.5pt;margin-top:14pt}
+  h2,h3,h4,caption,.sec-head{break-after:avoid;page-break-after:avoid}
+  .lede{font-size:10.5pt}
+
+  /* the strip draws its rules with a background grid, which does not print */
+  .strip{grid-template-columns:repeat(4,1fr);gap:0;border:0;break-inside:avoid}
+  .stat{border:.4pt solid #B9C7CF;margin:-.2pt 0 0 -.2pt;padding:6pt 8pt}
+  .stat .v{font-size:15pt}
+  .note{break-inside:avoid;border-left:2pt solid #6A461A}
+
+  /* tables: show all of them, and repeat the header on every page */
+  .explorer{max-height:none!important;overflow:visible!important;
+    border:.5pt solid #7E919C}
+  .tw{overflow:visible;border:.5pt solid #7E919C}
+  table{font-size:8pt}
+  .explorer table{font-size:7.4pt}
+  th,td{padding:2.5pt 5pt;color:#000000}
+  thead{display:table-header-group}
+  tfoot{display:table-footer-group}
+  tr{break-inside:avoid;page-break-inside:avoid}
+  th{position:static!important;background:#F1F4F6;color:#1F2F39;
+    border-bottom:.5pt solid #7E919C}
+  td{border-bottom:.4pt solid #B9C7CF}
+  td.m,.mono,code{color:#000000}
+  tbody tr:hover{background:transparent}
+  .b{color:#1F2F39;border-color:#7E919C}
+  .b.pk,.b.core{color:#10364C;border-color:#10364C}
+  .b.fk{color:#3F6274;border-color:#3F6274}
+  .b.minted,.b.diff{color:#6A461A;border-color:#6A461A}
+
+  /* diagrams turn side-on so the long axis runs down the page */
+  .rot{position:relative;width:180mm;height:250mm;margin:14pt 0 0;
+    break-inside:avoid;page-break-inside:avoid;break-before:page;page-break-before:always}
+  .rot>figure{position:absolute;top:0;left:0;width:245mm;margin:0;
+    transform-origin:0 0;transform:translateX(180mm) rotate(90deg)}
+  .rot .figbox{overflow:visible;padding:4mm;border:.5pt solid #7E919C}
+  .rot svg{min-width:0!important;width:100%;height:auto}
+  .rot figcaption{font-size:7.6pt;margin-top:5pt;max-width:none;color:#1F2F39}
+  .rot .legend{font-size:7.6pt;margin-top:6pt;gap:3pt 14pt;color:#1F2F39}
+
+  footer{padding:12pt 0 0;color:#1F2F39}
+}
 </style>
 
 <header class="mast">
@@ -277,6 +352,7 @@ footer code{color:var(--text-2)}
       as a band rather than drawing 59 near-identical lines.</p>
   </div>
 
+  <div class="rot">
   <figure>
     <div class="figbox"><svg viewBox="0 0 1364 800" role="img" aria-label="Structural skeleton of the Latimer Core Data Package: two root tables, ObjectGroup as the central hub, and three universal attachment tables that every class links to." class="skeleton">
 <defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0.5 L8,4 L0,7.5 z" fill="currentColor"/></marker></defs>
@@ -484,6 +560,7 @@ footer code{color:var(--text-2)}
       would obscure the skeleton rather than reveal it. Column counts are for the core table
       only, excluding junction tables.</figcaption>
   </figure>
+  </div>
 
   <h3>How a relation becomes a table</h3>
   <div class="col">
@@ -493,6 +570,7 @@ footer code{color:var(--text-2)}
       three of them, and cannot use the fourth.</p>
   </div>
 
+  <div class="rot">
   <figure>
     <div class="figbox">
       <svg viewBox="0 0 1240 262" role="img" class="patterns" aria-label="Four ways a Latimer Core relation resolves into tables: direct foreign key when the target has one parent class, junction table when it has several, a self-referencing key for hierarchies, and Darwin Core DP's inlining pattern which Latimer Core cannot use.">
@@ -567,6 +645,7 @@ footer code{color:var(--text-2)}
       it carries <code>hasReference</code>. This single fact accounts for most of the size
       difference between the two packages.</figcaption>
   </figure>
+  </div>
 </section>
 
 <!-- 3 ------------------------------------------------------------------ -->
