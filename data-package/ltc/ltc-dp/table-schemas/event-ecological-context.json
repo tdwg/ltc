@@ -1,0 +1,66 @@
+{
+  "identifier": "http://rs.tdwg.org/ltc/ltc-dp/event-ecological-context",
+  "url": "table-schemas/event-ecological-context.json",
+  "name": "event-ecological-context",
+  "title": "Event Ecological Context",
+  "description": "An ltc:EcologicalContext related to an ltc:Event.",
+  "comments": "",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasEcologicalContext",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasEcologicalContext-2024-02-28",
+  "rdfs:comment": "This property refers to one or more related instances of the EcologicalContext class.",
+  "fields": [
+    {
+      "name": "event_fk",
+      "title": "Event (Foreign Key)",
+      "description": "An identifier for an ltc:Event.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/eventID",
+      "rdfs:comment": "A unique identifier for an ltc:Event.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "ecologicalContext_fk",
+      "title": "Ecological Context (Foreign Key)",
+      "description": "An identifier for an ltc:EcologicalContext.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasEcologicalContext",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasEcologicalContext-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the EcologicalContext class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": "event_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "event",
+        "fields": "event_pk"
+      }
+    },
+    {
+      "fields": "ecologicalContext_fk",
+      "predicate": "has",
+      "reference": {
+        "resource": "ecological-context",
+        "fields": "ecologicalContext_pk"
+      }
+    }
+  ]
+}

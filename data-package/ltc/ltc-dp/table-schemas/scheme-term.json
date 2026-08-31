@@ -1,0 +1,110 @@
+{
+  "identifier": "http://rs.tdwg.org/ltc/ltc-dp/scheme-term",
+  "url": "table-schemas/scheme-term.json",
+  "name": "scheme-term",
+  "title": "Scheme Term",
+  "description": "A Latimer Core term used by the LatimerCoreScheme and the rules relating to its application.",
+  "comments": "This class can be used to define which of the terms (classes and/or properties) within the standard (e.g. GeographicContext, Taxon, preservationMethod) are expected to be used within the scheme, and specify whether they're mandatory and/or repeatable. This information can be used by software and queries to validate the data and understand the rules by which metrics can be reported against the specified term.",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/SchemeTerm",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/SchemeTerm-2024-02-28",
+  "rdfs:comment": "A Latimer Core term used by the LatimerCoreScheme and the rules relating to its application.",
+  "fields": [
+    {
+      "name": "schemeTerm_pk",
+      "title": "Scheme Term (Primary Key)",
+      "description": "A unique identifier for an ltc:SchemeTerm.",
+      "comments": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/schemeTermID",
+      "rdfs:comment": "A unique identifier for an ltc:SchemeTerm.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "latimerCoreScheme_fk",
+      "title": "Latimer Core Scheme (Foreign Key)",
+      "description": "An identifier for an ltc:LatimerCoreScheme.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasSchemeTerm",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasSchemeTerm-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the SchemeTerm class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "isMandatoryTerm",
+      "title": "Is Mandatory Term",
+      "description": "A flag to designate whether it is mandatory or optional for all ObjectGroups in the LatimerCoreScheme to include or be linked to valid data for the class or property defined in the termName property.",
+      "comments": "This flag can be used for software automation and data validation. For example, if the termName is 'preservationMethod' (a property) and isMandatoryTerm is 'true', then an interface or query should always expect a value for that property, and can validate against that expectation. If the termName is Taxon (a class) and isMandatoryTerm is 'true', then similarly the expectation will be that at least one populated Taxon object is linked to every ObjectGroup. If the isRepeatableTerm property is set to 'false', then the expectation will be that exactly one populated Taxon object is linked to every ObjectGroup and no more.",
+      "examples": "`true`, `false`",
+      "type": "boolean",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/isMandatoryTerm",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/isMandatoryTerm-2024-02-28",
+      "rdfs:comment": "A flag to designate whether it is mandatory or optional for all ObjectGroups in the LatimerCoreScheme to include or be linked to valid data for the class or property defined in the termName property.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "isRepeatableTerm",
+      "title": "Is Repeatable Term",
+      "description": "A flag to designate whether multiple instances of the Latimer Core class or property defined in the termName property may be attached to a single ObjectGroup.",
+      "comments": "This property essentially defines whether the property or class is used for a 'tagging' approach (e.g. attaching multiple Taxon records to the same ObjectGroup to reflect the taxonomic scope, or a 'dimensional' approach (e.g. attaching a single GeologicalContext to an ObjectGroup, to show that it represents only objects from the Mesozoic). This has implications on how metrics may be handled, and more information is available in the non-normative guidance.",
+      "examples": "`true`, `false`",
+      "type": "boolean",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/isRepeatableTerm",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/isRepeatableTerm-2024-02-28",
+      "rdfs:comment": "A flag to designate whether multiple instances of the Latimer Core class or property defined in the termName property may be attached to a single ObjectGroup.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "termName",
+      "title": "Term Name",
+      "description": "The name of a class or property within the Latimer Core standard that is included in the LatimerCoreScheme.",
+      "comments": "The values of this property are constrained to the names of terms (classes or properties) within the Latimer Core standard.",
+      "examples": "`GeographicContext`, `Taxon`, `preservationMethod`, `discipline`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/termName",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/termName-2024-02-28",
+      "rdfs:comment": "The name of a class or property within the Latimer Core standard that is included in the LatimerCoreScheme.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "primaryKey": "schemeTerm_pk",
+  "foreignKeys": [
+    {
+      "fields": "latimerCoreScheme_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "latimer-core-scheme",
+        "fields": "latimerCoreScheme_pk"
+      }
+    }
+  ]
+}

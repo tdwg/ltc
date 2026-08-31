@@ -1,13 +1,13 @@
 """Generate ltc-term-mapping.md from the Latimer Core term source files.
 
-Run from the repository root:  python data-package/ltc/build-mapping.py
+Run from the repository root:  python data-package/ltc/src/build-mapping.py
 
 Applies the Darwin Core DP structural conventions documented in instructions.md.
 Regenerate whenever a preliminary decision in open-issues.md is settled.
 """
 import csv, re, collections
 
-SRC = 'data-package/ltc/ltc_terms_source.csv'
+SRC = 'data-package/ltc/source/ltc_terms_source.csv'
 DT = 'source/terms/ltc_datatypes.csv'
 OUT = 'data-package/ltc/ltc-term-mapping.md'
 

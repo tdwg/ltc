@@ -9,7 +9,7 @@ the shape of the generated package and remain **open for group deliberation**.
 
 A **preliminary decision** has been recorded for each so that build work can proceed. Those
 decisions are implemented in `ltc-term-mapping.md` and `instructions.md`. They are provisional: if
-the group rules differently, regenerate the mapping with `python data-package/ltc/build-mapping.py`
+the group rules differently, regenerate the mapping with `python data-package/ltc/src/build-mapping.py`
 after amending the rules in that script.
 
 | Issue | Preliminary decision | Status |

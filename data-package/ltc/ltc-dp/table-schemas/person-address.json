@@ -1,0 +1,66 @@
+{
+  "identifier": "http://rs.tdwg.org/ltc/ltc-dp/person-address",
+  "url": "table-schemas/person-address.json",
+  "name": "person-address",
+  "title": "Person Address",
+  "description": "An ltc:Address related to an ltc:Person.",
+  "comments": "",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasAddress",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasAddress-2024-02-28",
+  "rdfs:comment": "This property refers to one or more related instances of the Address class.",
+  "fields": [
+    {
+      "name": "person_fk",
+      "title": "Person (Foreign Key)",
+      "description": "An identifier for an ltc:Person.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/personID",
+      "rdfs:comment": "A unique identifier for an ltc:Person.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "address_fk",
+      "title": "Address (Foreign Key)",
+      "description": "An identifier for an ltc:Address.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasAddress",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasAddress-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Address class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": "person_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "person",
+        "fields": "person_pk"
+      }
+    },
+    {
+      "fields": "address_fk",
+      "predicate": "has",
+      "reference": {
+        "resource": "address",
+        "fields": "address_pk"
+      }
+    }
+  ]
+}

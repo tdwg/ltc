@@ -1,0 +1,130 @@
+{
+  "identifier": "http://rs.tdwg.org/ltc/ltc-dp/measurement-or-fact",
+  "url": "table-schemas/measurement-or-fact.json",
+  "name": "measurement-or-fact",
+  "title": "Measurement or Fact",
+  "description": "A measurement of or fact about a class within the standard, or a relationship between the ObjectGroup and an associated class.",
+  "comments": "This class can be used to apply measurements, facts or narratives to the ObjectGroup as a whole, or used to qualify the relationship between the ObjectGroup and an associated attribute. For example, an ObjectGroup may contain 100 objects, of which 40 are from Europe and 60 from Africa. In this example, one MeasurementOrFact (count of 100) would be attached to the ObjectGroup, and one to each of the two relationships between the ObjectGroup and GeographicContext (Europe: count of 40, Africa: count of 60).",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/MeasurementOrFact",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/MeasurementOrFact-2024-02-28",
+  "rdfs:comment": "A measurement of or fact about a class within the standard, or a relationship between the ObjectGroup and an associated class.",
+  "fields": [
+    {
+      "name": "measurementOrFact_pk",
+      "title": "Measurement or Fact (Primary Key)",
+      "description": "A unique identifier for an ltc:MeasurementOrFact.",
+      "comments": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/measurementOrFactID",
+      "rdfs:comment": "A unique identifier for an ltc:MeasurementOrFact.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "measurementAccuracy",
+      "title": "Measurement Accuracy",
+      "description": "The description of the potential error associated with the measurementValue.",
+      "comments": "The description of the potential error associated with the measurementValue applied to the collection.",
+      "examples": "`0.01`, `Normal distribution with variation of 2 m`, `Reported`, `Estimated`",
+      "type": "string",
+      "format": "default",
+      "namespace": "dwc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/dwc/terms/measurementAccuracy",
+      "rdfs:comment": "The description of the potential error associated with the measurementValue."
+    },
+    {
+      "name": "measurementDerivation",
+      "title": "Measurement Derivation",
+      "description": "An indicator as to whether the measurement, fact, characteristic, or assertion being applied to the collection was derived from reported figures or aggregated/calculated from underlying data.",
+      "comments": "If there is more detailed information about the method by which a measurement or fact was derived, this should be captured using the measurementMethod property.",
+      "examples": "`Reported`, `Calculated`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/measurementDerivation",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/measurementDerivation-2024-02-28",
+      "rdfs:comment": "An indicator as to whether the measurement, fact, characteristic, or assertion being applied to the collection was derived from reported figures or aggregated/calculated from underlying data."
+    },
+    {
+      "name": "measurementFactText",
+      "title": "Fact or Narrative Text",
+      "description": "The value of the qualitative fact, characteristic, or assertion being made about the collection.",
+      "comments": "This property should also be used for storing textual information about the collection within a particular context, such as narratives or comments about digitisation readiness.",
+      "examples": "`UV-light`, `Extra large`, `Level 1`, `Re-curation of this collection would be required prior to digitisation, requiring an estimated two weeks of curator time.`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/measurementFactText",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/measurementFactText-2024-02-28",
+      "rdfs:comment": "The value of the qualitative fact, characteristic, or assertion being made about the collection."
+    },
+    {
+      "name": "measurementMethod",
+      "title": "Measurement Method",
+      "description": "A description of or reference to (publication, IRI) the method or protocol used to determine the measurement, fact, characteristic, or assertion.",
+      "comments": "",
+      "examples": "`DiSSCo MIDS level`, `LtC Standard Metric`, `https://doi.org/10.5281/zenodo.3465285`",
+      "type": "string",
+      "format": "default",
+      "namespace": "dwc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/dwc/terms/measurementMethod",
+      "rdfs:comment": "A description of or reference to (publication, IRI) the method or protocol used to determine the measurement, fact, characteristic, or assertion."
+    },
+    {
+      "name": "measurementRemarks",
+      "title": "Measurement Remarks",
+      "description": "Comments or notes accompanying the MeasurementOrFact.",
+      "comments": "",
+      "examples": "`Does not include on-loan material`, `Footprint includes housing`",
+      "type": "string",
+      "format": "default",
+      "namespace": "dwc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/dwc/terms/measurementRemarks",
+      "rdfs:comment": "Comments or notes accompanying the MeasurementOrFact."
+    },
+    {
+      "name": "measurementType",
+      "title": "Measurement Type",
+      "description": "The nature of the measurement, fact, characteristic, or assertion.",
+      "comments": "Recommended best practice is to use a controlled vocabulary.",
+      "examples": "`Imaged Level Percentage`, `Storage Volume`, `Object Count`, `MIDS-0 Object Count`, `Historical narrative`",
+      "type": "string",
+      "format": "default",
+      "namespace": "dwc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/dwc/terms/measurementType",
+      "rdfs:comment": "The nature of the measurement, fact, characteristic, or assertion."
+    },
+    {
+      "name": "measurementUnit",
+      "title": "Measurement Unit",
+      "description": "The units associated with the measurementValue.",
+      "comments": "For some use cases, this property can also be used to reflect the type of value being stored (e.g. a count, or a percentage).",
+      "examples": "`mm`, `C`, `km`, `ha`, `count`, `percentage`, `category`",
+      "type": "string",
+      "format": "default",
+      "namespace": "dwc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/dwc/terms/measurementUnit",
+      "rdfs:comment": "The units associated with the measurementValue."
+    },
+    {
+      "name": "measurementValue",
+      "title": "Measurement Value",
+      "description": "The value of the measurement, fact, characteristic, or assertion.",
+      "comments": "The numeric value of the quantitative measurement being made about the collection. In the Collection Description standard, this field is constrained to only accept numeric values in order to better support the aggregation of quantitative metrics. For any non-numeric values, and metrics where the scale is a numeral that cannot be used in any calculations the measurementFactText property should be used instead.",
+      "examples": "`45`, `20000`, `1`, `14.5`",
+      "type": "number",
+      "format": "default",
+      "namespace": "dwc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/dwc/terms/measurementValue",
+      "rdfs:comment": "The value of the measurement, fact, characteristic, or assertion."
+    }
+  ],
+  "primaryKey": "measurementOrFact_pk"
+}

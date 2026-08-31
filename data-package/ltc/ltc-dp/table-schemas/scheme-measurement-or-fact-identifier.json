@@ -1,0 +1,66 @@
+{
+  "identifier": "http://rs.tdwg.org/ltc/ltc-dp/scheme-measurement-or-fact-identifier",
+  "url": "table-schemas/scheme-measurement-or-fact-identifier.json",
+  "name": "scheme-measurement-or-fact-identifier",
+  "title": "Scheme Measurement Or Fact Identifier",
+  "description": "An ltc:Identifier related to an ltc:SchemeMeasurementOrFact.",
+  "comments": "",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasIdentifier",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasIdentifier-2024-02-28",
+  "rdfs:comment": "This property refers to one or more related instances of the Identifier class.",
+  "fields": [
+    {
+      "name": "schemeMeasurementOrFact_fk",
+      "title": "Scheme Measurement Or Fact (Foreign Key)",
+      "description": "An identifier for an ltc:SchemeMeasurementOrFact.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/schemeMeasurementOrFactID",
+      "rdfs:comment": "A unique identifier for an ltc:SchemeMeasurementOrFact.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "identifier_fk",
+      "title": "Identifier (Foreign Key)",
+      "description": "An identifier for an ltc:Identifier.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasIdentifier",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasIdentifier-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Identifier class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": "schemeMeasurementOrFact_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "scheme-measurement-or-fact",
+        "fields": "schemeMeasurementOrFact_pk"
+      }
+    },
+    {
+      "fields": "identifier_fk",
+      "predicate": "has",
+      "reference": {
+        "resource": "identifier",
+        "fields": "identifier_pk"
+      }
+    }
+  ]
+}

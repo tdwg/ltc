@@ -1,0 +1,66 @@
+{
+  "identifier": "http://rs.tdwg.org/ltc/ltc-dp/contact-detail-identifier",
+  "url": "table-schemas/contact-detail-identifier.json",
+  "name": "contact-detail-identifier",
+  "title": "Contact Detail Identifier",
+  "description": "An ltc:Identifier related to an ltc:ContactDetail.",
+  "comments": "",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasIdentifier",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasIdentifier-2024-02-28",
+  "rdfs:comment": "This property refers to one or more related instances of the Identifier class.",
+  "fields": [
+    {
+      "name": "contactDetail_fk",
+      "title": "Contact Detail (Foreign Key)",
+      "description": "An identifier for an ltc:ContactDetail.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/contactDetailID",
+      "rdfs:comment": "A unique identifier for an ltc:ContactDetail.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "identifier_fk",
+      "title": "Identifier (Foreign Key)",
+      "description": "An identifier for an ltc:Identifier.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasIdentifier",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasIdentifier-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Identifier class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": "contactDetail_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "contact-detail",
+        "fields": "contactDetail_pk"
+      }
+    },
+    {
+      "fields": "identifier_fk",
+      "predicate": "has",
+      "reference": {
+        "resource": "identifier",
+        "fields": "identifier_pk"
+      }
+    }
+  ]
+}

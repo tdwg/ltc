@@ -1,0 +1,66 @@
+{
+  "identifier": "http://rs.tdwg.org/ltc/ltc-dp/event-temporal-coverage",
+  "url": "table-schemas/event-temporal-coverage.json",
+  "name": "event-temporal-coverage",
+  "title": "Event Temporal Coverage",
+  "description": "An ltc:TemporalCoverage related to an ltc:Event.",
+  "comments": "",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasTemporalCoverage",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasTemporalCoverage-2024-02-28",
+  "rdfs:comment": "This property refers to one or more related instances of the TemporalCoverage class.",
+  "fields": [
+    {
+      "name": "event_fk",
+      "title": "Event (Foreign Key)",
+      "description": "An identifier for an ltc:Event.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/eventID",
+      "rdfs:comment": "A unique identifier for an ltc:Event.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "temporalCoverage_fk",
+      "title": "Temporal Coverage (Foreign Key)",
+      "description": "An identifier for an ltc:TemporalCoverage.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasTemporalCoverage",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasTemporalCoverage-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the TemporalCoverage class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": "event_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "event",
+        "fields": "event_pk"
+      }
+    },
+    {
+      "fields": "temporalCoverage_fk",
+      "predicate": "has",
+      "reference": {
+        "resource": "temporal-coverage",
+        "fields": "temporalCoverage_pk"
+      }
+    }
+  ]
+}

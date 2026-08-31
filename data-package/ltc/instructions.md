@@ -16,7 +16,7 @@ Local copies of the v1 schemas are in `data-package/data-package-schemas/v1/sche
 
 | File | Provides | Location |
 | -- | -- | -- |
-| `ltc_terms_source.csv` | 25 classes + 228 properties: label, definition, usage, notes, examples, `rdf_type`, `tdwgutility_organizedInClass`, required, repeatable, namespace, created/modified | `data-package/ltc/` |
+| `ltc_terms_source.csv` | 25 classes + 228 properties: label, definition, usage, notes, examples, `rdf_type`, `tdwgutility_organizedInClass`, required, repeatable, namespace, created/modified | `data-package/ltc/source/` |
 | `ltc_datatypes.csv` | Per-property datatype: `string`, `number`, `boolean`, `list`, `array<ltc:Class>` | `source/terms/` |
 | `ltc_categories.csv` | Per-class `range` (which classes may contain it) and `class_level_properties` | `source/terms/` |
 | `ltc_namespaces.csv` | CURIE prefix → base IRI | `source/terms/` |
@@ -24,7 +24,7 @@ Local copies of the v1 schemas are in `data-package/data-package-schemas/v1/sche
 | `dwc-dp-fields.csv` | Authoritative `dcterms:isVersionOf` / `dcterms:references` pairs for borrowed `dwc`, `chrono`, and `dcterms` terms | `data-package/dwc-dp/vocabulary/` |
 
 `ltc_terms_source.csv` alone is **not** sufficient — it carries no datatype and no term IRI.
-Copy the other files into `data-package/ltc/` (or read them in place) before starting.
+The generators in `src/` read the other files in place; all paths are relative to the repository root.
 
 A row is a **class** when `rdf_type` = `http://www.w3.org/2000/01/rdf-schema#Class`, otherwise a
 **property**. Properties are assigned to a class by `tdwgutility_organizedInClass`; the same
@@ -53,14 +53,20 @@ Mirror that layout exactly:
 
 ```
 data-package/ltc/
+├── source/
+│   └── ltc_terms_source.csv     # input
+├── src/
+│   ├── build-mapping.py         # generates ltc-term-mapping.md
+│   ├── build-vocabulary.py      # generates the two vocabulary files
+│   └── build-schemas.py         # generates everything under ltc-dp/
 ├── vocabulary/
-│   ├── ltc-dp-tables.csv
-│   └── ltc-dp-fields.csv
+│   ├── ltc-dp-tables.csv        # 106 rows
+│   └── ltc-dp-fields.csv        # 334 rows
 └── ltc-dp/
     ├── ltc-dp-profile.json
     ├── index.json
     ├── version.json
-    └── table-schemas/*.json
+    └── table-schemas/*.json     # 106 files
 ```
 
 ## Data model
@@ -72,7 +78,7 @@ is silent, the answer is whatever `data-package/dwc-dp` does.
 
 The full class-to-table and property-to-column mapping is in **`ltc-term-mapping.md`** — 106 tables,
 253 mapped terms, 97 relations. Build `ltc-dp-fields.csv` to reproduce it exactly. Regenerate it with
-`python data-package/ltc/build-mapping.py`.
+`python data-package/ltc/src/build-mapping.py`.
 
 **One core table per Latimer Core class**, 25 in all, each with a minted `<className>_pk` since no
 Latimer Core class defines an identifier of its own. **`RecordLevel` is the dataset root**; DwC-DP
@@ -107,7 +113,7 @@ during a build — flag anything they block in the build report.
    orphaned. A scheme is something a package contains.
 2. **Relations use the DwC-DP child-table pattern**, so a relation may hold many values.
 
-`ltc-term-mapping.md` implements both. If either is revised, amend `build-mapping.py` and regenerate.
+`ltc-term-mapping.md` implements both. If either is revised, amend the rules in `src/` and rerun both generators.
 
 ## Build order
 
@@ -118,6 +124,13 @@ during a build — flag anything they block in the build report.
    `table,name,key,predicate,related_table,related_field,title,description,comments,example,type,format,unique,required,minimum,maximum,namespace,dcterms:isVersionOf,dcterms:references,rdfs:comment,status`.
    This file is the single source of truth for keys and relations — generate it before any JSON.
 3. **`ltc-dp/table-schemas/*.json`** — one file per table, derived mechanically from the two vocabularies.
+   Mirror the DwC-DP JSON key order exactly: `identifier, url, name, title, description, comments,
+   examples, namespace, dcterms:isVersionOf, [dcterms:references], [rdfs:comment], fields,
+   [primaryKey], [foreignKeys]`, with fields ordered `name, title, description, comments, examples,
+   type, format, namespace, dcterms:isVersionOf, [dcterms:references], rdfs:comment, [constraints]`.
+   Omit `dcterms:references` when empty, `rdfs:comment` at table level when empty, and `constraints`
+   when neither `required` nor `unique` applies. A self-referencing foreign key names the current
+   resource with an empty string (`"resource": ""`), per the v1 spec and `dwc-dp/event.json`.
 4. **`ltc-dp/index.json`**, **`ltc-dp/ltc-dp-profile.json`**, **`ltc-dp/version.json`** — derived from
    the table list. Set `version` to `0.1` in both `version.json` and `index.json`.
 5. **Build report** — see Deliverables.
@@ -249,8 +262,15 @@ the *source* URI. Do not mint LtC IRIs for them. Resolve in this order:
 ## Validation
 
 The package must validate against the Frictionless **v1** spec and against `ltc-dp-profile.json`.
-Use the `frictionless` CLI in `data-package/.venv-ltc-data-package` (launch via `init.bat`) against
-the local v1 schemas in `data-package/data-package-schemas/v1/schemas/`. Do not use v2 tooling.
+Use the venv in `data-package/.venv-ltc-data-package` (launch via `init.bat`) against the local v1
+schemas in `data-package/data-package-schemas/v1/schemas/`. Do not use v2 tooling.
+
+`table-schema.json` references `schemas/dictionary.json` by relative path, so a bare
+`jsonschema` call cannot resolve it. Build a `referencing` registry over the whole local
+`schemas/` directory first, then validate each file with `Draft4Validator`.
+
+Current status: all 106 table schemas validate against the v1 Table Schema spec, matching the
+DwC-DP reference implementation.
 
 ## Deliverables
 
@@ -268,7 +288,9 @@ Alongside the package files, produce a build report listing:
 | File | Purpose |
 | -- | -- |
 | `ltc-term-mapping.md` | Class → table and property → column mapping for all 253 terms across 106 tables. The target that `ltc-dp-fields.csv` must reproduce, plus a list of source data defects. Generated — do not hand-edit. |
-| `build-mapping.py` | Generates `ltc-term-mapping.md`. Run from the repository root. Amend and rerun if a preliminary decision changes. |
+| `src/build-mapping.py` | Generates `ltc-term-mapping.md`. Run from the repository root. Amend and rerun if a preliminary decision changes. |
+| `src/build-vocabulary.py` | Generates `vocabulary/ltc-dp-tables.csv` and `vocabulary/ltc-dp-fields.csv`. Run from the repository root. |
+| `src/build-schemas.py` | Generates `ltc-dp/table-schemas/*.json`, `index.json`, `ltc-dp-profile.json`, `version.json` from the two vocabulary files. Run after `build-vocabulary.py`. |
 | `open-issues.md` | The two preliminary decisions, still open for group deliberation. Not to be decided during a build. |
 
 ## Decision log

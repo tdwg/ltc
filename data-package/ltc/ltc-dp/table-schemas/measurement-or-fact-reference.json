@@ -1,0 +1,66 @@
+{
+  "identifier": "http://rs.tdwg.org/ltc/ltc-dp/measurement-or-fact-reference",
+  "url": "table-schemas/measurement-or-fact-reference.json",
+  "name": "measurement-or-fact-reference",
+  "title": "Measurement or Fact Reference",
+  "description": "An ltc:Reference related to an ltc:MeasurementOrFact.",
+  "comments": "",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+  "rdfs:comment": "This property refers to one or more related instances of the Reference class.",
+  "fields": [
+    {
+      "name": "measurementOrFact_fk",
+      "title": "Measurement or Fact (Foreign Key)",
+      "description": "An identifier for an ltc:MeasurementOrFact.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/measurementOrFactID",
+      "rdfs:comment": "A unique identifier for an ltc:MeasurementOrFact.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "reference_fk",
+      "title": "Reference (Foreign Key)",
+      "description": "An identifier for an ltc:Reference.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": "measurementOrFact_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "measurement-or-fact",
+        "fields": "measurementOrFact_pk"
+      }
+    },
+    {
+      "fields": "reference_fk",
+      "predicate": "has",
+      "reference": {
+        "resource": "reference",
+        "fields": "reference_pk"
+      }
+    }
+  ]
+}

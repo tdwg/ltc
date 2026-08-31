@@ -1,0 +1,123 @@
+{
+  "identifier": "http://rs.tdwg.org/ltc/ltc-dp/event",
+  "url": "table-schemas/event.json",
+  "name": "event",
+  "title": "Event",
+  "description": "An action that occurs at some location during some time.",
+  "comments": "Derived from dwc Class event (http://rs.tdwg.org/dwc/terms/version/Event-2018-09-06). This class has been defined under the ltc namespace because it only has a subset of the properties of DwC:Event. All ltc:Event properties are borrowed from and reference the dwc namespace. Examples of an Event include: A specimen collection process. A camera trap image capture. A marine trawl.",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/Event",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/Event-2024-02-28",
+  "rdfs:comment": "An action that occurs at some location during some time.",
+  "fields": [
+    {
+      "name": "event_pk",
+      "title": "Event (Primary Key)",
+      "description": "A unique identifier for an ltc:Event.",
+      "comments": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/eventID",
+      "rdfs:comment": "A unique identifier for an ltc:Event.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "objectGroup_fk",
+      "title": "Object Group (Foreign Key)",
+      "description": "An identifier for an ltc:ObjectGroup.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasEvent",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasEvent-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Event class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "parentEvent_fk",
+      "title": "Event (Foreign Key)",
+      "description": "An identifier for an ltc:Event.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasParentEvent",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasParentEvent-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related parent instances of the Event class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "eventName",
+      "title": "Event Name",
+      "description": "The name commonly used to identify or refer to the event.",
+      "comments": "",
+      "examples": "`Trawl 3.42`, ` Voyage of the Rattlesnake 1846-1850`, `Donner-Reed Party`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/eventName",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/eventName-2024-02-28",
+      "rdfs:comment": "The name commonly used to identify or refer to the event."
+    },
+    {
+      "name": "samplingProtocol",
+      "title": "Sampling Protocol",
+      "description": "The names of, references to, or descriptions of the methods or protocols used during an Event.",
+      "comments": "The primary use of this property is to describe the methods or protocols used to gather objects in the collection.",
+      "examples": "`UV light trap`, `mist net`, `bottom trawl`, `ad hoc observation`, `Penguins from space: faecal stains reveal the location of emperor penguin colonies, https://doi.org/10.1111/j.1466-8238.2009.00467.x`, `Takats et al. 2001. Guidelines for Nocturnal Owl Monitoring in North America. Beaverhill Bird Observatory and Bird Studies Canada, Edmonton, Alberta. 32 pp., http://www.bsc-eoc.org/download/Owl.pdf`",
+      "type": "array",
+      "format": "default",
+      "namespace": "dwc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/dwc/terms/samplingProtocol",
+      "dcterms:references": "http://rs.tdwg.org/dwc/terms/version/samplingProtocol-2026-05-26",
+      "rdfs:comment": "The names of, references to, or descriptions of the methods or protocols used during a dwc:Event."
+    },
+    {
+      "name": "verbatimEventDate",
+      "title": "Verbatim Event Date",
+      "description": "The verbatim original representation of the date and time information for an Event.",
+      "comments": "",
+      "examples": "`spring 1910`, `Marzo 2002`, `1999-03-XX`, `17IV1934`",
+      "type": "string",
+      "format": "default",
+      "namespace": "dwc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/dwc/terms/verbatimEventDate",
+      "dcterms:references": "http://rs.tdwg.org/dwc/terms/version/verbatimEventDate-2026-05-26",
+      "rdfs:comment": "The verbatim original representation of the date and time information for a dwc:Event."
+    }
+  ],
+  "primaryKey": "event_pk",
+  "foreignKeys": [
+    {
+      "fields": "objectGroup_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "object-group",
+        "fields": "objectGroup_pk"
+      }
+    },
+    {
+      "fields": "parentEvent_fk",
+      "predicate": "part of",
+      "reference": {
+        "resource": "",
+        "fields": "event_pk"
+      }
+    }
+  ]
+}

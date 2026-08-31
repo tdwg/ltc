@@ -1,0 +1,961 @@
+<title>Latimer Core DP Report</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ink:#0E1A22; --prussian:#1C4C6B; --cyan:#2E7FA8; --wash:#DCE7ED; --brass:#8A5D26;
+  --bg:#F2F5F6; --surface:#FFFFFF; --surface-2:#E9EFF2;
+  --text:#0E1A22; --text-2:#3E5561; --text-3:#6E838E;
+  --rule:#C8D6DE; --rule-2:#DCE6EB;
+  --core:#1C4C6B; --junction:#7FA3B8;
+  --shadow:0 1px 2px rgba(14,26,34,.06),0 8px 24px rgba(14,26,34,.05);
+  --serif:"Spectral",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ink:#E6EEF2; --prussian:#8FC4E0; --cyan:#6FB6DA; --wash:#1A3140; --brass:#D2A063;
+    --bg:#0B141A; --surface:#111E26; --surface-2:#16262F;
+    --text:#E1EAEF; --text-2:#A6BCC7; --text-3:#7B95A2;
+    --rule:#25404E; --rule-2:#1B3240;
+    --core:#8FC4E0; --junction:#54798E;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#E6EEF2; --prussian:#8FC4E0; --cyan:#6FB6DA; --wash:#1A3140; --brass:#D2A063;
+  --bg:#0B141A; --surface:#111E26; --surface-2:#16262F;
+  --text:#E1EAEF; --text-2:#A6BCC7; --text-3:#7B95A2;
+  --rule:#25404E; --rule-2:#1B3240;
+  --core:#8FC4E0; --junction:#54798E;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.3);
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);
+  font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1420px;margin:0 auto;padding:0 28px}
+.col{max-width:70ch}
+h1,h2,h3,h4{font-family:var(--serif);text-wrap:balance;margin:0;font-weight:600}
+a{color:var(--cyan);text-underline-offset:2px;text-decoration-thickness:1px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
+  outline:2px solid var(--cyan);outline-offset:2px;border-radius:2px}
+code,.mono{font-family:var(--mono);font-size:.86em}
+.num{font-variant-numeric:tabular-nums}
+
+/* masthead ------------------------------------------------------------- */
+.mast{border-bottom:1px solid var(--rule);background:var(--surface)}
+.mast-in{display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;
+  align-items:flex-end;padding:44px 0 30px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--text-3);margin:0 0 10px}
+h1{font-size:clamp(30px,4.4vw,46px);line-height:1.08;letter-spacing:-.015em}
+h1 em{font-style:italic;color:var(--prussian)}
+.sub{margin:12px 0 0;max-width:56ch;color:var(--text-2);font-size:16px}
+.meta{font-family:var(--mono);font-size:11.5px;color:var(--text-3);line-height:1.9;
+  text-align:right;white-space:nowrap}
+.meta b{color:var(--text-2);font-weight:500}
+
+/* section nav ---------------------------------------------------------- */
+.nav{position:sticky;top:0;z-index:20;background:var(--surface);
+  border-bottom:1px solid var(--rule);backdrop-filter:blur(6px)}
+.nav-in{display:flex;gap:2px;overflow-x:auto;scrollbar-width:thin}
+.nav a{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;padding:11px 13px;
+  color:var(--text-2);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--cyan);border-bottom-color:var(--rule)}
+.nav a b{color:var(--text-3);font-weight:500;margin-right:6px}
+
+/* sections ------------------------------------------------------------- */
+section{padding:56px 0;border-bottom:1px solid var(--rule-2)}
+section:last-of-type{border-bottom:0}
+.sec-head{display:flex;gap:16px;align-items:baseline;margin-bottom:8px}
+.sec-num{font-family:var(--mono);font-size:12px;color:var(--cyan);font-weight:600;
+  letter-spacing:.06em;padding-top:5px}
+h2{font-size:27px;letter-spacing:-.01em}
+h3{font-size:18px;margin:34px 0 8px;letter-spacing:-.005em}
+h4{font-family:var(--sans);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--text-3);font-weight:600;margin:26px 0 10px}
+p{margin:12px 0}
+.lede{font-size:17px;color:var(--text-2)}
+ul{margin:12px 0;padding-left:20px}
+li{margin:6px 0}
+.fine{font-size:13.5px;color:var(--text-2)}
+
+/* stat strip ----------------------------------------------------------- */
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);margin:26px 0 0}
+.stat{background:var(--surface);padding:14px 16px}
+.stat .v{font-family:var(--mono);font-size:26px;font-weight:600;color:var(--prussian);
+  line-height:1.1;font-variant-numeric:tabular-nums}
+.stat .k{font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--text-3);
+  margin-top:5px}
+.stat .n{font-size:11.5px;color:var(--text-2);margin-top:3px;line-height:1.4}
+
+/* figures -------------------------------------------------------------- */
+figure{margin:30px 0 0}
+.figbox{background:var(--surface);border:1px solid var(--rule);padding:20px;
+  overflow-x:auto}
+figcaption{font-size:13px;color:var(--text-2);margin-top:12px;max-width:78ch}
+figcaption b{color:var(--text);font-weight:600}
+svg.skeleton,svg.patterns{display:block;min-width:900px;width:100%;height:auto;color:var(--text-3)}
+svg.patterns{min-width:780px}
+.skeleton .e{fill:none;stroke:currentColor;stroke-width:1}
+.skeleton .e-junction{stroke:var(--junction);opacity:.85}
+.skeleton .e-direct{stroke:var(--core);stroke-width:1.4;opacity:.95}
+.skeleton .e-self{stroke:var(--brass);stroke-width:1.4}
+.skeleton .e-band{stroke:var(--rule);stroke-width:1;stroke-dasharray:2 5;marker-end:none}
+.skeleton rect{fill:var(--surface-2);stroke:var(--rule);stroke-width:1}
+.skeleton .n-root rect{fill:var(--prussian);stroke:var(--prussian)}
+.skeleton .n-root .nl,.skeleton .n-root .nc{fill:var(--surface)}
+.skeleton .n-hub rect{fill:var(--wash);stroke:var(--core);stroke-width:1.8}
+.skeleton .n-univ rect{fill:var(--surface);stroke:var(--core);stroke-width:1;
+  stroke-dasharray:3 3}
+.skeleton .nl{font-family:var(--sans);font-size:10.5px;font-weight:500;fill:var(--text)}
+.skeleton .nc{font-family:var(--mono);font-size:8.5px;fill:var(--text-3)}
+.skeleton .n-hub .nl{font-weight:600;fill:var(--core)}
+.skeleton .tier{font-family:var(--mono);font-size:8.5px;letter-spacing:.09em;
+  text-transform:uppercase;fill:var(--text-3)}
+.skeleton .band rect{fill:none;stroke:var(--rule);stroke-width:1;stroke-dasharray:4 4}
+.skeleton .band .n-univ rect{stroke-dasharray:none;fill:var(--surface-2)}
+.skeleton .bt{font-family:var(--sans);font-size:12px;font-weight:600;fill:var(--text)}
+.skeleton .bs{font-family:var(--sans);font-size:10.5px;fill:var(--text-2)}
+
+.patterns .pb{fill:var(--surface-2);stroke:var(--rule)}
+.patterns .pb-out{fill:var(--wash);stroke:var(--core);stroke-width:1.4}
+.patterns .pb-off{fill:none;stroke:var(--rule);stroke-dasharray:4 3}
+.patterns .pl{font-family:var(--sans);font-size:11px;fill:var(--text);font-weight:500}
+.patterns .pm{font-family:var(--mono);font-size:9.5px;fill:var(--text-2)}
+.patterns .ph{font-family:var(--mono);font-size:10px;letter-spacing:.08em;
+  text-transform:uppercase;fill:var(--cyan);font-weight:600}
+.patterns .pn{font-family:var(--sans);font-size:10.5px;fill:var(--text-3)}
+.patterns .pe{fill:none;stroke:var(--core);stroke-width:1.3}
+.patterns .pe-off{fill:none;stroke:var(--rule);stroke-width:1.3;stroke-dasharray:4 3}
+.patterns .off .pl,.patterns .off .pm{fill:var(--text-3)}
+.patterns .divider{stroke:var(--rule-2);stroke-width:1}
+
+.legend{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:14px;
+  font-size:12px;color:var(--text-2)}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.swatch{width:20px;height:0;border-top:2px solid var(--junction)}
+.swatch.direct{border-top-color:var(--core)}
+.swatch.self{border-top-color:var(--brass)}
+.chip{display:inline-block;width:11px;height:11px;border:1px solid var(--rule);
+  background:var(--surface-2)}
+.chip.root{background:var(--prussian);border-color:var(--prussian)}
+.chip.hub{background:var(--wash);border:1.5px solid var(--core)}
+
+/* data tables ---------------------------------------------------------- */
+.tw{overflow-x:auto;border:1px solid var(--rule);background:var(--surface);margin:20px 0 0}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--rule-2);
+  vertical-align:top}
+th{font-family:var(--sans);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--text-3);font-weight:600;background:var(--surface-2);
+  border-bottom:1px solid var(--rule);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+td.n,th.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;
+  white-space:nowrap}
+td.m{font-family:var(--mono);font-size:12px;white-space:nowrap}
+tbody tr:hover{background:var(--surface-2)}
+caption{caption-side:top;text-align:left;font-size:12px;color:var(--text-3);
+  padding:0 0 8px}
+
+/* badges --------------------------------------------------------------- */
+.b{display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.05em;
+  padding:1px 6px;border:1px solid var(--rule);color:var(--text-2);
+  text-transform:uppercase;white-space:nowrap;border-radius:2px}
+.b.pk{border-color:var(--core);color:var(--core);font-weight:600}
+.b.fk{border-color:var(--junction);color:var(--junction)}
+.b.core{border-color:var(--core);color:var(--core)}
+.b.junc{border-color:var(--rule);color:var(--text-3)}
+.b.minted{border-color:var(--brass);color:var(--brass)}
+.b.same{border-color:var(--rule);color:var(--text-3)}
+.b.diff{border-color:var(--brass);color:var(--brass);font-weight:600}
+
+/* explorer ------------------------------------------------------------- */
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:22px 0 0;
+  padding:14px;background:var(--surface);border:1px solid var(--rule)}
+.tools input[type=search],.tools select{font-family:var(--sans);font-size:13px;
+  padding:7px 10px;border:1px solid var(--rule);background:var(--bg);color:var(--text);
+  border-radius:2px}
+.tools input[type=search]{flex:1 1 260px;min-width:200px}
+.tools label{font-size:11px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--text-3);font-weight:600}
+.count{font-family:var(--mono);font-size:12px;color:var(--text-3);margin-left:auto;
+  white-space:nowrap}
+.explorer{max-height:620px;overflow:auto;border:1px solid var(--rule);
+  border-top:0;background:var(--surface)}
+.explorer table{font-size:12.5px}
+.explorer thead th{position:sticky;top:0;z-index:2}
+.empty{padding:40px;text-align:center;color:var(--text-3);font-size:14px}
+.more{padding:12px;text-align:center;font-size:12px;color:var(--text-3);
+  border-top:1px solid var(--rule-2);font-family:var(--mono)}
+
+/* callout -------------------------------------------------------------- */
+.note{border-left:3px solid var(--brass);background:var(--surface);padding:14px 18px;
+  margin:22px 0;font-size:14px}
+.note strong{color:var(--brass)}
+.rule{border:0;border-top:1px solid var(--rule-2);margin:38px 0}
+
+footer{padding:36px 0 56px;color:var(--text-3);font-size:12.5px}
+footer code{color:var(--text-2)}
+
+@media (max-width:760px){
+  .mast-in{padding:32px 0 24px}
+  .meta{text-align:left}
+  section{padding:40px 0}
+  .wrap{padding:0 18px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<header class="mast">
+  <div class="wrap mast-in">
+    <div>
+      <p class="eyebrow">TDWG &middot; Latimer Core Maintenance Group</p>
+      <h1>Latimer Core as a <em>Data Package</em></h1>
+      <p class="sub">A structural report on LtC-DP v0.1 &mdash; how 25 Latimer Core classes
+        and 228 properties become 106 Frictionless tables, and where that structure departs
+        from Darwin Core DP.</p>
+    </div>
+    <div class="meta">
+      version <b>0.1</b><br>
+      spec <b>Frictionless Data Package v1</b><br>
+      tables <b>106</b> &middot; columns <b>334</b><br>
+      status <b>two decisions provisional</b>
+    </div>
+  </div>
+</header>
+
+<nav class="nav"><div class="wrap nav-in">
+  <a href="#s1"><b>1</b>At a glance</a>
+  <a href="#s2"><b>2</b>Structure</a>
+  <a href="#s3"><b>3</b>Statistics</a>
+  <a href="#s4"><b>4</b>Term mapping</a>
+  <a href="#s5"><b>5</b>Divergence from DwC-DP</a>
+  <a href="#s6"><b>6</b>Provenance</a>
+</div></nav>
+
+<main class="wrap">
+
+<!-- 1 ------------------------------------------------------------------ -->
+<section id="s1">
+  <div class="sec-head"><span class="sec-num">1</span><h2>At a glance</h2></div>
+  <div class="col">
+    <p class="lede">LtC-DP expresses Latimer Core as a relational data package, following
+      Darwin Core DP's structure and conventions so closely that a reader who knows one
+      should recognise the other.</p>
+    <p>Latimer Core describes collections rather than specimens: object groups, the
+      organisational units that hold them, the people responsible, and the contexts that
+      place them in space, time, and taxonomy. Every one of its 25 classes becomes a table
+      with a minted primary key; every one of its 97 relations becomes either a foreign key
+      on a child table or a two-column junction table.</p>
+  </div>
+
+  <div class="strip" id="strip"></div>
+
+  <div class="col">
+    <div class="note"><strong>Provisional.</strong> Two modelling decisions are recorded but
+      still open for group deliberation: whether <code>LatimerCoreScheme</code> is a table or
+      package metadata, and whether relations may hold more than one value. Both are
+      implemented here as decided; both would change the table count if revised.</div>
+  </div>
+</section>
+
+<!-- 2 ------------------------------------------------------------------ -->
+<section id="s2">
+  <div class="sec-head"><span class="sec-num">2</span><h2>Structure</h2></div>
+  <div class="col">
+    <p class="lede">Two roots, one hub, and three classes that attach to everything.</p>
+    <p><code>RecordLevel</code> is the dataset root and <code>LatimerCoreScheme</code> the
+      root of a scheme-definition sub-graph; neither is referenced by any other class.
+      <code>ObjectGroup</code> is the structural hub, holding 15 of the 97 relations. Below
+      that, the graph is shallow &mdash; most classes are one or two hops from the hub.</p>
+    <p>Three classes behave differently. <code>Identifier</code>, <code>Reference</code>, and
+      <code>MeasurementOrFact</code> are referenced by 23, 21, and 15 classes respectively.
+      Every class in Latimer Core attaches to at least one of them, so the diagram shows them
+      as a band rather than drawing 59 near-identical lines.</p>
+  </div>
+
+  <figure>
+    <div class="figbox"><svg viewBox="0 0 1364 800" role="img" aria-label="Structural skeleton of the Latimer Core Data Package: two root tables, ObjectGroup as the central hub, and three universal attachment tables that every class links to." class="skeleton">
+<defs><marker id="ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0.5 L8,4 L0,7.5 z" fill="currentColor"/></marker></defs>
+<g class="edges">
+<path class="e e-junction" d="M190,74 C190,110 720,104 720,137" marker-end="url(#ah)"/>
+<path class="e e-direct" d="M190,74 C190,110 226,104 226,137" marker-end="url(#ah)"/>
+<path class="e e-direct" d="M190,74 C190,110 66,104 66,137" marker-end="url(#ah)"/>
+<path class="e e-junction" d="M720,74 C720,110 720,104 720,137" marker-end="url(#ah)"/>
+<path class="e e-junction" d="M720,74 C720,247 940,215 940,385" marker-end="url(#ah)"/>
+<path class="e e-junction" d="M720,74 C720,177 1266,159 1266,259" marker-end="url(#ah)"/>
+<path class="e e-direct" d="M720,184 C720,227 244,219 244,259" marker-end="url(#ah)"/>
+<path class="e e-direct" d="M720,184 C720,227 390,219 390,259" marker-end="url(#ah)"/>
+<path class="e e-junction" d="M720,184 C720,296 300,276 300,385" marker-end="url(#ah)"/>
+<path class="e e-direct" d="M720,184 C720,227 98,219 98,259" marker-end="url(#ah)"/>
+<path class="e e-junction" d="M720,184 C720,296 560,276 560,385" marker-end="url(#ah)"/>
+<path class="e e-direct" d="M720,184 C720,227 536,219 536,259" marker-end="url(#ah)"/>
+<path class="e e-direct" d="M720,184 C720,227 682,219 682,259" marker-end="url(#ah)"/>
+<path class="e e-direct" d="M720,184 C720,227 1120,219 1120,259" marker-end="url(#ah)"/>
+<path class="e e-junction" d="M720,184 C720,296 940,276 940,385" marker-end="url(#ah)"/>
+<path class="e e-junction" d="M720,184 C720,227 1266,219 1266,259" marker-end="url(#ah)"/>
+<path class="e e-direct" d="M720,184 C720,227 974,219 974,259" marker-end="url(#ah)"/>
+<path class="e e-direct" d="M720,184 C720,227 828,219 828,259" marker-end="url(#ah)"/>
+<path class="e e-junction" d="M98,306 C98,351 300,343 300,385" marker-end="url(#ah)"/>
+<path class="e e-junction" d="M98,306 C98,351 560,343 560,385" marker-end="url(#ah)"/>
+<path class="e e-self" d="M158,297 c 26,-4 26,-34 0,-38" marker-end="url(#ah)"/>
+<path class="e e-junction" d="M98,306 C98,351 940,343 940,385" marker-end="url(#ah)"/>
+<path class="e e-junction" d="M98,306 C98,466 300,436 300,593" marker-end="url(#ah)"/>
+<path class="e e-junction" d="M390,306 C390,466 300,436 300,593" marker-end="url(#ah)"/>
+<path class="e e-self" d="M742,297 c 26,-4 26,-34 0,-38" marker-end="url(#ah)"/>
+<path class="e e-junction" d="M974,306 C974,466 560,436 560,593" marker-end="url(#ah)"/>
+<path class="e e-self" d="M1034,297 c 26,-4 26,-34 0,-38" marker-end="url(#ah)"/>
+<path class="e e-junction" d="M1120,306 C1120,466 560,436 560,593" marker-end="url(#ah)"/>
+<path class="e e-junction" d="M1120,306 C1120,466 760,436 760,593" marker-end="url(#ah)"/>
+<path class="e e-self" d="M1180,297 c 26,-4 26,-34 0,-38" marker-end="url(#ah)"/>
+<path class="e e-junction" d="M1120,306 C1120,351 940,343 940,385" marker-end="url(#ah)"/>
+<path class="e e-junction" d="M940,432 C940,522 560,506 560,593" marker-end="url(#ah)"/>
+<path class="e e-junction" d="M940,432 C940,522 760,506 760,593" marker-end="url(#ah)"/>
+<path class="e e-direct" d="M940,432 C940,466 860,460 860,491" marker-end="url(#ah)"/>
+<path class="e e-direct" d="M940,432 C940,466 1030,460 1030,491" marker-end="url(#ah)"/>
+<path class="e e-junction" d="M940,432 C940,522 300,506 300,593" marker-end="url(#ah)"/>
+<path class="e e-junction" d="M860,538 C860,570 560,564 560,593" marker-end="url(#ah)"/>
+<path class="e e-junction" d="M860,538 C860,570 760,564 760,593" marker-end="url(#ah)"/>
+</g>
+<g class="nodes">
+<g class="n-root">
+<rect x="124" y="30" width="132" height="44" rx="3"/>
+<text x="190" y="46" text-anchor="middle" class="nl">Latimer Core</text>
+<text x="190" y="57" text-anchor="middle" class="nl">Scheme</text>
+<text x="190" y="68" text-anchor="middle" class="nc">4 cols</text>
+</g>
+<g class="n-root">
+<rect x="654" y="30" width="132" height="44" rx="3"/>
+<text x="720" y="51" text-anchor="middle" class="nl">Record Level</text>
+<text x="720" y="68" text-anchor="middle" class="nc">5 cols</text>
+</g>
+<g class="n">
+<rect x="0" y="140" width="132" height="44" rx="3"/>
+<text x="66" y="161" text-anchor="middle" class="nl">Scheme Term</text>
+<text x="66" y="178" text-anchor="middle" class="nc">5 cols</text>
+</g>
+<g class="n">
+<rect x="160" y="140" width="132" height="44" rx="3"/>
+<text x="226" y="156" text-anchor="middle" class="nl">Scheme</text>
+<text x="226" y="167" text-anchor="middle" class="nl">Measurement Or</text>
+<text x="226" y="178" text-anchor="middle" class="nc">5 cols</text>
+</g>
+<g class="n-hub">
+<rect x="654" y="140" width="132" height="44" rx="3"/>
+<text x="720" y="161" text-anchor="middle" class="nl">Object Group</text>
+<text x="720" y="178" text-anchor="middle" class="nc">18 cols</text>
+</g>
+<g class="n">
+<rect x="32" y="262" width="132" height="44" rx="3"/>
+<text x="98" y="283" text-anchor="middle" class="nl">Event</text>
+<text x="98" y="300" text-anchor="middle" class="nc">6 cols</text>
+</g>
+<g class="n">
+<rect x="178" y="262" width="132" height="44" rx="3"/>
+<text x="244" y="278" text-anchor="middle" class="nl">Chronometric</text>
+<text x="244" y="289" text-anchor="middle" class="nl">Age</text>
+<text x="244" y="300" text-anchor="middle" class="nc">10 cols</text>
+</g>
+<g class="n">
+<rect x="324" y="262" width="132" height="44" rx="3"/>
+<text x="390" y="278" text-anchor="middle" class="nl">Collection</text>
+<text x="390" y="289" text-anchor="middle" class="nl">Status History</text>
+<text x="390" y="300" text-anchor="middle" class="nc">5 cols</text>
+</g>
+<g class="n">
+<rect x="470" y="262" width="132" height="44" rx="3"/>
+<text x="536" y="278" text-anchor="middle" class="nl">Geological</text>
+<text x="536" y="289" text-anchor="middle" class="nl">Context</text>
+<text x="536" y="300" text-anchor="middle" class="nc">17 cols</text>
+</g>
+<g class="n">
+<rect x="616" y="262" width="132" height="44" rx="3"/>
+<text x="682" y="278" text-anchor="middle" class="nl">Object</text>
+<text x="682" y="289" text-anchor="middle" class="nl">Classification</text>
+<text x="682" y="300" text-anchor="middle" class="nc">6 cols</text>
+</g>
+<g class="n">
+<rect x="762" y="262" width="132" height="44" rx="3"/>
+<text x="828" y="283" text-anchor="middle" class="nl">Taxon</text>
+<text x="828" y="300" text-anchor="middle" class="nc">6 cols</text>
+</g>
+<g class="n">
+<rect x="908" y="262" width="132" height="44" rx="3"/>
+<text x="974" y="278" text-anchor="middle" class="nl">Storage</text>
+<text x="974" y="289" text-anchor="middle" class="nl">Location</text>
+<text x="974" y="300" text-anchor="middle" class="nc">6 cols</text>
+</g>
+<g class="n">
+<rect x="1054" y="262" width="132" height="44" rx="3"/>
+<text x="1120" y="278" text-anchor="middle" class="nl">Organisational</text>
+<text x="1120" y="289" text-anchor="middle" class="nl">Unit</text>
+<text x="1120" y="300" text-anchor="middle" class="nc">5 cols</text>
+</g>
+<g class="n">
+<rect x="1200" y="262" width="132" height="44" rx="3"/>
+<text x="1266" y="278" text-anchor="middle" class="nl">Resource</text>
+<text x="1266" y="289" text-anchor="middle" class="nl">Relationship</text>
+<text x="1266" y="300" text-anchor="middle" class="nc">9 cols</text>
+</g>
+<g class="n">
+<rect x="234" y="388" width="132" height="44" rx="3"/>
+<text x="300" y="404" text-anchor="middle" class="nl">Ecological</text>
+<text x="300" y="415" text-anchor="middle" class="nl">Context</text>
+<text x="300" y="426" text-anchor="middle" class="nc">8 cols</text>
+</g>
+<g class="n">
+<rect x="494" y="388" width="132" height="44" rx="3"/>
+<text x="560" y="404" text-anchor="middle" class="nl">Geographic</text>
+<text x="560" y="415" text-anchor="middle" class="nl">Context</text>
+<text x="560" y="426" text-anchor="middle" class="nc">13 cols</text>
+</g>
+<g class="n">
+<rect x="874" y="388" width="132" height="44" rx="3"/>
+<text x="940" y="409" text-anchor="middle" class="nl">Person Role</text>
+<text x="940" y="426" text-anchor="middle" class="nc">3 cols</text>
+</g>
+<g class="n">
+<rect x="794" y="494" width="132" height="44" rx="3"/>
+<text x="860" y="515" text-anchor="middle" class="nl">Person</text>
+<text x="860" y="532" text-anchor="middle" class="nc">5 cols</text>
+</g>
+<g class="n">
+<rect x="964" y="494" width="132" height="44" rx="3"/>
+<text x="1030" y="515" text-anchor="middle" class="nl">Role</text>
+<text x="1030" y="532" text-anchor="middle" class="nc">2 cols</text>
+</g>
+<g class="n">
+<rect x="234" y="596" width="132" height="44" rx="3"/>
+<text x="300" y="612" text-anchor="middle" class="nl">Temporal</text>
+<text x="300" y="623" text-anchor="middle" class="nl">Coverage</text>
+<text x="300" y="634" text-anchor="middle" class="nc">4 cols</text>
+</g>
+<g class="n">
+<rect x="494" y="596" width="132" height="44" rx="3"/>
+<text x="560" y="617" text-anchor="middle" class="nl">Address</text>
+<text x="560" y="634" text-anchor="middle" class="nc">8 cols</text>
+</g>
+<g class="n">
+<rect x="694" y="596" width="132" height="44" rx="3"/>
+<text x="760" y="617" text-anchor="middle" class="nl">Contact Detail</text>
+<text x="760" y="634" text-anchor="middle" class="nc">4 cols</text>
+</g>
+</g>
+<text x="6" y="23" class="tier">roots</text>
+<text x="6" y="133" class="tier">scheme &amp; hub</text>
+<text x="6" y="255" class="tier">object-group children</text>
+<text x="6" y="381" class="tier">shared context</text>
+<text x="6" y="487" class="tier">people</text>
+<text x="6" y="589" class="tier">contact &amp; time</text>
+<g class="band">
+<rect x="32" y="690" width="1300" height="76" rx="4"/>
+<text x="52" y="714" class="bt">Universal attachments</text>
+<text x="52" y="732" class="bs">Every one of the 25 classes links to at least one of these. Drawn as a band, not 59 lines.</text>
+<g class="n-univ"><rect x="640" y="706" width="150" height="44" rx="3"/>
+<text x="715" y="724" text-anchor="middle" class="nl">Identifier</text>
+<text x="715" y="737" text-anchor="middle" class="nc">from 23 classes</text>
+</g>
+<g class="n-univ"><rect x="900" y="706" width="150" height="44" rx="3"/>
+<text x="975" y="724" text-anchor="middle" class="nl">Reference</text>
+<text x="975" y="737" text-anchor="middle" class="nc">from 21 classes</text>
+</g>
+<g class="n-univ"><rect x="1120" y="706" width="150" height="44" rx="3"/>
+<text x="1195" y="724" text-anchor="middle" class="nl">Measurement or Fact</text>
+<text x="1195" y="737" text-anchor="middle" class="nc">from 15 classes</text>
+</g>
+</g>
+<path class="e e-band" d="M32,674 L1332,674" />
+</svg></div>
+    <div class="legend">
+      <span><i class="chip root"></i> root table</span>
+      <span><i class="chip hub"></i> hub</span>
+      <span><i class="chip"></i> class table</span>
+      <span><i class="swatch direct"></i> direct foreign key</span>
+      <span><i class="swatch"></i> junction table</span>
+      <span><i class="swatch self"></i> self-reference</span>
+    </div>
+    <figcaption><b>Figure 1. The 38 structural relations.</b> Tiers run top to bottom; every
+      edge points from parent class to target class. The 59 relations to
+      <code>Identifier</code>, <code>Reference</code>, and <code>MeasurementOrFact</code> are
+      collapsed into the band at the foot, because they apply to every class and drawing them
+      would obscure the skeleton rather than reveal it. Column counts are for the core table
+      only, excluding junction tables.</figcaption>
+  </figure>
+
+  <h3>How a relation becomes a table</h3>
+  <div class="col">
+    <p>Latimer Core declares relations only on the parent, as <code>has&lt;Class&gt;</code>
+      properties typed <code>array&lt;ltc:Class&gt;</code>. None of them is a foreign key as
+      written, so each has to be inverted. Darwin Core DP resolves this four ways; LtC-DP uses
+      three of them, and cannot use the fourth.</p>
+  </div>
+
+  <figure>
+    <div class="figbox">
+      <svg viewBox="0 0 1240 262" role="img" class="patterns" aria-label="Four ways a Latimer Core relation resolves into tables: direct foreign key when the target has one parent class, junction table when it has several, a self-referencing key for hierarchies, and Darwin Core DP's inlining pattern which Latimer Core cannot use.">
+        <text x="0" y="14" class="ph">A &middot; one parent class &rarr; direct FK</text>
+        <rect x="0" y="34" width="150" height="30" rx="2" class="pb"/>
+        <text x="75" y="53" text-anchor="middle" class="pl">ObjectGroup</text>
+        <path class="pe" d="M75,64 L75,96" marker-end="url(#ah2)"/>
+        <text x="84" y="84" class="pm">hasTaxon</text>
+        <rect x="0" y="96" width="150" height="30" rx="2" class="pb"/>
+        <text x="75" y="115" text-anchor="middle" class="pl">Taxon</text>
+        <rect x="0" y="152" width="242" height="52" rx="2" class="pb-out"/>
+        <text x="12" y="170" class="pm">table &nbsp;taxon</text>
+        <text x="12" y="185" class="pm">&nbsp;&nbsp;taxon_pk</text>
+        <text x="12" y="198" class="pm">&nbsp;&nbsp;objectGroup_fk</text>
+        <text x="0" y="226" class="pn">1 table &middot; 10 relations</text>
+
+        <line x1="286" y1="0" x2="286" y2="248" class="divider"/>
+        <text x="316" y="14" class="ph">B &middot; two or more &rarr; junction</text>
+        <rect x="316" y="34" width="118" height="30" rx="2" class="pb"/>
+        <text x="375" y="53" text-anchor="middle" class="pl">ObjectGroup</text>
+        <rect x="450" y="34" width="98" height="30" rx="2" class="pb"/>
+        <text x="499" y="53" text-anchor="middle" class="pl">Event</text>
+        <path class="pe" d="M375,64 L410,96" marker-end="url(#ah2)"/>
+        <path class="pe" d="M499,64 L455,96" marker-end="url(#ah2)"/>
+        <text x="452" y="84" class="pm">hasReference</text>
+        <rect x="368" y="96" width="118" height="30" rx="2" class="pb"/>
+        <text x="427" y="115" text-anchor="middle" class="pl">Reference</text>
+        <rect x="316" y="152" width="232" height="52" rx="2" class="pb-out"/>
+        <text x="328" y="170" class="pm">table &nbsp;object-group-reference</text>
+        <text x="328" y="185" class="pm">&nbsp;&nbsp;objectGroup_fk</text>
+        <text x="328" y="198" class="pm">&nbsp;&nbsp;reference_fk</text>
+        <text x="316" y="226" class="pn">+1 table each &middot; 81 relations</text>
+
+        <line x1="596" y1="0" x2="596" y2="248" class="divider"/>
+        <text x="626" y="14" class="ph">C &middot; self-reference</text>
+        <rect x="626" y="34" width="150" height="30" rx="2" class="pb"/>
+        <text x="701" y="53" text-anchor="middle" class="pl">Event</text>
+        <path class="pe" d="M776,49 C816,49 816,101 780,101 L742,101" marker-end="url(#ah2)"/>
+        <text x="626" y="120" class="pm">hasParentEvent</text>
+        <rect x="626" y="152" width="242" height="52" rx="2" class="pb-out"/>
+        <text x="638" y="170" class="pm">table &nbsp;event</text>
+        <text x="638" y="185" class="pm">&nbsp;&nbsp;event_pk</text>
+        <text x="638" y="198" class="pm">&nbsp;&nbsp;parentEvent_fk &rarr; resource ""</text>
+        <text x="626" y="226" class="pn">no new table &middot; 4 relations</text>
+
+        <line x1="912" y1="0" x2="912" y2="248" class="divider"/>
+        <g class="off">
+          <text x="942" y="14" class="ph" style="fill:var(--text-3)">D &middot; inlining &mdash; not available</text>
+          <rect x="942" y="34" width="150" height="30" rx="2" class="pb-off"/>
+          <text x="1017" y="53" text-anchor="middle" class="pl">Agent</text>
+          <path class="pe-off" d="M1017,64 L1017,96"/>
+          <rect x="942" y="96" width="150" height="30" rx="2" class="pb-off"/>
+          <text x="1017" y="115" text-anchor="middle" class="pl">Identifier</text>
+          <text x="1100" y="115" class="pm">leaf</text>
+          <rect x="942" y="152" width="272" height="52" rx="2" class="pb-off"/>
+          <text x="954" y="170" class="pm">DwC-DP &nbsp;agent-identifier</text>
+          <text x="954" y="185" class="pm">&nbsp;&nbsp;agent_fk + identifier fields</text>
+          <text x="954" y="198" class="pm">&nbsp;&nbsp;no identifier table at all</text>
+          <text x="942" y="226" class="pn">0 relations &mdash; no LtC class is a leaf</text>
+        </g>
+        <defs><marker id="ah2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7"
+          markerHeight="7" orient="auto"><path d="M0,0.5 L8,4 L0,7.5 z" fill="var(--core)"/>
+        </marker></defs>
+      </svg>
+    </div>
+    <figcaption><b>Figure 2. The four resolution patterns, and the one LtC cannot use.</b>
+      Darwin Core DP inlines a <em>leaf</em> attribute bundle into a single-foreign-key child
+      table &mdash; <code>agent-identifier</code> carries the identifier columns directly, and
+      DwC-DP has no <code>identifier</code> table at all. No Latimer Core class is a leaf:
+      all 25 carry at least one <code>has*</code> relation of their own, and a table with no
+      primary key cannot be referenced. <code>Identifier</code> is the clearest case &mdash;
+      it carries <code>hasReference</code>. This single fact accounts for most of the size
+      difference between the two packages.</figcaption>
+  </figure>
+</section>
+
+<!-- 3 ------------------------------------------------------------------ -->
+<section id="s3">
+  <div class="sec-head"><span class="sec-num">3</span><h2>Statistics</h2></div>
+
+  <h4>Composition</h4>
+  <div class="tw"><table>
+    <thead><tr><th>Measure</th><th class="n">Count</th><th>Notes</th></tr></thead>
+    <tbody id="tb-comp"></tbody>
+  </table></div>
+
+  <h4>Column types and term provenance</h4>
+  <div class="tw" style="max-width:760px"><table>
+    <thead><tr><th>Field type</th><th class="n">Columns</th><th>Source namespace</th><th class="n">Columns</th></tr></thead>
+    <tbody id="tb-types"></tbody>
+  </table></div>
+  <p class="fine col">Namespace counts cover the 131 ordinary (non-key) columns only. Every
+    borrowed term keeps its source vocabulary IRI rather than a minted Latimer Core one;
+    46 of the 63 were resolved against Darwin Core DP's own field vocabulary, the rest
+    constructed from the Latimer Core namespace register.</p>
+
+  <h4>The ten largest core tables</h4>
+  <div class="tw" style="max-width:820px"><table>
+    <thead><tr><th>Table</th><th class="n">Columns</th><th class="n">Relations out</th>
+      <th class="n">Referenced by</th></tr></thead>
+    <tbody id="tb-big"></tbody>
+  </table></div>
+
+  <h4>Relation fan-in</h4>
+  <div class="tw" style="max-width:820px"><table>
+    <caption>How many distinct Latimer Core classes point at each target class.</caption>
+    <thead><tr><th>Target class</th><th class="n">Referenced by</th><th>Resolution</th></tr></thead>
+    <tbody id="tb-fan"></tbody>
+  </table></div>
+</section>
+
+<!-- 4 ------------------------------------------------------------------ -->
+<section id="s4">
+  <div class="sec-head"><span class="sec-num">4</span><h2>Term mapping</h2></div>
+  <div class="col">
+    <p class="lede">Every column in the package, traced to the Latimer Core term it
+      implements.</p>
+    <p>All 334 columns are listed. Term names link to the
+      <a href="https://ltc.tdwg.org/terms/" target="_blank" rel="noopener">Latimer Core list
+      of terms</a>. Columns marked <span class="b minted">minted</span> have no Latimer Core
+      term behind them &mdash; these are the 25 primary keys and the 82 parent-side junction
+      keys, which carry a <code>term-pending</code> placeholder IRI because Latimer Core
+      defines no per-class identifier property.</p>
+  </div>
+
+  <div class="tools">
+    <input type="search" id="q" placeholder="Search table, column, or term&hellip;"
+      aria-label="Search the term mapping">
+    <label for="fk">Table</label>
+    <select id="fk"><option value="">all</option><option value="core">core</option>
+      <option value="junction">junction</option></select>
+    <label for="fkey">Column</label>
+    <select id="fkey"><option value="">all</option><option value="pk">primary key</option>
+      <option value="fk">foreign key</option><option value="ord">ordinary</option></select>
+    <label for="fns">Namespace</label>
+    <select id="fns"><option value="">all</option></select>
+    <span class="count" id="count"></span>
+  </div>
+  <div class="explorer">
+    <table>
+      <thead><tr><th>Table</th><th>Column</th><th>Key</th><th>Type</th>
+        <th>Latimer Core term</th><th>NS</th></tr></thead>
+      <tbody id="tb-map"></tbody>
+    </table>
+    <div class="more" id="more" hidden></div>
+  </div>
+</section>
+
+<!-- 5 ------------------------------------------------------------------ -->
+<section id="s5">
+  <div class="sec-head"><span class="sec-num">5</span><h2>Divergence from Darwin Core DP</h2></div>
+  <div class="col">
+    <p class="lede">The governing rule was to minimise difference: where Darwin Core DP has
+      already solved a structural problem, LtC-DP uses its solution.</p>
+    <p>Everything below the surface of the two packages is deliberately identical &mdash;
+      directory layout, both vocabulary CSV column sets, JSON key order and presence rules,
+      naming and case conventions, the profile's shape, and the predicate vocabulary. What
+      follows is the complete list of places where LtC-DP does something else, and why.</p>
+  </div>
+
+  <div class="tw"><table>
+    <caption>Measured from both packages' vocabulary files.</caption>
+    <thead><tr><th>Measure</th><th class="n">DwC-DP</th><th class="n">LtC-DP</th>
+      <th>Reading</th></tr></thead>
+    <tbody id="tb-cmp"></tbody>
+  </table></div>
+
+  <h3>Where LtC-DP departs, and why</h3>
+
+  <h4>1 &middot; No world-unique keys</h4>
+  <div class="col"><p>Darwin Core DP carries a second key alongside every package-local one
+    &mdash; <code>agentID</code> beside <code>agent_pk</code> &mdash; so records survive
+    aggregation across datasets, plus 51 world-unique foreign keys. Latimer Core defines no
+    per-class identifier property, so there is nothing to populate them with, and LtC-DP mints
+    package-local keys only. <b>Consequence:</b> LtC-DP records cannot currently be joined
+    across datasets. Adopting the pattern would require new identifier terms in Latimer Core
+    itself.</p></div>
+
+  <h4>2 &middot; No inlined leaf tables</h4>
+  <div class="col"><p>Eleven of Darwin Core DP's 65 child tables inline a leaf attribute
+    bundle. LtC-DP has none, because no Latimer Core class is a leaf (Figure 2). This is the
+    single largest source of divergence: it forces an <code>identifier</code> table plus 23
+    junction tables where DwC-DP has 8 inlined tables and no <code>identifier</code> table at
+    all.</p></div>
+
+  <h4>3 &middot; Junction tables carry no payload</h4>
+  <div class="col"><p>Forty of Darwin Core DP's two-key child tables carry payload columns
+    &mdash; <code>event-assertion</code> holds 19 measurement columns beyond its two keys. All
+    81 LtC-DP junction tables are exactly two foreign keys and nothing else, because Latimer
+    Core models <code>MeasurementOrFact</code> and <code>PersonRole</code> as classes in their
+    own right rather than as properties of the relation.</p></div>
+
+  <h4>4 &middot; Junction tables carry a term IRI</h4>
+  <div class="col"><p>A DwC-DP child table usually has no term behind it, so
+    <code>dcterms:isVersionOf</code> is populated on only 21 of 65. Every LtC-DP junction
+    table <em>does</em> have one &mdash; the <code>has*</code> property it implements &mdash;
+    so all 81 carry a published Latimer Core IRI. This preserves term provenance that would
+    otherwise be lost when the relation is inverted.</p></div>
+
+  <h4>5 &middot; The <code>array</code> type</h4>
+  <div class="col"><p>Darwin Core DP uses four scalar types. LtC-DP adds a fifth: 16 columns
+    are typed <code>array</code>, for the Latimer Core <code>list</code> datatype, holding a
+    JSON array per the v1 Table Schema specification. Most are on
+    <code>object-group</code> &mdash; <code>objectType</code>, <code>material</code>,
+    <code>preservationMode</code> and similar repeatable literals.</p></div>
+
+  <h4>6 &middot; A thinner predicate vocabulary</h4>
+  <div class="col"><p>Darwin Core DP uses 57 distinct relation predicates, many of them
+    semantically specific: <code>collected during</code>, <code>georeferenced by</code>,
+    <code>determined by</code>. LtC-DP uses four &mdash; <code>for</code>, <code>has</code>,
+    <code>part of</code>, <code>role holder</code> &mdash; because Latimer Core's
+    <code>has*</code> properties carry no semantics beyond "relates to". This is a gap rather
+    than a decision, and the clearest low-cost improvement available.</p></div>
+
+  <h4>7 &middot; A dataset root</h4>
+  <div class="col"><p>LtC-DP has <code>record-level</code> as the dataset root and
+    <code>latimer-core-scheme</code> as a second root for scheme definitions. Darwin Core DP
+    has no equivalent &mdash; its resources are peers, with dataset-level metadata living in
+    <code>datapackage.json</code>. Whether the second root belongs there instead is the first
+    open question.</p></div>
+
+  <h4>8 &middot; Placeholder identifiers</h4>
+  <div class="col"><p>108 of 334 LtC-DP columns carry a <code>term-pending</code> placeholder
+    IRI, against none in Darwin Core DP's field vocabulary. 105 are the minted keys from point
+    1. The remaining three are real Latimer Core terms not yet published at
+    <code>rs.tdwg.org</code>: <code>hasParentObjectClassification</code>,
+    <code>ResourceRelationship.hasMeasurementOrFact</code>, and
+    <code>relatedResourceType</code>.</p></div>
+</section>
+
+<!-- 6 ------------------------------------------------------------------ -->
+<section id="s6">
+  <div class="sec-head"><span class="sec-num">6</span><h2>Provenance</h2></div>
+  <div class="col">
+    <p>Every artefact in the package is generated, and every number in this report is read
+      back out of the generated files rather than asserted.</p>
+    <h4>Build chain</h4>
+    <ul class="fine">
+      <li><code>src/build-vocabulary.py</code> &rarr; <code>vocabulary/ltc-dp-tables.csv</code>,
+        <code>ltc-dp-fields.csv</code></li>
+      <li><code>src/build-schemas.py</code> &rarr; <code>ltc-dp/table-schemas/*.json</code>,
+        <code>index.json</code>, <code>ltc-dp-profile.json</code>, <code>version.json</code></li>
+      <li><code>src/build-mapping.py</code> &rarr; <code>ltc-term-mapping.md</code></li>
+    </ul>
+    <h4>Inputs</h4>
+    <p class="fine"><code>ltc_terms_source.csv</code> (25 classes, 228 properties),
+      <code>ltc_datatypes.csv</code>, <code>ltc_namespaces.csv</code>,
+      <code>rs.tdwg.org/ltc.csv</code> for published term IRIs, and
+      <code>dwc-dp/vocabulary/dwc-dp-fields.csv</code> for borrowed-term IRIs.</p>
+    <h4>Validation</h4>
+    <p class="fine">All 106 table schemas validate against the Frictionless v1 Table Schema
+      specification, the same check the Darwin Core DP reference implementation passes.
+      Referential integrity, JSON key ordering, and the profile's own required-key constraint
+      were verified across every generated file.</p>
+    <h4>Known source-data defects</h4>
+    <ul class="fine">
+      <li><code>ltc_datatypes.csv</code> still names <code>Reference.resourceIRI</code> by its
+        former name <code>abcd:resourceURI</code>.</li>
+      <li><code>tdwgutility_repeatable</code> is <code>No</code> on every <code>has*</code>
+        property, contradicting both the definition and the <code>array</code> datatype.</li>
+      <li>Three terms are unpublished at <code>rs.tdwg.org</code> (section 5, point 8).</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="wrap col">
+  Generated from <code>data-package/ltc</code> at version 0.1. Figures and counts are read
+  directly from <code>vocabulary/ltc-dp-tables.csv</code> and <code>ltc-dp-fields.csv</code>.
+  Latimer Core terms are published at
+  <a href="https://ltc.tdwg.org/terms/" target="_blank" rel="noopener">ltc.tdwg.org/terms</a>.
+</footer>
+</main>
+
+<script id="data" type="application/json">{"stats":{"tables":106,"core":25,"junction":81,"fields":334,"pk":25,"fk":178,"ordinary":131,"classes":25,"properties":228,"relations":97,"relJunction":81,"relDirect":16,"relSelf":4,"types":{"string":305,"number":4,"array":16,"boolean":9},"ns":{"schema":9,"ltc":68,"chrono":8,"dwc":42,"abcd":1,"dcterms":2,"dc":1},"required":227,"minted":108,"versioned":206,"colsMin":2,"colsMax":18,"colsMean":6.9,"predicates":{"for":91,"part of":4,"role holder":1,"has":82}},"nodes":[{"cls":"Address","table":"address","label":"Address","cols":8,"refBy":4,"out":1,"junctions":1},{"cls":"ChronometricAge","table":"chronometric-age","label":"Chronometric Age","cols":10,"refBy":1,"out":3,"junctions":3},{"cls":"CollectionStatusHistory","table":"collection-status-history","label":"Collection Status History","cols":5,"refBy":1,"out":4,"junctions":4},{"cls":"ContactDetail","table":"contact-detail","label":"Contact Detail","cols":4,"refBy":3,"out":1,"junctions":1},{"cls":"EcologicalContext","table":"ecological-context","label":"Ecological Context","cols":8,"refBy":2,"out":3,"junctions":3},{"cls":"Event","table":"event","label":"Event","cols":6,"refBy":1,"out":8,"junctions":7},{"cls":"GeographicContext","table":"geographic-context","label":"Geographic Context","cols":13,"refBy":2,"out":3,"junctions":3},{"cls":"GeologicalContext","table":"geological-context","label":"Geological Context","cols":17,"refBy":1,"out":3,"junctions":3},{"cls":"Identifier","table":"identifier","label":"Identifier","cols":4,"refBy":23,"out":1,"junctions":1},{"cls":"LatimerCoreScheme","table":"latimer-core-scheme","label":"Latimer Core Scheme","cols":4,"refBy":0,"out":5,"junctions":3},{"cls":"MeasurementOrFact","table":"measurement-or-fact","label":"Measurement or Fact","cols":9,"refBy":15,"out":2,"junctions":2},{"cls":"ObjectClassification","table":"object-classification","label":"Object Classification","cols":6,"refBy":1,"out":4,"junctions":3},{"cls":"ObjectGroup","table":"object-group","label":"Object Group","cols":18,"refBy":2,"out":15,"junctions":7},{"cls":"OrganisationalUnit","table":"organisational-unit","label":"Organisational Unit","cols":5,"refBy":1,"out":7,"junctions":6},{"cls":"Person","table":"person","label":"Person","cols":5,"refBy":1,"out":5,"junctions":5},{"cls":"PersonRole","table":"person-role","label":"Person Role","cols":3,"refBy":4,"out":8,"junctions":6},{"cls":"RecordLevel","table":"record-level","label":"Record Level","cols":5,"refBy":0,"out":5,"junctions":5},{"cls":"Reference","table":"reference","label":"Reference","cols":5,"refBy":21,"out":1,"junctions":1},{"cls":"ResourceRelationship","table":"resource-relationship","label":"Resource Relationship","cols":9,"refBy":2,"out":3,"junctions":3},{"cls":"Role","table":"role","label":"Role","cols":2,"refBy":1,"out":1,"junctions":1},{"cls":"SchemeMeasurementOrFact","table":"scheme-measurement-or-fact","label":"Scheme Measurement Or Fact","cols":5,"refBy":1,"out":2,"junctions":2},{"cls":"SchemeTerm","table":"scheme-term","label":"Scheme Term","cols":5,"refBy":1,"out":2,"junctions":2},{"cls":"StorageLocation","table":"storage-location","label":"Storage Location","cols":6,"refBy":1,"out":5,"junctions":4},{"cls":"Taxon","table":"taxon","label":"Taxon","cols":6,"refBy":1,"out":3,"junctions":3},{"cls":"TemporalCoverage","table":"temporal-coverage","label":"Temporal Coverage","cols":4,"refBy":3,"out":2,"junctions":2}],"mapping":[{"table":"address","kind":"core","column":"address_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/addressID","minted":true,"title":"Address (Primary Key)"},{"table":"address","kind":"core","column":"addressCountry","key":"","type":"string","required":true,"cls":"Address","term":"addressCountry","ns":"schema","iri":"https://schema.org/addressCountry","minted":false,"title":"Address Country"},{"table":"address","kind":"core","column":"addressLocality","key":"","type":"string","required":false,"cls":"Address","term":"addressLocality","ns":"schema","iri":"https://schema.org/addressLocality","minted":false,"title":"Address Locality"},{"table":"address","kind":"core","column":"addressRegion","key":"","type":"string","required":false,"cls":"Address","term":"addressRegion","ns":"schema","iri":"https://schema.org/addressRegion","minted":false,"title":"Address Region"},{"table":"address","kind":"core","column":"addressType","key":"","type":"string","required":false,"cls":"Address","term":"addressType","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/addressType","minted":false,"title":"Address Type"},{"table":"address","kind":"core","column":"postOfficeBoxNumber","key":"","type":"string","required":false,"cls":"Address","term":"postOfficeBoxNumber","ns":"schema","iri":"https://schema.org/postOfficeBoxNumber","minted":false,"title":"Post Office Box Number"},{"table":"address","kind":"core","column":"postalCode","key":"","type":"string","required":false,"cls":"Address","term":"postalCode","ns":"schema","iri":"https://schema.org/postalCode","minted":false,"title":"Postal Code"},{"table":"address","kind":"core","column":"streetAddress","key":"","type":"string","required":true,"cls":"Address","term":"streetAddress","ns":"schema","iri":"https://schema.org/streetAddress","minted":false,"title":"Street Address"},{"table":"chronometric-age","kind":"core","column":"chronometricAge_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/chronometricAgeID","minted":true,"title":"Chronometric Age (Primary Key)"},{"table":"chronometric-age","kind":"core","column":"objectGroup_fk","key":"fk","type":"string","required":true,"cls":"ObjectGroup","term":"hasChronometricAge","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasChronometricAge","minted":false,"title":"Object Group (Foreign Key)"},{"table":"chronometric-age","kind":"core","column":"chronometricAgeProtocol","key":"","type":"string","required":false,"cls":"ChronometricAge","term":"chronometricAgeProtocol","ns":"chrono","iri":"http://rs.tdwg.org/chrono/terms/chronometricAgeProtocol","minted":false,"title":"Chronometric Age Protocol"},{"table":"chronometric-age","kind":"core","column":"chronometricAgeRemarks","key":"","type":"string","required":false,"cls":"ChronometricAge","term":"chronometricAgeRemarks","ns":"chrono","iri":"http://rs.tdwg.org/chrono/terms/chronometricAgeRemarks","minted":false,"title":"Chronometric Age Remarks"},{"table":"chronometric-age","kind":"core","column":"chronometricAgeUncertaintyInYears","key":"","type":"number","required":false,"cls":"ChronometricAge","term":"chronometricAgeUncertaintyInYears","ns":"chrono","iri":"http://rs.tdwg.org/chrono/terms/chronometricAgeUncertaintyInYears","minted":false,"title":"Chronometric Age Uncertainty In Years"},{"table":"chronometric-age","kind":"core","column":"earliestChronometricAge","key":"","type":"number","required":false,"cls":"ChronometricAge","term":"earliestChronometricAge","ns":"chrono","iri":"http://rs.tdwg.org/chrono/terms/earliestChronometricAge","minted":false,"title":"Earliest Chronometric Age"},{"table":"chronometric-age","kind":"core","column":"earliestChronometricAgeReferenceSystem","key":"","type":"string","required":false,"cls":"ChronometricAge","term":"earliestChronometricAgeReferenceSystem","ns":"chrono","iri":"http://rs.tdwg.org/chrono/terms/earliestChronometricAgeReferenceSystem","minted":false,"title":"Earliest Chronometric Age Reference System"},{"table":"chronometric-age","kind":"core","column":"latestChronometricAge","key":"","type":"number","required":false,"cls":"ChronometricAge","term":"latestChronometricAge","ns":"chrono","iri":"http://rs.tdwg.org/chrono/terms/latestChronometricAge","minted":false,"title":"Latest Chronometric Age"},{"table":"chronometric-age","kind":"core","column":"latestChronometricAgeReferenceSystem","key":"","type":"string","required":false,"cls":"ChronometricAge","term":"latestChronometricAgeReferenceSystem","ns":"chrono","iri":"http://rs.tdwg.org/chrono/terms/latestChronometricAgeReferenceSystem","minted":false,"title":"Latest Chronometric Age Reference System"},{"table":"chronometric-age","kind":"core","column":"verbatimChronometricAge","key":"","type":"string","required":false,"cls":"ChronometricAge","term":"verbatimChronometricAge","ns":"chrono","iri":"http://rs.tdwg.org/chrono/terms/verbatimChronometricAge","minted":false,"title":"Verbatim Chronometric Age"},{"table":"collection-status-history","kind":"core","column":"collectionStatusHistory_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/collectionStatusHistoryID","minted":true,"title":"Collection Status History (Primary Key)"},{"table":"collection-status-history","kind":"core","column":"objectGroup_fk","key":"fk","type":"string","required":true,"cls":"ObjectGroup","term":"hasCollectionStatusHistory","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasCollectionStatusHistory","minted":false,"title":"Object Group (Foreign Key)"},{"table":"collection-status-history","kind":"core","column":"status","key":"","type":"string","required":true,"cls":"CollectionStatusHistory","term":"status","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/status","minted":false,"title":"Status"},{"table":"collection-status-history","kind":"core","column":"statusChangeReason","key":"","type":"string","required":false,"cls":"CollectionStatusHistory","term":"statusChangeReason","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/statusChangeReason","minted":false,"title":"Status Change Reason"},{"table":"collection-status-history","kind":"core","column":"statusType","key":"","type":"string","required":true,"cls":"CollectionStatusHistory","term":"statusType","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/statusType","minted":false,"title":"Status Type"},{"table":"contact-detail","kind":"core","column":"contactDetail_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/contactDetailID","minted":true,"title":"Contact Detail (Primary Key)"},{"table":"contact-detail","kind":"core","column":"contactDetailCategory","key":"","type":"string","required":true,"cls":"ContactDetail","term":"contactDetailCategory","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/contactDetailCategory","minted":false,"title":"Contact Detail Category"},{"table":"contact-detail","kind":"core","column":"contactDetailFunction","key":"","type":"array","required":false,"cls":"ContactDetail","term":"contactDetailFunction","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/contactDetailFunction","minted":false,"title":"Contact Detail Function"},{"table":"contact-detail","kind":"core","column":"contactDetailValue","key":"","type":"string","required":true,"cls":"ContactDetail","term":"contactDetailValue","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/contactDetailValue","minted":false,"title":"Contact Detail Value"},{"table":"ecological-context","kind":"core","column":"ecologicalContext_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/ecologicalContextID","minted":true,"title":"Ecological Context (Primary Key)"},{"table":"ecological-context","kind":"core","column":"biogeographicRealm","key":"","type":"string","required":false,"cls":"EcologicalContext","term":"biogeographicRealm","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/biogeographicRealm","minted":false,"title":"Biogeographic Realm"},{"table":"ecological-context","kind":"core","column":"biome","key":"","type":"string","required":false,"cls":"EcologicalContext","term":"biome","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/biome","minted":false,"title":"Biome"},{"table":"ecological-context","kind":"core","column":"biomeType","key":"","type":"string","required":false,"cls":"EcologicalContext","term":"biomeType","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/biomeType","minted":false,"title":"Biome Type"},{"table":"ecological-context","kind":"core","column":"bioregion","key":"","type":"string","required":false,"cls":"EcologicalContext","term":"bioregion","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/bioregion","minted":false,"title":"Bioregion"},{"table":"ecological-context","kind":"core","column":"ecoregion","key":"","type":"string","required":false,"cls":"EcologicalContext","term":"ecoregion","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/ecoregion","minted":false,"title":"Ecoregion"},{"table":"ecological-context","kind":"core","column":"ecosystem","key":"","type":"string","required":false,"cls":"EcologicalContext","term":"ecosystem","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/ecosystem","minted":false,"title":"Ecosystem"},{"table":"ecological-context","kind":"core","column":"habitat","key":"","type":"string","required":false,"cls":"EcologicalContext","term":"habitat","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/habitat","minted":false,"title":"Habitat"},{"table":"event","kind":"core","column":"event_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/eventID","minted":true,"title":"Event (Primary Key)"},{"table":"event","kind":"core","column":"objectGroup_fk","key":"fk","type":"string","required":true,"cls":"ObjectGroup","term":"hasEvent","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasEvent","minted":false,"title":"Object Group (Foreign Key)"},{"table":"event","kind":"core","column":"parentEvent_fk","key":"fk","type":"string","required":true,"cls":"Event","term":"hasParentEvent","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasParentEvent","minted":false,"title":"Event (Foreign Key)"},{"table":"event","kind":"core","column":"eventName","key":"","type":"string","required":false,"cls":"Event","term":"eventName","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/eventName","minted":false,"title":"Event Name"},{"table":"event","kind":"core","column":"samplingProtocol","key":"","type":"array","required":false,"cls":"Event","term":"samplingProtocol","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/samplingProtocol","minted":false,"title":"Sampling Protocol"},{"table":"event","kind":"core","column":"verbatimEventDate","key":"","type":"string","required":false,"cls":"Event","term":"verbatimEventDate","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/verbatimEventDate","minted":false,"title":"Verbatim Event Date"},{"table":"geographic-context","kind":"core","column":"geographicContext_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/geographicContextID","minted":true,"title":"Geographic Context (Primary Key)"},{"table":"geographic-context","kind":"core","column":"continent","key":"","type":"string","required":false,"cls":"GeographicContext","term":"continent","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/continent","minted":false,"title":"Continent"},{"table":"geographic-context","kind":"core","column":"country","key":"","type":"string","required":false,"cls":"GeographicContext","term":"country","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/country","minted":false,"title":"Country"},{"table":"geographic-context","kind":"core","column":"countryCode","key":"","type":"string","required":false,"cls":"GeographicContext","term":"countryCode","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/countryCode","minted":false,"title":"Country Code"},{"table":"geographic-context","kind":"core","column":"county","key":"","type":"string","required":false,"cls":"GeographicContext","term":"county","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/county","minted":false,"title":"Second Order Division"},{"table":"geographic-context","kind":"core","column":"island","key":"","type":"string","required":false,"cls":"GeographicContext","term":"island","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/island","minted":false,"title":"Island"},{"table":"geographic-context","kind":"core","column":"islandGroup","key":"","type":"string","required":false,"cls":"GeographicContext","term":"islandGroup","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/islandGroup","minted":false,"title":"Island Group"},{"table":"geographic-context","kind":"core","column":"locality","key":"","type":"string","required":false,"cls":"GeographicContext","term":"locality","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/locality","minted":false,"title":"Locality"},{"table":"geographic-context","kind":"core","column":"municipality","key":"","type":"string","required":false,"cls":"GeographicContext","term":"municipality","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/municipality","minted":false,"title":"Municipality"},{"table":"geographic-context","kind":"core","column":"region","key":"","type":"string","required":false,"cls":"GeographicContext","term":"region","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/region","minted":false,"title":"Region"},{"table":"geographic-context","kind":"core","column":"stateProvince","key":"","type":"string","required":false,"cls":"GeographicContext","term":"stateProvince","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/stateProvince","minted":false,"title":"First Order Division"},{"table":"geographic-context","kind":"core","column":"waterBody","key":"","type":"string","required":false,"cls":"GeographicContext","term":"waterBody","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/waterBody","minted":false,"title":"Water Body"},{"table":"geographic-context","kind":"core","column":"waterBodyType","key":"","type":"string","required":false,"cls":"GeographicContext","term":"waterBodyType","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/waterBodyType","minted":false,"title":"Waterbody Type"},{"table":"geological-context","kind":"core","column":"geologicalContext_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/geologicalContextID","minted":true,"title":"Geological Context (Primary Key)"},{"table":"geological-context","kind":"core","column":"objectGroup_fk","key":"fk","type":"string","required":true,"cls":"ObjectGroup","term":"hasGeologicalContext","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasGeologicalContext","minted":false,"title":"Object Group (Foreign Key)"},{"table":"geological-context","kind":"core","column":"bed","key":"","type":"string","required":false,"cls":"GeologicalContext","term":"bed","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/bed","minted":false,"title":"Bed"},{"table":"geological-context","kind":"core","column":"earliestAgeOrLowestStage","key":"","type":"string","required":false,"cls":"GeologicalContext","term":"earliestAgeOrLowestStage","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/earliestAgeOrLowestStage","minted":false,"title":"Earliest Age Or Lowest Stage"},{"table":"geological-context","kind":"core","column":"earliestEonOrLowestEonothem","key":"","type":"string","required":false,"cls":"GeologicalContext","term":"earliestEonOrLowestEonothem","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/earliestEonOrLowestEonothem","minted":false,"title":"Earliest Eon Or Lowest Eonothem"},{"table":"geological-context","kind":"core","column":"earliestEpochOrLowestSeries","key":"","type":"string","required":false,"cls":"GeologicalContext","term":"earliestEpochOrLowestSeries","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/earliestEpochOrLowestSeries","minted":false,"title":"Earliest Epoch Or Lowest Series"},{"table":"geological-context","kind":"core","column":"earliestEraOrLowestErathem","key":"","type":"string","required":false,"cls":"GeologicalContext","term":"earliestEraOrLowestErathem","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/earliestEraOrLowestErathem","minted":false,"title":"Earliest Era Or Lowest Erathem"},{"table":"geological-context","kind":"core","column":"earliestPeriodOrLowestSystem","key":"","type":"string","required":false,"cls":"GeologicalContext","term":"earliestPeriodOrLowestSystem","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/earliestPeriodOrLowestSystem","minted":false,"title":"Earliest Period Or Lowest System"},{"table":"geological-context","kind":"core","column":"formation","key":"","type":"string","required":false,"cls":"GeologicalContext","term":"formation","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/formation","minted":false,"title":"Formation"},{"table":"geological-context","kind":"core","column":"group","key":"","type":"string","required":false,"cls":"GeologicalContext","term":"group","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/group","minted":false,"title":"Group"},{"table":"geological-context","kind":"core","column":"latestAgeOrHighestStage","key":"","type":"string","required":false,"cls":"GeologicalContext","term":"latestAgeOrHighestStage","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/latestAgeOrHighestStage","minted":false,"title":"Latest Age Or Highest Stage"},{"table":"geological-context","kind":"core","column":"latestEonOrHighestEonothem","key":"","type":"string","required":false,"cls":"GeologicalContext","term":"latestEonOrHighestEonothem","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/latestEonOrHighestEonothem","minted":false,"title":"Latest Eon Or Highest Eonothem"},{"table":"geological-context","kind":"core","column":"latestEpochOrHighestSeries","key":"","type":"string","required":false,"cls":"GeologicalContext","term":"latestEpochOrHighestSeries","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/latestEpochOrHighestSeries","minted":false,"title":"Latest Epoch Or Highest Series"},{"table":"geological-context","kind":"core","column":"latestEraOrHighestErathem","key":"","type":"string","required":false,"cls":"GeologicalContext","term":"latestEraOrHighestErathem","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/latestEraOrHighestErathem","minted":false,"title":"Latest Era Or Highest Erathem"},{"table":"geological-context","kind":"core","column":"latestPeriodOrHighestSystem","key":"","type":"string","required":false,"cls":"GeologicalContext","term":"latestPeriodOrHighestSystem","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/latestPeriodOrHighestSystem","minted":false,"title":"Latest Period Or Highest System"},{"table":"geological-context","kind":"core","column":"member","key":"","type":"string","required":false,"cls":"GeologicalContext","term":"member","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/member","minted":false,"title":"Member"},{"table":"geological-context","kind":"core","column":"supergroup","key":"","type":"string","required":false,"cls":"GeologicalContext","term":"supergroup","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/supergroup","minted":false,"title":"Supergroup"},{"table":"identifier","kind":"core","column":"identifier_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/identifierID","minted":true,"title":"Identifier (Primary Key)"},{"table":"identifier","kind":"core","column":"identifierSource","key":"","type":"string","required":false,"cls":"Identifier","term":"identifierSource","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/identifierSource","minted":false,"title":"Identifier Source"},{"table":"identifier","kind":"core","column":"identifierType","key":"","type":"string","required":true,"cls":"Identifier","term":"identifierType","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/identifierType","minted":false,"title":"Identifier Type"},{"table":"identifier","kind":"core","column":"identifierValue","key":"","type":"string","required":true,"cls":"Identifier","term":"identifierValue","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/identifierValue","minted":false,"title":"Identifier"},{"table":"latimer-core-scheme","kind":"core","column":"latimerCoreScheme_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/latimerCoreSchemeID","minted":true,"title":"Latimer Core Scheme (Primary Key)"},{"table":"latimer-core-scheme","kind":"core","column":"basisOfScheme","key":"","type":"string","required":false,"cls":"LatimerCoreScheme","term":"basisOfScheme","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/basisOfScheme","minted":false,"title":"Basis Of Scheme"},{"table":"latimer-core-scheme","kind":"core","column":"isDistinctObjects","key":"","type":"boolean","required":true,"cls":"LatimerCoreScheme","term":"isDistinctObjects","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/isDistinctObjects","minted":false,"title":"Is Distinct Objects"},{"table":"latimer-core-scheme","kind":"core","column":"schemeName","key":"","type":"string","required":true,"cls":"LatimerCoreScheme","term":"schemeName","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/schemeName","minted":false,"title":"Scheme Name"},{"table":"measurement-or-fact","kind":"core","column":"measurementOrFact_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/measurementOrFactID","minted":true,"title":"Measurement or Fact (Primary Key)"},{"table":"measurement-or-fact","kind":"core","column":"measurementAccuracy","key":"","type":"string","required":false,"cls":"MeasurementOrFact","term":"measurementAccuracy","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/measurementAccuracy","minted":false,"title":"Measurement Accuracy"},{"table":"measurement-or-fact","kind":"core","column":"measurementDerivation","key":"","type":"string","required":false,"cls":"MeasurementOrFact","term":"measurementDerivation","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/measurementDerivation","minted":false,"title":"Measurement Derivation"},{"table":"measurement-or-fact","kind":"core","column":"measurementFactText","key":"","type":"string","required":false,"cls":"MeasurementOrFact","term":"measurementFactText","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/measurementFactText","minted":false,"title":"Fact or Narrative Text"},{"table":"measurement-or-fact","kind":"core","column":"measurementMethod","key":"","type":"string","required":false,"cls":"MeasurementOrFact","term":"measurementMethod","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/measurementMethod","minted":false,"title":"Measurement Method"},{"table":"measurement-or-fact","kind":"core","column":"measurementRemarks","key":"","type":"string","required":false,"cls":"MeasurementOrFact","term":"measurementRemarks","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/measurementRemarks","minted":false,"title":"Measurement Remarks"},{"table":"measurement-or-fact","kind":"core","column":"measurementType","key":"","type":"string","required":false,"cls":"MeasurementOrFact","term":"measurementType","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/measurementType","minted":false,"title":"Measurement Type"},{"table":"measurement-or-fact","kind":"core","column":"measurementUnit","key":"","type":"string","required":false,"cls":"MeasurementOrFact","term":"measurementUnit","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/measurementUnit","minted":false,"title":"Measurement Unit"},{"table":"measurement-or-fact","kind":"core","column":"measurementValue","key":"","type":"number","required":false,"cls":"MeasurementOrFact","term":"measurementValue","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/measurementValue","minted":false,"title":"Measurement Value"},{"table":"object-classification","kind":"core","column":"objectClassification_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/objectClassificationID","minted":true,"title":"Object Classification (Primary Key)"},{"table":"object-classification","kind":"core","column":"objectGroup_fk","key":"fk","type":"string","required":true,"cls":"ObjectGroup","term":"hasObjectClassification","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasObjectClassification","minted":false,"title":"Object Group (Foreign Key)"},{"table":"object-classification","kind":"core","column":"parentObjectClassification_fk","key":"fk","type":"string","required":true,"cls":"ObjectClassification","term":"hasParentObjectClassification","ns":"ltc","iri":"http://example.com/term-pending/hasParentObjectClassification","minted":true,"title":"Object Classification (Foreign Key)"},{"table":"object-classification","kind":"core","column":"isTopParent","key":"","type":"boolean","required":false,"cls":"ObjectClassification","term":"isTopParent","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/isTopParent","minted":false,"title":"Is Top Parent"},{"table":"object-classification","kind":"core","column":"objectClassificationLevel","key":"","type":"string","required":false,"cls":"ObjectClassification","term":"objectClassificationLevel","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/objectClassificationLevel","minted":false,"title":"Object Classification Level"},{"table":"object-classification","kind":"core","column":"objectClassificationName","key":"","type":"string","required":true,"cls":"ObjectClassification","term":"objectClassificationName","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/objectClassificationName","minted":false,"title":"Object Classification Name"},{"table":"object-group","kind":"core","column":"objectGroup_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/objectGroupID","minted":true,"title":"Object Group (Primary Key)"},{"table":"object-group","kind":"core","column":"alternativeCollectionName","key":"","type":"array","required":false,"cls":"ObjectGroup","term":"alternativeCollectionName","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/alternativeCollectionName","minted":false,"title":"Alternative Collection Name"},{"table":"object-group","kind":"core","column":"baseTypeOfObjectGroup","key":"","type":"array","required":true,"cls":"ObjectGroup","term":"baseTypeOfObjectGroup","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/baseTypeOfObjectGroup","minted":false,"title":"Base Type Of Object Group"},{"table":"object-group","kind":"core","column":"collectionManagementSystem","key":"","type":"array","required":false,"cls":"ObjectGroup","term":"collectionManagementSystem","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/collectionManagementSystem","minted":false,"title":"Collection Management System"},{"table":"object-group","kind":"core","column":"collectionName","key":"","type":"string","required":false,"cls":"ObjectGroup","term":"collectionName","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/collectionName","minted":false,"title":"Collection Name"},{"table":"object-group","kind":"core","column":"conditionsOfAccess","key":"","type":"array","required":false,"cls":"ObjectGroup","term":"conditionsOfAccess","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/conditionsOfAccess","minted":false,"title":"Conditions of Access"},{"table":"object-group","kind":"core","column":"degreeOfEstablishment","key":"","type":"array","required":false,"cls":"ObjectGroup","term":"degreeOfEstablishment","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/degreeOfEstablishment","minted":false,"title":"Degree of Establishment"},{"table":"object-group","kind":"core","column":"description","key":"","type":"string","required":false,"cls":"ObjectGroup","term":"description","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/description","minted":false,"title":"Description"},{"table":"object-group","kind":"core","column":"discipline","key":"","type":"array","required":false,"cls":"ObjectGroup","term":"discipline","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/discipline","minted":false,"title":"Discipline"},{"table":"object-group","kind":"core","column":"isCurrentCollection","key":"","type":"boolean","required":false,"cls":"ObjectGroup","term":"isCurrentCollection","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/isCurrentCollection","minted":false,"title":"Is Current Collection"},{"table":"object-group","kind":"core","column":"isKnownToContainTypes","key":"","type":"boolean","required":false,"cls":"ObjectGroup","term":"isKnownToContainTypes","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/isKnownToContainTypes","minted":false,"title":"Is Known To Contain Types"},{"table":"object-group","kind":"core","column":"material","key":"","type":"array","required":false,"cls":"ObjectGroup","term":"material","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/material","minted":false,"title":"Material"},{"table":"object-group","kind":"core","column":"objectType","key":"","type":"array","required":false,"cls":"ObjectGroup","term":"objectType","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/objectType","minted":false,"title":"Object Type"},{"table":"object-group","kind":"core","column":"period","key":"","type":"array","required":false,"cls":"ObjectGroup","term":"period","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/period","minted":false,"title":"Period"},{"table":"object-group","kind":"core","column":"preparationType","key":"","type":"array","required":false,"cls":"ObjectGroup","term":"preparationType","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/preparationType","minted":false,"title":"Preparation Type"},{"table":"object-group","kind":"core","column":"preservationMethod","key":"","type":"array","required":false,"cls":"ObjectGroup","term":"preservationMethod","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/preservationMethod","minted":false,"title":"Preservation Method"},{"table":"object-group","kind":"core","column":"preservationMode","key":"","type":"array","required":false,"cls":"ObjectGroup","term":"preservationMode","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/preservationMode","minted":false,"title":"Preservation Mode"},{"table":"object-group","kind":"core","column":"typeOfObjectGroup","key":"","type":"array","required":false,"cls":"ObjectGroup","term":"typeOfObjectGroup","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/typeOfObjectGroup","minted":false,"title":"Type Of Object Group"},{"table":"organisational-unit","kind":"core","column":"organisationalUnit_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/organisationalUnitID","minted":true,"title":"Organisational Unit (Primary Key)"},{"table":"organisational-unit","kind":"core","column":"objectGroup_fk","key":"fk","type":"string","required":true,"cls":"ObjectGroup","term":"hasOrganisationalUnit","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasOrganisationalUnit","minted":false,"title":"Object Group (Foreign Key)"},{"table":"organisational-unit","kind":"core","column":"parentOrganisationalUnit_fk","key":"fk","type":"string","required":true,"cls":"OrganisationalUnit","term":"hasParentOrganisationalUnit","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasParentOrganisationalUnit","minted":false,"title":"Organisational Unit (Foreign Key)"},{"table":"organisational-unit","kind":"core","column":"organisationalUnitName","key":"","type":"string","required":true,"cls":"OrganisationalUnit","term":"organisationalUnitName","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/organisationalUnitName","minted":false,"title":"Organisational Unit Name"},{"table":"organisational-unit","kind":"core","column":"organisationalUnitType","key":"","type":"string","required":true,"cls":"OrganisationalUnit","term":"organisationalUnitType","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/organisationalUnitType","minted":false,"title":"Organisational Unit Type"},{"table":"person","kind":"core","column":"person_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/personID","minted":true,"title":"Person (Primary Key)"},{"table":"person","kind":"core","column":"additionalName","key":"","type":"string","required":false,"cls":"Person","term":"additionalName","ns":"schema","iri":"https://schema.org/additionalName","minted":false,"title":"Additional Name"},{"table":"person","kind":"core","column":"familyName","key":"","type":"string","required":false,"cls":"Person","term":"familyName","ns":"schema","iri":"https://schema.org/familyName","minted":false,"title":"Family Name"},{"table":"person","kind":"core","column":"fullName","key":"","type":"string","required":false,"cls":"Person","term":"fullName","ns":"abcd","iri":"http://rs.tdwg.org/abcd/terms/fullName","minted":false,"title":"Full Name"},{"table":"person","kind":"core","column":"givenName","key":"","type":"string","required":false,"cls":"Person","term":"givenName","ns":"schema","iri":"https://schema.org/givenName","minted":false,"title":"Given Name"},{"table":"person-role","kind":"core","column":"personRole_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/personRoleID","minted":true,"title":"Person Role (Primary Key)"},{"table":"person-role","kind":"core","column":"person_fk","key":"fk","type":"string","required":true,"cls":"PersonRole","term":"hasPerson","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasPerson","minted":false,"title":"Person (Foreign Key)"},{"table":"person-role","kind":"core","column":"role_fk","key":"fk","type":"string","required":true,"cls":"PersonRole","term":"hasRole","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasRole","minted":false,"title":"Role (Foreign Key)"},{"table":"record-level","kind":"core","column":"recordLevel_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/recordLevelID","minted":true,"title":"Record Level (Primary Key)"},{"table":"record-level","kind":"core","column":"isDerivedCollection","key":"","type":"boolean","required":false,"cls":"RecordLevel","term":"isDerivedCollection","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/isDerivedCollection","minted":false,"title":"Is Derived Collection"},{"table":"record-level","kind":"core","column":"license","key":"","type":"string","required":true,"cls":"RecordLevel","term":"license","ns":"dcterms","iri":"http://purl.org/dc/terms/license","minted":false,"title":"License"},{"table":"record-level","kind":"core","column":"rights","key":"","type":"string","required":false,"cls":"RecordLevel","term":"rights","ns":"dc","iri":"http://purl.org/dc/elements/1.1/rights","minted":false,"title":"Rights"},{"table":"record-level","kind":"core","column":"rightsHolder","key":"","type":"string","required":false,"cls":"RecordLevel","term":"rightsHolder","ns":"dcterms","iri":"http://purl.org/dc/terms/rightsHolder","minted":false,"title":"Rights Holder"},{"table":"reference","kind":"core","column":"reference_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/referenceID","minted":true,"title":"Reference (Primary Key)"},{"table":"reference","kind":"core","column":"referenceDetails","key":"","type":"string","required":false,"cls":"Reference","term":"referenceDetails","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/referenceDetails","minted":false,"title":"Reference Details"},{"table":"reference","kind":"core","column":"referenceName","key":"","type":"string","required":false,"cls":"Reference","term":"referenceName","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/referenceName","minted":false,"title":"Reference Name"},{"table":"reference","kind":"core","column":"referenceType","key":"","type":"string","required":false,"cls":"Reference","term":"referenceType","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/referenceType","minted":false,"title":"Reference Type"},{"table":"reference","kind":"core","column":"resourceIRI","key":"","type":"string","required":false,"cls":"Reference","term":"resourceIRI","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/resourceIRI","minted":false,"title":"Resource IRI"},{"table":"resource-relationship","kind":"core","column":"resourceRelationship_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/resourceRelationshipID","minted":true,"title":"Resource Relationship (Primary Key)"},{"table":"resource-relationship","kind":"core","column":"relatedResourceID","key":"","type":"string","required":false,"cls":"ResourceRelationship","term":"relatedResourceID","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/relatedResourceID","minted":false,"title":"Related Resource ID"},{"table":"resource-relationship","kind":"core","column":"relatedResourceName","key":"","type":"string","required":false,"cls":"ResourceRelationship","term":"relatedResourceName","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/relatedResourceName","minted":false,"title":"Related Resource Name"},{"table":"resource-relationship","kind":"core","column":"relatedResourceType","key":"","type":"string","required":false,"cls":"ResourceRelationship","term":"relatedResourceType","ns":"ltc","iri":"http://example.com/term-pending/relatedResourceType","minted":true,"title":"Related Resource Type"},{"table":"resource-relationship","kind":"core","column":"relationshipAccordingTo","key":"","type":"array","required":false,"cls":"ResourceRelationship","term":"relationshipAccordingTo","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/relationshipAccordingTo","minted":false,"title":"Relationship According To"},{"table":"resource-relationship","kind":"core","column":"relationshipEstablishedDate","key":"","type":"string","required":false,"cls":"ResourceRelationship","term":"relationshipEstablishedDate","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/relationshipEstablishedDate","minted":false,"title":"Relationship Established Date"},{"table":"resource-relationship","kind":"core","column":"relationshipOfResource","key":"","type":"string","required":true,"cls":"ResourceRelationship","term":"relationshipOfResource","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/relationshipOfResource","minted":false,"title":"Relationship Of Resource"},{"table":"resource-relationship","kind":"core","column":"relationshipRemarks","key":"","type":"string","required":false,"cls":"ResourceRelationship","term":"relationshipRemarks","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/relationshipRemarks","minted":false,"title":"Relationship Remarks"},{"table":"resource-relationship","kind":"core","column":"resourceID","key":"","type":"string","required":true,"cls":"ResourceRelationship","term":"resourceID","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/resourceID","minted":false,"title":"Resource ID"},{"table":"role","kind":"core","column":"role_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/roleID","minted":true,"title":"Role (Primary Key)"},{"table":"role","kind":"core","column":"roleName","key":"","type":"string","required":false,"cls":"Role","term":"roleName","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/roleName","minted":false,"title":"Role Name"},{"table":"scheme-measurement-or-fact","kind":"core","column":"schemeMeasurementOrFact_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/schemeMeasurementOrFactID","minted":true,"title":"Scheme Measurement Or Fact (Primary Key)"},{"table":"scheme-measurement-or-fact","kind":"core","column":"latimerCoreScheme_fk","key":"fk","type":"string","required":true,"cls":"LatimerCoreScheme","term":"hasSchemeMeasurementOrFact","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasSchemeMeasurementOrFact","minted":false,"title":"Latimer Core Scheme (Foreign Key)"},{"table":"scheme-measurement-or-fact","kind":"core","column":"isMandatoryMetric","key":"","type":"boolean","required":true,"cls":"SchemeMeasurementOrFact","term":"isMandatoryMetric","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/isMandatoryMetric","minted":false,"title":"Is Mandatory Metric"},{"table":"scheme-measurement-or-fact","kind":"core","column":"isRepeatableMetric","key":"","type":"boolean","required":true,"cls":"SchemeMeasurementOrFact","term":"isRepeatableMetric","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/isRepeatableMetric","minted":false,"title":"Is Repeatable Metric"},{"table":"scheme-measurement-or-fact","kind":"core","column":"schemeMeasurementType","key":"","type":"string","required":true,"cls":"SchemeMeasurementOrFact","term":"schemeMeasurementType","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/schemeMeasurementType","minted":false,"title":"Scheme Measurement Type"},{"table":"scheme-term","kind":"core","column":"schemeTerm_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/schemeTermID","minted":true,"title":"Scheme Term (Primary Key)"},{"table":"scheme-term","kind":"core","column":"latimerCoreScheme_fk","key":"fk","type":"string","required":true,"cls":"LatimerCoreScheme","term":"hasSchemeTerm","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasSchemeTerm","minted":false,"title":"Latimer Core Scheme (Foreign Key)"},{"table":"scheme-term","kind":"core","column":"isMandatoryTerm","key":"","type":"boolean","required":true,"cls":"SchemeTerm","term":"isMandatoryTerm","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/isMandatoryTerm","minted":false,"title":"Is Mandatory Term"},{"table":"scheme-term","kind":"core","column":"isRepeatableTerm","key":"","type":"boolean","required":true,"cls":"SchemeTerm","term":"isRepeatableTerm","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/isRepeatableTerm","minted":false,"title":"Is Repeatable Term"},{"table":"scheme-term","kind":"core","column":"termName","key":"","type":"string","required":true,"cls":"SchemeTerm","term":"termName","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/termName","minted":false,"title":"Term Name"},{"table":"storage-location","kind":"core","column":"storageLocation_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/storageLocationID","minted":true,"title":"Storage Location (Primary Key)"},{"table":"storage-location","kind":"core","column":"objectGroup_fk","key":"fk","type":"string","required":true,"cls":"ObjectGroup","term":"hasStorageLocation","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasStorageLocation","minted":false,"title":"Object Group (Foreign Key)"},{"table":"storage-location","kind":"core","column":"parentStorageLocation_fk","key":"fk","type":"string","required":true,"cls":"StorageLocation","term":"hasParentStorageLocation","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasParentStorageLocation","minted":false,"title":"Storage Location (Foreign Key)"},{"table":"storage-location","kind":"core","column":"locationDescription","key":"","type":"string","required":false,"cls":"StorageLocation","term":"locationDescription","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/locationDescription","minted":false,"title":"Location Description"},{"table":"storage-location","kind":"core","column":"locationName","key":"","type":"string","required":true,"cls":"StorageLocation","term":"locationName","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/locationName","minted":false,"title":"Location Name"},{"table":"storage-location","kind":"core","column":"locationType","key":"","type":"string","required":false,"cls":"StorageLocation","term":"locationType","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/locationType","minted":false,"title":"Location Type"},{"table":"taxon","kind":"core","column":"taxon_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/taxonID","minted":true,"title":"Taxon (Primary Key)"},{"table":"taxon","kind":"core","column":"objectGroup_fk","key":"fk","type":"string","required":true,"cls":"ObjectGroup","term":"hasTaxon","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasTaxon","minted":false,"title":"Object Group (Foreign Key)"},{"table":"taxon","kind":"core","column":"genus","key":"","type":"string","required":false,"cls":"Taxon","term":"genus","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/genus","minted":false,"title":"Genus"},{"table":"taxon","kind":"core","column":"kingdom","key":"","type":"string","required":false,"cls":"Taxon","term":"kingdom","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/kingdom","minted":false,"title":"Kingdom"},{"table":"taxon","kind":"core","column":"scientificName","key":"","type":"string","required":false,"cls":"Taxon","term":"scientificName","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/scientificName","minted":false,"title":"Scientific Name"},{"table":"taxon","kind":"core","column":"taxonRank","key":"","type":"string","required":false,"cls":"Taxon","term":"taxonRank","ns":"dwc","iri":"http://rs.tdwg.org/dwc/terms/taxonRank","minted":false,"title":"Taxon Rank"},{"table":"temporal-coverage","kind":"core","column":"temporalCoverage_pk","key":"pk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/temporalCoverageID","minted":true,"title":"Temporal Coverage (Primary Key)"},{"table":"temporal-coverage","kind":"core","column":"temporalCoverageEndDateTime","key":"","type":"string","required":false,"cls":"TemporalCoverage","term":"temporalCoverageEndDateTime","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/temporalCoverageEndDateTime","minted":false,"title":"Temporal Coverage End Date"},{"table":"temporal-coverage","kind":"core","column":"temporalCoverageStartDateTime","key":"","type":"string","required":false,"cls":"TemporalCoverage","term":"temporalCoverageStartDateTime","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/temporalCoverageStartDateTime","minted":false,"title":"Temporal Coverage Start Date"},{"table":"temporal-coverage","kind":"core","column":"temporalCoverageType","key":"","type":"string","required":false,"cls":"TemporalCoverage","term":"temporalCoverageType","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/temporalCoverageType","minted":false,"title":"Temporal Coverage Type"},{"table":"address-identifier","kind":"junction","column":"address_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/addressID","minted":true,"title":"Address (Foreign Key)"},{"table":"address-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"Address","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"chronometric-age-identifier","kind":"junction","column":"chronometricAge_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/chronometricAgeID","minted":true,"title":"Chronometric Age (Foreign Key)"},{"table":"chronometric-age-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"ChronometricAge","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"chronometric-age-measurement-or-fact","kind":"junction","column":"chronometricAge_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/chronometricAgeID","minted":true,"title":"Chronometric Age (Foreign Key)"},{"table":"chronometric-age-measurement-or-fact","kind":"junction","column":"measurementOrFact_fk","key":"fk","type":"string","required":true,"cls":"ChronometricAge","term":"hasMeasurementOrFact","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasMeasurementOrFact","minted":false,"title":"Measurement or Fact (Foreign Key)"},{"table":"chronometric-age-reference","kind":"junction","column":"chronometricAge_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/chronometricAgeID","minted":true,"title":"Chronometric Age (Foreign Key)"},{"table":"chronometric-age-reference","kind":"junction","column":"reference_fk","key":"fk","type":"string","required":true,"cls":"ChronometricAge","term":"hasReference","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasReference","minted":false,"title":"Reference (Foreign Key)"},{"table":"collection-status-history-identifier","kind":"junction","column":"collectionStatusHistory_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/collectionStatusHistoryID","minted":true,"title":"Collection Status History (Foreign Key)"},{"table":"collection-status-history-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"CollectionStatusHistory","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"collection-status-history-measurement-or-fact","kind":"junction","column":"collectionStatusHistory_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/collectionStatusHistoryID","minted":true,"title":"Collection Status History (Foreign Key)"},{"table":"collection-status-history-measurement-or-fact","kind":"junction","column":"measurementOrFact_fk","key":"fk","type":"string","required":true,"cls":"CollectionStatusHistory","term":"hasMeasurementOrFact","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasMeasurementOrFact","minted":false,"title":"Measurement or Fact (Foreign Key)"},{"table":"collection-status-history-reference","kind":"junction","column":"collectionStatusHistory_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/collectionStatusHistoryID","minted":true,"title":"Collection Status History (Foreign Key)"},{"table":"collection-status-history-reference","kind":"junction","column":"reference_fk","key":"fk","type":"string","required":true,"cls":"CollectionStatusHistory","term":"hasReference","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasReference","minted":false,"title":"Reference (Foreign Key)"},{"table":"collection-status-history-temporal-coverage","kind":"junction","column":"collectionStatusHistory_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/collectionStatusHistoryID","minted":true,"title":"Collection Status History (Foreign Key)"},{"table":"collection-status-history-temporal-coverage","kind":"junction","column":"temporalCoverage_fk","key":"fk","type":"string","required":true,"cls":"CollectionStatusHistory","term":"hasTemporalCoverage","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasTemporalCoverage","minted":false,"title":"Temporal Coverage (Foreign Key)"},{"table":"contact-detail-identifier","kind":"junction","column":"contactDetail_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/contactDetailID","minted":true,"title":"Contact Detail (Foreign Key)"},{"table":"contact-detail-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"ContactDetail","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"ecological-context-identifier","kind":"junction","column":"ecologicalContext_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/ecologicalContextID","minted":true,"title":"Ecological Context (Foreign Key)"},{"table":"ecological-context-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"EcologicalContext","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"ecological-context-measurement-or-fact","kind":"junction","column":"ecologicalContext_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/ecologicalContextID","minted":true,"title":"Ecological Context (Foreign Key)"},{"table":"ecological-context-measurement-or-fact","kind":"junction","column":"measurementOrFact_fk","key":"fk","type":"string","required":true,"cls":"EcologicalContext","term":"hasMeasurementOrFact","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasMeasurementOrFact","minted":false,"title":"Measurement or Fact (Foreign Key)"},{"table":"ecological-context-reference","kind":"junction","column":"ecologicalContext_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/ecologicalContextID","minted":true,"title":"Ecological Context (Foreign Key)"},{"table":"ecological-context-reference","kind":"junction","column":"reference_fk","key":"fk","type":"string","required":true,"cls":"EcologicalContext","term":"hasReference","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasReference","minted":false,"title":"Reference (Foreign Key)"},{"table":"event-ecological-context","kind":"junction","column":"event_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/eventID","minted":true,"title":"Event (Foreign Key)"},{"table":"event-ecological-context","kind":"junction","column":"ecologicalContext_fk","key":"fk","type":"string","required":true,"cls":"Event","term":"hasEcologicalContext","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasEcologicalContext","minted":false,"title":"Ecological Context (Foreign Key)"},{"table":"event-geographic-context","kind":"junction","column":"event_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/eventID","minted":true,"title":"Event (Foreign Key)"},{"table":"event-geographic-context","kind":"junction","column":"geographicContext_fk","key":"fk","type":"string","required":true,"cls":"Event","term":"hasGeographicContext","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasGeographicContext","minted":false,"title":"Geographic Context (Foreign Key)"},{"table":"event-identifier","kind":"junction","column":"event_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/eventID","minted":true,"title":"Event (Foreign Key)"},{"table":"event-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"Event","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"event-measurement-or-fact","kind":"junction","column":"event_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/eventID","minted":true,"title":"Event (Foreign Key)"},{"table":"event-measurement-or-fact","kind":"junction","column":"measurementOrFact_fk","key":"fk","type":"string","required":true,"cls":"Event","term":"hasMeasurementOrFact","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasMeasurementOrFact","minted":false,"title":"Measurement or Fact (Foreign Key)"},{"table":"event-person-role","kind":"junction","column":"event_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/eventID","minted":true,"title":"Event (Foreign Key)"},{"table":"event-person-role","kind":"junction","column":"personRole_fk","key":"fk","type":"string","required":true,"cls":"Event","term":"hasPersonRole","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasPersonRole","minted":false,"title":"Person Role (Foreign Key)"},{"table":"event-reference","kind":"junction","column":"event_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/eventID","minted":true,"title":"Event (Foreign Key)"},{"table":"event-reference","kind":"junction","column":"reference_fk","key":"fk","type":"string","required":true,"cls":"Event","term":"hasReference","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasReference","minted":false,"title":"Reference (Foreign Key)"},{"table":"event-temporal-coverage","kind":"junction","column":"event_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/eventID","minted":true,"title":"Event (Foreign Key)"},{"table":"event-temporal-coverage","kind":"junction","column":"temporalCoverage_fk","key":"fk","type":"string","required":true,"cls":"Event","term":"hasTemporalCoverage","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasTemporalCoverage","minted":false,"title":"Temporal Coverage (Foreign Key)"},{"table":"geographic-context-identifier","kind":"junction","column":"geographicContext_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/geographicContextID","minted":true,"title":"Geographic Context (Foreign Key)"},{"table":"geographic-context-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"GeographicContext","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"geographic-context-measurement-or-fact","kind":"junction","column":"geographicContext_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/geographicContextID","minted":true,"title":"Geographic Context (Foreign Key)"},{"table":"geographic-context-measurement-or-fact","kind":"junction","column":"measurementOrFact_fk","key":"fk","type":"string","required":true,"cls":"GeographicContext","term":"hasMeasurementOrFact","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasMeasurementOrFact","minted":false,"title":"Measurement or Fact (Foreign Key)"},{"table":"geographic-context-reference","kind":"junction","column":"geographicContext_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/geographicContextID","minted":true,"title":"Geographic Context (Foreign Key)"},{"table":"geographic-context-reference","kind":"junction","column":"reference_fk","key":"fk","type":"string","required":true,"cls":"GeographicContext","term":"hasReference","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasReference","minted":false,"title":"Reference (Foreign Key)"},{"table":"geological-context-identifier","kind":"junction","column":"geologicalContext_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/geologicalContextID","minted":true,"title":"Geological Context (Foreign Key)"},{"table":"geological-context-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"GeologicalContext","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"geological-context-measurement-or-fact","kind":"junction","column":"geologicalContext_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/geologicalContextID","minted":true,"title":"Geological Context (Foreign Key)"},{"table":"geological-context-measurement-or-fact","kind":"junction","column":"measurementOrFact_fk","key":"fk","type":"string","required":true,"cls":"GeologicalContext","term":"hasMeasurementOrFact","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasMeasurementOrFact","minted":false,"title":"Measurement or Fact (Foreign Key)"},{"table":"geological-context-reference","kind":"junction","column":"geologicalContext_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/geologicalContextID","minted":true,"title":"Geological Context (Foreign Key)"},{"table":"geological-context-reference","kind":"junction","column":"reference_fk","key":"fk","type":"string","required":true,"cls":"GeologicalContext","term":"hasReference","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasReference","minted":false,"title":"Reference (Foreign Key)"},{"table":"identifier-reference","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/identifierID","minted":true,"title":"Identifier (Foreign Key)"},{"table":"identifier-reference","kind":"junction","column":"reference_fk","key":"fk","type":"string","required":true,"cls":"Identifier","term":"hasReference","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasReference","minted":false,"title":"Reference (Foreign Key)"},{"table":"latimer-core-scheme-identifier","kind":"junction","column":"latimerCoreScheme_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/latimerCoreSchemeID","minted":true,"title":"Latimer Core Scheme (Foreign Key)"},{"table":"latimer-core-scheme-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"LatimerCoreScheme","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"latimer-core-scheme-object-group","kind":"junction","column":"latimerCoreScheme_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/latimerCoreSchemeID","minted":true,"title":"Latimer Core Scheme (Foreign Key)"},{"table":"latimer-core-scheme-object-group","kind":"junction","column":"objectGroup_fk","key":"fk","type":"string","required":true,"cls":"LatimerCoreScheme","term":"hasObjectGroup","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasObjectGroup","minted":false,"title":"Object Group (Foreign Key)"},{"table":"latimer-core-scheme-reference","kind":"junction","column":"latimerCoreScheme_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/latimerCoreSchemeID","minted":true,"title":"Latimer Core Scheme (Foreign Key)"},{"table":"latimer-core-scheme-reference","kind":"junction","column":"reference_fk","key":"fk","type":"string","required":true,"cls":"LatimerCoreScheme","term":"hasReference","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasReference","minted":false,"title":"Reference (Foreign Key)"},{"table":"measurement-or-fact-identifier","kind":"junction","column":"measurementOrFact_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/measurementOrFactID","minted":true,"title":"Measurement or Fact (Foreign Key)"},{"table":"measurement-or-fact-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"MeasurementOrFact","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"measurement-or-fact-reference","kind":"junction","column":"measurementOrFact_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/measurementOrFactID","minted":true,"title":"Measurement or Fact (Foreign Key)"},{"table":"measurement-or-fact-reference","kind":"junction","column":"reference_fk","key":"fk","type":"string","required":true,"cls":"MeasurementOrFact","term":"hasReference","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasReference","minted":false,"title":"Reference (Foreign Key)"},{"table":"object-classification-identifier","kind":"junction","column":"objectClassification_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/objectClassificationID","minted":true,"title":"Object Classification (Foreign Key)"},{"table":"object-classification-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"ObjectClassification","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"object-classification-measurement-or-fact","kind":"junction","column":"objectClassification_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/objectClassificationID","minted":true,"title":"Object Classification (Foreign Key)"},{"table":"object-classification-measurement-or-fact","kind":"junction","column":"measurementOrFact_fk","key":"fk","type":"string","required":true,"cls":"ObjectClassification","term":"hasMeasurementOrFact","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasMeasurementOrFact","minted":false,"title":"Measurement or Fact (Foreign Key)"},{"table":"object-classification-reference","kind":"junction","column":"objectClassification_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/objectClassificationID","minted":true,"title":"Object Classification (Foreign Key)"},{"table":"object-classification-reference","kind":"junction","column":"reference_fk","key":"fk","type":"string","required":true,"cls":"ObjectClassification","term":"hasReference","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasReference","minted":false,"title":"Reference (Foreign Key)"},{"table":"object-group-ecological-context","kind":"junction","column":"objectGroup_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/objectGroupID","minted":true,"title":"Object Group (Foreign Key)"},{"table":"object-group-ecological-context","kind":"junction","column":"ecologicalContext_fk","key":"fk","type":"string","required":true,"cls":"ObjectGroup","term":"hasEcologicalContext","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasEcologicalContext","minted":false,"title":"Ecological Context (Foreign Key)"},{"table":"object-group-geographic-context","kind":"junction","column":"objectGroup_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/objectGroupID","minted":true,"title":"Object Group (Foreign Key)"},{"table":"object-group-geographic-context","kind":"junction","column":"geographicContext_fk","key":"fk","type":"string","required":true,"cls":"ObjectGroup","term":"hasGeographicContext","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasGeographicContext","minted":false,"title":"Geographic Context (Foreign Key)"},{"table":"object-group-identifier","kind":"junction","column":"objectGroup_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/objectGroupID","minted":true,"title":"Object Group (Foreign Key)"},{"table":"object-group-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"ObjectGroup","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"object-group-measurement-or-fact","kind":"junction","column":"objectGroup_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/objectGroupID","minted":true,"title":"Object Group (Foreign Key)"},{"table":"object-group-measurement-or-fact","kind":"junction","column":"measurementOrFact_fk","key":"fk","type":"string","required":true,"cls":"ObjectGroup","term":"hasMeasurementOrFact","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasMeasurementOrFact","minted":false,"title":"Measurement or Fact (Foreign Key)"},{"table":"object-group-person-role","kind":"junction","column":"objectGroup_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/objectGroupID","minted":true,"title":"Object Group (Foreign Key)"},{"table":"object-group-person-role","kind":"junction","column":"personRole_fk","key":"fk","type":"string","required":true,"cls":"ObjectGroup","term":"hasPersonRole","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasPersonRole","minted":false,"title":"Person Role (Foreign Key)"},{"table":"object-group-reference","kind":"junction","column":"objectGroup_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/objectGroupID","minted":true,"title":"Object Group (Foreign Key)"},{"table":"object-group-reference","kind":"junction","column":"reference_fk","key":"fk","type":"string","required":true,"cls":"ObjectGroup","term":"hasReference","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasReference","minted":false,"title":"Reference (Foreign Key)"},{"table":"object-group-resource-relationship","kind":"junction","column":"objectGroup_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/objectGroupID","minted":true,"title":"Object Group (Foreign Key)"},{"table":"object-group-resource-relationship","kind":"junction","column":"resourceRelationship_fk","key":"fk","type":"string","required":true,"cls":"ObjectGroup","term":"hasResourceRelationship","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasResourceRelationship","minted":false,"title":"Resource Relationship (Foreign Key)"},{"table":"organisational-unit-address","kind":"junction","column":"organisationalUnit_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/organisationalUnitID","minted":true,"title":"Organisational Unit (Foreign Key)"},{"table":"organisational-unit-address","kind":"junction","column":"address_fk","key":"fk","type":"string","required":true,"cls":"OrganisationalUnit","term":"hasAddress","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasAddress","minted":false,"title":"Address (Foreign Key)"},{"table":"organisational-unit-contact-detail","kind":"junction","column":"organisationalUnit_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/organisationalUnitID","minted":true,"title":"Organisational Unit (Foreign Key)"},{"table":"organisational-unit-contact-detail","kind":"junction","column":"contactDetail_fk","key":"fk","type":"string","required":true,"cls":"OrganisationalUnit","term":"hasContactDetail","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasContactDetail","minted":false,"title":"Contact Detail (Foreign Key)"},{"table":"organisational-unit-identifier","kind":"junction","column":"organisationalUnit_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/organisationalUnitID","minted":true,"title":"Organisational Unit (Foreign Key)"},{"table":"organisational-unit-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"OrganisationalUnit","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"organisational-unit-measurement-or-fact","kind":"junction","column":"organisationalUnit_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/organisationalUnitID","minted":true,"title":"Organisational Unit (Foreign Key)"},{"table":"organisational-unit-measurement-or-fact","kind":"junction","column":"measurementOrFact_fk","key":"fk","type":"string","required":true,"cls":"OrganisationalUnit","term":"hasMeasurementOrFact","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasMeasurementOrFact","minted":false,"title":"Measurement or Fact (Foreign Key)"},{"table":"organisational-unit-person-role","kind":"junction","column":"organisationalUnit_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/organisationalUnitID","minted":true,"title":"Organisational Unit (Foreign Key)"},{"table":"organisational-unit-person-role","kind":"junction","column":"personRole_fk","key":"fk","type":"string","required":true,"cls":"OrganisationalUnit","term":"hasPersonRole","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasPersonRole","minted":false,"title":"Person Role (Foreign Key)"},{"table":"organisational-unit-reference","kind":"junction","column":"organisationalUnit_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/organisationalUnitID","minted":true,"title":"Organisational Unit (Foreign Key)"},{"table":"organisational-unit-reference","kind":"junction","column":"reference_fk","key":"fk","type":"string","required":true,"cls":"OrganisationalUnit","term":"hasReference","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasReference","minted":false,"title":"Reference (Foreign Key)"},{"table":"person-address","kind":"junction","column":"person_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/personID","minted":true,"title":"Person (Foreign Key)"},{"table":"person-address","kind":"junction","column":"address_fk","key":"fk","type":"string","required":true,"cls":"Person","term":"hasAddress","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasAddress","minted":false,"title":"Address (Foreign Key)"},{"table":"person-contact-detail","kind":"junction","column":"person_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/personID","minted":true,"title":"Person (Foreign Key)"},{"table":"person-contact-detail","kind":"junction","column":"contactDetail_fk","key":"fk","type":"string","required":true,"cls":"Person","term":"hasContactDetail","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasContactDetail","minted":false,"title":"Contact Detail (Foreign Key)"},{"table":"person-identifier","kind":"junction","column":"person_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/personID","minted":true,"title":"Person (Foreign Key)"},{"table":"person-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"Person","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"person-measurement-or-fact","kind":"junction","column":"person_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/personID","minted":true,"title":"Person (Foreign Key)"},{"table":"person-measurement-or-fact","kind":"junction","column":"measurementOrFact_fk","key":"fk","type":"string","required":true,"cls":"Person","term":"hasMeasurementOrFact","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasMeasurementOrFact","minted":false,"title":"Measurement or Fact (Foreign Key)"},{"table":"person-reference","kind":"junction","column":"person_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/personID","minted":true,"title":"Person (Foreign Key)"},{"table":"person-reference","kind":"junction","column":"reference_fk","key":"fk","type":"string","required":true,"cls":"Person","term":"hasReference","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasReference","minted":false,"title":"Reference (Foreign Key)"},{"table":"person-role-address","kind":"junction","column":"personRole_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/personRoleID","minted":true,"title":"Person Role (Foreign Key)"},{"table":"person-role-address","kind":"junction","column":"address_fk","key":"fk","type":"string","required":true,"cls":"PersonRole","term":"hasAddress","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasAddress","minted":false,"title":"Address (Foreign Key)"},{"table":"person-role-contact-detail","kind":"junction","column":"personRole_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/personRoleID","minted":true,"title":"Person Role (Foreign Key)"},{"table":"person-role-contact-detail","kind":"junction","column":"contactDetail_fk","key":"fk","type":"string","required":true,"cls":"PersonRole","term":"hasContactDetail","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasContactDetail","minted":false,"title":"Contact Detail (Foreign Key)"},{"table":"person-role-identifier","kind":"junction","column":"personRole_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/personRoleID","minted":true,"title":"Person Role (Foreign Key)"},{"table":"person-role-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"PersonRole","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"person-role-measurement-or-fact","kind":"junction","column":"personRole_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/personRoleID","minted":true,"title":"Person Role (Foreign Key)"},{"table":"person-role-measurement-or-fact","kind":"junction","column":"measurementOrFact_fk","key":"fk","type":"string","required":true,"cls":"PersonRole","term":"hasMeasurementOrFact","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasMeasurementOrFact","minted":false,"title":"Measurement or Fact (Foreign Key)"},{"table":"person-role-reference","kind":"junction","column":"personRole_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/personRoleID","minted":true,"title":"Person Role (Foreign Key)"},{"table":"person-role-reference","kind":"junction","column":"reference_fk","key":"fk","type":"string","required":true,"cls":"PersonRole","term":"hasReference","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasReference","minted":false,"title":"Reference (Foreign Key)"},{"table":"person-role-temporal-coverage","kind":"junction","column":"personRole_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/personRoleID","minted":true,"title":"Person Role (Foreign Key)"},{"table":"person-role-temporal-coverage","kind":"junction","column":"temporalCoverage_fk","key":"fk","type":"string","required":true,"cls":"PersonRole","term":"hasTemporalCoverage","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasTemporalCoverage","minted":false,"title":"Temporal Coverage (Foreign Key)"},{"table":"record-level-identifier","kind":"junction","column":"recordLevel_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/recordLevelID","minted":true,"title":"Record Level (Foreign Key)"},{"table":"record-level-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"RecordLevel","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"record-level-object-group","kind":"junction","column":"recordLevel_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/recordLevelID","minted":true,"title":"Record Level (Foreign Key)"},{"table":"record-level-object-group","kind":"junction","column":"objectGroup_fk","key":"fk","type":"string","required":true,"cls":"RecordLevel","term":"hasObjectGroup","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasObjectGroup","minted":false,"title":"Object Group (Foreign Key)"},{"table":"record-level-person-role","kind":"junction","column":"recordLevel_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/recordLevelID","minted":true,"title":"Record Level (Foreign Key)"},{"table":"record-level-person-role","kind":"junction","column":"personRole_fk","key":"fk","type":"string","required":true,"cls":"RecordLevel","term":"hasPersonRole","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasPersonRole","minted":false,"title":"Person Role (Foreign Key)"},{"table":"record-level-reference","kind":"junction","column":"recordLevel_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/recordLevelID","minted":true,"title":"Record Level (Foreign Key)"},{"table":"record-level-reference","kind":"junction","column":"reference_fk","key":"fk","type":"string","required":true,"cls":"RecordLevel","term":"hasReference","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasReference","minted":false,"title":"Reference (Foreign Key)"},{"table":"record-level-resource-relationship","kind":"junction","column":"recordLevel_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/recordLevelID","minted":true,"title":"Record Level (Foreign Key)"},{"table":"record-level-resource-relationship","kind":"junction","column":"resourceRelationship_fk","key":"fk","type":"string","required":true,"cls":"RecordLevel","term":"hasResourceRelationship","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasResourceRelationship","minted":false,"title":"Resource Relationship (Foreign Key)"},{"table":"reference-identifier","kind":"junction","column":"reference_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/referenceID","minted":true,"title":"Reference (Foreign Key)"},{"table":"reference-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"Reference","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"resource-relationship-identifier","kind":"junction","column":"resourceRelationship_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/resourceRelationshipID","minted":true,"title":"Resource Relationship (Foreign Key)"},{"table":"resource-relationship-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"ResourceRelationship","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"resource-relationship-measurement-or-fact","kind":"junction","column":"resourceRelationship_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/resourceRelationshipID","minted":true,"title":"Resource Relationship (Foreign Key)"},{"table":"resource-relationship-measurement-or-fact","kind":"junction","column":"measurementOrFact_fk","key":"fk","type":"string","required":true,"cls":"ResourceRelationship","term":"hasMeasurementOrFact","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasMeasurementOrFact","minted":false,"title":"Measurement or Fact (Foreign Key)"},{"table":"resource-relationship-reference","kind":"junction","column":"resourceRelationship_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/resourceRelationshipID","minted":true,"title":"Resource Relationship (Foreign Key)"},{"table":"resource-relationship-reference","kind":"junction","column":"reference_fk","key":"fk","type":"string","required":true,"cls":"ResourceRelationship","term":"hasReference","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasReference","minted":false,"title":"Reference (Foreign Key)"},{"table":"role-identifier","kind":"junction","column":"role_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/roleID","minted":true,"title":"Role (Foreign Key)"},{"table":"role-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"Role","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"scheme-measurement-or-fact-identifier","kind":"junction","column":"schemeMeasurementOrFact_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/schemeMeasurementOrFactID","minted":true,"title":"Scheme Measurement Or Fact (Foreign Key)"},{"table":"scheme-measurement-or-fact-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"SchemeMeasurementOrFact","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"scheme-measurement-or-fact-reference","kind":"junction","column":"schemeMeasurementOrFact_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/schemeMeasurementOrFactID","minted":true,"title":"Scheme Measurement Or Fact (Foreign Key)"},{"table":"scheme-measurement-or-fact-reference","kind":"junction","column":"reference_fk","key":"fk","type":"string","required":true,"cls":"SchemeMeasurementOrFact","term":"hasReference","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasReference","minted":false,"title":"Reference (Foreign Key)"},{"table":"scheme-term-identifier","kind":"junction","column":"schemeTerm_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/schemeTermID","minted":true,"title":"Scheme Term (Foreign Key)"},{"table":"scheme-term-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"SchemeTerm","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"scheme-term-reference","kind":"junction","column":"schemeTerm_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/schemeTermID","minted":true,"title":"Scheme Term (Foreign Key)"},{"table":"scheme-term-reference","kind":"junction","column":"reference_fk","key":"fk","type":"string","required":true,"cls":"SchemeTerm","term":"hasReference","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasReference","minted":false,"title":"Reference (Foreign Key)"},{"table":"storage-location-address","kind":"junction","column":"storageLocation_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/storageLocationID","minted":true,"title":"Storage Location (Foreign Key)"},{"table":"storage-location-address","kind":"junction","column":"address_fk","key":"fk","type":"string","required":true,"cls":"StorageLocation","term":"hasAddress","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasAddress","minted":false,"title":"Address (Foreign Key)"},{"table":"storage-location-identifier","kind":"junction","column":"storageLocation_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/storageLocationID","minted":true,"title":"Storage Location (Foreign Key)"},{"table":"storage-location-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"StorageLocation","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"storage-location-measurement-or-fact","kind":"junction","column":"storageLocation_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/storageLocationID","minted":true,"title":"Storage Location (Foreign Key)"},{"table":"storage-location-measurement-or-fact","kind":"junction","column":"measurementOrFact_fk","key":"fk","type":"string","required":true,"cls":"StorageLocation","term":"hasMeasurementOrFact","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasMeasurementOrFact","minted":false,"title":"Measurement or Fact (Foreign Key)"},{"table":"storage-location-reference","kind":"junction","column":"storageLocation_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/storageLocationID","minted":true,"title":"Storage Location (Foreign Key)"},{"table":"storage-location-reference","kind":"junction","column":"reference_fk","key":"fk","type":"string","required":true,"cls":"StorageLocation","term":"hasReference","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasReference","minted":false,"title":"Reference (Foreign Key)"},{"table":"taxon-identifier","kind":"junction","column":"taxon_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/taxonID","minted":true,"title":"Taxon (Foreign Key)"},{"table":"taxon-identifier","kind":"junction","column":"identifier_fk","key":"fk","type":"string","required":true,"cls":"Taxon","term":"hasIdentifier","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasIdentifier","minted":false,"title":"Identifier (Foreign Key)"},{"table":"taxon-measurement-or-fact","kind":"junction","column":"taxon_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/taxonID","minted":true,"title":"Taxon (Foreign Key)"},{"table":"taxon-measurement-or-fact","kind":"junction","column":"measurementOrFact_fk","key":"fk","type":"string","required":true,"cls":"Taxon","term":"hasMeasurementOrFact","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasMeasurementOrFact","minted":false,"title":"Measurement or Fact (Foreign Key)"},{"table":"taxon-reference","kind":"junction","column":"taxon_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/taxonID","minted":true,"title":"Taxon (Foreign Key)"},{"table":"taxon-reference","kind":"junction","column":"reference_fk","key":"fk","type":"string","required":true,"cls":"Taxon","term":"hasReference","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasReference","minted":false,"title":"Reference (Foreign Key)"},{"table":"temporal-coverage-measurement-or-fact","kind":"junction","column":"temporalCoverage_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/temporalCoverageID","minted":true,"title":"Temporal Coverage (Foreign Key)"},{"table":"temporal-coverage-measurement-or-fact","kind":"junction","column":"measurementOrFact_fk","key":"fk","type":"string","required":true,"cls":"TemporalCoverage","term":"hasMeasurementOrFact","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasMeasurementOrFact","minted":false,"title":"Measurement or Fact (Foreign Key)"},{"table":"temporal-coverage-reference","kind":"junction","column":"temporalCoverage_fk","key":"fk","type":"string","required":true,"cls":"","term":"","ns":"ltc","iri":"http://example.com/term-pending/temporalCoverageID","minted":true,"title":"Temporal Coverage (Foreign Key)"},{"table":"temporal-coverage-reference","kind":"junction","column":"reference_fk","key":"fk","type":"string","required":true,"cls":"TemporalCoverage","term":"hasReference","ns":"ltc","iri":"http://rs.tdwg.org/ltc/terms/hasReference","minted":false,"title":"Reference (Foreign Key)"}]}</script>
+<script>
+(function(){
+"use strict";
+var D = JSON.parse(document.getElementById('data').textContent);
+var S = D.stats;
+var TERMS = 'https://ltc.tdwg.org/terms/';
+function el(t,c,x){var e=document.createElement(t);if(c)e.className=c;
+  if(x!==undefined)e.textContent=x;return e;}
+function esc(s){return String(s==null?'':s);}
+
+/* ---- stat strip ---- */
+var strip=[
+  [S.tables,'tables',S.core+' core · '+S.junction+' junction'],
+  [S.fields,'columns',S.pk+' pk · '+S.fk+' fk · '+S.ordinary+' ordinary'],
+  [S.classes,'LtC classes','one core table each'],
+  [S.properties,'LtC properties','131 columns · 97 relations'],
+  [S.relations,'relations',S.relJunction+' junction · '+S.relDirect+' direct FK'],
+  [S.colsMean,'mean columns','core tables, range '+S.colsMin+'–'+S.colsMax],
+  [S.minted,'minted keys','no LtC term behind them'],
+  [S.versioned,'versioned IRIs','columns citing a term version']
+];
+var sw=document.getElementById('strip');
+strip.forEach(function(r){
+  var d=el('div','stat');
+  d.appendChild(el('div','v',String(r[0])));
+  d.appendChild(el('div','k',r[1]));
+  d.appendChild(el('div','n',r[2]));
+  sw.appendChild(d);
+});
+
+/* ---- helper: build a table body ---- */
+function fill(id,rows){
+  var tb=document.getElementById(id);
+  rows.forEach(function(r){
+    var tr=el('tr');
+    r.forEach(function(c){
+      var td=el('td');
+      if(c && c.cls) td.className=c.cls;
+      if(c && c.html!==undefined) td.innerHTML=c.html;
+      else td.textContent=(c&&c.t!==undefined)?c.t:esc(c);
+      tr.appendChild(td);
+    });
+    tb.appendChild(tr);
+  });
+}
+
+/* ---- composition ---- */
+fill('tb-comp',[
+  ['Tables',{cls:'n',t:S.tables},'One per Latimer Core class, plus one per many-to-many relation'],
+  [' core tables',{cls:'n',t:S.core},{html:'Each carries a minted <code>_pk</code>'}],
+  [' junction tables',{cls:'n',t:S.junction},'Exactly two foreign keys, no payload'],
+  ['Columns',{cls:'n',t:S.fields},'Across all 106 tables'],
+  [' primary keys',{cls:'n',t:S.pk},'Minted; Latimer Core defines no class identifier'],
+  [' foreign keys',{cls:'n',t:S.fk},'16 direct on a child table, 162 across junctions'],
+  [' ordinary columns',{cls:'n',t:S.ordinary},'The non-relation Latimer Core properties'],
+  ['Relations',{cls:'n',t:S.relations},{html:'Every <code>has*</code> property'}],
+  [' as junction tables',{cls:'n',t:S.relJunction},'Target has two or more parent classes'],
+  [' as direct foreign keys',{cls:'n',t:S.relDirect},'Target has exactly one parent class'],
+  [' self-referencing',{cls:'n',t:S.relSelf},'Event, ObjectClassification, OrganisationalUnit, StorageLocation'],
+  ['Required columns',{cls:'n',t:S.required},'227 of 334; 24 are ordinary fields, the rest keys']
+]);
+
+/* ---- types + namespaces ---- */
+var ty=Object.keys(S.types).sort(function(a,b){return S.types[b]-S.types[a];});
+var ns=Object.keys(S.ns).sort(function(a,b){return S.ns[b]-S.ns[a];});
+var NSNOTE={ltc:'Latimer Core',dwc:'Darwin Core',schema:'schema.org',
+  chrono:'Chronometric Age',dcterms:'Dublin Core Terms',dc:'Dublin Core Elements',abcd:'ABCD'};
+var rows=[];
+for(var i=0;i<Math.max(ty.length,ns.length);i++){
+  rows.push([
+    ty[i]?{cls:'m',t:ty[i]}:'', ty[i]?{cls:'n',t:S.types[ty[i]]}:'',
+    ns[i]?{cls:'m',t:ns[i]+'  — '+(NSNOTE[ns[i]]||'')}:'',
+    ns[i]?{cls:'n',t:S.ns[ns[i]]}:''
+  ]);
+}
+fill('tb-types',rows);
+
+/* ---- largest core tables ---- */
+var big=D.nodes.slice().sort(function(a,b){return b.cols-a.cols;}).slice(0,10);
+fill('tb-big',big.map(function(n){
+  return [{cls:'m',t:n.table},{cls:'n',t:n.cols},{cls:'n',t:n.out},{cls:'n',t:n.refBy}];
+}));
+
+/* ---- fan-in ---- */
+var fan=D.nodes.slice().sort(function(a,b){return b.refBy-a.refBy||a.cls.localeCompare(b.cls);});
+fill('tb-fan',fan.filter(function(n){return n.refBy>0;}).map(function(n){
+  var how=n.refBy>=2?(n.refBy+' junction tables'):'direct foreign key';
+  return [{cls:'m',t:n.cls},{cls:'n',t:n.refBy},how];
+}));
+
+/* ---- DwC-DP comparison ---- */
+var CMP=[
+ ['Tables','86','106','LtC-DP is larger despite a smaller vocabulary'],
+ [' core tables','21','25','',''],
+ [' child / junction tables','65','81','',''],
+ ['Columns','1226','334','Darwin Core is a far broader vocabulary'],
+ ['World-unique keys (wpk + wfk)','82','0','diff'],
+ ['Inlined leaf child tables','11','0','diff'],
+ ['Child tables carrying payload','40','0','diff'],
+ ['Child tables with a term IRI','21 of 65','81 of 81','diff'],
+ ['Scalar types used','4','5','diff'],
+ ['Distinct relation predicates','57','4','diff'],
+ ['Columns with a placeholder IRI','0','108','diff'],
+ ['Columns citing a term version','923','206','']
+];
+(function(){
+  var tb=document.getElementById('tb-cmp');
+  CMP.forEach(function(r){
+    var tr=el('tr');
+    var c0=el('td');c0.innerHTML=r[0];tr.appendChild(c0);
+    tr.appendChild(el('td','n',r[1]));
+    tr.appendChild(el('td','n',r[2]));
+    var c3=el('td');
+    if(r[3]==='diff'){c3.innerHTML='<span class="b diff">divergence</span>';}
+    else if(r[3]){c3.textContent=r[3];}
+    else {c3.innerHTML='<span class="b same">same shape</span>';}
+    tr.appendChild(c3);
+    tb.appendChild(tr);
+  });
+})();
+
+/* ---- term mapping explorer ---- */
+var M=D.mapping;
+var nsSel=document.getElementById('fns');
+Object.keys(S.ns).concat(['ltc']).filter(function(v,i,a){return a.indexOf(v)===i;})
+  .sort().forEach(function(n){
+    var o=el('option',null,n);o.value=n;nsSel.appendChild(o);
+  });
+
+var q=document.getElementById('q'),fk=document.getElementById('fk'),
+    fkey=document.getElementById('fkey'),cnt=document.getElementById('count'),
+    body=document.getElementById('tb-map'),more=document.getElementById('more');
+var LIMIT=400;
+
+function anchor(r){
+  if(!r.term) return null;
+  return TERMS+'#'+r.cls+'_'+r.term;
+}
+function render(){
+  var s=q.value.trim().toLowerCase(), k=fk.value, kk=fkey.value, n=nsSel.value;
+  var out=M.filter(function(r){
+    if(k && r.kind!==k) return false;
+    if(kk==='ord' ? r.key!=='' : (kk && r.key!==kk)) return false;
+    if(n && r.ns!==n) return false;
+    if(s && (r.table+' '+r.column+' '+r.term+' '+r.cls+' '+r.title)
+            .toLowerCase().indexOf(s)<0) return false;
+    return true;
+  });
+  cnt.textContent=out.length+' of '+M.length+' columns';
+  body.textContent='';
+  if(!out.length){
+    var tr=el('tr'),td=el('td','empty','No columns match that filter.');
+    td.colSpan=6;tr.appendChild(td);body.appendChild(tr);
+    more.hidden=true;return;
+  }
+  var frag=document.createDocumentFragment();
+  out.slice(0,LIMIT).forEach(function(r){
+    var tr=el('tr');
+    var t=el('td','m');
+    t.appendChild(document.createTextNode(r.table+' '));
+    t.appendChild(el('span','b '+(r.kind==='core'?'core':'junc'),r.kind==='core'?'core':'junc'));
+    tr.appendChild(t);
+    tr.appendChild(el('td','m',r.column));
+    var kt=el('td');
+    if(r.key)kt.appendChild(el('span','b '+r.key,r.key));
+    tr.appendChild(kt);
+    tr.appendChild(el('td','m',r.type));
+    var mt=el('td');
+    if(r.term){
+      var a=el('a');a.href=anchor(r);a.target='_blank';a.rel='noopener';
+      a.className='mono';a.textContent=r.cls+'.'+r.term;
+      mt.appendChild(a);
+    } else {
+      mt.appendChild(el('span','b minted','minted'));
+    }
+    tr.appendChild(mt);
+    tr.appendChild(el('td','m',r.ns));
+    frag.appendChild(tr);
+  });
+  body.appendChild(frag);
+  if(out.length>LIMIT){
+    more.hidden=false;
+    more.textContent='Showing first '+LIMIT+' of '+out.length+
+      ' — narrow the filter to see the rest';
+  } else { more.hidden=true; }
+}
+[q,fk,fkey,nsSel].forEach(function(e){
+  e.addEventListener('input',render);e.addEventListener('change',render);
+});
+render();
+})();
+</script>
