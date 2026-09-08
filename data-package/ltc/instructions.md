@@ -71,11 +71,6 @@ data-package/ltc/
 
 ## Data model
 
-**Minimise the difference between LtC-DP and DwC-DP.** The two packages serve the same community in
-the same domain, so understanding the structure of one should mean understanding the structure of
-the other. Where DwC-DP has already solved a structural problem, use its solution. When this document
-is silent, the answer is whatever `data-package/dwc-dp` does.
-
 The full class-to-table and property-to-column mapping is in **`ltc-term-mapping.md`** — 106 tables,
 253 mapped terms, 97 relations. Build `ltc-dp-fields.csv` to reproduce it exactly. Regenerate it with
 `python data-package/ltc/src/build-mapping.py`.
@@ -97,11 +92,6 @@ has no equivalent.
 
 This yields 25 core tables and 81 junction tables. Four self-references exist: `hasParentEvent`,
 `hasParentObjectClassification`, `hasParentOrganisationalUnit`, `hasParentStorageLocation`.
-
-**DwC-DP's inlining pattern has no applicable case here.** DwC-DP inlines a leaf attribute bundle
-into a one-FK child table — `agent-identifier` carries the identifier fields directly and there is no
-`identifier` table. No Latimer Core class is a leaf: all 25 carry at least one `has*` relation, and a
-table with no primary key cannot be referenced. Do not inline.
 
 ### Preliminary decisions
 
@@ -301,13 +291,7 @@ Alongside the package files, produce a build report listing:
 | 2 | Package root | `RecordLevel` is the dataset root; `LatimerCoreScheme` is a table. **Preliminary** — `open-issues.md` #1. |
 | 3 | `list` datatype | Table Schema `array` type — a JSON array, per the v1 spec. |
 | 4 | Cardinality contradiction | The definition and datatype are authoritative: relations are many-valued. Correct `tdwgutility_repeatable` to `Yes` on every `has*` property in the source. |
-| 5 | Frictionless version | v1. All v2 references removed; the v2 schema folder was deleted. |
-| 6 | Borrowed terms | Keep the source namespace and source URI; do not mint LtC IRIs. Report anything unreconcilable. |
-| 7 | Directory and version | `vocabulary/` (singular); version `0.1`; identifier base `http://rs.tdwg.org/ltc/ltc-dp`. |
-| 8 | Camtrap DP reference | Resolved — DwC-DP is the sole reference implementation. |
-| 9 | Key naming | DwC-DP conventions throughout: `<className>_pk` / `<targetClassName>_fk`, kebab-case table names, camelCase columns. See Conventions. |
-
-## Housekeeping
-
-`data-package/README.md` still credits Camtrap DP as an included reference implementation (line 7)
-though the directory is absent. Update the sentence.
+| 5 | Borrowed terms | Keep the source namespace and source URI; do not mint LtC IRIs. Report anything unreconcilable. |
+| 6 | Directory and version | `vocabulary/` (singular); version `0.1`; identifier base `http://rs.tdwg.org/ltc/ltc-dp`. |
+| 7 | Camtrap DP reference | Resolved — DwC-DP is the sole reference implementation. |
+| 8 | Key naming | DwC-DP conventions throughout: `<className>_pk` / `<targetClassName>_fk`, kebab-case table names, camelCase columns. See Conventions. |
