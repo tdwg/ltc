@@ -283,7 +283,8 @@ Alongside the package files, produce a build report listing:
 | `src/build-schemas.py` | Generates `ltc-dp/table-schemas/*.json`, `index.json`, `ltc-dp-profile.json`, `version.json` from the two vocabulary files. Run after `build-vocabulary.py`. Accepts `--vocab-prefix`, `--name`, `--title`, `--description`, `--outdir` to build a variant package from other vocabulary files. |
 | `src/build-collapsed.py` | Derives `vocabulary/ltc-dp-collapsed-*.csv` from the `ltc-dp` vocabularies and builds `ltc-dp-collapsed/`: the 25 entity tables only, every junction table replaced by an optional `<parent>_fk` on the target table. |
 | `src/build-sql.py` | Generates a PostgreSQL DDL script (`<package>.sql`) from a package's table schemas; `--package ltc-dp-collapsed` for the variant. |
-| `src/build-erd.py` | Generates the crow's-foot diagrams under `diagrams/` from `ltc-dp/table-schemas`. |
+| `src/build-erd.py` | Generates the crow's-foot diagrams under `docs/diagrams/` from `ltc-dp/table-schemas`. |
+| `src/build-erd-collapsed.py` | Generates the four diagrams of `ltc-dp-collapsed` under `docs/diagrams/` (complete, presentation slide, grouped by theme, and a plain version without crow's-foot notation); `--plan FILE` also emits the shape and connector geometry used to reproduce them in Lucidchart. |
 | `ltc-dp-collapsed.md` | How `ltc-dp-collapsed` differs from `ltc-dp` (many-to-many junction tables versus one-to-many foreign keys), what a publisher gains and loses, and how it relates to `open-issues.md` Issue 2. |
 | `open-issues.md` | The two preliminary decisions, still open for group deliberation. Not to be decided during a build. |
 

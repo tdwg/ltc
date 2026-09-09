@@ -144,6 +144,27 @@ compare them directly; whichever is adopted, the other can be dropped without to
 
 ---
 
+## Diagrams
+
+`src/build-erd-collapsed.py` draws the collapsed package in crow's-foot notation (table names only,
+no columns) and writes four versions to `docs/diagrams/`:
+
+| File | Content |
+| -- | -- |
+| `ltc-dp-collapsed-erd.svg` / `.png` | All 25 tables and all 97 relations. Tables step down a diagonal so every table has a free lane above, below and to its right; `measurement-or-fact`, `identifier` and `reference` are drawn as bars along the top, bottom and right so their 59 incoming relations are straight lines that cross no table. |
+| `ltc-dp-collapsed-erd-slide.svg` / `.png` | 16:9 presentation version: the 22 entity tables and their 38 relations, with the three cross-cutting tables summarised in a strip. |
+| `ltc-dp-collapsed-erd-grouped.svg` / `.png` | 16:9 version with the tables grouped by theme: collection, scope and context, agents, scheme, cross-cutting. Positions inside each group are chosen by a small annealer so that no relation line passes through a table. |
+| `ltc-dp-collapsed-erd-plain.svg` / `.png` | The slide layout without crow's-foot notation: plain connectors only, for audiences who do not read ERDs. |
+
+All connectors are orthogonal (elbow) lines that leave and enter a table perpendicular to its edge, so
+every crow's-foot mark sits flush against its table. The same diagrams exist in Lucidchart with every
+connector attached to its two tables, so tables can be moved without breaking the relations:
+
+- [complete diagram](https://lucid.app/lucidchart/6cc9e796-d9a3-4aca-ab94-a11528af5f80/edit)
+- [presentation slide](https://lucid.app/lucidchart/25ed6421-0763-49db-bee4-1a162cb56c28/edit)
+- [tables grouped by theme](https://lucid.app/lucidchart/c56093c0-daee-446b-a0a1-bee5f6f02207/edit)
+- [plain version without crow's-foot notation](https://lucid.app/lucidchart/a20911fc-75b2-427f-aa05-3c99907dc2bd/edit)
+
 ## Files and regeneration
 
 ```

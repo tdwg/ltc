@@ -1,7 +1,7 @@
 """Build entity-relationship diagrams for the Latimer Core Data Package.
 
 Reads every table schema in ltc-dp/table-schemas, derives the relationships
-from the declared foreign keys, and writes to diagrams/:
+from the declared foreign keys, and writes to docs/diagrams/:
 
   ltc-dp-erd.svg / .png         all 106 tables (entity + junction), crow's-foot notation
   ltc-dp-erd-slide.svg / .png   16:9 presentation version: the entity tables only, with
@@ -22,7 +22,7 @@ from collections import defaultdict
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 SCHEMA_DIR = os.path.join(ROOT, "ltc-dp", "table-schemas")
-OUT_DIR = os.path.join(ROOT, "diagrams")
+OUT_DIR = os.path.join(ROOT, "docs", "diagrams")
 CHROME = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 FONT = "Helvetica, Arial, sans-serif"
 
