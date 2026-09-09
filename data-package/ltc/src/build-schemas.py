@@ -1,9 +1,11 @@
-"""Generate ltc-dp/table-schemas/*.json, index.json, ltc-dp-profile.json, version.json.
+"""Generate <package>/table-schemas/*.json, index.json, <package>-profile.json, version.json.
 
-Run from the repository root:  python data-package/ltc/src/build-schemas.py
+Usage:  python src/build-schemas.py                       # ltc-dp, from vocabulary/ltc-dp-*.csv
+        python src/build-schemas.py --vocab-prefix P --name N --title T [--description D] [--outdir DIR]
 
-Derived entirely from vocabulary/ltc-dp-tables.csv and vocabulary/ltc-dp-fields.csv,
-which are the single source of truth. Run build-vocabulary.py first.
+Derived entirely from vocabulary/<prefix>-tables.csv and vocabulary/<prefix>-fields.csv,
+which are the single source of truth. Run build-vocabulary.py first. Paths are resolved
+relative to this script, so it can be run from any directory.
 
 Mirrors the JSON key order, presence rules, and value conventions of
 data-package/dwc-dp/dwc-dp/. Notably:
@@ -12,19 +14,34 @@ data-package/dwc-dp/dwc-dp/. Notably:
   - constraints is omitted when neither required nor unique applies
   - a self-referencing foreignKey uses "resource": "", per the Data Package v1 spec
 """
-import csv, json, collections, os, datetime
+import argparse, csv, json, collections, os, datetime
 
-VOCAB = 'data-package/ltc/vocabulary'
-OUTDIR = 'data-package/ltc/ltc-dp'
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(HERE)
+
+ap = argparse.ArgumentParser(description=__doc__.split('\n')[0])
+ap.add_argument('--vocab-prefix', default='ltc-dp',
+                help='reads vocabulary/<prefix>-tables.csv and vocabulary/<prefix>-fields.csv')
+ap.add_argument('--name', default='ltc-dp', help='package name: directory, identifier, profile file')
+ap.add_argument('--title', default='Latimer Core Data Package')
+ap.add_argument('--description', default='A data package for sharing natural science collections '
+                                         'data using Latimer Core.')
+ap.add_argument('--outdir', default=None, help='output directory (default: <ROOT>/<name>)')
+args = ap.parse_args()
+
+NAME = args.name
+TITLE = args.title
+VOCAB = os.path.join(ROOT, 'vocabulary')
+OUTDIR = args.outdir or os.path.join(ROOT, NAME)
 SCHEMADIR = os.path.join(OUTDIR, 'table-schemas')
 
-IDENTIFIER_BASE = 'http://rs.tdwg.org/ltc/ltc-dp'
+IDENTIFIER_BASE = 'http://rs.tdwg.org/ltc/%s' % NAME
 VERSION = '0.1'
 ISSUED = datetime.date.today().isoformat()
 
-tables = list(csv.DictReader(open(os.path.join(VOCAB, 'ltc-dp-tables.csv'),
+tables = list(csv.DictReader(open(os.path.join(VOCAB, '%s-tables.csv' % args.vocab_prefix),
                                   encoding='utf-8-sig', newline='')))
-fields = list(csv.DictReader(open(os.path.join(VOCAB, 'ltc-dp-fields.csv'),
+fields = list(csv.DictReader(open(os.path.join(VOCAB, '%s-fields.csv' % args.vocab_prefix),
                                   encoding='utf-8-sig', newline='')))
 
 byt = collections.defaultdict(list)
@@ -108,12 +125,11 @@ for t in tables:
 index = collections.OrderedDict()
 index['identifier'] = IDENTIFIER_BASE
 index['url'] = ''
-index['name'] = 'ltc-dp'
+index['name'] = NAME
 index['version'] = VERSION
-index['title'] = 'Latimer Core Data Package'
-index['shortTitle'] = 'ltc-dp'
-index['description'] = ('A data package for sharing natural science collections data using '
-                        'Latimer Core.')
+index['title'] = TITLE
+index['shortTitle'] = NAME
+index['description'] = args.description
 index['issued'] = ISSUED
 index['isLatest'] = True
 index['tableSchemas'] = [table_head(t) for t in tables]
@@ -129,11 +145,12 @@ with open(os.path.join(OUTDIR, 'version.json'), 'w', encoding='utf-8') as fh:
 # ------------------------------------------------------------------ profile
 profile = collections.OrderedDict()
 profile['$schema'] = 'http://json-schema.org/draft-04/schema#'
-profile['title'] = 'Latimer Core Data Package (LtC-DP) profile'
+profile['title'] = ('Latimer Core Data Package (LtC-DP) profile' if NAME == 'ltc-dp'
+                    else '%s profile' % TITLE)
 profile['description'] = ('Profile for organizing natural science collections data as a '
                           'Data Package (https://specs.frictionlessdata.io/).')
 profile['type'] = 'object'
-profile['$defs'] = {'ltc-dp-resource-names': {'enum': sorted(t['name'] for t in tables)}}
+profile['$defs'] = {'%s-resource-names' % NAME: {'enum': sorted(t['name'] for t in tables)}}
 profile['allOf'] = [
     {'$ref': 'https://specs.frictionlessdata.io/schemas/data-package.json'},
     collections.OrderedDict([
@@ -141,12 +158,12 @@ profile['allOf'] = [
         ('properties', collections.OrderedDict([
             ('profile', {'format': 'uri'}),
             ('resources', {'items': {'oneOf': [
-                {'properties': {'name': {'not': {'$ref': '#/$defs/ltc-dp-resource-names'}}}},
+                {'properties': {'name': {'not': {'$ref': '#/$defs/%s-resource-names' % NAME}}}},
                 collections.OrderedDict([
                     ('required', ['profile']),
                     ('properties', collections.OrderedDict([
                         ('profile', {'enum': ['tabular-data-resource']}),
-                        ('name', {'$ref': '#/$defs/ltc-dp-resource-names'}),
+                        ('name', {'$ref': '#/$defs/%s-resource-names' % NAME}),
                         ('schema', {'properties': {'fields': {'items': collections.OrderedDict([
                             ('required', ['name', 'title', 'description', 'type',
                                           'dcterms:isVersionOf']),
@@ -163,12 +180,12 @@ profile['allOf'] = [
         ])),
     ]),
 ]
-with open(os.path.join(OUTDIR, 'ltc-dp-profile.json'), 'w', encoding='utf-8') as fh:
+with open(os.path.join(OUTDIR, '%s-profile.json' % NAME), 'w', encoding='utf-8') as fh:
     json.dump(profile, fh, indent=2, ensure_ascii=False)
     fh.write('\n')
 
 print('%s/table-schemas/  %d files' % (OUTDIR, nschemas))
 print('%s/index.json       %d tableSchemas' % (OUTDIR, len(index['tableSchemas'])))
-print('%s/ltc-dp-profile.json  %d resource names'
-      % (OUTDIR, len(profile['$defs']['ltc-dp-resource-names']['enum'])))
+print('%s/%s-profile.json  %d resource names'
+      % (OUTDIR, NAME, len(profile['$defs']['%s-resource-names' % NAME]['enum'])))
 print('%s/version.json     %s' % (OUTDIR, VERSION))

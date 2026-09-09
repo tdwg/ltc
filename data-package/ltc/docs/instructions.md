@@ -280,7 +280,11 @@ Alongside the package files, produce a build report listing:
 | `ltc-term-mapping.md` | Class → table and property → column mapping for all 253 terms across 106 tables. The target that `ltc-dp-fields.csv` must reproduce, plus a list of source data defects. Generated — do not hand-edit. |
 | `src/build-mapping.py` | Generates `ltc-term-mapping.md`. Run from the repository root. Amend and rerun if a preliminary decision changes. |
 | `src/build-vocabulary.py` | Generates `vocabulary/ltc-dp-tables.csv` and `vocabulary/ltc-dp-fields.csv`. Run from the repository root. |
-| `src/build-schemas.py` | Generates `ltc-dp/table-schemas/*.json`, `index.json`, `ltc-dp-profile.json`, `version.json` from the two vocabulary files. Run after `build-vocabulary.py`. |
+| `src/build-schemas.py` | Generates `ltc-dp/table-schemas/*.json`, `index.json`, `ltc-dp-profile.json`, `version.json` from the two vocabulary files. Run after `build-vocabulary.py`. Accepts `--vocab-prefix`, `--name`, `--title`, `--description`, `--outdir` to build a variant package from other vocabulary files. |
+| `src/build-collapsed.py` | Derives `vocabulary/ltc-dp-collapsed-*.csv` from the `ltc-dp` vocabularies and builds `ltc-dp-collapsed/`: the 25 entity tables only, every junction table replaced by an optional `<parent>_fk` on the target table. |
+| `src/build-sql.py` | Generates a PostgreSQL DDL script (`<package>.sql`) from a package's table schemas; `--package ltc-dp-collapsed` for the variant. |
+| `src/build-erd.py` | Generates the crow's-foot diagrams under `diagrams/` from `ltc-dp/table-schemas`. |
+| `ltc-dp-collapsed.md` | How `ltc-dp-collapsed` differs from `ltc-dp` (many-to-many junction tables versus one-to-many foreign keys), what a publisher gains and loses, and how it relates to `open-issues.md` Issue 2. |
 | `open-issues.md` | The two preliminary decisions, still open for group deliberation. Not to be decided during a build. |
 
 ## Decision log

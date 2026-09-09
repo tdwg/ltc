@@ -1,0 +1,152 @@
+"""Generate a PostgreSQL DDL script for the Latimer Core Data Package.
+
+Reads every table schema in ltc-dp/table-schemas and writes ltc-dp.sql, which
+creates schema `ltc_dp` with one table per table schema:
+
+  table names   ltc-dp names with hyphens replaced by underscores (object-group -> object_group)
+  column names  the ltc-dp field names, quoted to preserve their camelCase
+                (so CSV headers map 1:1 onto columns for COPY)
+  types         string -> text, number -> numeric, boolean -> boolean, array -> text[]
+  constraints   required -> NOT NULL, unique -> UNIQUE, primaryKey -> PRIMARY KEY,
+                foreignKeys -> FOREIGN KEY (added after all tables exist, so table
+                order does not matter); junction tables (two foreign keys, no
+                primary key) get a composite primary key over both foreign keys
+  comments      COMMENT ON for every table and column (description + term IRI)
+  indexes       one index per foreign-key column
+
+Usage:  python src/build-sql.py [--package ltc-dp-collapsed]     (default package: ltc-dp)
+        The SQL schema is named after the package (ltc-dp -> ltc_dp) and written to <package>.sql.
+"""
+import argparse
+import glob
+import hashlib
+import json
+import os
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(HERE)
+ap = argparse.ArgumentParser()
+ap.add_argument("--package", default="ltc-dp", help="package directory under %s" % ROOT)
+PACKAGE = ap.parse_args().package
+SCHEMA_DIR = os.path.join(ROOT, PACKAGE, "table-schemas")
+INDEX = os.path.join(ROOT, PACKAGE, "index.json")
+OUT = os.path.join(ROOT, "%s.sql" % PACKAGE)
+SCHEMA = PACKAGE.replace("-", "_")
+
+SQL_TYPE = {"string": "text", "number": "numeric", "boolean": "boolean", "array": "text[]"}
+
+
+def tname(name):
+    return name.replace("-", "_")
+
+
+def col(name):
+    return '"%s"' % name
+
+
+def lit(s):
+    return "'" + s.replace("'", "''") + "'"
+
+
+def ident(*parts):
+    """Lower-case constraint/index name, kept within PostgreSQL's 63-byte identifier limit."""
+    name = "_".join(parts).lower()
+    if len(name) > 63:
+        name = name[:54] + "_" + hashlib.sha1(name.encode()).hexdigest()[:8]
+    return name
+
+
+def load():
+    with open(INDEX, encoding="utf-8") as fh:
+        order = [t["name"] for t in json.load(fh)["tableSchemas"]]
+    tables = {}
+    for path in glob.glob(os.path.join(SCHEMA_DIR, "*.json")):
+        with open(path, encoding="utf-8") as fh:
+            t = json.load(fh)
+        tables[t["name"]] = t
+    assert sorted(order) == sorted(tables), "index.json and table-schemas/ disagree"
+    return [tables[n] for n in order]
+
+
+def create_table(t):
+    name = tname(t["name"])
+    pk = t.get("primaryKey")
+    fks = t.get("foreignKeys", [])
+    lines = []
+    for f in t["fields"]:
+        c = f.get("constraints", {})
+        parts = [col(f["name"]), SQL_TYPE[f["type"]]]
+        if c.get("required"):
+            parts.append("NOT NULL")
+        if c.get("unique") and f["name"] != pk:
+            parts.append("UNIQUE")
+        lines.append("    " + " ".join(parts))
+    if pk:
+        lines.append("    CONSTRAINT %s PRIMARY KEY (%s)" % (ident(name, "pkey"), col(pk)))
+    elif len(fks) == 2:
+        lines.append("    CONSTRAINT %s PRIMARY KEY (%s, %s)"
+                     % (ident(name, "pkey"), col(fks[0]["fields"]), col(fks[1]["fields"])))
+    out = ["-- %s: %s" % (t["title"], t["description"]),
+           "CREATE TABLE %s.%s (" % (SCHEMA, name),
+           ",\n".join(lines),
+           ");"]
+    out.append("COMMENT ON TABLE %s.%s IS %s;" % (SCHEMA, name, lit("%s [%s]" % (t["description"], t["dcterms:isVersionOf"]))))
+    for f in t["fields"]:
+        out.append("COMMENT ON COLUMN %s.%s.%s IS %s;"
+                   % (SCHEMA, name, col(f["name"]), lit("%s [%s]" % (f["description"], f["dcterms:isVersionOf"]))))
+    return "\n".join(out)
+
+
+def foreign_keys(t):
+    name = tname(t["name"])
+    out = []
+    for fk in t.get("foreignKeys", []):
+        target = tname(fk["reference"]["resource"] or t["name"])
+        out.append("ALTER TABLE %s.%s ADD CONSTRAINT %s FOREIGN KEY (%s) REFERENCES %s.%s (%s);"
+                   % (SCHEMA, name, ident(name, fk["fields"], "fkey"), col(fk["fields"]),
+                      SCHEMA, target, col(fk["reference"]["fields"])))
+        out.append("CREATE INDEX %s ON %s.%s (%s);"
+                   % (ident(name, fk["fields"], "idx"), SCHEMA, name, col(fk["fields"])))
+    return "\n".join(out)
+
+
+def main():
+    tables = load()
+    with open(os.path.join(ROOT, PACKAGE, "version.json"), encoding="utf-8") as fh:
+        version = json.load(fh)["version"]
+    with open(INDEX, encoding="utf-8") as fh:
+        title = json.load(fh)["title"]
+    entities = [t for t in tables if t.get("primaryKey")]
+    junctions = [t for t in tables if not t.get("primaryKey")]
+    head = [
+        "-- %s (%s) %s - PostgreSQL schema" % (title, PACKAGE, version),
+        "-- Generated by src/build-sql.py from %s/table-schemas/*.json. Do not edit by hand." % PACKAGE,
+        "--",
+        "-- %d tables: %d entity tables (with a primary key) and %d junction tables" % (len(tables), len(entities), len(junctions)),
+        "-- (two foreign keys, composite primary key). Column names keep the data package field",
+        "-- names (quoted, camelCase); table names use underscores in place of hyphens.",
+        "--",
+        "-- Usage:  psql -d <database> -f %s.sql" % PACKAGE,
+        "",
+        "BEGIN;",
+        "",
+        "CREATE SCHEMA %s;" % SCHEMA,
+        "COMMENT ON SCHEMA %s IS %s;" % (SCHEMA, lit("%s %s (http://rs.tdwg.org/ltc/%s)" % (title, version, PACKAGE))),
+        "",
+        "-- ---------------------------------------------------------------- entity tables",
+        "",
+    ]
+    body = [create_table(t) for t in entities]
+    body.append("-- -------------------------------------------------------------- junction tables\n")
+    body += [create_table(t) for t in junctions]
+    body.append("-- ---------------------------------------------------------------- foreign keys\n")
+    body += [foreign_keys(t) for t in tables if t.get("foreignKeys")]
+    body.append("COMMIT;")
+    with open(OUT, "w", encoding="utf-8", newline="\n") as fh:
+        fh.write("\n".join(head) + "\n\n".join(body) + "\n")
+    n_fk = sum(len(t.get("foreignKeys", [])) for t in tables)
+    print("wrote %s: %d tables, %d foreign keys" % (os.path.relpath(OUT, ROOT), len(tables), n_fk))
+
+
+if __name__ == "__main__":
+    main()

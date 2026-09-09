@@ -110,6 +110,14 @@ where a child has a single parent class.
 **D. Hybrid** — child tables only for the four high-fan-out targets.
 *Cost:* two patterns to explain.
 
+**E. One-to-many by a key on the target.** 25 tables. Where a target class has several parent
+classes, the target carries one optional `<parent>_fk` per parent (23 on `identifier`) and exactly
+one is populated per row. Implemented as the derived package `ltc-dp-collapsed`; see
+`ltc-dp-collapsed.md`.
+*Cost:* a target row belongs to one parent only — an address or identifier shared by two owners
+must be duplicated — and the one-parent rule cannot be expressed as a Data Package constraint.
+*Benefit:* one Latimer Core class equals one table, one join per relation, 25 files to publish.
+
 ### Preliminary decision — Option B
 
 Use the Darwin Core DP child-table pattern. Where Darwin Core DP has already solved a problem, use

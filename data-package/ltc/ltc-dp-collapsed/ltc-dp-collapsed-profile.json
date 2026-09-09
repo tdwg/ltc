@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Latimer Core Data Package (collapsed) profile",
+  "description": "Profile for organizing natural science collections data as a Data Package (https://specs.frictionlessdata.io/).",
+  "type": "object",
+  "$defs": {
+    "ltc-dp-collapsed-resource-names": {
+      "enum": [
+        "address",
+        "chronometric-age",
+        "collection-status-history",
+        "contact-detail",
+        "ecological-context",
+        "event",
+        "geographic-context",
+        "geological-context",
+        "identifier",
+        "latimer-core-scheme",
+        "measurement-or-fact",
+        "object-classification",
+        "object-group",
+        "organisational-unit",
+        "person",
+        "person-role",
+        "record-level",
+        "reference",
+        "resource-relationship",
+        "role",
+        "scheme-measurement-or-fact",
+        "scheme-term",
+        "storage-location",
+        "taxon",
+        "temporal-coverage"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "https://specs.frictionlessdata.io/schemas/data-package.json"
+    },
+    {
+      "required": [
+        "profile"
+      ],
+      "properties": {
+        "profile": {
+          "format": "uri"
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "properties": {
+                  "name": {
+                    "not": {
+                      "$ref": "#/$defs/ltc-dp-collapsed-resource-names"
+                    }
+                  }
+                }
+              },
+              {
+                "required": [
+                  "profile"
+                ],
+                "properties": {
+                  "profile": {
+                    "enum": [
+                      "tabular-data-resource"
+                    ]
+                  },
+                  "name": {
+                    "$ref": "#/$defs/ltc-dp-collapsed-resource-names"
+                  },
+                  "schema": {
+                    "properties": {
+                      "fields": {
+                        "items": {
+                          "required": [
+                            "name",
+                            "title",
+                            "description",
+                            "type",
+                            "dcterms:isVersionOf"
+                          ],
+                          "properties": {
+                            "dcterms:isVersionOf": {
+                              "type": "string",
+                              "format": "uri",
+                              "pattern": "^http.*$"
+                            },
+                            "dcterms:references": {
+                              "type": "string",
+                              "format": "uri",
+                              "pattern": "^http.*$"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

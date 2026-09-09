@@ -3,9 +3,18 @@
 > README.md
 > ltc
 
-The structure of Latimer Core defined in a frictionless data package inline with other TDWG data packages including 
+The structure of Latimer Core defined in a frictionless data package inline with other TDWG data packages, including 
 Darwin Core DP. The data package implementation in Darwin Core DP and Camtrap DP are included for reference. 
 Currently, the Latimer Core Data Package is based on version 1 of the Frictionless Data Package Specification. 
+
+Two variants of the package are generated from the same vocabulary, in `ltc/`:
+
+| Package | Tables | Relations between classes |
+| -- | -- | -- |
+| `ltc-dp` | 106 (25 entity + 81 junction) | Darwin Core DP child-table pattern: many-to-many through junction tables |
+| `ltc-dp-collapsed` | 25 | One-to-many: each junction table is replaced by an optional foreign key on the target table |
+
+See `ltc/ltc-dp-collapsed.md` for the differences and the trade-offs. 
 
 To build the vocabulary, create a python virtual environment called .venv-ltc-data-package in this directory and 
 install the required packages using pip. Then, run the script to generate the vocabulary. On Windows, activate 

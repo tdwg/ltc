@@ -1,0 +1,79 @@
+{
+  "identifier": "http://rs.tdwg.org/ltc/ltc-dp-collapsed/latimer-core-scheme",
+  "url": "table-schemas/latimer-core-scheme.json",
+  "name": "latimer-core-scheme",
+  "title": "Latimer Core Scheme",
+  "description": "A grouping of multiple ObjectGroups for a particular use case, purpose or implementation.",
+  "comments": "Where the same objects within the same collection might be described by more than one ObjectGroup for different purposes (for examples, a 'Darwin Fossil Mammals' collection description might overlap with a 'Offsite Palaeontology' collection description), this class can be used to distinguish between them and avoid double-counting of metrics in queries against the data.",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/LatimerCoreScheme",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/LatimerCoreScheme-2024-02-28",
+  "rdfs:comment": "A grouping of multiple ObjectGroups for a particular use case, purpose or implementation.",
+  "fields": [
+    {
+      "name": "latimerCoreScheme_pk",
+      "title": "Latimer Core Scheme (Primary Key)",
+      "description": "A unique identifier for an ltc:LatimerCoreScheme.",
+      "comments": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/latimerCoreSchemeID",
+      "rdfs:comment": "A unique identifier for an ltc:LatimerCoreScheme.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "basisOfScheme",
+      "title": "Basis Of Scheme",
+      "description": "A summary of the basis or purpose for the LatimerCoreScheme.",
+      "comments": "This property is intended to summarise the reason for grouping a number of ObjectGroups within the LatimerCoreScheme, and the purpose for which the data is intended to be used. This may also be reflected in the terms and metrics defined using the SchemeTerm and SchemeMeasurementOrFact classes respectively. Using this approach, standard and reusable profiles within the wider Latimer Core standard may be constructed for common collection descriptions use cases.",
+      "examples": "`Accession`, `Inventory`, `Expedition`, `Digitisation planning`, `Collections assessment`, `Institution`, `Collections registry`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/basisOfScheme",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/basisOfScheme-2024-02-28",
+      "rdfs:comment": "A summary of the basis or purpose for the LatimerCoreScheme."
+    },
+    {
+      "name": "isDistinctObjects",
+      "title": "Is Distinct Objects",
+      "description": "A flag to designate whether a physical object may be described by more than one ObjectGroup within the LatimerCoreScheme.",
+      "comments": "If isDistinctObjects is set to 'true', then no collection object should be covered by more than one object group within the LatimerCoreScheme. This is important for aggregating and reporting on metrics such as object counts, as it prevents any physical object from being counted more than once.",
+      "examples": "`true`, `false`",
+      "type": "boolean",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/isDistinctObjects",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/isDistinctObjects-2024-02-28",
+      "rdfs:comment": "A flag to designate whether a physical object may be described by more than one ObjectGroup within the LatimerCoreScheme.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "schemeName",
+      "title": "Scheme Name",
+      "description": "A short descriptive name given to the LatimerCoreScheme.",
+      "comments": "",
+      "examples": "`NHM Collections Inventory`, `Index Herbariorum`, `European Darwin Collections`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/schemeName",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/schemeName-2024-02-28",
+      "rdfs:comment": "A short descriptive name given to the LatimerCoreScheme.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "primaryKey": "latimerCoreScheme_pk"
+}

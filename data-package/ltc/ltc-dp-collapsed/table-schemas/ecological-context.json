@@ -1,0 +1,167 @@
+{
+  "identifier": "http://rs.tdwg.org/ltc/ltc-dp-collapsed/ecological-context",
+  "url": "table-schemas/ecological-context.json",
+  "name": "ecological-context",
+  "title": "Ecological Context",
+  "description": "The ecological and/or biogeographic classification of the region from which objects associated with the ObjectGroup were collected, or where an Event took place.",
+  "comments": "There is some conceptual overlap with the GeographicContext class with respect to geographic locations. This class should be used for biogeographic and ecological concepts, whereas for physical, political and administrative geographic locations, the GeographicContext class is more appropriate. Specific information about the habitat and ecological conditions that applied at the time that an event took place should be recorded in the `habitat` property of the Event class.",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/EcologicalContext",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/EcologicalContext-2024-02-28",
+  "rdfs:comment": "The ecological and/or biogeographic classification of the region from which objects associated with the ObjectGroup were collected, or where an Event took place.",
+  "fields": [
+    {
+      "name": "ecologicalContext_pk",
+      "title": "Ecological Context (Primary Key)",
+      "description": "A unique identifier for an ltc:EcologicalContext.",
+      "comments": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/ecologicalContextID",
+      "rdfs:comment": "A unique identifier for an ltc:EcologicalContext.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "event_fk",
+      "title": "Event (Foreign Key)",
+      "description": "An identifier for an ltc:Event.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasEcologicalContext",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasEcologicalContext-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the EcologicalContext class."
+    },
+    {
+      "name": "objectGroup_fk",
+      "title": "Object Group (Foreign Key)",
+      "description": "An identifier for an ltc:ObjectGroup.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasEcologicalContext",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasEcologicalContext-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the EcologicalContext class."
+    },
+    {
+      "name": "biogeographicRealm",
+      "title": "Biogeographic Realm",
+      "description": "The broadest biogeographic division of Earth's land and marine surface, based on distributional patterns of terrestrial and marine organisms.",
+      "comments": "This term may commonly be used in a biogeographic hierarchy above marineProvince (marine only), ecoregion and ecosystem. It is recommended to use controlled vocabularies such as those adopted by the World Wildlife Fund (WWF) / Global 200 (Olson et at. 1998).",
+      "examples": "`Afrotropical`, `Australasian`, `Indomalayan`, `Nearctic`, `Arctic`, `Temperate Northern Atlantic`, `Temperate Northern Pacific`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/biogeographicRealm",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/biogeographicRealm-2024-02-28",
+      "rdfs:comment": "The broadest biogeographic division of Earth's land and marine surface, based on distributional patterns of terrestrial and marine organisms."
+    },
+    {
+      "name": "biome",
+      "title": "Biome",
+      "description": "A biogeographical unit consisting of a biological community that has formed in response to the physical environment in which they are found and a shared regional climate.",
+      "comments": "This property can be used to record terrestrial, freshwater and marine biomes. It is recommended to use controlled vocabularies such as those adopted by the World Wildlife Fund (WWF) / Global 200 (Olson et at. 1998).",
+      "examples": "`Deserts and xeric shrublands`, `Tropical and subtropical moist broadleaf forests`, `Open sea`, `Deep sea`, `Littoral/Intertidal zone`, `Salt marsh`, `Estuaries`, `Large lakes`, `Large river deltas`, `Polar freshwaters`, `Tropical and subtropical coastal rivers`, `Tropical and subtropical floodplain rivers and wetlands`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/biome",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/biome-2024-02-28",
+      "rdfs:comment": "A biogeographical unit consisting of a biological community that has formed in response to the physical environment in which they are found and a shared regional climate."
+    },
+    {
+      "name": "biomeType",
+      "title": "Biome Type",
+      "description": "A top level classification of the type of biome from which objects were collected or where an event took place.",
+      "comments": "The biomeType is positioned at a level between the biosphere (the global sum of all ecosystems on Earth) and the more detailed terrestrial, marine and freshwater biomes. The latter should be recorded using the EcologicalContext.biome property. Use of a controlled vocabulary is recommended, e.g. The GBIF BioType vocabulary https://registry.gbif.org/vocabulary/BiomeType",
+      "examples": "`Terrestrial`, `Marine`, `Freshwater`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/biomeType",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/biomeType-2024-02-28",
+      "rdfs:comment": "A top level classification of the type of biome from which objects were collected or where an event took place."
+    },
+    {
+      "name": "bioregion",
+      "title": "Bioregion",
+      "description": "An ecologically and geographically defined area that is smaller than a biogeographic realm, but larger than an ecoregion or an ecosystem.",
+      "comments": "This is analagous with the marine province concept for marine regions. It is recommended to use controlled vocabularies such as those adopted by the World Wildlife Fund (WWF) / Global 200 (Olson et at. 1998), from which this concept originated.",
+      "examples": "`Western Africa and Sahel`, `New Guinea and Melanesia`, `Indian subcontinent`, `South China Sea`, `Mediterranean Sea`, `Central Indian Ocean Islands`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/bioregion",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/bioregion-2024-02-28",
+      "rdfs:comment": "An ecologically and geographically defined area that is smaller than a biogeographic realm, but larger than an ecoregion or an ecosystem."
+    },
+    {
+      "name": "ecoregion",
+      "title": "Ecoregion",
+      "description": "An ecologically and geographically defined area that is smaller than a bioregion, which in turn is smaller than a biogeographic realm. Ecoregions cover relatively large areas of land or water, and contain characteristic, geographically distinct assemblages of natural communities and species.",
+      "comments": "It is recommended to use controlled vocabularies such as those adopted by the World Wildlife Fund (WWF) / Global 200 (Olson et at. 1998).",
+      "examples": "`Albertine Rift montane forests`, `Atlantic Equatorial coastal forests`, `Irrawaddy freshwater swamp forests`, `Adriatic Sea`, `Cortezian`, `Ningaloo`, `Ross Sea`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/ecoregion",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/ecoregion-2024-02-28",
+      "rdfs:comment": "An ecologically and geographically defined area that is smaller than a bioregion, which in turn is smaller than a biogeographic realm. Ecoregions cover relatively large areas of land or water, and contain characteristic, geographically distinct assemblages of natural communities and species."
+    },
+    {
+      "name": "ecosystem",
+      "title": "Ecosystem",
+      "description": "A specific kind of ecological classification that considers all four elements of the definition of ecosystems: a biotic component, an abiotic complex, the interactions between and within them, and the physical space that they occupy.",
+      "comments": "",
+      "examples": "`Orjen, vegetation belt between 1,100 and 1,450 m, Oromediterranean zone, nemoral zone (temperate zone)`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/ecosystem",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/ecosystem-2024-02-28",
+      "rdfs:comment": "A specific kind of ecological classification that considers all four elements of the definition of ecosystems: a biotic component, an abiotic complex, the interactions between and within them, and the physical space that they occupy."
+    },
+    {
+      "name": "habitat",
+      "title": "Habitat",
+      "description": "A description of the type of environment in which an organism lives.",
+      "comments": "",
+      "examples": "`oak savanna`, `pre-cordilleran steppe`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/habitat",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/habitat-2024-02-28",
+      "rdfs:comment": "A description of the type of environment in which an organism lives."
+    }
+  ],
+  "primaryKey": "ecologicalContext_pk",
+  "foreignKeys": [
+    {
+      "fields": "event_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "event",
+        "fields": "event_pk"
+      }
+    },
+    {
+      "fields": "objectGroup_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "object-group",
+        "fields": "objectGroup_pk"
+      }
+    }
+  ]
+}

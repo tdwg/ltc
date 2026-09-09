@@ -1,0 +1,106 @@
+{
+  "identifier": "http://rs.tdwg.org/ltc/ltc-dp-collapsed/collection-status-history",
+  "url": "table-schemas/collection-status-history.json",
+  "name": "collection-status-history",
+  "title": "Collection Status History",
+  "description": "A record of current and past statuses of the object group and the reason for status changes.",
+  "comments": "Use this class to record the history of and reason for changes in the status of the described collection. Types of status described by this class may, for example, include ownership, management, accessibility or accrual policy over time. Dates reflecting the start and end of the status described by this class should be recorded using an instance of TemporalCoverage. If temporalCoverageEndDateTime is empty, the status should be inferred to be the current status of the collection.",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/CollectionStatusHistory",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/CollectionStatusHistory-2024-02-28",
+  "rdfs:comment": "A record of current and past statuses of the object group and the reason for status changes.",
+  "fields": [
+    {
+      "name": "collectionStatusHistory_pk",
+      "title": "Collection Status History (Primary Key)",
+      "description": "A unique identifier for an ltc:CollectionStatusHistory.",
+      "comments": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/collectionStatusHistoryID",
+      "rdfs:comment": "A unique identifier for an ltc:CollectionStatusHistory.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "objectGroup_fk",
+      "title": "Object Group (Foreign Key)",
+      "description": "An identifier for an ltc:ObjectGroup.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasCollectionStatusHistory",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasCollectionStatusHistory-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the CollectionStatusHistory class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "status",
+      "title": "Status",
+      "description": "The development status of the collection during a specified period.",
+      "comments": "The values/vocabularies for a status are predicated by the statusType. The in the examples mentioned terms are a cumulative list of terms associated with several different statusTypes.",
+      "examples": "`Complete`, `In part`, `Developing`, `Closed`, `Active growth`, `Consumable`, `Decreasing`, `Lost`, `Missing`, `Passive growth`, `Static`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/status",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/status-2024-02-28",
+      "rdfs:comment": "The development status of the collection during a specified period.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "statusChangeReason",
+      "title": "Status Change Reason",
+      "description": "An explanation of why the collection transitioned to the value set in the status property.",
+      "comments": "statusChangeReason should be aligned with the value of statusType.",
+      "examples": "`Pest infestation`, `Exchange`, `Transfer`, `Return to country of origin`, `Worldwide pandemic`, `moved to secure off-site storage`, `reorganisation, no access from 2020-2023`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/statusChangeReason",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/statusChangeReason-2024-02-28",
+      "rdfs:comment": "An explanation of why the collection transitioned to the value set in the status property."
+    },
+    {
+      "name": "statusType",
+      "title": "Status Type",
+      "description": "A top-level classification of the different categories of status that can be applied to the collection.",
+      "comments": "statusType forms the top level of a two-level hierarchy with the status property. Recommended best practice is to use a controlled vocabulary.",
+      "examples": "`Stewardship`, `Accessibility`, `Completeness`, `Growth Status`, `Organisational`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/statusType",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/statusType-2024-02-28",
+      "rdfs:comment": "A top-level classification of the different categories of status that can be applied to the collection.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "primaryKey": "collectionStatusHistory_pk",
+  "foreignKeys": [
+    {
+      "fields": "objectGroup_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "object-group",
+        "fields": "objectGroup_pk"
+      }
+    }
+  ]
+}
