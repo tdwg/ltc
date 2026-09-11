@@ -1,0 +1,45 @@
+{
+  "identifier": "http://rs.tdwg.org/ltc/ltc-dp-collapsed/role",
+  "url": "table-schemas/role.json",
+  "name": "role",
+  "title": "Role",
+  "description": "The function of a Person with respect to an activity or entity.",
+  "comments": "While this class contains no mandatory properties, it's recommended that at least one of the roleName and hasIdentifier properties are used to specify the intended role. Where appropriate, the use of controlled vocabularies such as the CRediT contributor roles taxonomy (https://credit.niso.org) is encouraged.",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/Role",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/Role-2024-02-28",
+  "rdfs:comment": "The function of a Person with respect to an activity or entity.",
+  "fields": [
+    {
+      "name": "role_pk",
+      "title": "Role (Primary Key)",
+      "description": "A unique identifier for an ltc:Role.",
+      "comments": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/roleID",
+      "rdfs:comment": "A unique identifier for an ltc:Role.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "roleName",
+      "title": "Role Name",
+      "description": "A short descriptive name for the role.",
+      "comments": "",
+      "examples": "`Director`, `Chair`, `Record owner`, `Primary Latimer Core record contact`, `Primary collection contact`, `Owner`, `Curator`, `Collection manager`, `Head of department`, `Registrar`, `Data curation`, `Supervision`, `Collecting`, `Curation`, `Conservation`, `Funding`, `Imaging`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/roleName",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/roleName-2024-02-28",
+      "rdfs:comment": "A short descriptive name for the role."
+    }
+  ],
+  "primaryKey": "role_pk"
+}

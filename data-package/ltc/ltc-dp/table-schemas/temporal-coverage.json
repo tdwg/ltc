@@ -1,0 +1,72 @@
+{
+  "identifier": "0.1/temporal-coverage",
+  "dcterms:isPartOf": "http://www.tdwg.org/standards/450",
+  "url": "table-schemas/temporal-coverage.json",
+  "name": "temporal-coverage",
+  "title": "Temporal Coverage",
+  "description": "The time period during which the related event, activity or status was occurring.",
+  "notes": "To represent an ongoing period of time, temporalCoverageStartDateTime should be populated and temporalCoverageEndDateTime left blank. To represent a single period in time, temporalCoverageStartDateTime and temporalCoverageEndDateTime should hold the same value. This class can be used to reflect the period of time in which specified activities, events and states occurred. Examples might include the time range of the `Event` in which the objects were collected, the period during a `CollectionStatusHistory` over which the collection was actively growing, or the span of time someone was working in a particular `PersonRole`. If the time period you are trying to describe is better described by a categorical label rather than a date, `GeologicalContext`, `ChronometricAge` or `ObjectGroup.period` may be more suitable.",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/TemporalCoverage",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/TemporalCoverage-2024-02-28",
+  "rdfs:comment": "The time period during which the related event, activity or status was occurring.",
+  "fields": [
+    {
+      "name": "temporalCoverage_pk",
+      "title": "Temporal Coverage (Primary Key)",
+      "description": "A unique identifier for an ltc:TemporalCoverage.",
+      "notes": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/temporalCoverageID",
+      "rdfs:comment": "A unique identifier for an ltc:TemporalCoverage.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "temporalCoverageEndDateTime",
+      "title": "Temporal Coverage End Date",
+      "description": "Datetime at which the TemporalCoverage finished.",
+      "notes": "If temporalCoverageEndDateTime is populated, temporalCoverageType is strongly recommended.",
+      "examples": "`1886`, `1984-09`, `2001-10-22`, `1997-07-16T19:20+01:00`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/temporalCoverageEndDateTime",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/temporalCoverageEndDateTime-2024-02-28",
+      "rdfs:comment": "Datetime at which the TemporalCoverage finished."
+    },
+    {
+      "name": "temporalCoverageStartDateTime",
+      "title": "Temporal Coverage Start Date",
+      "description": "Datetime at which the TemporalCoverage began.",
+      "notes": "If temporalCoverageStartDateTime is populated, temporalCoverageType is recommended.",
+      "examples": "`1886`, `1984-09`, `2001-10-22`, `1997-07-16T19:20+01:00`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/temporalCoverageStartDateTime",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/temporalCoverageStartDateTime-2024-02-28",
+      "rdfs:comment": "Datetime at which the TemporalCoverage began."
+    },
+    {
+      "name": "temporalCoverageType",
+      "title": "Temporal Coverage Type",
+      "description": "The type or context of the described TemporalCoverage.",
+      "notes": "If temporalCoverageStartDateTime is populated, temporalCoverageType is recommended. Recommendation is to use a controlled vocabulary.",
+      "examples": "`Collecting time range`, `Establishment time range`, `Time in post`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/temporalCoverageType",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/temporalCoverageType-2024-02-28",
+      "rdfs:comment": "The type or context of the described TemporalCoverage."
+    }
+  ],
+  "primaryKey": "temporalCoverage_pk"
+}

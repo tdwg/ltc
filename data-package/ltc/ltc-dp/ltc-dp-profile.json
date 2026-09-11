@@ -1,0 +1,191 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Latimer Core Data Package (LtC-DP) profile",
+  "version": "0.1",
+  "description": "Profile for organizing biodiversity collections data as a Data Package (https://specs.frictionlessdata.io/).",
+  "type": "object",
+  "$defs": {
+    "dwc-dp-resource-names": {
+      "enum": [
+        "address",
+        "address-identifier",
+        "chronometric-age",
+        "chronometric-age-identifier",
+        "chronometric-age-measurement-or-fact",
+        "chronometric-age-reference",
+        "collection-status-history",
+        "collection-status-history-identifier",
+        "collection-status-history-measurement-or-fact",
+        "collection-status-history-reference",
+        "collection-status-history-temporal-coverage",
+        "contact-detail",
+        "contact-detail-identifier",
+        "ecological-context",
+        "ecological-context-identifier",
+        "ecological-context-measurement-or-fact",
+        "ecological-context-reference",
+        "event",
+        "event-ecological-context",
+        "event-geographic-context",
+        "event-identifier",
+        "event-measurement-or-fact",
+        "event-person-role",
+        "event-reference",
+        "event-temporal-coverage",
+        "geographic-context",
+        "geographic-context-identifier",
+        "geographic-context-measurement-or-fact",
+        "geographic-context-reference",
+        "geological-context",
+        "geological-context-identifier",
+        "geological-context-measurement-or-fact",
+        "geological-context-reference",
+        "identifier",
+        "identifier-reference",
+        "latimer-core-scheme",
+        "latimer-core-scheme-identifier",
+        "latimer-core-scheme-object-group",
+        "latimer-core-scheme-reference",
+        "measurement-or-fact",
+        "measurement-or-fact-identifier",
+        "measurement-or-fact-reference",
+        "object-classification",
+        "object-classification-identifier",
+        "object-classification-measurement-or-fact",
+        "object-classification-reference",
+        "object-group",
+        "object-group-ecological-context",
+        "object-group-geographic-context",
+        "object-group-identifier",
+        "object-group-measurement-or-fact",
+        "object-group-person-role",
+        "object-group-reference",
+        "object-group-resource-relationship",
+        "organisational-unit",
+        "organisational-unit-address",
+        "organisational-unit-contact-detail",
+        "organisational-unit-identifier",
+        "organisational-unit-measurement-or-fact",
+        "organisational-unit-person-role",
+        "organisational-unit-reference",
+        "person",
+        "person-address",
+        "person-contact-detail",
+        "person-identifier",
+        "person-measurement-or-fact",
+        "person-reference",
+        "person-role",
+        "person-role-address",
+        "person-role-contact-detail",
+        "person-role-identifier",
+        "person-role-measurement-or-fact",
+        "person-role-reference",
+        "person-role-temporal-coverage",
+        "record-level",
+        "record-level-identifier",
+        "record-level-object-group",
+        "record-level-person-role",
+        "record-level-reference",
+        "record-level-resource-relationship",
+        "reference",
+        "reference-identifier",
+        "resource-relationship",
+        "resource-relationship-identifier",
+        "resource-relationship-measurement-or-fact",
+        "resource-relationship-reference",
+        "role",
+        "role-identifier",
+        "scheme-measurement-or-fact",
+        "scheme-measurement-or-fact-identifier",
+        "scheme-measurement-or-fact-reference",
+        "scheme-term",
+        "scheme-term-identifier",
+        "scheme-term-reference",
+        "storage-location",
+        "storage-location-address",
+        "storage-location-identifier",
+        "storage-location-measurement-or-fact",
+        "storage-location-reference",
+        "taxon",
+        "taxon-identifier",
+        "taxon-measurement-or-fact",
+        "taxon-reference",
+        "temporal-coverage",
+        "temporal-coverage-measurement-or-fact",
+        "temporal-coverage-reference"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "$ref": "https://specs.frictionlessdata.io/schemas/data-package.json"
+    },
+    {
+      "required": [
+        "profile"
+      ],
+      "properties": {
+        "profile": {
+          "format": "uri"
+        },
+        "resources": {
+          "items": {
+            "oneOf": [
+              {
+                "properties": {
+                  "name": {
+                    "not": {
+                      "$ref": "#/$defs/dwc-dp-resource-names"
+                    }
+                  }
+                }
+              },
+              {
+                "required": [
+                  "profile"
+                ],
+                "properties": {
+                  "profile": {
+                    "enum": [
+                      "tabular-data-resource"
+                    ]
+                  },
+                  "name": {
+                    "$ref": "#/$defs/dwc-dp-resource-names"
+                  },
+                  "schema": {
+                    "properties": {
+                      "fields": {
+                        "items": {
+                          "required": [
+                            "name",
+                            "title",
+                            "description",
+                            "type",
+                            "dcterms:isVersionOf"
+                          ],
+                          "properties": {
+                            "dcterms:isVersionOf": {
+                              "type": "string",
+                              "format": "uri",
+                              "pattern": "^http.*$"
+                            },
+                            "dcterms:references": {
+                              "type": "string",
+                              "format": "uri",
+                              "pattern": "^http.*$"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

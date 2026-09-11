@@ -1,0 +1,67 @@
+{
+  "identifier": "0.1/person-role-address",
+  "dcterms:isPartOf": "http://www.tdwg.org/standards/450",
+  "url": "table-schemas/person-role-address.json",
+  "name": "person-role-address",
+  "title": "Person Role Address",
+  "description": "An ltc:Address related to an ltc:PersonRole.",
+  "notes": "",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasAddress",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasAddress-2024-02-28",
+  "rdfs:comment": "This property refers to one or more related instances of the Address class.",
+  "fields": [
+    {
+      "name": "personRole_fk",
+      "title": "Person Role (Foreign Key)",
+      "description": "An identifier for an ltc:PersonRole.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/personRoleID",
+      "rdfs:comment": "A unique identifier for an ltc:PersonRole.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "address_fk",
+      "title": "Address (Foreign Key)",
+      "description": "An identifier for an ltc:Address.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasAddress",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasAddress-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Address class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": "personRole_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "person-role",
+        "fields": "personRole_pk"
+      }
+    },
+    {
+      "fields": "address_fk",
+      "predicate": "has",
+      "reference": {
+        "resource": "address",
+        "fields": "address_pk"
+      }
+    }
+  ]
+}

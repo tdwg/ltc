@@ -1,0 +1,211 @@
+{
+  "identifier": "http://rs.tdwg.org/ltc/ltc-dp-collapsed/address",
+  "url": "table-schemas/address.json",
+  "name": "address",
+  "title": "Address",
+  "description": "A physical address for an organisational unit or person.",
+  "comments": "",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/Address",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/Address-2024-02-28",
+  "rdfs:comment": "A physical address for an organisational unit or person.",
+  "fields": [
+    {
+      "name": "address_pk",
+      "title": "Address (Primary Key)",
+      "description": "A unique identifier for an ltc:Address.",
+      "comments": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/addressID",
+      "rdfs:comment": "A unique identifier for an ltc:Address.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "organisationalUnit_fk",
+      "title": "Organisational Unit (Foreign Key)",
+      "description": "An identifier for an ltc:OrganisationalUnit.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasAddress",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasAddress-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Address class."
+    },
+    {
+      "name": "person_fk",
+      "title": "Person (Foreign Key)",
+      "description": "An identifier for an ltc:Person.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasAddress",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasAddress-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Address class."
+    },
+    {
+      "name": "personRole_fk",
+      "title": "Person Role (Foreign Key)",
+      "description": "An identifier for an ltc:PersonRole.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasAddress",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasAddress-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Address class."
+    },
+    {
+      "name": "storageLocation_fk",
+      "title": "Storage Location (Foreign Key)",
+      "description": "An identifier for an ltc:StorageLocation.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasAddress",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasAddress-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Address class."
+    },
+    {
+      "name": "addressCountry",
+      "title": "Address Country",
+      "description": "The country. For example, USA. You can also provide the two-letter ISO 3166-1 alpha-2 country code.",
+      "comments": "Recommended best practice is to use a controlled vocabulary -- e.g. current ISO 3166 Country Codes.",
+      "examples": "`Denmark`, `DK`, `Colombia`, `CO`, `España`, `ES`",
+      "type": "string",
+      "format": "default",
+      "namespace": "schema",
+      "dcterms:isVersionOf": "https://schema.org/addressCountry",
+      "rdfs:comment": "The country. For example, USA. You can also provide the two-letter ISO 3166-1 alpha-2 country code.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "addressLocality",
+      "title": "Address Locality",
+      "description": "The locality in which the street address is, and which is in the region. For example, Mountain View.",
+      "comments": "The locality in which the address is located. AddressLocality is a more specific geographic area than addressRegion.",
+      "examples": "`Holzminden`, `Araçatuba`, `Ga-Segonyana`, `Mountain View`, `Coventry`, `Tokyo`",
+      "type": "string",
+      "format": "default",
+      "namespace": "schema",
+      "dcterms:isVersionOf": "https://schema.org/addressLocality",
+      "rdfs:comment": "The locality in which the street address is, and which is in the region. For example, Mountain View."
+    },
+    {
+      "name": "addressRegion",
+      "title": "Address Region",
+      "description": "The region in which the locality is, and which is in the country. For example, California or another appropriate first-level Administrative division.",
+      "comments": "",
+      "examples": "`Missoula`, `Los Lagos`, `Mataró`, `Guangdong`",
+      "type": "string",
+      "format": "default",
+      "namespace": "schema",
+      "dcterms:isVersionOf": "https://schema.org/addressRegion",
+      "rdfs:comment": "The region in which the locality is, and which is in the country. For example, California or another appropriate first-level Administrative division."
+    },
+    {
+      "name": "addressType",
+      "title": "Address Type",
+      "description": "A person or organization can have different addresses, for different purposes. For example, a postal address, a loan address, an address for visits and so on. This property is used to specify the kind of address.",
+      "comments": "",
+      "examples": "`Physical`, `Postal`, `Loans`, `Visits`, `Home`, `Work`, `Main`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/addressType",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/addressType-2024-02-28",
+      "rdfs:comment": "A person or organization can have different addresses, for different purposes. For example, a postal address, a loan address, an address for visits and so on. This property is used to specify the kind of address."
+    },
+    {
+      "name": "postOfficeBoxNumber",
+      "title": "Post Office Box Number",
+      "description": "The post office box number for PO box addresses.",
+      "comments": "",
+      "examples": "`PO Box 7169`",
+      "type": "string",
+      "format": "default",
+      "namespace": "schema",
+      "dcterms:isVersionOf": "https://schema.org/postOfficeBoxNumber",
+      "rdfs:comment": "The post office box number for PO box addresses."
+    },
+    {
+      "name": "postalCode",
+      "title": "Postal Code",
+      "description": "The postal code. For example, 94043.",
+      "comments": "",
+      "examples": "`32308`, `SW7 5HD`, `10115`, `3080`",
+      "type": "string",
+      "format": "default",
+      "namespace": "schema",
+      "dcterms:isVersionOf": "https://schema.org/postalCode",
+      "rdfs:comment": "The postal code. For example, 94043."
+    },
+    {
+      "name": "streetAddress",
+      "title": "Street Address",
+      "description": "The street address. For example, 1600 Amphitheatre Pkwy.",
+      "comments": "",
+      "examples": "`Invalidenstraße 43`, `1400 S. Du Sable Lake Shore Dr`, `960 Carling Avenue`",
+      "type": "string",
+      "format": "default",
+      "namespace": "schema",
+      "dcterms:isVersionOf": "https://schema.org/streetAddress",
+      "rdfs:comment": "The street address. For example, 1600 Amphitheatre Pkwy.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "primaryKey": "address_pk",
+  "foreignKeys": [
+    {
+      "fields": "organisationalUnit_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "organisational-unit",
+        "fields": "organisationalUnit_pk"
+      }
+    },
+    {
+      "fields": "person_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "person",
+        "fields": "person_pk"
+      }
+    },
+    {
+      "fields": "personRole_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "person-role",
+        "fields": "personRole_pk"
+      }
+    },
+    {
+      "fields": "storageLocation_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "storage-location",
+        "fields": "storageLocation_pk"
+      }
+    }
+  ]
+}

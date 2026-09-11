@@ -1,0 +1,67 @@
+{
+  "identifier": "0.1/person-role-measurement-or-fact",
+  "dcterms:isPartOf": "http://www.tdwg.org/standards/450",
+  "url": "table-schemas/person-role-measurement-or-fact.json",
+  "name": "person-role-measurement-or-fact",
+  "title": "Person Role Measurement or Fact",
+  "description": "An ltc:MeasurementOrFact related to an ltc:PersonRole.",
+  "notes": "",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasMeasurementOrFact",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasMeasurementOrFact-2024-02-28",
+  "rdfs:comment": "This property refers to one or more related instances of the MeasurementOrFact class.",
+  "fields": [
+    {
+      "name": "personRole_fk",
+      "title": "Person Role (Foreign Key)",
+      "description": "An identifier for an ltc:PersonRole.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/personRoleID",
+      "rdfs:comment": "A unique identifier for an ltc:PersonRole.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "measurementOrFact_fk",
+      "title": "Measurement or Fact (Foreign Key)",
+      "description": "An identifier for an ltc:MeasurementOrFact.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasMeasurementOrFact",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasMeasurementOrFact-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the MeasurementOrFact class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": "personRole_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "person-role",
+        "fields": "personRole_pk"
+      }
+    },
+    {
+      "fields": "measurementOrFact_fk",
+      "predicate": "has",
+      "reference": {
+        "resource": "measurement-or-fact",
+        "fields": "measurementOrFact_pk"
+      }
+    }
+  ]
+}

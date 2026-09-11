@@ -1,0 +1,67 @@
+{
+  "identifier": "0.1/person-contact-detail",
+  "dcterms:isPartOf": "http://www.tdwg.org/standards/450",
+  "url": "table-schemas/person-contact-detail.json",
+  "name": "person-contact-detail",
+  "title": "Person Contact Detail",
+  "description": "An ltc:ContactDetail related to an ltc:Person.",
+  "notes": "",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasContactDetail",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasContactDetail-2024-02-28",
+  "rdfs:comment": "This property refers to one or more related instances of the ContactDetail class.",
+  "fields": [
+    {
+      "name": "person_fk",
+      "title": "Person (Foreign Key)",
+      "description": "An identifier for an ltc:Person.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/personID",
+      "rdfs:comment": "A unique identifier for an ltc:Person.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "contactDetail_fk",
+      "title": "Contact Detail (Foreign Key)",
+      "description": "An identifier for an ltc:ContactDetail.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasContactDetail",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasContactDetail-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the ContactDetail class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": "person_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "person",
+        "fields": "person_pk"
+      }
+    },
+    {
+      "fields": "contactDetail_fk",
+      "predicate": "has",
+      "reference": {
+        "resource": "contact-detail",
+        "fields": "contactDetail_pk"
+      }
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "identifier": "0.1/storage-location",
+  "dcterms:isPartOf": "http://www.tdwg.org/standards/450",
+  "url": "table-schemas/storage-location.json",
+  "name": "storage-location",
+  "title": "Storage Location",
+  "description": "A physical location (such as a building, room, cabinet or drawer) within the holding institution where objects associated with the collection description are stored or exhibited.",
+  "notes": "",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/StorageLocation",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/StorageLocation-2024-02-28",
+  "rdfs:comment": "A physical location (such as a building, room, cabinet or drawer) within the holding institution where objects associated with the collection description are stored or exhibited.",
+  "fields": [
+    {
+      "name": "storageLocation_pk",
+      "title": "Storage Location (Primary Key)",
+      "description": "A unique identifier for an ltc:StorageLocation.",
+      "notes": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/storageLocationID",
+      "rdfs:comment": "A unique identifier for an ltc:StorageLocation.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "objectGroup_fk",
+      "title": "Object Group (Foreign Key)",
+      "description": "An identifier for an ltc:ObjectGroup.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasStorageLocation",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasStorageLocation-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the StorageLocation class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "parentStorageLocation_fk",
+      "title": "Storage Location (Foreign Key)",
+      "description": "An identifier for an ltc:StorageLocation.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasParentStorageLocation",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasParentStorageLocation-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related parent instances of the StorageLocation class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "locationDescription",
+      "title": "Location Description",
+      "description": "Short textual description of the storage location of the group of items",
+      "notes": "",
+      "examples": "`Backlog on top of Rosaceae cupboards`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/locationDescription",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/locationDescription-2024-02-28",
+      "rdfs:comment": "Short textual description of the storage location of the group of items"
+    },
+    {
+      "name": "locationName",
+      "title": "Location Name",
+      "description": "A label used to identify a place where the collection is stored.",
+      "notes": "This is the lowest level of storage location for the object group (collection or sub-collection).",
+      "examples": "`Building A`, `Cryptogamic herbarium`, `Cupboard C1`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/locationName",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/locationName-2024-02-28",
+      "rdfs:comment": "A label used to identify a place where the collection is stored.",
+      "constraints": {
+        "required": true
+      }
+    },
+    {
+      "name": "locationType",
+      "title": "Location Type",
+      "description": "The nature of the location where the collection is stored.",
+      "notes": "This defines the type of storage location named in locationName, and may refer to static locations or moveable containers.",
+      "examples": "`Site`, `Building`, `Floor`, `Room`, `Cabinet`, `Drawer`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/locationType",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/locationType-2024-02-28",
+      "rdfs:comment": "The nature of the location where the collection is stored."
+    }
+  ],
+  "primaryKey": "storageLocation_pk",
+  "foreignKeys": [
+    {
+      "fields": "objectGroup_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "object-group",
+        "fields": "objectGroup_pk"
+      }
+    },
+    {
+      "fields": "parentStorageLocation_fk",
+      "predicate": "part of",
+      "reference": {
+        "resource": "",
+        "fields": "storageLocation_pk"
+      }
+    }
+  ]
+}

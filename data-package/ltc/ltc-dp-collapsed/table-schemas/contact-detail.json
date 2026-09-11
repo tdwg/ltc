@@ -1,0 +1,144 @@
+{
+  "identifier": "http://rs.tdwg.org/ltc/ltc-dp-collapsed/contact-detail",
+  "url": "table-schemas/contact-detail.json",
+  "name": "contact-detail",
+  "title": "Contact Detail",
+  "description": "Details of a method by which an entity such as a Person or OrganisationalUnit may be contacted.",
+  "comments": "The Address class should be used to store physical or postal addresses. For all other types of contact details, this class should be used.",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/ContactDetail",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/ContactDetail-2024-02-28",
+  "rdfs:comment": "Details of a method by which an entity such as a Person or OrganisationalUnit may be contacted.",
+  "fields": [
+    {
+      "name": "contactDetail_pk",
+      "title": "Contact Detail (Primary Key)",
+      "description": "A unique identifier for an ltc:ContactDetail.",
+      "comments": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/contactDetailID",
+      "rdfs:comment": "A unique identifier for an ltc:ContactDetail.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "organisationalUnit_fk",
+      "title": "Organisational Unit (Foreign Key)",
+      "description": "An identifier for an ltc:OrganisationalUnit.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasContactDetail",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasContactDetail-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the ContactDetail class."
+    },
+    {
+      "name": "person_fk",
+      "title": "Person (Foreign Key)",
+      "description": "An identifier for an ltc:Person.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasContactDetail",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasContactDetail-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the ContactDetail class."
+    },
+    {
+      "name": "personRole_fk",
+      "title": "Person Role (Foreign Key)",
+      "description": "An identifier for an ltc:PersonRole.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasContactDetail",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasContactDetail-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the ContactDetail class."
+    },
+    {
+      "name": "contactDetailCategory",
+      "title": "Contact Detail Category",
+      "description": "The method of contact to which the contact detail applies.",
+      "comments": "Recommended practice is to use a controlled vocabulary.",
+      "examples": "`Email`, `Phone (mobile)`, `Phone (home)`, `Twitter handle`, `GitHub handle`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/contactDetailCategory",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/contactDetailCategory-2024-02-28",
+      "rdfs:comment": "The method of contact to which the contact detail applies.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "contactDetailFunction",
+      "title": "Contact Detail Function",
+      "description": "A brief label describing the nature of the enquiry or enquiries that are appropriate to direct to the contact detail.",
+      "comments": "",
+      "examples": "`Loan requests`, `General enquiries`, `Data issues`",
+      "type": "array",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/contactDetailFunction",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/contactDetailFunction-2024-02-28",
+      "rdfs:comment": "A brief label describing the nature of the enquiry or enquiries that are appropriate to direct to the contact detail."
+    },
+    {
+      "name": "contactDetailValue",
+      "title": "Contact Detail Value",
+      "description": "The value of the contact detail, such as the phone number or email address.",
+      "comments": "",
+      "examples": "`01234 567891`, `someone@example.org`, `@github_user`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/contactDetailValue",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/contactDetailValue-2024-02-28",
+      "rdfs:comment": "The value of the contact detail, such as the phone number or email address.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "primaryKey": "contactDetail_pk",
+  "foreignKeys": [
+    {
+      "fields": "organisationalUnit_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "organisational-unit",
+        "fields": "organisationalUnit_pk"
+      }
+    },
+    {
+      "fields": "person_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "person",
+        "fields": "person_pk"
+      }
+    },
+    {
+      "fields": "personRole_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "person-role",
+        "fields": "personRole_pk"
+      }
+    }
+  ]
+}

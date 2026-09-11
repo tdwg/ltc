@@ -1,0 +1,67 @@
+{
+  "identifier": "0.1/object-group-ecological-context",
+  "dcterms:isPartOf": "http://www.tdwg.org/standards/450",
+  "url": "table-schemas/object-group-ecological-context.json",
+  "name": "object-group-ecological-context",
+  "title": "Object Group Ecological Context",
+  "description": "An ltc:EcologicalContext related to an ltc:ObjectGroup.",
+  "notes": "",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasEcologicalContext",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasEcologicalContext-2024-02-28",
+  "rdfs:comment": "This property refers to one or more related instances of the EcologicalContext class.",
+  "fields": [
+    {
+      "name": "objectGroup_fk",
+      "title": "Object Group (Foreign Key)",
+      "description": "An identifier for an ltc:ObjectGroup.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/objectGroupID",
+      "rdfs:comment": "A unique identifier for an ltc:ObjectGroup.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "ecologicalContext_fk",
+      "title": "Ecological Context (Foreign Key)",
+      "description": "An identifier for an ltc:EcologicalContext.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasEcologicalContext",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasEcologicalContext-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the EcologicalContext class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": "objectGroup_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "object-group",
+        "fields": "objectGroup_pk"
+      }
+    },
+    {
+      "fields": "ecologicalContext_fk",
+      "predicate": "has",
+      "reference": {
+        "resource": "ecological-context",
+        "fields": "ecologicalContext_pk"
+      }
+    }
+  ]
+}

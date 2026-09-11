@@ -1,0 +1,81 @@
+{
+  "identifier": "0.1/person",
+  "dcterms:isPartOf": "http://www.tdwg.org/standards/450",
+  "url": "table-schemas/person.json",
+  "name": "person",
+  "title": "Person",
+  "description": "A person (alive, dead, undead, or fictional).",
+  "notes": "A person (alive or dead). This concept should map to the Schema.org Person class (https://schema.org/Person), and the prov:Person class (http://www.w3.org/ns/prov#Person) in the PROV ontology. In the latter, it is a subclass of prov:Agent, which through which it can map to the RDA recommendations on attribution (http://dx.doi.org/10.15497/RDA00029). The definition is appropriated from the Schema.org class.",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/Person",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/Person-2024-02-28",
+  "rdfs:comment": "A person (alive, dead, undead, or fictional).",
+  "fields": [
+    {
+      "name": "person_pk",
+      "title": "Person (Primary Key)",
+      "description": "A unique identifier for an ltc:Person.",
+      "notes": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/personID",
+      "rdfs:comment": "A unique identifier for an ltc:Person.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "additionalName",
+      "title": "Additional Name",
+      "description": "An additional name for a Person, can be used for a middle name.",
+      "notes": "",
+      "examples": "`Stewart`, `Grace`, `Manthey`, `Kwame`",
+      "type": "string",
+      "format": "default",
+      "namespace": "schema",
+      "dcterms:isVersionOf": "https://schema.org/additionalName",
+      "rdfs:comment": "An additional name for a Person, can be used for a middle name."
+    },
+    {
+      "name": "familyName",
+      "title": "Family Name",
+      "description": "Family name. In the U.S., the last name of a Person.",
+      "notes": "",
+      "examples": "`Jones`, `Keita`, `O'Rourke`, `Carreño Quiñones`",
+      "type": "string",
+      "format": "default",
+      "namespace": "schema",
+      "dcterms:isVersionOf": "https://schema.org/familyName",
+      "rdfs:comment": "Family name. In the U.S., the last name of a Person."
+    },
+    {
+      "name": "fullName",
+      "title": "Full Name",
+      "description": "String of the preferred form of personal name for displaying.",
+      "notes": "",
+      "examples": "`James Ewert Bradshaw`, `T. van Hooijdonk`",
+      "type": "string",
+      "format": "default",
+      "namespace": "abcd",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/abcd/terms/fullName",
+      "rdfs:comment": "String of the preferred form of personal name for displaying."
+    },
+    {
+      "name": "givenName",
+      "title": "Given Name",
+      "description": "Given name. In the U.S., the first name of a Person.",
+      "notes": "",
+      "examples": "`Beth`, `John`, `María José`, `Björn`",
+      "type": "string",
+      "format": "default",
+      "namespace": "schema",
+      "dcterms:isVersionOf": "https://schema.org/givenName",
+      "rdfs:comment": "Given name. In the U.S., the first name of a Person."
+    }
+  ],
+  "primaryKey": "person_pk"
+}

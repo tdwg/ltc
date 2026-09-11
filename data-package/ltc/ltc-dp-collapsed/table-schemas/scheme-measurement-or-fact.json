@@ -1,0 +1,110 @@
+{
+  "identifier": "http://rs.tdwg.org/ltc/ltc-dp-collapsed/scheme-measurement-or-fact",
+  "url": "table-schemas/scheme-measurement-or-fact.json",
+  "name": "scheme-measurement-or-fact",
+  "title": "Scheme Measurement Or Fact",
+  "description": "A type of measurement or fact used by the LatimerCoreScheme, and the rules relating to its application.",
+  "comments": "This class can be used to specify the qualitative and quantitative metrics that will be included in the LatimerCoreScheme using the MeasurementOrFact class, and dictate whether each will be mandatory and/or repeatable. This information can be used by software and queries to constrain and validate the Latimer Core dataset, and determine how and whether metrics can be aggregated and reported. The schemeMeasurementType property should correspond to the measurementType property of the MeasurementOrFact class in order to make the relevant association between the scheme definition and the stored data.",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/SchemeMeasurementOrFact",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/SchemeMeasurementOrFact-2024-02-28",
+  "rdfs:comment": "A type of measurement or fact used by the LatimerCoreScheme, and the rules relating to its application.",
+  "fields": [
+    {
+      "name": "schemeMeasurementOrFact_pk",
+      "title": "Scheme Measurement Or Fact (Primary Key)",
+      "description": "A unique identifier for an ltc:SchemeMeasurementOrFact.",
+      "comments": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/schemeMeasurementOrFactID",
+      "rdfs:comment": "A unique identifier for an ltc:SchemeMeasurementOrFact.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "latimerCoreScheme_fk",
+      "title": "Latimer Core Scheme (Foreign Key)",
+      "description": "An identifier for an ltc:LatimerCoreScheme.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasSchemeMeasurementOrFact",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasSchemeMeasurementOrFact-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the SchemeMeasurementOrFact class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "isMandatoryMetric",
+      "title": "Is Mandatory Metric",
+      "description": "A flag to designate whether it is mandatory or optional for every collection description within the LatimerCoreScheme to include the measurement or fact defined by the schemeMeasurementType property.",
+      "comments": "This flag can be used for software automation and data validation.",
+      "examples": "`true`, `false`",
+      "type": "boolean",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/isMandatoryMetric",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/isMandatoryMetric-2024-02-28",
+      "rdfs:comment": "A flag to designate whether it is mandatory or optional for every collection description within the LatimerCoreScheme to include the measurement or fact defined by the schemeMeasurementType property.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "isRepeatableMetric",
+      "title": "Is Repeatable Metric",
+      "description": "A flag to designate whether multiple instances of the same schemeMeasurementType may be attached to a single entity.",
+      "comments": "For example, this property can be used to stipulate that, using the MeasurementOrFact class, only one 'Object count' may be attached to an ObjectGroup, but multiple 'Curator notes' may be attached to the same ObjectGroup.",
+      "examples": "`true`, `false`",
+      "type": "boolean",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/isRepeatableMetric",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/isRepeatableMetric-2024-02-28",
+      "rdfs:comment": "A flag to designate whether multiple instances of the same schemeMeasurementType may be attached to a single entity.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "schemeMeasurementType",
+      "title": "Scheme Measurement Type",
+      "description": "A category of quantitative metric or qualitative fact that can be included in the LatimerCoreScheme.",
+      "comments": "The schemeMeasurementType should correspond to, and be used to catalogue and/or constrain, the values that can be used in the measurementType property of the MeasurementOrFact class.",
+      "examples": "`Imaged Level Percentage`, `Storage Volume`, `Object Count`, `MIDS-0 Object Count`, `Historical Narrative`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/schemeMeasurementType",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/schemeMeasurementType-2024-02-28",
+      "rdfs:comment": "A category of quantitative metric or qualitative fact that can be included in the LatimerCoreScheme.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "primaryKey": "schemeMeasurementOrFact_pk",
+  "foreignKeys": [
+    {
+      "fields": "latimerCoreScheme_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "latimer-core-scheme",
+        "fields": "latimerCoreScheme_pk"
+      }
+    }
+  ]
+}

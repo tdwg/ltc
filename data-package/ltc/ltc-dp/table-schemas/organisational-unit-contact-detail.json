@@ -1,0 +1,67 @@
+{
+  "identifier": "0.1/organisational-unit-contact-detail",
+  "dcterms:isPartOf": "http://www.tdwg.org/standards/450",
+  "url": "table-schemas/organisational-unit-contact-detail.json",
+  "name": "organisational-unit-contact-detail",
+  "title": "Organisational Unit Contact Detail",
+  "description": "An ltc:ContactDetail related to an ltc:OrganisationalUnit.",
+  "notes": "",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasContactDetail",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasContactDetail-2024-02-28",
+  "rdfs:comment": "This property refers to one or more related instances of the ContactDetail class.",
+  "fields": [
+    {
+      "name": "organisationalUnit_fk",
+      "title": "Organisational Unit (Foreign Key)",
+      "description": "An identifier for an ltc:OrganisationalUnit.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/organisationalUnitID",
+      "rdfs:comment": "A unique identifier for an ltc:OrganisationalUnit.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "contactDetail_fk",
+      "title": "Contact Detail (Foreign Key)",
+      "description": "An identifier for an ltc:ContactDetail.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasContactDetail",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasContactDetail-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the ContactDetail class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": "organisationalUnit_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "organisational-unit",
+        "fields": "organisationalUnit_pk"
+      }
+    },
+    {
+      "fields": "contactDetail_fk",
+      "predicate": "has",
+      "reference": {
+        "resource": "contact-detail",
+        "fields": "contactDetail_pk"
+      }
+    }
+  ]
+}

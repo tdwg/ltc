@@ -1,0 +1,126 @@
+{
+  "identifier": "http://rs.tdwg.org/ltc/ltc-dp-collapsed/object-classification",
+  "url": "table-schemas/object-classification.json",
+  "name": "object-classification",
+  "title": "Object Classification",
+  "description": "An informal classification of the type of objects within the ObjectGroup, using a hierarchical structure.",
+  "comments": "This class is used to categorise the ObjectGroup according to an informal, self-referential hierarchy. For example, this can be used to create a hierarchy encompassing biological, geological and anthropological collections, where a single formal taxonomy isn't appropriate.",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/ObjectClassification",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/ObjectClassification-2024-02-28",
+  "rdfs:comment": "An informal classification of the type of objects within the ObjectGroup, using a hierarchical structure.",
+  "fields": [
+    {
+      "name": "objectClassification_pk",
+      "title": "Object Classification (Primary Key)",
+      "description": "A unique identifier for an ltc:ObjectClassification.",
+      "comments": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/objectClassificationID",
+      "rdfs:comment": "A unique identifier for an ltc:ObjectClassification.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "objectGroup_fk",
+      "title": "Object Group (Foreign Key)",
+      "description": "An identifier for an ltc:ObjectGroup.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasObjectClassification",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasObjectClassification-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the ObjectClassification class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "parentObjectClassification_fk",
+      "title": "Object Classification (Foreign Key)",
+      "description": "An identifier for an ltc:ObjectClassification.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/hasParentObjectClassification",
+      "rdfs:comment": "This property refers to one or more related parent instances of the ObjectClassification class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "isTopParent",
+      "title": "Is Top Parent",
+      "description": "A flag to indicate that the current instance of ObjectClassification is at the top of the hierarchy represented by multiple nested instances of the class.",
+      "comments": "If this term is used, it should be set to `true` in the instance of ObjectClassification which represents the highest level of a hierarchy and `false` in the rest. If the direction of the hierarchy is self-evident or otherwise not notable, this term should not be populated.",
+      "examples": "`true`, `false`",
+      "type": "boolean",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/isTopParent",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/isTopParent-2024-02-28",
+      "rdfs:comment": "A flag to indicate that the current instance of ObjectClassification is at the top of the hierarchy represented by multiple nested instances of the class."
+    },
+    {
+      "name": "objectClassificationLevel",
+      "title": "Object Classification Level",
+      "description": "The level of the ObjectClassification in the hierarchy.",
+      "comments": "It is up to the user to name the levels to be relevant to the hierarchical classification scheme that they are defining.",
+      "examples": "`Domain`, `Discipline`, `Category`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/objectClassificationLevel",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/objectClassificationLevel-2024-02-28",
+      "rdfs:comment": "The level of the ObjectClassification in the hierarchy."
+    },
+    {
+      "name": "objectClassificationName",
+      "title": "Object Classification Name",
+      "description": "A short title describing this ObjectClassification as a class, unit or grouping.",
+      "comments": "This is a user-determined name given for classifying their collection. This name, expressing an assigned classification, can be part of a self-referential hierarchy. Use of a controlled vocabulary is recommended, e.g. The GBIF ObjectClassification vocabulary https://registry.gbif.org/vocabulary/ObjectClassificationName",
+      "examples": "`Zoology invertebrates`, `Palaeontology`, `Extra-terrestrial`, `Archaeology`, `Seed plants`, `Birds`, `Agriculture`, `Veterinary`, `Viruses`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/objectClassificationName",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/objectClassificationName-2024-02-28",
+      "rdfs:comment": "A short title describing this ObjectClassification as a class, unit or grouping.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "primaryKey": "objectClassification_pk",
+  "foreignKeys": [
+    {
+      "fields": "objectGroup_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "object-group",
+        "fields": "objectGroup_pk"
+      }
+    },
+    {
+      "fields": "parentObjectClassification_fk",
+      "predicate": "part of",
+      "reference": {
+        "resource": "",
+        "fields": "objectClassification_pk"
+      }
+    }
+  ]
+}

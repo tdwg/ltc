@@ -1,0 +1,67 @@
+{
+  "identifier": "0.1/record-level-resource-relationship",
+  "dcterms:isPartOf": "http://www.tdwg.org/standards/450",
+  "url": "table-schemas/record-level-resource-relationship.json",
+  "name": "record-level-resource-relationship",
+  "title": "Record Level Resource Relationship",
+  "description": "An ltc:ResourceRelationship related to an ltc:RecordLevel.",
+  "notes": "",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasResourceRelationship",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasResourceRelationship-2024-02-28",
+  "rdfs:comment": "This property refers to one or more related instances of the ResourceRelationship class.",
+  "fields": [
+    {
+      "name": "recordLevel_fk",
+      "title": "Record Level (Foreign Key)",
+      "description": "An identifier for an ltc:RecordLevel.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/recordLevelID",
+      "rdfs:comment": "A unique identifier for an ltc:RecordLevel.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "resourceRelationship_fk",
+      "title": "Resource Relationship (Foreign Key)",
+      "description": "An identifier for an ltc:ResourceRelationship.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasResourceRelationship",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasResourceRelationship-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the ResourceRelationship class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": "recordLevel_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "record-level",
+        "fields": "recordLevel_pk"
+      }
+    },
+    {
+      "fields": "resourceRelationship_fk",
+      "predicate": "has",
+      "reference": {
+        "resource": "resource-relationship",
+        "fields": "resourceRelationship_pk"
+      }
+    }
+  ]
+}

@@ -1,0 +1,232 @@
+{
+  "identifier": "http://rs.tdwg.org/ltc/ltc-dp-collapsed/geographic-context",
+  "url": "table-schemas/geographic-context.json",
+  "name": "geographic-context",
+  "title": "Geographic Context",
+  "description": "The geographic location from which objects associated with the ObjectGroup were collected, or where an Event took place.",
+  "comments": "",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/GeographicContext",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/GeographicContext-2024-02-28",
+  "rdfs:comment": "The geographic location from which objects associated with the ObjectGroup were collected, or where an Event took place.",
+  "fields": [
+    {
+      "name": "geographicContext_pk",
+      "title": "Geographic Context (Primary Key)",
+      "description": "A unique identifier for an ltc:GeographicContext.",
+      "comments": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/geographicContextID",
+      "rdfs:comment": "A unique identifier for an ltc:GeographicContext.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "event_fk",
+      "title": "Event (Foreign Key)",
+      "description": "An identifier for an ltc:Event.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasGeographicContext",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasGeographicContext-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the GeographicContext class."
+    },
+    {
+      "name": "objectGroup_fk",
+      "title": "Object Group (Foreign Key)",
+      "description": "An identifier for an ltc:ObjectGroup.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasGeographicContext",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasGeographicContext-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the GeographicContext class."
+    },
+    {
+      "name": "continent",
+      "title": "Continent",
+      "description": "The name of the continent in which the Location occurs.",
+      "comments": "The name of the continent in which the GeographicContext is located. Based on best practice Getty Thesaurus of Geographic Names. --> http://www.getty.edu/vow/TGNHierarchy?find=&place=&nation=&english=Y&subjectid=7029392. For cultural collections such as economic botany use the Region field to record things like Pacific to replace Oceania.",
+      "examples": "`Africa`, `Antarctica`, `Asia`, `Europe`, `North America`, `Oceania`, `South America`",
+      "type": "string",
+      "format": "default",
+      "namespace": "dwc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/dwc/terms/continent",
+      "dcterms:references": "http://rs.tdwg.org/dwc/terms/version/continent-2023-06-28",
+      "rdfs:comment": "The name of the continent in which the dcterms:Location occurs."
+    },
+    {
+      "name": "country",
+      "title": "Country",
+      "description": "The name of the country or major administrative unit in which the Location occurs.",
+      "comments": "The name of the country or major administrative unit in which the GeographicContext is located. Recommended best practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names",
+      "examples": "`Angola`, `Denmark`, `Colombia`, `Españax`",
+      "type": "string",
+      "format": "default",
+      "namespace": "dwc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/dwc/terms/country",
+      "dcterms:references": "http://rs.tdwg.org/dwc/terms/version/country-2023-06-28",
+      "rdfs:comment": "The name of the country or major administrative unit in which the dcterms:Location occurs."
+    },
+    {
+      "name": "countryCode",
+      "title": "Country Code",
+      "description": "The standard code for the country in which the Location occurs.",
+      "comments": "The standard code for the country in which the GeographicContext is located. Recommended best practice is to use an ISO 3166-1-alpha-2 country code.",
+      "examples": "`AR`, `SV`",
+      "type": "string",
+      "format": "default",
+      "namespace": "dwc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/dwc/terms/countryCode",
+      "dcterms:references": "http://rs.tdwg.org/dwc/terms/version/countryCode-2026-05-26",
+      "rdfs:comment": "The standard code for the country in which the dcterms:Location occurs."
+    },
+    {
+      "name": "county",
+      "title": "Second Order Division",
+      "description": "The full, unabbreviated name of the next smaller administrative region than stateProvince (county, shire, department, etc.) in which the Location occurs.",
+      "comments": "The full, unabbreviated name of the next smaller administrative region than stateProvince (county, shire, department, etc.) in which the GeographicContext is located. Recommended best practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names and to leave this field blank if the Location spans multiple entities at this administrative level or is uncertain.",
+      "examples": "`Missoula`, `Los Lagos`, `Mataró`",
+      "type": "string",
+      "format": "default",
+      "namespace": "dwc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/dwc/terms/county",
+      "dcterms:references": "http://rs.tdwg.org/dwc/terms/version/county-2023-06-28",
+      "rdfs:comment": "The full, unabbreviated name of the next smaller administrative region than stateProvince (county, shire, department, etc.) in which the dcterms:Location occurs."
+    },
+    {
+      "name": "island",
+      "title": "Island",
+      "description": "The name of the island on or near which the Location occurs.",
+      "comments": "The name of the island on or near which the GeographicContext is located. Recommended best practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names.",
+      "examples": "`Nosy Be`, `Bikini Atoll`, `Vancouver`, `Viti Levu`, `Zanzibar`",
+      "type": "string",
+      "format": "default",
+      "namespace": "dwc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/dwc/terms/island",
+      "dcterms:references": "http://rs.tdwg.org/dwc/terms/version/island-2023-06-28",
+      "rdfs:comment": "The name of the island on or near which the dcterms:Location occurs."
+    },
+    {
+      "name": "islandGroup",
+      "title": "Island Group",
+      "description": "The name of the island group in which the Location occurs.",
+      "comments": "The name of the island group in which the location occurs. Recommended best practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names.",
+      "examples": "`Alexander Archipelago`, `Archipiélago Diego Ramírez`, `Seychelles`",
+      "type": "string",
+      "format": "default",
+      "namespace": "dwc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/dwc/terms/islandGroup",
+      "dcterms:references": "http://rs.tdwg.org/dwc/terms/version/islandGroup-2023-06-28",
+      "rdfs:comment": "The name of the island group in which the dcterms:Location occurs."
+    },
+    {
+      "name": "locality",
+      "title": "Locality",
+      "description": "The specific description of the place.",
+      "comments": "Less specific geographic information can be provided in other geographic terms (continent, waterBody). This term may contain information modified from the original to correct perceived errors or standardize the description.",
+      "examples": "`Bariloche, 25 km NNE via Ruta Nacional 40 (=Ruta 237).`",
+      "type": "string",
+      "format": "default",
+      "namespace": "dwc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/dwc/terms/locality",
+      "dcterms:references": "http://rs.tdwg.org/dwc/terms/version/locality-2023-06-28",
+      "rdfs:comment": "The specific description of the place."
+    },
+    {
+      "name": "municipality",
+      "title": "Municipality",
+      "description": "The full, unabbreviated name of the next smaller administrative region than county (city, municipality, etc.) in which the Location occurs. Do not use this term for a nearby named place that does not contain the actual location.",
+      "comments": "The full, unabbreviated name of the next smaller administrative region than county (city, municipality, etc.) in which the GeographicContext is located. Do not use this term for a nearby named place that does not contain the actual location. Recommended best practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names.",
+      "examples": "`Holzminden`, `Araçatuba`, `Ga-Segonyana`",
+      "type": "string",
+      "format": "default",
+      "namespace": "dwc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/dwc/terms/municipality",
+      "dcterms:references": "http://rs.tdwg.org/dwc/terms/version/municipality-2023-06-28",
+      "rdfs:comment": "The full, unabbreviated name of the next smaller administrative region than county (city, municipality, etc.) in which the dcterms:Location occurs. Do not use this term for a nearby named place that does not contain the actual dcterms:Location."
+    },
+    {
+      "name": "region",
+      "title": "Region",
+      "description": "The name of a spatial region or named place of any size within an individual or multiple administrative areas.",
+      "comments": "Recommended best practice is to use this field in situations where the administrative location fields (country, stateProvince, county, etc.) provide insufficient description. For geological collections examples include basins, provinces, and fossil deposits.",
+      "examples": "Multi-country: `North European Plain`, Multi-state/Province: `Pacific Northwest`, Waterbody: `Southern`, Geological basins and provinces: `Michigan Basin`, `Mazon Creek`, `Bundenbach`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/region",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/region-2024-02-28",
+      "rdfs:comment": "The name of a spatial region or named place of any size within an individual or multiple administrative areas."
+    },
+    {
+      "name": "stateProvince",
+      "title": "First Order Division",
+      "description": "The name of the next smaller administrative region than country (state, province, canton, department, region, etc.) in which the Location occurs.",
+      "comments": "The name of the next smaller administrative region than country (state, province, canton, department, region, etc.) in which the GeographicContext is located. Recommended best practice is to use a controlled vocabulary such as the Getty Thesaurus of Geographic Names and to leave this field blank if the Location spans multiple entities at this administrative level or is uncertain.",
+      "examples": "`Montana`, `Minas Gerais`, `Córdoba`",
+      "type": "string",
+      "format": "default",
+      "namespace": "dwc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/dwc/terms/stateProvince",
+      "dcterms:references": "http://rs.tdwg.org/dwc/terms/version/stateProvince-2023-06-28",
+      "rdfs:comment": "The name of the next smaller administrative region than country (state, province, canton, department, region, etc.) in which the dcterms:Location occurs."
+    },
+    {
+      "name": "waterBody",
+      "title": "Water Body",
+      "description": "The name of the water body in which the Location occurs.",
+      "comments": "The name of the water body in which the GeographicContext is located. This is intended to define the lowest water body or aquatic feature that defines the geographical constraints of aquatic collections below ocean. Suggestions for appropriate vocabularies include: HydroLAKES (https://www.hydrosheds.org/page/hydrolakes), a database aiming to provide the shoreline polygons of all global lakes with a surface area of at least 10 ha, the 'water body' term in the OBO ontology (http://purl.obolibrary.org/obo/ENVO_00000063) and, for marine water bodies, IHO Sea Areas (http://www.vliz.be/en/imis?dasid=5444&doiid=323).",
+      "examples": "`Baltic Sea`, `Hudson River`, `Lago Nahuel Huapi`",
+      "type": "string",
+      "format": "default",
+      "namespace": "dwc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/dwc/terms/waterBody",
+      "dcterms:references": "http://rs.tdwg.org/dwc/terms/version/waterBody-2023-06-28",
+      "rdfs:comment": "The name of the water body in which the dcterms:Location occurs."
+    },
+    {
+      "name": "waterBodyType",
+      "title": "Waterbody Type",
+      "description": "A term that indicates the aquatic order of a waterbody.",
+      "comments": "Recommendation is to use a controlled vocabulary, such as those fuind at https://www.usgs.gov/mission-areas/water-resources/science/types-water and https://sciencetrends.com/types-bodies-water-complete-list/.",
+      "examples": "`Ocean`, `Sea`, `Lake`, `Pond`, `River`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/waterBodyType",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/waterBodyType-2024-02-28",
+      "rdfs:comment": "A term that indicates the aquatic order of a waterbody."
+    }
+  ],
+  "primaryKey": "geographicContext_pk",
+  "foreignKeys": [
+    {
+      "fields": "event_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "event",
+        "fields": "event_pk"
+      }
+    },
+    {
+      "fields": "objectGroup_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "object-group",
+        "fields": "objectGroup_pk"
+      }
+    }
+  ]
+}

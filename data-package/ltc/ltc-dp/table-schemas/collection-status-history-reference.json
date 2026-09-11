@@ -1,0 +1,67 @@
+{
+  "identifier": "0.1/collection-status-history-reference",
+  "dcterms:isPartOf": "http://www.tdwg.org/standards/450",
+  "url": "table-schemas/collection-status-history-reference.json",
+  "name": "collection-status-history-reference",
+  "title": "Collection Status History Reference",
+  "description": "An ltc:Reference related to an ltc:CollectionStatusHistory.",
+  "notes": "",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+  "rdfs:comment": "This property refers to one or more related instances of the Reference class.",
+  "fields": [
+    {
+      "name": "collectionStatusHistory_fk",
+      "title": "Collection Status History (Foreign Key)",
+      "description": "An identifier for an ltc:CollectionStatusHistory.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/collectionStatusHistoryID",
+      "rdfs:comment": "A unique identifier for an ltc:CollectionStatusHistory.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "reference_fk",
+      "title": "Reference (Foreign Key)",
+      "description": "An identifier for an ltc:Reference.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": "collectionStatusHistory_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "collection-status-history",
+        "fields": "collectionStatusHistory_pk"
+      }
+    },
+    {
+      "fields": "reference_fk",
+      "predicate": "has",
+      "reference": {
+        "resource": "reference",
+        "fields": "reference_pk"
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "identifier": "0.1/role-identifier",
+  "dcterms:isPartOf": "http://www.tdwg.org/standards/450",
+  "url": "table-schemas/role-identifier.json",
+  "name": "role-identifier",
+  "title": "Role Identifier",
+  "description": "An ltc:Identifier related to an ltc:Role.",
+  "notes": "",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasIdentifier",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasIdentifier-2024-02-28",
+  "rdfs:comment": "This property refers to one or more related instances of the Identifier class.",
+  "fields": [
+    {
+      "name": "role_fk",
+      "title": "Role (Foreign Key)",
+      "description": "An identifier for an ltc:Role.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/roleID",
+      "rdfs:comment": "A unique identifier for an ltc:Role.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "identifier_fk",
+      "title": "Identifier (Foreign Key)",
+      "description": "An identifier for an ltc:Identifier.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasIdentifier",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasIdentifier-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Identifier class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": "role_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "role",
+        "fields": "role_pk"
+      }
+    },
+    {
+      "fields": "identifier_fk",
+      "predicate": "has",
+      "reference": {
+        "resource": "identifier",
+        "fields": "identifier_pk"
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "identifier": "0.1/collection-status-history-temporal-coverage",
+  "dcterms:isPartOf": "http://www.tdwg.org/standards/450",
+  "url": "table-schemas/collection-status-history-temporal-coverage.json",
+  "name": "collection-status-history-temporal-coverage",
+  "title": "Collection Status History Temporal Coverage",
+  "description": "An ltc:TemporalCoverage related to an ltc:CollectionStatusHistory.",
+  "notes": "",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasTemporalCoverage",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasTemporalCoverage-2024-02-28",
+  "rdfs:comment": "This property refers to one or more related instances of the TemporalCoverage class.",
+  "fields": [
+    {
+      "name": "collectionStatusHistory_fk",
+      "title": "Collection Status History (Foreign Key)",
+      "description": "An identifier for an ltc:CollectionStatusHistory.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/collectionStatusHistoryID",
+      "rdfs:comment": "A unique identifier for an ltc:CollectionStatusHistory.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "temporalCoverage_fk",
+      "title": "Temporal Coverage (Foreign Key)",
+      "description": "An identifier for an ltc:TemporalCoverage.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasTemporalCoverage",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasTemporalCoverage-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the TemporalCoverage class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": "collectionStatusHistory_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "collection-status-history",
+        "fields": "collectionStatusHistory_pk"
+      }
+    },
+    {
+      "fields": "temporalCoverage_fk",
+      "predicate": "has",
+      "reference": {
+        "resource": "temporal-coverage",
+        "fields": "temporalCoverage_pk"
+      }
+    }
+  ]
+}

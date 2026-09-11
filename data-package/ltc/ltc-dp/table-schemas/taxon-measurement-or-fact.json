@@ -1,0 +1,67 @@
+{
+  "identifier": "0.1/taxon-measurement-or-fact",
+  "dcterms:isPartOf": "http://www.tdwg.org/standards/450",
+  "url": "table-schemas/taxon-measurement-or-fact.json",
+  "name": "taxon-measurement-or-fact",
+  "title": "Taxon Measurement or Fact",
+  "description": "An ltc:MeasurementOrFact related to an ltc:Taxon.",
+  "notes": "",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasMeasurementOrFact",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasMeasurementOrFact-2024-02-28",
+  "rdfs:comment": "This property refers to one or more related instances of the MeasurementOrFact class.",
+  "fields": [
+    {
+      "name": "taxon_fk",
+      "title": "Taxon (Foreign Key)",
+      "description": "An identifier for an ltc:Taxon.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/taxonID",
+      "rdfs:comment": "A unique identifier for an ltc:Taxon.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "measurementOrFact_fk",
+      "title": "Measurement or Fact (Foreign Key)",
+      "description": "An identifier for an ltc:MeasurementOrFact.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasMeasurementOrFact",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasMeasurementOrFact-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the MeasurementOrFact class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": "taxon_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "taxon",
+        "fields": "taxon_pk"
+      }
+    },
+    {
+      "fields": "measurementOrFact_fk",
+      "predicate": "has",
+      "reference": {
+        "resource": "measurement-or-fact",
+        "fields": "measurementOrFact_pk"
+      }
+    }
+  ]
+}

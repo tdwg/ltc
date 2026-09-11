@@ -1,0 +1,67 @@
+{
+  "identifier": "0.1/record-level-identifier",
+  "dcterms:isPartOf": "http://www.tdwg.org/standards/450",
+  "url": "table-schemas/record-level-identifier.json",
+  "name": "record-level-identifier",
+  "title": "Record Level Identifier",
+  "description": "An ltc:Identifier related to an ltc:RecordLevel.",
+  "notes": "",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasIdentifier",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasIdentifier-2024-02-28",
+  "rdfs:comment": "This property refers to one or more related instances of the Identifier class. Every RecordLevel class must contain at least one Identifier, preferably a PID.",
+  "fields": [
+    {
+      "name": "recordLevel_fk",
+      "title": "Record Level (Foreign Key)",
+      "description": "An identifier for an ltc:RecordLevel.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/recordLevelID",
+      "rdfs:comment": "A unique identifier for an ltc:RecordLevel.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "identifier_fk",
+      "title": "Identifier (Foreign Key)",
+      "description": "An identifier for an ltc:Identifier.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasIdentifier",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasIdentifier-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Identifier class. Every RecordLevel class must contain at least one Identifier, preferably a PID.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": "recordLevel_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "record-level",
+        "fields": "recordLevel_pk"
+      }
+    },
+    {
+      "fields": "identifier_fk",
+      "predicate": "has",
+      "reference": {
+        "resource": "identifier",
+        "fields": "identifier_pk"
+      }
+    }
+  ]
+}

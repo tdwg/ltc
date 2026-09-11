@@ -1,0 +1,85 @@
+{
+  "identifier": "0.1/person-role",
+  "dcterms:isPartOf": "http://www.tdwg.org/standards/450",
+  "url": "table-schemas/person-role.json",
+  "name": "person-role",
+  "title": "Person Role",
+  "description": "A qualified association between a Person or OrganisationalUnit and an entity such as an ObjectGroup or MeasurementOrFact that enables the relationship to be contextualised with a specific role and time period.",
+  "notes": "This class is aligned with the prov:qualifiedAttribution property (http://www.w3.org/ns/prov#qualifiedAttribution). It should be used instead of the Activity and PersonActivity classes to link a Person or OrganisationalUnit to an entity in situations where an activity is not know or is irrelevant, for example for describing a person's role within an organisation. It is not mandatory to link to either a Person or a Role in this class, to support use cases where a role is known but the person who fulfilled it is not, and where a person is known to have been involved but the context is not. However, it's expected that at least one of the hasPerson and hasRole properties is populated.",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/PersonRole",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/PersonRole-2024-02-28",
+  "rdfs:comment": "A qualified association between a Person or OrganisationalUnit and an entity such as an ObjectGroup or MeasurementOrFact that enables the relationship to be contextualised with a specific role and time period.",
+  "fields": [
+    {
+      "name": "personRole_pk",
+      "title": "Person Role (Primary Key)",
+      "description": "A unique identifier for an ltc:PersonRole.",
+      "notes": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/personRoleID",
+      "rdfs:comment": "A unique identifier for an ltc:PersonRole.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "person_fk",
+      "title": "Person (Foreign Key)",
+      "description": "An identifier for an ltc:Person.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasPerson",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasPerson-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Person class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "role_fk",
+      "title": "Role (Foreign Key)",
+      "description": "An identifier for an ltc:Role.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasRole",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasRole-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Role class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "primaryKey": "personRole_pk",
+  "foreignKeys": [
+    {
+      "fields": "person_fk",
+      "predicate": "role holder",
+      "reference": {
+        "resource": "person",
+        "fields": "person_pk"
+      }
+    },
+    {
+      "fields": "role_fk",
+      "predicate": "has",
+      "reference": {
+        "resource": "role",
+        "fields": "role_pk"
+      }
+    }
+  ]
+}

@@ -1,0 +1,527 @@
+{
+  "identifier": "http://rs.tdwg.org/ltc/ltc-dp-collapsed/reference",
+  "url": "table-schemas/reference.json",
+  "name": "reference",
+  "title": "Reference",
+  "description": "A reference to external resources and information related to the class.",
+  "comments": "In Latimer Core, this class can be used to store references to publications, policies, datasets and other online resources such as websites, related to classes within the standard.",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/Reference",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/Reference-2024-02-28",
+  "rdfs:comment": "A reference to external resources and information related to the class.",
+  "fields": [
+    {
+      "name": "reference_pk",
+      "title": "Reference (Primary Key)",
+      "description": "A unique identifier for an ltc:Reference.",
+      "comments": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/referenceID",
+      "rdfs:comment": "A unique identifier for an ltc:Reference.",
+      "constraints": {
+        "required": true,
+        "unique": true
+      }
+    },
+    {
+      "name": "chronometricAge_fk",
+      "title": "Chronometric Age (Foreign Key)",
+      "description": "An identifier for an ltc:ChronometricAge.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class."
+    },
+    {
+      "name": "collectionStatusHistory_fk",
+      "title": "Collection Status History (Foreign Key)",
+      "description": "An identifier for an ltc:CollectionStatusHistory.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class."
+    },
+    {
+      "name": "ecologicalContext_fk",
+      "title": "Ecological Context (Foreign Key)",
+      "description": "An identifier for an ltc:EcologicalContext.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class."
+    },
+    {
+      "name": "event_fk",
+      "title": "Event (Foreign Key)",
+      "description": "An identifier for an ltc:Event.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class."
+    },
+    {
+      "name": "geographicContext_fk",
+      "title": "Geographic Context (Foreign Key)",
+      "description": "An identifier for an ltc:GeographicContext.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class."
+    },
+    {
+      "name": "geologicalContext_fk",
+      "title": "Geological Context (Foreign Key)",
+      "description": "An identifier for an ltc:GeologicalContext.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class."
+    },
+    {
+      "name": "identifier_fk",
+      "title": "Identifier (Foreign Key)",
+      "description": "An identifier for an ltc:Identifier.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class."
+    },
+    {
+      "name": "latimerCoreScheme_fk",
+      "title": "Latimer Core Scheme (Foreign Key)",
+      "description": "An identifier for an ltc:LatimerCoreScheme.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class."
+    },
+    {
+      "name": "measurementOrFact_fk",
+      "title": "Measurement or Fact (Foreign Key)",
+      "description": "An identifier for an ltc:MeasurementOrFact.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class."
+    },
+    {
+      "name": "objectClassification_fk",
+      "title": "Object Classification (Foreign Key)",
+      "description": "An identifier for an ltc:ObjectClassification.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class."
+    },
+    {
+      "name": "objectGroup_fk",
+      "title": "Object Group (Foreign Key)",
+      "description": "An identifier for an ltc:ObjectGroup.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class."
+    },
+    {
+      "name": "organisationalUnit_fk",
+      "title": "Organisational Unit (Foreign Key)",
+      "description": "An identifier for an ltc:OrganisationalUnit.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class."
+    },
+    {
+      "name": "person_fk",
+      "title": "Person (Foreign Key)",
+      "description": "An identifier for an ltc:Person.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class."
+    },
+    {
+      "name": "personRole_fk",
+      "title": "Person Role (Foreign Key)",
+      "description": "An identifier for an ltc:PersonRole.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class."
+    },
+    {
+      "name": "recordLevel_fk",
+      "title": "Record Level (Foreign Key)",
+      "description": "An identifier for an ltc:RecordLevel.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class."
+    },
+    {
+      "name": "resourceRelationship_fk",
+      "title": "Resource Relationship (Foreign Key)",
+      "description": "An identifier for an ltc:ResourceRelationship.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class."
+    },
+    {
+      "name": "schemeMeasurementOrFact_fk",
+      "title": "Scheme Measurement Or Fact (Foreign Key)",
+      "description": "An identifier for an ltc:SchemeMeasurementOrFact.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class."
+    },
+    {
+      "name": "schemeTerm_fk",
+      "title": "Scheme Term (Foreign Key)",
+      "description": "An identifier for an ltc:SchemeTerm.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class."
+    },
+    {
+      "name": "storageLocation_fk",
+      "title": "Storage Location (Foreign Key)",
+      "description": "An identifier for an ltc:StorageLocation.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class."
+    },
+    {
+      "name": "taxon_fk",
+      "title": "Taxon (Foreign Key)",
+      "description": "An identifier for an ltc:Taxon.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class."
+    },
+    {
+      "name": "temporalCoverage_fk",
+      "title": "Temporal Coverage (Foreign Key)",
+      "description": "An identifier for an ltc:TemporalCoverage.",
+      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key). Optional: a row belongs to exactly one parent, so populate exactly one of this table's parent foreign keys.",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class."
+    },
+    {
+      "name": "referenceDetails",
+      "title": "Reference Details",
+      "description": "Detailed information about the resource being referenced.",
+      "comments": "",
+      "examples": "`This dataset includes a Darwin Core Archive of the ~8000 specimens digitised to date, of which ~80% also have an associated label image.`, `de Mestier A, Mulcahy D, Harris DJ, et al. (2023) Policies Handbook on Using Molecular Collections. Research Ideas and Outcomes 9: e102908. https://doi.org/10.3897/rio.9.e102908`, `Suggested citation: USDA-ARS US National Fungus Collection (2023). USDA United States National Fungus Collections. Occurrence dataset https://doi.org/10.15468/w78rwb accessed via GBIF.org on 2023-04-27.`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/referenceDetails",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/referenceDetails-2024-02-28",
+      "rdfs:comment": "Detailed information about the resource being referenced."
+    },
+    {
+      "name": "referenceName",
+      "title": "Reference Name",
+      "description": "A name given to a reference.",
+      "comments": "If the reference is to a publication, this field should hold the publication title; otherwise any appropriate, short, text label relevant to the resource being referenced may be used.",
+      "examples": "`Digitised specimen records on the NHM Data Portal`, `Using a Collection Health Index to prioritise access and activities in the New Zealand Arthropod Collection`, `BGBM loans policy`, `Herbarium Wikipedia page`, `NMNH website`, `Related sequences in GenBank`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/referenceName",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/referenceName-2024-02-28",
+      "rdfs:comment": "A name given to a reference."
+    },
+    {
+      "name": "referenceType",
+      "title": "Reference Type",
+      "description": "The type of resource being referenced.",
+      "comments": "This property is intended to be used for a high level categorisation of resource types.",
+      "examples": "`Policy`, `Document`, `Website`, `Dataset`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/referenceType",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/referenceType-2024-02-28",
+      "rdfs:comment": "The type of resource being referenced."
+    },
+    {
+      "name": "resourceIRI",
+      "title": "Resource IRI",
+      "description": "A preferably resolvable IRI providing access to the resource defined in the reference.",
+      "comments": "",
+      "examples": "`10.5072/example-full`, `https://examplemuseum.org/policies/loans-policy.pdf`",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/resourceIRI",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/resourceIRI-2024-02-28",
+      "rdfs:comment": "A preferably resolvable IRI providing access to the resource defined in the reference."
+    }
+  ],
+  "primaryKey": "reference_pk",
+  "foreignKeys": [
+    {
+      "fields": "chronometricAge_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "chronometric-age",
+        "fields": "chronometricAge_pk"
+      }
+    },
+    {
+      "fields": "collectionStatusHistory_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "collection-status-history",
+        "fields": "collectionStatusHistory_pk"
+      }
+    },
+    {
+      "fields": "ecologicalContext_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "ecological-context",
+        "fields": "ecologicalContext_pk"
+      }
+    },
+    {
+      "fields": "event_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "event",
+        "fields": "event_pk"
+      }
+    },
+    {
+      "fields": "geographicContext_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "geographic-context",
+        "fields": "geographicContext_pk"
+      }
+    },
+    {
+      "fields": "geologicalContext_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "geological-context",
+        "fields": "geologicalContext_pk"
+      }
+    },
+    {
+      "fields": "identifier_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "identifier",
+        "fields": "identifier_pk"
+      }
+    },
+    {
+      "fields": "latimerCoreScheme_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "latimer-core-scheme",
+        "fields": "latimerCoreScheme_pk"
+      }
+    },
+    {
+      "fields": "measurementOrFact_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "measurement-or-fact",
+        "fields": "measurementOrFact_pk"
+      }
+    },
+    {
+      "fields": "objectClassification_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "object-classification",
+        "fields": "objectClassification_pk"
+      }
+    },
+    {
+      "fields": "objectGroup_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "object-group",
+        "fields": "objectGroup_pk"
+      }
+    },
+    {
+      "fields": "organisationalUnit_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "organisational-unit",
+        "fields": "organisationalUnit_pk"
+      }
+    },
+    {
+      "fields": "person_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "person",
+        "fields": "person_pk"
+      }
+    },
+    {
+      "fields": "personRole_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "person-role",
+        "fields": "personRole_pk"
+      }
+    },
+    {
+      "fields": "recordLevel_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "record-level",
+        "fields": "recordLevel_pk"
+      }
+    },
+    {
+      "fields": "resourceRelationship_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "resource-relationship",
+        "fields": "resourceRelationship_pk"
+      }
+    },
+    {
+      "fields": "schemeMeasurementOrFact_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "scheme-measurement-or-fact",
+        "fields": "schemeMeasurementOrFact_pk"
+      }
+    },
+    {
+      "fields": "schemeTerm_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "scheme-term",
+        "fields": "schemeTerm_pk"
+      }
+    },
+    {
+      "fields": "storageLocation_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "storage-location",
+        "fields": "storageLocation_pk"
+      }
+    },
+    {
+      "fields": "taxon_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "taxon",
+        "fields": "taxon_pk"
+      }
+    },
+    {
+      "fields": "temporalCoverage_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "temporal-coverage",
+        "fields": "temporalCoverage_pk"
+      }
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "identifier": "0.1/storage-location-reference",
+  "dcterms:isPartOf": "http://www.tdwg.org/standards/450",
+  "url": "table-schemas/storage-location-reference.json",
+  "name": "storage-location-reference",
+  "title": "Storage Location Reference",
+  "description": "An ltc:Reference related to an ltc:StorageLocation.",
+  "notes": "",
+  "examples": "",
+  "namespace": "ltc",
+  "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+  "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+  "rdfs:comment": "This property refers to one or more related instances of the Reference class.",
+  "fields": [
+    {
+      "name": "storageLocation_fk",
+      "title": "Storage Location (Foreign Key)",
+      "description": "An identifier for an ltc:StorageLocation.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://example.com/term-pending/storageLocationID",
+      "rdfs:comment": "A unique identifier for an ltc:StorageLocation.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    },
+    {
+      "name": "reference_fk",
+      "title": "Reference (Foreign Key)",
+      "description": "An identifier for an ltc:Reference.",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "examples": "",
+      "type": "string",
+      "format": "default",
+      "namespace": "ltc",
+      "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/hasReference",
+      "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/hasReference-2024-02-28",
+      "rdfs:comment": "This property refers to one or more related instances of the Reference class.",
+      "constraints": {
+        "required": true,
+        "unique": false
+      }
+    }
+  ],
+  "foreignKeys": [
+    {
+      "fields": "storageLocation_fk",
+      "predicate": "for",
+      "reference": {
+        "resource": "storage-location",
+        "fields": "storageLocation_pk"
+      }
+    },
+    {
+      "fields": "reference_fk",
+      "predicate": "has",
+      "reference": {
+        "resource": "reference",
+        "fields": "reference_pk"
+      }
+    }
+  ]
+}
