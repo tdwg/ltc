@@ -1,10 +1,11 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Latimer Core Data Package (LtC-DP) profile",
-  "description": "Profile for organizing natural science collections data as a Data Package (https://specs.frictionlessdata.io/).",
+  "version": "0.1",
+  "description": "Profile for organizing biodiversity collections data as a Data Package (https://specs.frictionlessdata.io/).",
   "type": "object",
   "$defs": {
-    "ltc-dp-resource-names": {
+    "dwc-dp-resource-names": {
       "enum": [
         "address",
         "address-identifier",
@@ -134,7 +135,7 @@
                 "properties": {
                   "name": {
                     "not": {
-                      "$ref": "#/$defs/ltc-dp-resource-names"
+                      "$ref": "#/$defs/dwc-dp-resource-names"
                     }
                   }
                 }
@@ -150,7 +151,7 @@
                     ]
                   },
                   "name": {
-                    "$ref": "#/$defs/ltc-dp-resource-names"
+                    "$ref": "#/$defs/dwc-dp-resource-names"
                   },
                   "schema": {
                     "properties": {

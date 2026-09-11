@@ -1,10 +1,11 @@
 {
-  "identifier": "http://rs.tdwg.org/ltc/ltc-dp/resource-relationship",
+  "identifier": "0.1/resource-relationship",
+  "dcterms:isPartOf": "http://www.tdwg.org/standards/450",
   "url": "table-schemas/resource-relationship.json",
   "name": "resource-relationship",
   "title": "Resource Relationship",
   "description": "A relationship of one rdfs:Resource (http://www.w3.org/2000/01/rdf-schema#Resource) to another, or to a simple named concept.",
-  "comments": "Resources can be thought of as identifiable records or instances of classes and may include, but need not be limited to instances of ltc:ObjectGroup, ltc:OrganisationalUnit, ltc:Taxon, ltc:Event, ltc:GeographicContext, ltc:GeologicalContext, ltc:EcologicalContext, or ltc:ObjectClassification. In the context of Latimer Core, the main purposes of this class are 1. to define different semantic and hierarchical relationships between ObjectGroups, and 2. to support quantified and annotated relationships between ObjectGroups and other LtC classes (such as ltc:Taxon and ltc:GeographicContext) and properties (such as ltc:discipline and ltc:objectType) that describe the contents of the ObjectGroup, using the hasMeasurementOrFact property.",
+  "notes": "Resources can be thought of as identifiable records or instances of classes and may include, but need not be limited to instances of ltc:ObjectGroup, ltc:OrganisationalUnit, ltc:Taxon, ltc:Event, ltc:GeographicContext, ltc:GeologicalContext, ltc:EcologicalContext, or ltc:ObjectClassification. In the context of Latimer Core, the main purposes of this class are 1. to define different semantic and hierarchical relationships between ObjectGroups, and 2. to support quantified and annotated relationships between ObjectGroups and other LtC classes (such as ltc:Taxon and ltc:GeographicContext) and properties (such as ltc:discipline and ltc:objectType) that describe the contents of the ObjectGroup, using the hasMeasurementOrFact property.",
   "examples": "",
   "namespace": "ltc",
   "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/ResourceRelationship",
@@ -15,7 +16,7 @@
       "name": "resourceRelationship_pk",
       "title": "Resource Relationship (Primary Key)",
       "description": "A unique identifier for an ltc:ResourceRelationship.",
-      "comments": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
+      "notes": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
       "examples": "",
       "type": "string",
       "format": "default",
@@ -31,7 +32,7 @@
       "name": "relatedResourceID",
       "title": "Related Resource ID",
       "description": "An identifier for a related resource (the object, rather than the subject of the relationship).",
-      "comments": "",
+      "notes": "",
       "examples": "`dc609808-b09b-11e8-96f8-529269fb1459`",
       "type": "string",
       "format": "default",
@@ -44,7 +45,7 @@
       "name": "relatedResourceName",
       "title": "Related Resource Name",
       "description": "A short textual name for the related resource.",
-      "comments": "This property can be used to list resources related to the source entity which lack an identifier, for example if a separate record for that resource doesn't yet exist. In the Collection Description standard, a use of this is to list named subcollections of a larger collections at a time when the resources might not be available to create a full Collection Description for each of them. If at a later point a Collection Description record is created for the subcollection, an identifier can be added to the relatedResourceID property to maintain the same relationship.",
+      "notes": "This property can be used to list resources related to the source entity which lack an identifier, for example if a separate record for that resource doesn't yet exist. In the Collection Description standard, a use of this is to list named subcollections of a larger collections at a time when the resources might not be available to create a full Collection Description for each of them. If at a later point a Collection Description record is created for the subcollection, an identifier can be added to the relatedResourceID property to maintain the same relationship.",
       "examples": "`FMNH Mammals`, `TNHC Vertebrates`, `Sloane Herbarium`, `Grant Southwest Ceramics Collection`",
       "type": "string",
       "format": "default",
@@ -57,7 +58,7 @@
       "name": "relatedResourceType",
       "title": "Related Resource Type",
       "description": "The class or property within Latimer Core, or class, property or less formal concept outside of the Latimer Core standard, that is represented by the related resource.",
-      "comments": "This property can be used to explicitly define the type of resource that the ID stored in the relatedResourceID property references, either to support IDs that don’t fully resolve and provide contextual metadata, or just for information purposes. It can also provide context for use cases where the relatedResourceName is used rather than the relatedResourceID to define the target, for example to attach a simple list of the names of related collections to an ObjectGroup.",
+      "notes": "This property can be used to explicitly define the type of resource that the ID stored in the relatedResourceID property references, either to support IDs that don’t fully resolve and provide contextual metadata, or just for information purposes. It can also provide context for use cases where the relatedResourceName is used rather than the relatedResourceID to define the target, for example to attach a simple list of the names of related collections to an ObjectGroup.",
       "examples": "`http://rs.tdwg.org/ltc/terms/ObjectGroup`, `http://rs.tdwg.org/ltc/terms/Taxon`, `http://rs.tdwg.org/ltc/terms/objectType`, `http://rs.tdwg.org/dwc/terms/Occurrence`,  `Collection`",
       "type": "string",
       "format": "default",
@@ -69,7 +70,7 @@
       "name": "relationshipAccordingTo",
       "title": "Relationship According To",
       "description": "The source (person, organization, publication, reference) establishing the relationship between the two resources.",
-      "comments": "",
+      "notes": "",
       "examples": "`Julie Woodruff`",
       "type": "array",
       "format": "default",
@@ -82,7 +83,7 @@
       "name": "relationshipEstablishedDate",
       "title": "Relationship Established Date",
       "description": "The date-time on which the relationship between the two resources was established.",
-      "comments": "Recommended best practice is to use a date that conforms to ISO 8601-1:2019.",
+      "notes": "Recommended best practice is to use a date that conforms to ISO 8601-1:2019.",
       "examples": "`1963-03-08T14:07-0600`, `2009-02-20T08:40Z`, `2018-08-29T15:19`, `1809-02-12`, `1906-06`, `1971`, `2007-03-01T13:00:00Z/2008-05-11T15:30:00Z`, `1900/1909`, `2007-11-13/15`",
       "type": "string",
       "format": "default",
@@ -95,7 +96,7 @@
       "name": "relationshipOfResource",
       "title": "Relationship Of Resource",
       "description": "The relationship of the resource identified by relatedResourceID to the subject (optionally identified by the resourceID).",
-      "comments": "Recommended best practice is to use a controlled vocabulary. https://schema.org/Property",
+      "notes": "Recommended best practice is to use a controlled vocabulary. https://schema.org/Property",
       "examples": "`part of`, `contains`, `same as`",
       "type": "string",
       "format": "default",
@@ -104,15 +105,14 @@
       "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/relationshipOfResource-2024-02-28",
       "rdfs:comment": "The relationship of the resource identified by relatedResourceID to the subject (optionally identified by the resourceID).",
       "constraints": {
-        "required": true,
-        "unique": false
+        "required": true
       }
     },
     {
       "name": "relationshipRemarks",
       "title": "Relationship Remarks",
       "description": "Comments or notes about the relationship between the two resources.",
-      "comments": "",
+      "notes": "",
       "examples": "`The Darwin fossil collection makes up part of the museum's palaeontology collection.`, `Some of the same Madagascan bryophytes are included in both of these collections.`",
       "type": "string",
       "format": "default",
@@ -125,7 +125,7 @@
       "name": "resourceID",
       "title": "Resource ID",
       "description": "An identifier for the resource that is the subject of the relationship.",
-      "comments": "",
+      "notes": "",
       "examples": "`f809b9e0-b09b-11e8-96f8-529269fb1459`",
       "type": "string",
       "format": "default",
@@ -133,8 +133,7 @@
       "dcterms:isVersionOf": "http://rs.tdwg.org/dwc/terms/resourceID",
       "rdfs:comment": "An identifier for the resource that is the subject of the relationship.",
       "constraints": {
-        "required": true,
-        "unique": false
+        "required": true
       }
     }
   ],

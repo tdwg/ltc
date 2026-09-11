@@ -1,10 +1,11 @@
 {
-  "identifier": "http://rs.tdwg.org/ltc/ltc-dp/address",
+  "identifier": "0.1/address",
+  "dcterms:isPartOf": "http://www.tdwg.org/standards/450",
   "url": "table-schemas/address.json",
   "name": "address",
   "title": "Address",
   "description": "A physical address for an organisational unit or person.",
-  "comments": "",
+  "notes": "",
   "examples": "",
   "namespace": "ltc",
   "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/Address",
@@ -15,7 +16,7 @@
       "name": "address_pk",
       "title": "Address (Primary Key)",
       "description": "A unique identifier for an ltc:Address.",
-      "comments": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
+      "notes": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
       "examples": "",
       "type": "string",
       "format": "default",
@@ -31,7 +32,7 @@
       "name": "addressCountry",
       "title": "Address Country",
       "description": "The country. For example, USA. You can also provide the two-letter ISO 3166-1 alpha-2 country code.",
-      "comments": "Recommended best practice is to use a controlled vocabulary -- e.g. current ISO 3166 Country Codes.",
+      "notes": "Recommended best practice is to use a controlled vocabulary -- e.g. current ISO 3166 Country Codes.",
       "examples": "`Denmark`, `DK`, `Colombia`, `CO`, `España`, `ES`",
       "type": "string",
       "format": "default",
@@ -39,15 +40,14 @@
       "dcterms:isVersionOf": "https://schema.org/addressCountry",
       "rdfs:comment": "The country. For example, USA. You can also provide the two-letter ISO 3166-1 alpha-2 country code.",
       "constraints": {
-        "required": true,
-        "unique": false
+        "required": true
       }
     },
     {
       "name": "addressLocality",
       "title": "Address Locality",
       "description": "The locality in which the street address is, and which is in the region. For example, Mountain View.",
-      "comments": "The locality in which the address is located. AddressLocality is a more specific geographic area than addressRegion.",
+      "notes": "The locality in which the address is located. AddressLocality is a more specific geographic area than addressRegion.",
       "examples": "`Holzminden`, `Araçatuba`, `Ga-Segonyana`, `Mountain View`, `Coventry`, `Tokyo`",
       "type": "string",
       "format": "default",
@@ -59,7 +59,7 @@
       "name": "addressRegion",
       "title": "Address Region",
       "description": "The region in which the locality is, and which is in the country. For example, California or another appropriate first-level Administrative division.",
-      "comments": "",
+      "notes": "",
       "examples": "`Missoula`, `Los Lagos`, `Mataró`, `Guangdong`",
       "type": "string",
       "format": "default",
@@ -71,7 +71,7 @@
       "name": "addressType",
       "title": "Address Type",
       "description": "A person or organization can have different addresses, for different purposes. For example, a postal address, a loan address, an address for visits and so on. This property is used to specify the kind of address.",
-      "comments": "",
+      "notes": "",
       "examples": "`Physical`, `Postal`, `Loans`, `Visits`, `Home`, `Work`, `Main`",
       "type": "string",
       "format": "default",
@@ -84,7 +84,7 @@
       "name": "postOfficeBoxNumber",
       "title": "Post Office Box Number",
       "description": "The post office box number for PO box addresses.",
-      "comments": "",
+      "notes": "",
       "examples": "`PO Box 7169`",
       "type": "string",
       "format": "default",
@@ -96,7 +96,7 @@
       "name": "postalCode",
       "title": "Postal Code",
       "description": "The postal code. For example, 94043.",
-      "comments": "",
+      "notes": "",
       "examples": "`32308`, `SW7 5HD`, `10115`, `3080`",
       "type": "string",
       "format": "default",
@@ -108,7 +108,7 @@
       "name": "streetAddress",
       "title": "Street Address",
       "description": "The street address. For example, 1600 Amphitheatre Pkwy.",
-      "comments": "",
+      "notes": "",
       "examples": "`Invalidenstraße 43`, `1400 S. Du Sable Lake Shore Dr`, `960 Carling Avenue`",
       "type": "string",
       "format": "default",
@@ -116,8 +116,7 @@
       "dcterms:isVersionOf": "https://schema.org/streetAddress",
       "rdfs:comment": "The street address. For example, 1600 Amphitheatre Pkwy.",
       "constraints": {
-        "required": true,
-        "unique": false
+        "required": true
       }
     }
   ],

@@ -1,10 +1,11 @@
 {
-  "identifier": "http://rs.tdwg.org/ltc/ltc-dp/identifier",
+  "identifier": "0.1/identifier",
+  "dcterms:isPartOf": "http://www.tdwg.org/standards/450",
   "url": "table-schemas/identifier.json",
   "name": "identifier",
   "title": "Identifier",
   "description": "A numeric, textual value, or reference such as an IRI, that can be used to uniquely identify the object to which it is attached.",
-  "comments": "Use this class to document stable identifiers that describe the collections and associated entities being represented in the collection description. For example, person identifiers, taxon identifiers, institution identifiers, organisational unit identifiers, gazetteer identifiers. Identifiers represented by this class may be globally unique, or unique within a given context.",
+  "notes": "Use this class to document stable identifiers that describe the collections and associated entities being represented in the collection description. For example, person identifiers, taxon identifiers, institution identifiers, organisational unit identifiers, gazetteer identifiers. Identifiers represented by this class may be globally unique, or unique within a given context.",
   "examples": "",
   "namespace": "ltc",
   "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/Identifier",
@@ -15,7 +16,7 @@
       "name": "identifier_pk",
       "title": "Identifier (Primary Key)",
       "description": "A unique identifier for an ltc:Identifier.",
-      "comments": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
+      "notes": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
       "examples": "",
       "type": "string",
       "format": "default",
@@ -31,7 +32,7 @@
       "name": "identifierSource",
       "title": "Identifier Source",
       "description": "The source or creator of the identifier.",
-      "comments": "This term refers to the organisation, framework, software or database that minted the identifier represented in the identifier property.",
+      "notes": "This term refers to the organisation, framework, software or database that minted the identifier represented in the identifier property.",
       "examples": "`Index Herbariorum`, `GBIF Registry of Scientific Collections (GRSciColl)`, `CITES`, `IPEN`, `NHM UK 'Join the Dots' framework`",
       "type": "string",
       "format": "default",
@@ -44,7 +45,7 @@
       "name": "identifierType",
       "title": "Identifier Type",
       "description": "The type and format of the value in the identifier field.",
-      "comments": "This property should be used to help people and software understand how the identifier can be used (e.g. whether it's a resolvable IRI) and validate the identifier based on format and composition (e.g. a valid UUID).",
+      "notes": "This property should be used to help people and software understand how the identifier can be used (e.g. whether it's a resolvable IRI) and validate the identifier based on format and composition (e.g. a valid UUID).",
       "examples": "`Acronym`, `IRI`, `UUID v4`",
       "type": "string",
       "format": "default",
@@ -53,15 +54,14 @@
       "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/identifierType-2024-02-28",
       "rdfs:comment": "The type and format of the value in the identifier field.",
       "constraints": {
-        "required": true,
-        "unique": false
+        "required": true
       }
     },
     {
       "name": "identifierValue",
       "title": "Identifier",
       "description": "A textual or numeric identifier, acronym or IRI that provides an unambiguous reference for an entity within a given context.",
-      "comments": "This may be a simple value or resolvable IRI, and can reflect any identifier used to identify an entity (such as a collection, taxon, institution or person) included in the Collection Description.",
+      "notes": "This may be a simple value or resolvable IRI, and can reflect any identifier used to identify an entity (such as a collection, taxon, institution or person) included in the Collection Description.",
       "examples": "`http://grscicoll.org/institutional-collection/osteology`, `https://www.gbif.org/grscicoll/collection/64232ca4-fd5a-4a3d-a1d5-ef812107472c`, `https://www.gbif.org/grscicoll/institution/52827361-5e82-43b7-b92a-f6ad98367fa5`, `http://sweetgum.nybg.org/science/ih/herbarium-details/?irn=126969`, `10.5072/example-full`, `NHMUK-Verts`, `BGBM`",
       "type": "string",
       "format": "default",
@@ -70,8 +70,7 @@
       "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/identifierValue-2024-02-28",
       "rdfs:comment": "A textual or numeric identifier, acronym or IRI that provides an unambiguous reference for an entity within a given context.",
       "constraints": {
-        "required": true,
-        "unique": false
+        "required": true
       }
     }
   ],

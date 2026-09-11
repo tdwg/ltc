@@ -1,10 +1,11 @@
 {
-  "identifier": "http://rs.tdwg.org/ltc/ltc-dp/organisational-unit",
+  "identifier": "0.1/organisational-unit",
+  "dcterms:isPartOf": "http://www.tdwg.org/standards/450",
   "url": "table-schemas/organisational-unit.json",
   "name": "organisational-unit",
   "title": "Organisational Unit",
   "description": "A unit within an organisational hierarchy which may be at, above or below the institutional level.",
-  "comments": "This class can represent any level of organisational unit, incorporating institutions (e.g. a museum), higher units (e.g. a university to which a museum belongs) and more detailed structures (e.g the departments and divisions within a museum). It can be used to arrange these different units at different levels into a hierarchical structure. This class combines aspects of both class org:Organization (https://www.w3.org/TR/2014/REC-vocab-org-20140116/#org:Organization) and class org:OrganizationalUnit (https://www.w3.org/TR/2014/REC-vocab-org-20140116/#org:OrganizationalUnit) from the W3C Organization Ontology ORG (https://www.w3.org/TR/2014/REC-vocab-org-20140116/#overview-of-ontology). Recommended best practice is to associate a unique, persistent organisational identifier (PID) with each created organisational unit. This will allow an unambiguous and continual identification of the unit, as well as the creation of organisational hierarchies. Existing providers of PIDs for organisations are, e.g. https://grid.ac/ and https://ror.org/. The provision of organisational PIDs might be extended to intra-organisational units in the future. Properties of Class: Identifier can be used to add identifier information for organisational units.",
+  "notes": "This class can represent any level of organisational unit, incorporating institutions (e.g. a museum), higher units (e.g. a university to which a museum belongs) and more detailed structures (e.g the departments and divisions within a museum). It can be used to arrange these different units at different levels into a hierarchical structure. This class combines aspects of both class org:Organization (https://www.w3.org/TR/2014/REC-vocab-org-20140116/#org:Organization) and class org:OrganizationalUnit (https://www.w3.org/TR/2014/REC-vocab-org-20140116/#org:OrganizationalUnit) from the W3C Organization Ontology ORG (https://www.w3.org/TR/2014/REC-vocab-org-20140116/#overview-of-ontology). Recommended best practice is to associate a unique, persistent organisational identifier (PID) with each created organisational unit. This will allow an unambiguous and continual identification of the unit, as well as the creation of organisational hierarchies. Existing providers of PIDs for organisations are, e.g. https://grid.ac/ and https://ror.org/. The provision of organisational PIDs might be extended to intra-organisational units in the future. Properties of Class: Identifier can be used to add identifier information for organisational units.",
   "examples": "",
   "namespace": "ltc",
   "dcterms:isVersionOf": "http://rs.tdwg.org/ltc/terms/OrganisationalUnit",
@@ -15,7 +16,7 @@
       "name": "organisationalUnit_pk",
       "title": "Organisational Unit (Primary Key)",
       "description": "A unique identifier for an ltc:OrganisationalUnit.",
-      "comments": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
+      "notes": "The value in this field MAY be changed in aggregation to guarantee uniqueness.",
       "examples": "",
       "type": "string",
       "format": "default",
@@ -31,7 +32,7 @@
       "name": "objectGroup_fk",
       "title": "Object Group (Foreign Key)",
       "description": "An identifier for an ltc:ObjectGroup.",
-      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
       "examples": "",
       "type": "string",
       "format": "default",
@@ -48,7 +49,7 @@
       "name": "parentOrganisationalUnit_fk",
       "title": "Organisational Unit (Foreign Key)",
       "description": "An identifier for an ltc:OrganisationalUnit.",
-      "comments": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
+      "notes": "The value in this field MAY be changed in aggregation to preserve the relationship to the (Primary Key).",
       "examples": "",
       "type": "string",
       "format": "default",
@@ -65,7 +66,7 @@
       "name": "organisationalUnitName",
       "title": "Organisational Unit Name",
       "description": "An official name of the organisational unit in the local language.",
-      "comments": "Repeatable where there are more than one official local language required for example Belgian Institutions where an official name exists in French, Dutch, German and English. See 'A Collection of Crosswalks from Fifteen Research Data Schemas to Schema.org' (https://www.rd-alliance.org/group/research-metadata-schemas-wg/outcomes/collection-crosswalks-fifteen-research-data-schemas) from RDA for crosswalks for properties with the function of Name, Title, etc. Take into account the note at the class level (Class:OrganisationalUnit) about associating an identifier in addition to a name with the organisational unit.",
+      "notes": "Repeatable where there are more than one official local language required for example Belgian Institutions where an official name exists in French, Dutch, German and English. See 'A Collection of Crosswalks from Fifteen Research Data Schemas to Schema.org' (https://www.rd-alliance.org/group/research-metadata-schemas-wg/outcomes/collection-crosswalks-fifteen-research-data-schemas) from RDA for crosswalks for properties with the function of Name, Title, etc. Take into account the note at the class level (Class:OrganisationalUnit) about associating an identifier in addition to a name with the organisational unit.",
       "examples": "`Muséum national d'Histoire naturelle`, `The Field Museum of Natural History`, `Division of Fishes`",
       "type": "string",
       "format": "default",
@@ -74,15 +75,14 @@
       "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/organisationalUnitName-2024-02-28",
       "rdfs:comment": "An official name of the organisational unit in the local language.",
       "constraints": {
-        "required": true,
-        "unique": false
+        "required": true
       }
     },
     {
       "name": "organisationalUnitType",
       "title": "Organisational Unit Type",
       "description": "The type or level of organisational unit within a hierarchy responsible for the management of the collection being described.",
-      "comments": "Example vocabulary list: https://vocab.org/aiiso/ . This property is likely related to the W3C class org:Role (https://www.w3.org/TR/2014/REC-vocab-org-20140116/#class-role).",
+      "notes": "Example vocabulary list: https://vocab.org/aiiso/ . This property is likely related to the W3C class org:Role (https://www.w3.org/TR/2014/REC-vocab-org-20140116/#class-role).",
       "examples": "`Department` (A group of people recognised by an organization as forming a cohesive group referred to by the organization as a department), `Division` (A group of people recognised by an organization as forming a cohesive group referred to by the organization as a division)",
       "type": "string",
       "format": "default",
@@ -91,8 +91,7 @@
       "dcterms:references": "http://rs.tdwg.org/ltc/terms/version/organisationalUnitType-2024-02-28",
       "rdfs:comment": "The type or level of organisational unit within a hierarchy responsible for the management of the collection being described.",
       "constraints": {
-        "required": true,
-        "unique": false
+        "required": true
       }
     }
   ],
