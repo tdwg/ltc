@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema",
+  "$id": "https://raw.githubusercontent.com/tdwg/ltc/add-json-examples/source/json-schema/person-role.json",
+  "title": "Person Role",
+  "description": "A qualified association between a Person or OrganisationalUnit and an entity such as an ObjectGroup or MeasurementOrFact that enables the relationship to be contextualised with a specific role and time period. This class is aligned with the prov:qualifiedAttribution property (http://www.w3.org/ns/prov#qualifiedAttribution). It should be used instead of the Activity and PersonActivity classes to link a Person or OrganisationalUnit to an entity in situations where an activity is not know or is irrelevant, for example for describing a person's role within an organisation. It is not mandatory to link to either a Person or a Role in this class, to support use cases where a role is known but the person who fulfilled it is not, and where a person is known to have been involved but the context is not. However, it's expected that at least one of the hasPerson and hasRole properties is populated.",
+  "type": "object",
+  "properties": {
+    "hasAddress": {
+      "description": "This property refers to one or more related instances of the Address class.",
+      "type": "array<ltc:Address>"
+    },
+    "hasContactDetail": {
+      "description": "This property refers to one or more related instances of the ContactDetail class.",
+      "type": "array<ltc:ContactDetail>"
+    },
+    "hasIdentifier": {
+      "description": "This property refers to one or more related instances of the Identifier class.",
+      "type": "array<ltc:Identifier>"
+    },
+    "hasPerson": {
+      "description": "This property refers to one or more related instances of the Person class.",
+      "type": "array<ltc:Person>"
+    },
+    "hasReference": {
+      "description": "This property refers to one or more related instances of the Reference class.",
+      "type": "array<ltc:Reference>"
+    },
+    "hasTemporalCoverage": {
+      "description": "This property refers to one or more related instances of the TemporalCoverage class.",
+      "type": "array<ltc:TemporalCoverage>"
+    },
+    "hasMeasurementOrFact": {
+      "description": "This property refers to one or more related instances of the MeasurementOrFact class.",
+      "type": "array<ltc:MeasurementOrFact>"
+    },
+    "endedAtTime": {
+      "description": "The date or time when a Person stopped fulfilling the role specified in the role property.",
+      "type": null
+    },
+    "role": {
+      "description": "A role played by a Person in the context of an entity such as an ObjectGroup, OrganisationalUnit or RecordLevel.",
+      "type": null
+    },
+    "startedAtTime": {
+      "description": "The date or time when a Person started fulfilling the role specified in the role property.",
+      "type": null
+    }
+  },
+  "required": [
+    "role"
+  ]
+}

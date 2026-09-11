@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema",
+  "$id": "https://raw.githubusercontent.com/tdwg/ltc/2026-json-test/source/json-schema/latimer-core-scheme.json",
+  "title": "Latimer Core Scheme",
+  "description": "A grouping of multiple ObjectGroups for a particular use case, purpose or implementation. Where the same objects within the same collection might be described by more than one ObjectGroup for different purposes (for examples, a 'Darwin Fossil Mammals' collection description might overlap with a 'Offsite Palaeontology' collection description), this class can be used to distinguish between them and avoid double-counting of metrics in queries against the data.",
+  "type": "object",
+  "properties": {
+    "basisOfScheme": {
+      "description": "A summary of the basis or purpose for the LatimerCoreScheme.",
+      "type": "string"
+    },
+    "hasIdentifier": {
+      "description": "This property refers to one or more related instances of the Identifier class.",
+      "type": "array<ltc:Identifier>"
+    },
+    "hasObjectGroup": {
+      "description": "This property refers to one or more related instances of the ObjectGroup class.",
+      "type": "array<ltc:ObjectGroup>"
+    },
+    "hasReference": {
+      "description": "This property refers to one or more related instances of the Reference class.",
+      "type": "array<ltc:Reference>"
+    },
+    "hasSchemeMeasurementOrFact": {
+      "description": "This property refers to one or more related instances of the SchemeMeasurementOrFact class.",
+      "type": "array<ltc:SchemeMeasurementOrFact>"
+    },
+    "hasSchemeTerm": {
+      "description": "This property refers to one or more related instances of the SchemeTerm class.",
+      "type": "array<ltc:SchemeTerm>"
+    },
+    "isDistinctObjects": {
+      "description": "A flag to designate whether a physical object may be described by more than one ObjectGroup within the LatimerCoreScheme.",
+      "type": "boolean"
+    },
+    "schemeName": {
+      "description": "A short descriptive name given to the LatimerCoreScheme.",
+      "type": "string"
+    }
+  },
+  "required": [
+    "isDistinctObjects",
+    "schemeName"
+  ]
+}

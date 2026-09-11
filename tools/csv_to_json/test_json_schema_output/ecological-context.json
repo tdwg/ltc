@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema",
+  "$id": "https://raw.githubusercontent.com/tdwg/ltc/2026-json-test/source/json-schema/ecological-context.json",
+  "title": "Ecological Context",
+  "description": "The ecological and/or biogeographic classification of the region from which objects associated with the ObjectGroup were collected, or where an Event took place. There is some conceptual overlap with the GeographicContext class with respect to geographic locations. This class should be used for biogeographic and ecological concepts, whereas for physical, political and administrative geographic locations, the GeographicContext class is more appropriate. Specific information about the habitat and ecological conditions that applied at the time that an event took place should be recorded in the `habitat` property of the Event class.",
+  "type": "object",
+  "properties": {
+    "biogeographicRealm": {
+      "description": "The broadest biogeographic division of Earth's land and marine surface, based on distributional patterns of terrestrial and marine organisms.",
+      "type": "string"
+    },
+    "biome": {
+      "description": "A biogeographical unit consisting of a biological community that has formed in response to the physical environment in which they are found and a shared regional climate.",
+      "type": "string"
+    },
+    "biomeType": {
+      "description": "A top level classification of the type of biome from which objects were collected or where an event took place.",
+      "type": "string"
+    },
+    "bioregion": {
+      "description": "An ecologically and geographically defined area that is smaller than a biogeographic realm, but larger than an ecoregion or an ecosystem.",
+      "type": "string"
+    },
+    "ecoregion": {
+      "description": "An ecologically and geographically defined area that is smaller than a bioregion, which in turn is smaller than a biogeographic realm. Ecoregions cover relatively large areas of land or water, and contain characteristic, geographically distinct assemblages of natural communities and species.",
+      "type": "string"
+    },
+    "ecosystem": {
+      "description": "A specific kind of ecological classification that considers all four elements of the definition of ecosystems: a biotic component, an abiotic complex, the interactions between and within them, and the physical space that they occupy.",
+      "type": "string"
+    },
+    "habitat": {
+      "description": "A description of the type of environment in which an organism lives.",
+      "type": "string"
+    },
+    "hasIdentifier": {
+      "description": "This property refers to one or more related instances of the Identifier class.",
+      "type": "array<ltc:Identifier>"
+    },
+    "hasMeasurementOrFact": {
+      "description": "This property refers to one or more related instances of the MeasurementOrFact class.",
+      "type": "array<ltc:MeasurementOrFact>"
+    },
+    "hasReference": {
+      "description": "This property refers to one or more related instances of the Reference class.",
+      "type": "array<ltc:Reference>"
+    }
+  }
+}

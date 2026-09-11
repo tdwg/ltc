@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema",
+  "$id": "https://raw.githubusercontent.com/tdwg/ltc/2025-json-test/source/json-schema/chronometric-age.json",
+  "title": "Chronometric Age",
+  "description": "The age of a specimen or related materials that is generated from a dating assay. To represent a single age, enter the same value in both earliestChronometricAge and latestChronometricAge. Leaving one or both of these fields blank indicates that the value is unknown, has yet to be recorded or is not applicable to the material being described. We recommend that you do not use this class to indicate chronostratigraphy: it is intended to be used to reflect a chronometric age or range of ages determined via one or more named analytical protocols, methods or techniques.",
+  "type": "object",
+  "properties": {}
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema",
+  "$id": "https://raw.githubusercontent.com/tdwg/ltc/add-json-examples/source/json-schema/ecological-context.json",
+  "title": "Ecological Context",
+  "description": "The ecological and/or biogeographic classification of the region from which objects associated with the ObjectGroup were collected, or where an Event took place. There is some conceptual overlap with the GeographicContext class with respect to geographic locations. This class should be used for biogeographic and ecological concepts, whereas for physical, political and administrative geographic locations, the GeographicContext class is more appropriate. Specific information about the habitat and ecological conditions that applied at the time that an event took place should be recorded in the `habitat` property of the Event class.",
+  "type": "object",
+  "properties": {}
+}

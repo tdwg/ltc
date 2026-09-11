@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema",
+  "$id": "https://raw.githubusercontent.com/tdwg/ltc/2025-json-test/source/json-schema/latimer-core-scheme.json",
+  "title": "Latimer Core Scheme",
+  "description": "A grouping of multiple ObjectGroups for a particular use case, purpose or implementation. Where the same objects within the same collection might be described by more than one ObjectGroup for different purposes (for examples, a 'Darwin Fossil Mammals' collection description might overlap with a 'Offsite Palaeontology' collection description), this class can be used to distinguish between them and avoid double-counting of metrics in queries against the data.",
+  "type": "object",
+  "properties": {}
+}

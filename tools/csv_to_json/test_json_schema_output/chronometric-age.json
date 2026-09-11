@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema",
+  "$id": "https://raw.githubusercontent.com/tdwg/ltc/2026-json-test/source/json-schema/chronometric-age.json",
+  "title": "Chronometric Age",
+  "description": "The age of a specimen or related materials that is generated from a dating assay. To represent a single age, enter the same value in both earliestChronometricAge and latestChronometricAge. Leaving one or both of these fields blank indicates that the value is unknown, has yet to be recorded or is not applicable to the material being described. We recommend that you do not use this class to indicate chronostratigraphy: it is intended to be used to reflect a chronometric age or range of ages determined via one or more named analytical protocols, methods or techniques.",
+  "type": "object",
+  "properties": {
+    "chronometricAgeProtocol": {
+      "description": "A description of or reference to the methods used to determine the chronometric age.",
+      "type": "string"
+    },
+    "chronometricAgeRemarks": {
+      "description": "Notes or comments about the ChronometricAge.",
+      "type": "string"
+    },
+    "chronometricAgeUncertaintyInYears": {
+      "description": "The temporal uncertainty of the earliestChronometricAge and latestChronometicAge in years.",
+      "type": "number"
+    },
+    "earliestChronometricAge": {
+      "description": "The maximum/earliest/oldest possible age of a specimen as determined by a dating method.",
+      "type": "number"
+    },
+    "earliestChronometricAgeReferenceSystem": {
+      "description": "The reference system associated with the earliestChronometricAge.",
+      "type": "string"
+    },
+    "hasIdentifier": {
+      "description": "This property refers to one or more related instances of the Identifier class.",
+      "type": "array<ltc:Identifier>"
+    },
+    "hasMeasurementOrFact": {
+      "description": "This property refers to one or more related instances of the MeasurementOrFact class.",
+      "type": "array<ltc:MeasurementOrFact>"
+    },
+    "hasReference": {
+      "description": "This property refers to one or more related instances of the Reference class.",
+      "type": "array<ltc:Reference>"
+    },
+    "latestChronometricAge": {
+      "description": "The minimum/latest/youngest possible age of a specimen as determined by a dating method.",
+      "type": "number"
+    },
+    "latestChronometricAgeReferenceSystem": {
+      "description": "The reference system associated with the latestChronometricAge.",
+      "type": "string"
+    },
+    "verbatimChronometricAge": {
+      "description": "The verbatim age for a specimen, whether reported by a dating assay, associated references, or legacy information.",
+      "type": "string"
+    }
+  }
+}

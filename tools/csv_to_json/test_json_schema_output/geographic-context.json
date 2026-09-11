@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema",
+  "$id": "https://raw.githubusercontent.com/tdwg/ltc/2026-json-test/source/json-schema/geographic-context.json",
+  "title": "Geographic Context",
+  "description": "The geographic location from which objects associated with the ObjectGroup were collected, or where an Event took place.",
+  "type": "object",
+  "properties": {
+    "continent": {
+      "description": "The name of the continent in which the Location occurs.",
+      "type": "string"
+    },
+    "country": {
+      "description": "The name of the country or major administrative unit in which the Location occurs.",
+      "type": "string"
+    },
+    "countryCode": {
+      "description": "The standard code for the country in which the Location occurs.",
+      "type": "string"
+    },
+    "county": {
+      "description": "The full, unabbreviated name of the next smaller administrative region than stateProvince (county, shire, department, etc.) in which the Location occurs.",
+      "type": "string"
+    },
+    "hasIdentifier": {
+      "description": "This property refers to one or more related instances of the Identifier class.",
+      "type": "array<ltc:Identifier>"
+    },
+    "hasMeasurementOrFact": {
+      "description": "This property refers to one or more related instances of the MeasurementOrFact class.",
+      "type": "array<ltc:MeasurementOrFact>"
+    },
+    "hasReference": {
+      "description": "This property refers to one or more related instances of the Reference class.",
+      "type": "array<ltc:Reference>"
+    },
+    "island": {
+      "description": "The name of the island on or near which the Location occurs.",
+      "type": "string"
+    },
+    "islandGroup": {
+      "description": "The name of the island group in which the Location occurs.",
+      "type": "string"
+    },
+    "locality": {
+      "description": "The specific description of the place.",
+      "type": "string"
+    },
+    "municipality": {
+      "description": "The full, unabbreviated name of the next smaller administrative region than county (city, municipality, etc.) in which the Location occurs. Do not use this term for a nearby named place that does not contain the actual location.",
+      "type": "string"
+    },
+    "region": {
+      "description": "The name of a spatial region or named place of any size within an individual or multiple administrative areas.",
+      "type": "string"
+    },
+    "stateProvince": {
+      "description": "The name of the next smaller administrative region than country (state, province, canton, department, region, etc.) in which the Location occurs.",
+      "type": "string"
+    },
+    "waterBody": {
+      "description": "The name of the water body in which the Location occurs.",
+      "type": "string"
+    },
+    "waterBodyType": {
+      "description": "A term that indicates the aquatic order of a waterbody.",
+      "type": "string"
+    }
+  }
+}

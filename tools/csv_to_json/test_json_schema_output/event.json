@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft-04/schema",
+  "$id": "https://raw.githubusercontent.com/tdwg/ltc/2026-json-test/source/json-schema/event.json",
+  "title": "Event",
+  "description": "An action that occurs at some location during some time. Derived from dwc Class event (http://rs.tdwg.org/dwc/terms/version/Event-2018-09-06). This class has been defined under the ltc namespace because it only has a subset of the properties of DwC:Event. All ltc:Event properties are borrowed from and reference the dwc namespace. Examples of an Event include: A specimen collection process. A camera trap image capture. A marine trawl.",
+  "type": "object",
+  "properties": {
+    "eventName": {
+      "description": "The name commonly used to identify or refer to the event.",
+      "type": "string"
+    },
+    "hasEcologicalContext": {
+      "description": "This property refers to one or more related instances of the EcologicalContext class.",
+      "type": "array<ltc:EcologicalContext>"
+    },
+    "hasGeographicContext": {
+      "description": "This property refers to one or more related instances of the GeographicContext class.",
+      "type": "array<ltc:GeographicContext>"
+    },
+    "hasIdentifier": {
+      "description": "This property refers to one or more related instances of the Identifier class.",
+      "type": "array<ltc:Identifier>"
+    },
+    "hasMeasurementOrFact": {
+      "description": "This property refers to one or more related instances of the MeasurementOrFact class.",
+      "type": "array<ltc:MeasurementOrFact>"
+    },
+    "hasParentEvent": {
+      "description": "This property refers to one or more related parent instances of the Event class.",
+      "type": "array<ltc:Event>"
+    },
+    "hasPersonRole": {
+      "description": "This property refers to one or more related instances of the PersonRole class.",
+      "type": "array<ltc:PersonRole>"
+    },
+    "hasReference": {
+      "description": "This property refers to one or more related instances of the Reference class.",
+      "type": "array<ltc:Reference>"
+    },
+    "hasTemporalCoverage": {
+      "description": "This property refers to one or more related instances of the TemporalCoverage class.",
+      "type": "array<ltc:TemporalCoverage>"
+    },
+    "samplingProtocol": {
+      "description": "The names of, references to, or descriptions of the methods or protocols used during an Event.",
+      "type": "list"
+    },
+    "verbatimEventDate": {
+      "description": "The verbatim original representation of the date and time information for an Event.",
+      "type": "string"
+    }
+  }
+}
