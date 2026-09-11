@@ -1,34 +1,34 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Generate and validate Darwin Core Data Package artifacts.
+"""Generate and validate Latimer Core Data Package artifacts.
 
 Stage 1) Read the CSV files in ../vocabulary and generate:
-  ../dwc-dp/dwc-dp-profile.json
-  ../dwc-dp/table-schemas/*.json
+  ../ltc-dp/ltc-dp-profile.json
+  ../ltc-dp/table-schemas/*.json
 
 Stage 2) Validate the generated table schemas locally:
   - JSON validity and required field metadata
   - Frictionless Table Schema validity
-  - DwC-DP profile constraints
+  - LtC-DP profile constraints
   - foreign-key source/target integrity and primary-key alignment
 
 Stage 3) Render:
-  ../qrg/index.html (DwC-DP Quick Reference Guide)
+  ../qrg/index.html (LtC-DP Quick Reference Guide)
 
-Stage 4) Generate:
-  ../sql/dwc-dp.sql (PostgreSQL DDL)
+Stage 4) PostgreSQL DDL generation is currently disabled:
+  ../sql/ltc-dp.sql
 
 Stage 5) Generate:
-  ../designer/ (DwC-DP Designer)
+  ../designer/ (LtC-DP Designer)
 
-Validation is performed before QRG and SQL generation.  Validation errors cause a
+Validation is performed before QRG generation.  Validation errors cause a
 non-zero exit and prevent the QRG from being rendered.
 
 Usage:
-  python process_dwcdp.py <version>
+  python process_ltcdp.py <version>
 
 Example:
-  python process_dwcdp.py http://rs.tdwg.org/dwc-dp/1.0_DEV
+  python process_ltcdp.py http://rs.tdwg.org/ltc-dp/1.0_DEV
 """
 
 import os
@@ -64,11 +64,11 @@ except ImportError as exc:  # pragma: no cover
 
 # Expected headers for each source CSV.  Order is NOT enforced; presence is.
 EXPECTED_HEADERS = {
-    "dwc-dp-tables.csv": {
+    "ltc-dp-tables.csv": {
         "name", "title", "description", "notes", "example", "namespace",
         "dcterms:isVersionOf", "dcterms:references", "rdfs:comment", "status",
     },
-    "dwc-dp-fields.csv": {
+    "ltc-dp-fields.csv": {
         "table", "name", "key", "predicate", "related_table", "related_field",
         "title", "description", "notes", "example", "type", "format",
         "unique", "required", "minimum", "maximum", "namespace",
@@ -81,12 +81,12 @@ BOOLEAN_COLUMNS = {"required", "unique"}
 
 
 # Field-level properties explicitly checked on every generated field.
-# Additional DwC-DP field requirements are enforced by profile validation.
+# Additional LtC-DP field requirements are enforced by profile validation.
 REQUIRED_FIELD_PROPERTIES = ("description", "type")
 
-# The DwC-DP profile references this remote Frictionless Data Package schema.
+# The LtC-DP profile references this remote Frictionless Data Package schema.
 # To keep processing fully local, that external reference is resolved to an
-# empty schema during the DwC-DP-specific profile pass.  Base Frictionless
+# empty schema during the LtC-DP-specific profile pass.  Base Frictionless
 # Table Schema validity is checked independently with frictionless.Schema.
 FRICTIONLESS_DATA_PACKAGE_SCHEMA_URI = (
     "https://specs.frictionlessdata.io/schemas/data-package.json"
@@ -97,59 +97,22 @@ FRICTIONLESS_DATA_PACKAGE_SCHEMA_URI = (
 # ---------------------------------------------------------------------------
 
 # Name of the profile template, which lives alongside this script.
-PROFILE_TEMPLATE_FILENAME = "dwc-dp-profile_template.json"
+PROFILE_TEMPLATE_FILENAME = "ltc-dp-profile_template.json"
 
-# Name of the generated profile, written in ../dwc-dp/.
-PROFILE_OUTPUT_FILENAME = "dwc-dp-profile.json"
+# Name of the generated profile, written in ../ltc-dp/.
+PROFILE_OUTPUT_FILENAME = "ltc-dp-profile.json"
 
-# Location, within the profile template, of the enum listing the resource names
-# that belong to a version.  Every key except the last must resolve to an object.
-PROFILE_ENUM_PATH = ("$defs", "dwc-dp-resource-names", "enum")
-
-# The template must carry exactly this one-item enum at PROFILE_ENUM_PATH.  The
-# placeholder is replaced with the recommended table names for the version.
-PROFILE_ENUM_PLACEHOLDER = "{{DWC_DP_RESOURCE_NAMES}}"
-
-# Location, within the profile template, of the version string.  Every key
-# except the last must resolve to an object.
-PROFILE_VERSION_PATH = ("version",)
-
-# The template must carry exactly this string at PROFILE_VERSION_PATH.  The
-# placeholder is replaced with the version given on the command line.
-PROFILE_VERSION_PLACEHOLDER = "{{DWC_DP_VERSION}}"
+# Profile placeholders.  The processor locates these by value rather than
+# assuming a particular $defs key, so the Latimer Core profile template may
+# retain whatever internal definition name it already uses.
+PROFILE_ENUM_PLACEHOLDER = "{{LTC_DP_RESOURCE_NAMES}}"
+PROFILE_VERSION_PLACEHOLDER = "{{LTC_DP_VERSION}}"
 
 # Ordered display groups for the QRG.  Every recommended table name must appear
 # exactly once; validate_ordered_groups() enforces this at runtime.
-ORDERED_GROUPS = [
-    ['event', 'chronometric-age', 'geological-context', 'occurrence', 'organism',
-     'organism-interaction'],
-    ['survey', 'survey-survey-target', 'survey-target', 'survey-target-descriptor'],
-    ['identification', 'identification-taxon'],
-    ['material', 'geological-material', 'material-geological-context'],
-    ['nucleotide-analysis', 'molecular-protocol', 'nucleotide-sequence'],
-    ['agent', 'agent-agent-role', 'chronometric-age-agent-role', 'event-agent-role',
-     'identification-agent-role', 'material-agent-role', 'media-agent-role',
-     'molecular-protocol-agent-role', 'occurrence-agent-role',
-     'organism-interaction-agent-role', 'survey-agent-role'],
-    ['media', 'agent-media', 'chronometric-age-media', 'event-media',
-     'geological-context-media', 'material-media', 'occurrence-media',
-     'organism-interaction-media'],
-    ['protocol', 'chronometric-age-protocol', 'event-protocol', 'material-protocol',
-     'occurrence-protocol', 'survey-protocol'],
-    ['bibliographic-resource', 'chronometric-age-reference', 'event-reference',
-     'identification-reference', 'material-reference', 'molecular-protocol-reference',
-     'occurrence-reference', 'organism-reference', 'organism-interaction-reference',
-     'protocol-reference', 'survey-reference'],
-    ['chronometric-age-assertion', 'event-assertion', 'material-assertion',
-     'media-assertion', 'molecular-protocol-assertion', 'nucleotide-analysis-assertion',
-     'occurrence-assertion', 'organism-assertion', 'organism-interaction-assertion',
-     'survey-assertion'],
-    ['agent-identifier', 'event-identifier', 'material-identifier', 'media-identifier',
-     'occurrence-identifier', 'organism-identifier', 'survey-identifier'],
-    ['provenance', 'event-provenance', 'material-provenance', 'media-provenance'],
-    ['usage-policy', 'event-usage-policy', 'material-usage-policy', 'media-usage-policy'],
-    ['organism-relationship', 'resource-relationship'],
-]
+# LtC-DP QRG order follows the order of recommended table rows in
+# ltc-dp-tables.csv.  No standard-specific table grouping is hard-coded here.
+ORDERED_GROUPS = None
 
 # ---------------------------------------------------------------------------
 # Path helpers
@@ -161,13 +124,13 @@ def repo_root_from_script() -> Path:
 
 
 def _derive_paths(version: str):
-    """Return all paths used by DwC-DP generation, validation, QRG, and SQL output."""
+    """Return all paths used by LtC-DP generation, validation, QRG, and SQL output."""
     root = repo_root_from_script()
     script_dir = Path(__file__).resolve().parent
 
-    table_schemas_dir = root / "dwc-dp" / "table-schemas"
+    table_schemas_dir = root / "ltc-dp" / "table-schemas"
     output_html_path = root / "qrg" / "index.html"
-    profile_json_path = root / "dwc-dp" / PROFILE_OUTPUT_FILENAME
+    profile_json_path = root / "ltc-dp" / PROFILE_OUTPUT_FILENAME
 
     # Templates and SQL configuration live alongside this script.
     template_path = script_dir / "qrg_template.html"
@@ -264,46 +227,13 @@ def validate_csv_headers(vocabulary_dir: Path) -> None:
 
 
 def validate_ordered_groups(recommended_table_names: set) -> None:
-    """Ensure every recommended table appears in ORDERED_GROUPS exactly once.
-
-    Raises ValueError listing any tables that are absent from ORDERED_GROUPS,
-    and logs warnings for any names in ORDERED_GROUPS that are not recommended.
-    """
-    grouped = [name for group in ORDERED_GROUPS for name in group]
-
-    # Check for duplicates within ORDERED_GROUPS itself.
-    seen = set()
-    duplicates = []
-    for name in grouped:
-        if name in seen:
-            duplicates.append(name)
-        seen.add(name)
-    if duplicates:
-        raise ValueError(
-            f"ORDERED_GROUPS contains duplicate table names: {duplicates}"
-        )
-
-    grouped_set = set(grouped)
-    missing_from_groups = recommended_table_names - grouped_set
-    if missing_from_groups:
-        raise ValueError(
-            "The following recommended tables are not listed in ORDERED_GROUPS "
-            "and would be silently omitted from the QRG.  Add them to "
-            f"ORDERED_GROUPS:\n  {sorted(missing_from_groups)}"
-        )
-
-    unknown_in_groups = grouped_set - recommended_table_names
-    if unknown_in_groups:
-        print(
-            "Warning: ORDERED_GROUPS references table names that are not recommended "
-            "in dwc-dp-tables.csv (they will be skipped): "
-            f"{sorted(unknown_in_groups)}"
-        )
+    """LtC-DP QRG order is supplied by ltc-dp-tables.csv; no group check is needed."""
+    return
 
 
 def load_recommended_tables_map(vocabulary_dir: Path) -> dict:
     """Return {table_name: row_dict} for every recommended table."""
-    tables_csv = vocabulary_dir / "dwc-dp-tables.csv"
+    tables_csv = vocabulary_dir / "ltc-dp-tables.csv"
     tables = {}
     with tables_csv.open("r", encoding="utf-8-sig", newline="") as fh:
         reader = csv.DictReader(fh)
@@ -316,9 +246,24 @@ def load_recommended_tables_map(vocabulary_dir: Path) -> dict:
     return tables
 
 
+def load_recommended_table_names_in_order(vocabulary_dir: Path) -> list[str]:
+    """Return recommended table names in ltc-dp-tables.csv row order."""
+    tables_csv = vocabulary_dir / "ltc-dp-tables.csv"
+    names = []
+    with tables_csv.open("r", encoding="utf-8-sig", newline="") as fh:
+        reader = csv.DictReader(fh)
+        for row in reader:
+            if (row.get("status", "") or "").strip().lower() != "recommended":
+                continue
+            name = (row.get("name", "") or "").strip()
+            if name:
+                names.append(name)
+    return names
+
+
 def load_recommended_fields_map(vocabulary_dir: Path) -> dict:
     """Return {table_name: [ordered field rows]} for every recommended field."""
-    fields_csv = vocabulary_dir / "dwc-dp-fields.csv"
+    fields_csv = vocabulary_dir / "ltc-dp-fields.csv"
     fields_by_table = defaultdict(list)
     with fields_csv.open("r", encoding="utf-8-sig", newline="") as fh:
         reader = csv.DictReader(fh)
@@ -335,7 +280,7 @@ def load_recommended_fields_map(vocabulary_dir: Path) -> dict:
 def validate_field_relationship_metadata(
     recommended_tables: dict, recommended_fields: dict
 ) -> None:
-    """Validate relationship metadata embedded in dwc-dp-fields.csv."""
+    """Validate relationship metadata embedded in ltc-dp-fields.csv."""
     field_names_by_table = {
         table_name: {(row.get("name", "") or "").strip() for row in rows}
         for table_name, rows in recommended_fields.items()
@@ -348,7 +293,7 @@ def validate_field_relationship_metadata(
         if table_name not in recommended_tables:
             errors.append(
                 f"Recommended field rows exist for table '{table_name}', "
-                "but that table is not recommended in dwc-dp-tables.csv"
+                "but that table is not recommended in ltc-dp-tables.csv"
             )
         for row in rows:
             field_name = (row.get("name", "") or "").strip()
@@ -403,14 +348,14 @@ def validate_field_relationship_metadata(
 
     if errors:
         raise ValueError(
-            "Relationship metadata validation failed in dwc-dp-fields.csv\n  - "
+            "Relationship metadata validation failed in ltc-dp-fields.csv\n  - "
             + "\n  - ".join(errors)
         )
 
 
 def build_table_schemas(vocabulary_dir: Path, version: str) -> list:
-    """Build the tableSchemas list from recommended rows in dwc-dp-tables.csv."""
-    tables_csv = vocabulary_dir / "dwc-dp-tables.csv"
+    """Build the tableSchemas list from recommended rows in ltc-dp-tables.csv."""
+    tables_csv = vocabulary_dir / "ltc-dp-tables.csv"
     table_schemas = []
     with tables_csv.open("r", encoding="utf-8-sig", newline="") as fh:
         reader = csv.DictReader(fh)
@@ -568,7 +513,7 @@ def write_table_schema_files(
 # ---------------------------------------------------------------------------
 
 def load_profile_template(profile_template_path: Path) -> dict:
-    """Load and parse the DwC-DP profile template from disk."""
+    """Load and parse the LtC-DP profile template from disk."""
     if not profile_template_path.is_file():
         raise FileNotFoundError(
             f"Profile template not found: {profile_template_path}\n"
@@ -590,66 +535,117 @@ def load_profile_template(profile_template_path: Path) -> dict:
     return template
 
 
-def _locate_profile_container(profile: dict, path: tuple) -> tuple:
-    """Return (container_object, final_key) for path within profile.
+def _find_placeholder_locations(value, predicate, path=()):
+    """Return (parent, key/index, path) triples whose value matches predicate."""
+    matches = []
 
-    Raises ValueError if the path does not resolve, so a drifted template fails
-    loudly rather than producing a profile with an unfilled placeholder.
+    if isinstance(value, dict):
+        for key, child in value.items():
+            child_path = path + (str(key),)
+            if predicate(child):
+                matches.append((value, key, child_path))
+            matches.extend(_find_placeholder_locations(child, predicate, child_path))
+    elif isinstance(value, list):
+        for index, child in enumerate(value):
+            child_path = path + (str(index),)
+            if predicate(child):
+                matches.append((value, index, child_path))
+            matches.extend(_find_placeholder_locations(child, predicate, child_path))
+
+    return matches
+
+
+def _find_resource_names_enum(profile: dict):
+    """Locate the profile enum that declares the table/resource names.
+
+    The Latimer Core template is not required to use a particular $defs key.
+    During template processing, the target is identified by its one-item
+    placeholder enum.  After generation, the target is identified as the
+    resource-name enum containing the generated table names.
     """
-    container = profile
-    for depth, key in enumerate(path[:-1]):
-        nxt = container.get(key) if isinstance(container, dict) else None
-        if not isinstance(nxt, dict):
-            traversed = "/".join(path[: depth + 1])
-            raise ValueError(
-                "Profile template does not contain the expected object at "
-                f"'{traversed}'.  Expected path: {'/'.join(path)}"
-            )
-        container = nxt
-    return container, path[-1]
+    defs = profile.get("$defs")
+    if not isinstance(defs, dict):
+        raise ValueError("Profile does not contain a '$defs' object")
+
+    candidates = []
+    for def_name, definition in defs.items():
+        if not isinstance(definition, dict):
+            continue
+        enum_value = definition.get("enum")
+        if isinstance(enum_value, list):
+            candidates.append((definition, "enum", ("$defs", def_name, "enum"), enum_value))
+
+    return candidates
 
 
 def build_profile_payload(template: dict, recommended_table_names, version: str) -> dict:
-    """Return a copy of the template with both placeholders filled in.
+    """Return a copy of the template with resource names and version filled in.
 
-    The enum at PROFILE_ENUM_PATH is populated with the sorted names of the
-    recommended tables, which are exactly the tables that make up the version.
-    The string at PROFILE_VERSION_PATH is replaced with the version given on the
-    command line, used verbatim.  Nothing else in the template is altered.
+    The resource-name enum is found from its placeholder value rather than from
+    a hard-coded $defs key.  This avoids imposing a Darwin Core-derived internal
+    definition name on the Latimer Core profile template.
     """
     if not recommended_table_names:
         raise ValueError(
             "Cannot build the profile: no recommended tables were found in "
-            "dwc-dp-tables.csv"
+            "ltc-dp-tables.csv"
         )
     if not str(version or "").strip():
         raise ValueError("Cannot build the profile: version is empty")
 
     payload = copy.deepcopy(template)
 
-    # Resource-name enum.
-    container, enum_key = _locate_profile_container(payload, PROFILE_ENUM_PATH)
-    current = container.get(enum_key)
-    if current != [PROFILE_ENUM_PLACEHOLDER]:
-        raise ValueError(
-            f"Profile template placeholder not found at "
-            f"{'/'.join(PROFILE_ENUM_PATH)}.  Expected exactly "
-            f'["{PROFILE_ENUM_PLACEHOLDER}"], found: '
-            f"{json.dumps(current, ensure_ascii=False)}"
-        )
-    container[enum_key] = sorted(recommended_table_names)
+    # Resource-name enum: prefer the LtC placeholder, but also accept a
+    # pre-existing equivalent placeholder ending in RESOURCE_NAMES}} so a
+    # template does not have to rename its internal token merely for this script.
+    enum_matches = []
+    for container, key, path, enum_value in _find_resource_names_enum(payload):
+        if len(enum_value) != 1 or not isinstance(enum_value[0], str):
+            continue
+        token = enum_value[0].strip()
+        if (
+            token == PROFILE_ENUM_PLACEHOLDER
+            or (token.startswith("{{") and token.endswith("RESOURCE_NAMES}}"))
+        ):
+            enum_matches.append((container, key, path, token))
 
-    # Version string.
-    container, version_key = _locate_profile_container(payload, PROFILE_VERSION_PATH)
-    current = container.get(version_key)
-    if current != PROFILE_VERSION_PLACEHOLDER:
+    if len(enum_matches) != 1:
+        found = ["/".join(path) for _, _, path, _ in enum_matches]
         raise ValueError(
-            f"Profile template placeholder not found at "
-            f"{'/'.join(PROFILE_VERSION_PATH)}.  Expected exactly "
-            f'"{PROFILE_VERSION_PLACEHOLDER}", found: '
-            f"{json.dumps(current, ensure_ascii=False)}"
+            "Could not uniquely identify the resource-name placeholder enum in "
+            "ltc-dp-profile_template.json. Expected exactly one $defs entry with "
+            f'an enum like ["{PROFILE_ENUM_PLACEHOLDER}"]. '
+            f"Matching locations found: {found or 'none'}"
         )
-    container[version_key] = version
+
+    enum_container, enum_key, _, _ = enum_matches[0]
+    enum_container[enum_key] = sorted(recommended_table_names)
+
+    # Version placeholder.  Prefer the Latimer Core token but accept an
+    # equivalent {{...VERSION}} token so existing template internals can remain.
+    version_matches = _find_placeholder_locations(
+        payload,
+        lambda value: isinstance(value, str)
+        and (
+            value.strip() == PROFILE_VERSION_PLACEHOLDER
+            or (
+                value.strip().startswith("{{")
+                and value.strip().endswith("VERSION}}")
+            )
+        ),
+    )
+
+    if len(version_matches) != 1:
+        found = ["/".join(path) for _, _, path in version_matches]
+        raise ValueError(
+            "Could not uniquely identify the version placeholder in "
+            "ltc-dp-profile_template.json. Expected exactly one placeholder like "
+            f'"{PROFILE_VERSION_PLACEHOLDER}". '
+            f"Matching locations found: {found or 'none'}"
+        )
+
+    version_container, version_key, _ = version_matches[0]
+    version_container[version_key] = version
 
     return payload
 
@@ -682,7 +678,7 @@ def make_schema_stage(
     profile_json_path: Path,
     profile_template_path: Path,
 ) -> None:
-    """Validate CSVs, build table schemas, and write the DwC-DP profile."""
+    """Validate CSVs, build table schemas, and write the LtC-DP profile."""
     out_dir = table_schemas_dir.parent
     out_dir.mkdir(parents=True, exist_ok=True)
     table_schemas_dir.mkdir(parents=True, exist_ok=True)
@@ -807,24 +803,24 @@ def check_dwc_dp_profile(
     profile_json_path: Path,
     result: ValidationResult,
 ) -> None:
-    """Validate generated schemas against DwC-DP-specific profile constraints.
+    """Validate generated schemas against LtC-DP-specific profile constraints.
 
-    ``dwc-dp-profile.json`` is formally a Data Package profile, while the build
+    ``ltc-dp-profile.json`` is formally a Data Package profile, while the build
     produces standalone Table Schema descriptors.  To exercise the profile
-    rules that apply to recognized DwC-DP resources, this function constructs
+    rules that apply to recognized LtC-DP resources, this function constructs
     an in-memory Data Package whose resources contain the generated schemas.
 
     The external Frictionless Data Package ``$ref`` is resolved locally to an
     empty schema.  Frictionless Table Schema validity is checked separately by
     ``check_frictionless``; this pass therefore enforces the additional
-    DwC-DP-specific constraints expressed by the generated local profile.
+    LtC-DP-specific constraints expressed by the generated local profile.
     """
     profile = load_json_for_validation(profile_json_path, result)
     if profile is None:
         return
 
     synthetic_package = {
-        "profile": profile.get("version", "urn:dwc-dp:profile"),
+        "profile": profile.get("version", "urn:ltc-dp:profile"),
         "resources": [
             {
                 "name": name,
@@ -844,7 +840,7 @@ def check_dwc_dp_profile(
         Draft4Validator.check_schema(profile)
     except Exception as exc:
         result.error(
-            f"Invalid DwC-DP profile schema '{profile_json_path}': {exc}"
+            f"Invalid LtC-DP profile schema '{profile_json_path}': {exc}"
         )
         return
 
@@ -877,7 +873,7 @@ def check_dwc_dp_profile(
     seen = set()
     for error in leaf_errors:
         if error.validator == "not":
-            # For a recognized DwC-DP resource, the first branch of the
+            # For a recognized LtC-DP resource, the first branch of the
             # profile's oneOf is expected to fail this "not" condition.
             continue
 
@@ -887,7 +883,7 @@ def check_dwc_dp_profile(
             continue
         seen.add(key)
         result.error(
-            f"DwC-DP profile validation failed at '{path}': {error.message}"
+            f"LtC-DP profile validation failed at '{path}': {error.message}"
         )
 
     if not seen:
@@ -899,7 +895,7 @@ def check_dwc_dp_profile(
                 or "<package>"
             )
             result.error(
-                f"DwC-DP profile validation failed at '{path}': {error.message}"
+                f"LtC-DP profile validation failed at '{path}': {error.message}"
             )
 
 
@@ -1013,7 +1009,7 @@ def build_foreign_key_summary(table_schema: dict, current_table_name: str = None
     """Build the relationship summary in the same order as key fields occur.
 
     The table schema's ``fields`` array preserves the row order from
-    dwc-dp-fields.csv.  Relationship metadata is stored separately as primaryKey,
+    ltc-dp-fields.csv.  Relationship metadata is stored separately as primaryKey,
     weakPrimaryKey, foreignKeys, and weakForeignKeys, so iterating those structures
     directly groups rows by relationship type.  Instead, collect relationship rows
     by source field and then emit them while walking ``fields`` in schema order.
@@ -1063,7 +1059,7 @@ def build_foreign_key_summary(table_schema: dict, current_table_name: str = None
                 )
 
     # Emit relationship rows in exactly the order their source fields occur in the
-    # schema fields array, which preserves dwc-dp-fields.csv order for this table.
+    # schema fields array, which preserves ltc-dp-fields.csv order for this table.
     relationships = []
     emitted_fields = set()
     for field in (table_schema.get("fields") or []):
@@ -1228,88 +1224,89 @@ def generate_qrg(
     content_parts = []
     class_links_parts = []
 
-    for group in ORDERED_GROUPS:
-        for table_name in group:
-            schema_file = table_schemas_dir / f"{table_name}.json"
-            if not schema_file.is_file():
-                print(
-                    f"Warning: Schema file for '{table_name}' not found at "
-                    f"{schema_file} — skipping."
-                )
-                continue
-            with schema_file.open("r", encoding="utf-8") as f:
-                schema = json.load(f)
+    vocabulary_dir = repo_root_from_script() / "vocabulary"
+    ordered_table_names = load_recommended_table_names_in_order(vocabulary_dir)
 
-            table = schema
-            fields = schema.get("fields", [])
-            class_name = table.get("title", table_name)
+    for table_name in ordered_table_names:
+        schema_file = table_schemas_dir / f"{table_name}.json"
+        if not schema_file.is_file():
+            print(
+                f"Warning: Schema file for '{table_name}' not found at "
+                f"{schema_file} — skipping."
+            )
+            continue
+        with schema_file.open("r", encoding="utf-8") as f:
+            schema = json.load(f)
 
-            # --- Table header ---
+        table = schema
+        fields = schema.get("fields", [])
+        class_name = table.get("title", table_name)
+
+        # --- Table header ---
+        content_parts.append(
+            f'<div class="class-header-wrapper">'
+            f'<h2 id="{class_name}" class="class-header">{class_name}</h2>'
+            f'</div>'
+        )
+
+        if table.get("identifier"):
             content_parts.append(
-                f'<div class="class-header-wrapper">'
-                f'<h2 id="{class_name}" class="class-header">{class_name}</h2>'
-                f'</div>'
+                f'<p><strong>Identifier:</strong> {table["identifier"]}</p>'
             )
 
-            if table.get("identifier"):
-                content_parts.append(
-                    f'<p><strong>Identifier:</strong> {table["identifier"]}</p>'
-                )
+        content_parts.append(
+            f'<p><strong>Description:</strong> '
+            f'{table.get("description", "No description.")}</p>'
+        )
 
+        if table.get("notes"):
             content_parts.append(
-                f'<p><strong>Description:</strong> '
-                f'{table.get("description", "No description.")}</p>'
+                f'<p><strong>Notes:</strong> {table["notes"]}</p>'
             )
 
-            if table.get("notes"):
+        ex_val = table.get("examples") or table.get("example")
+        if ex_val:
+            content_parts.append("<p><strong>Examples:</strong></p>")
+            parts = [ex.strip() for ex in str(ex_val).split(";") if ex.strip()]
+            ex_html = ""
+            for i, ex in enumerate(parts):
+                if i > 0:
+                    ex_html += '<div class="examples-separator"></div>'
+                ex_html += f'<div class="examples-content">{ex}</div>'
+            content_parts.append(ex_html)
+
+        # dcterms:isVersionOf for the table.
+        src = str(table.get("dcterms:isVersionOf") or "").strip()
+        if src:
+            if src.startswith(("http://", "https://")) and "example.com" not in src:
                 content_parts.append(
-                    f'<p><strong>Notes:</strong> {table["notes"]}</p>'
+                    f'<p><strong>dcterms:isVersionOf:</strong> '
+                    f'<a href="{src}" target="_blank">{src}</a></p>'
+                )
+            else:
+                content_parts.append(
+                    f'<p><strong>dcterms:isVersionOf:</strong> {src}</p>'
                 )
 
-            ex_val = table.get("examples") or table.get("example")
-            if ex_val:
-                content_parts.append("<p><strong>Examples:</strong></p>")
-                parts = [ex.strip() for ex in str(ex_val).split(";") if ex.strip()]
-                ex_html = ""
-                for i, ex in enumerate(parts):
-                    if i > 0:
-                        ex_html += '<div class="examples-separator"></div>'
-                    ex_html += f'<div class="examples-content">{ex}</div>'
-                content_parts.append(ex_html)
+        # Relationship summary (schema already loaded above).
+        content_parts.append(build_foreign_key_summary(schema, table_name))
 
-            # dcterms:isVersionOf for the table.
-            src = str(table.get("dcterms:isVersionOf") or "").strip()
-            if src:
-                if src.startswith(("http://", "https://")) and "example.com" not in src:
-                    content_parts.append(
-                        f'<p><strong>dcterms:isVersionOf:</strong> '
-                        f'<a href="{src}" target="_blank">{src}</a></p>'
-                    )
-                else:
-                    content_parts.append(
-                        f'<p><strong>dcterms:isVersionOf:</strong> {src}</p>'
-                    )
-
-            # Relationship summary (schema already loaded above).
-            content_parts.append(build_foreign_key_summary(schema, table_name))
-
-            # Field index and term sections.
-            field_links = generate_field_links(fields, class_name)
-            if field_links:
-                content_parts.append(
-                    f'<nav class="field-index"><strong>Fields:</strong><br>'
-                    f'{field_links}</nav>'
-                )
-            for field in fields:
-                term_html = build_term_section(field, class_name)
-                if term_html:
-                    content_parts.append(term_html)
-
-            class_links_parts.append(
-                f'<a class="class-box" href="#{class_name}">{class_name}</a>'
+        # Field index and term sections.
+        field_links = generate_field_links(fields, class_name)
+        if field_links:
+            content_parts.append(
+                f'<nav class="field-index"><strong>Fields:</strong><br>'
+                f'{field_links}</nav>'
             )
+        for field in fields:
+            term_html = build_term_section(field, class_name)
+            if term_html:
+                content_parts.append(term_html)
 
-        class_links_parts.append('<div class="menu-separator"></div>')
+        class_links_parts.append(
+            f'<a class="class-box" href="#{class_name}">{class_name}</a>'
+        )
+
     template = load_template(template_path)
     html = template.format(
         content="\n".join(content_parts),
@@ -1862,7 +1859,7 @@ class SqlGenerator:
 # ---------------------------------------------------------------------------
 
 SQL_CONFIG_FILENAME = "generate_sql.yaml"
-SQL_OUTPUT_FILENAME = "dwc-dp.sql"
+SQL_OUTPUT_FILENAME = "ltc-dp.sql"
 
 DESIGNER_TEMPLATE_DIRNAME = "designer_template"
 DESIGNER_DATA_FILENAME = "data.js"
@@ -1874,7 +1871,7 @@ def generate_postgresql_ddl(
     output_path: Path,
     version: str,
 ) -> None:
-    """Generate PostgreSQL DDL from the validated DwC-DP table schemas."""
+    """Generate PostgreSQL DDL from the validated LtC-DP table schemas."""
     if not config_path.is_file():
         raise GeneratorError(f"SQL configuration file not found: {config_path}")
 
@@ -1882,7 +1879,7 @@ def generate_postgresql_ddl(
     config = load_sidecar(config_path)
 
     # The SQL metadata version is derived from the same version argument used
-    # to generate the DwC-DP profile and table schemas.  It is intentionally
+    # to generate the LtC-DP profile and table schemas.  It is intentionally
     # not maintained independently in generate_sql.yaml.
     metadata = config.setdefault("metadata", {})
     metadata["version"] = version
@@ -1896,7 +1893,7 @@ def generate_postgresql_ddl(
 
 
 # ---------------------------------------------------------------------------
-# Stage 5: DwC-DP Designer generation
+# Stage 5: LtC-DP Designer generation
 # ---------------------------------------------------------------------------
 
 def generate_designer(
@@ -1906,7 +1903,7 @@ def generate_designer(
     profile_json_path: Path,
     table_schemas_dir: Path,
 ) -> None:
-    """Publish the Designer and embed the current DwC-DP model in data.js."""
+    """Publish the Designer and embed the current LtC-DP model in data.js."""
     required_files = (
         Path("index.html"),
         Path("styles.css"),
@@ -1926,19 +1923,33 @@ def generate_designer(
     profile = load_json_for_validation(profile_json_path, ValidationResult())
     if profile is None:
         raise FileNotFoundError(
-            f"Could not load generated DwC-DP profile: {profile_json_path}"
+            f"Could not load generated LtC-DP profile: {profile_json_path}"
         )
 
-    table_names = (
-        profile.get("$defs", {})
-        .get("dwc-dp-resource-names", {})
-        .get("enum", [])
-    )
-    if not isinstance(table_names, list) or not table_names:
+    # Locate the generated resource-name enum without assuming a particular
+    # $defs key.  The correct enum is the one whose values exactly match the
+    # generated table-schema filenames.
+    generated_schema_names = {
+        path.stem for path in table_schemas_dir.glob("*.json")
+    }
+    resource_name_candidates = []
+    for _, _, path, enum_value in _find_resource_names_enum(profile):
+        if (
+            enum_value
+            and all(isinstance(value, str) for value in enum_value)
+            and set(enum_value) == generated_schema_names
+        ):
+            resource_name_candidates.append((path, enum_value))
+
+    if len(resource_name_candidates) != 1:
+        found = ["/".join(path) for path, _ in resource_name_candidates]
         raise ValueError(
-            "Generated DwC-DP profile does not contain "
-            "$defs.dwc-dp-resource-names.enum"
+            "Could not uniquely identify the generated LtC-DP resource-name enum. "
+            "Expected one $defs enum whose values exactly match the generated "
+            f"table schemas. Matching locations found: {found or 'none'}"
         )
+
+    table_names = resource_name_candidates[0][1]
 
     schemas = {}
     for table_name in table_names:
@@ -1959,7 +1970,7 @@ def generate_designer(
     normalized_version = str(version).rstrip("/")
     designer_data = {
         "dwcDpVersion": version,
-        "profileIdentifier": normalized_version + "/dwc-dp-profile.json",
+        "profileIdentifier": normalized_version + "/ltc-dp-profile.json",
         "profile": profile,
         "schemas": schemas,
     }
@@ -1977,11 +1988,11 @@ def generate_designer(
 
 def parse_args(argv=None):
     parser = argparse.ArgumentParser(
-        description="Generate, validate, and render DwC-DP artifacts and PostgreSQL DDL"
+        description="Generate, validate, and render LtC-DP artifacts"
     )
     parser.add_argument(
         "version",
-        help="DwC-DP version (e.g., http://rs.tdwg.org/dwc-dp/1.0_DEV)",
+        help="LtC-DP version (e.g., http://rs.tdwg.org/ltc-dp/1.0_DEV)",
     )
     return parser.parse_args(argv)
 
@@ -2002,7 +2013,7 @@ def main(argv=None) -> int:
     ) = _derive_paths(args.version)
 
     # Stage 1: generate profile and standalone table schemas.
-    print(f"Generating DwC-DP profile and table schemas in {table_schemas_dir.parent}...")
+    print(f"Generating LtC-DP profile and table schemas in {table_schemas_dir.parent}...")
     make_schema_stage(
         table_schemas_dir,
         args.version,
@@ -2015,7 +2026,7 @@ def main(argv=None) -> int:
     )
 
     # Stage 2: validate exactly the artifacts just generated.
-    print(f"Validating generated DwC-DP artifacts in {table_schemas_dir}...")
+    print(f"Validating generated LtC-DP artifacts in {table_schemas_dir}...")
     validation = validate_generated_artifacts(
         table_schemas_dir,
         profile_json_path,
@@ -2025,7 +2036,7 @@ def main(argv=None) -> int:
         return 1
 
     # Stage 3: render the QRG only from validated table schemas.
-    print(f"Rendering DwC-DP Quick Reference Guide to {output_html_path}...")
+    print(f"Rendering LtC-DP Quick Reference Guide to {output_html_path}...")
     generate_qrg(
         table_schemas_dir,
         output_html_path,
@@ -2034,24 +2045,24 @@ def main(argv=None) -> int:
     )
     print(f"QRG rendering complete: {output_html_path}")
 
-    # Stage 4: generate PostgreSQL DDL from the validated table schemas.
-    print(f"Generating PostgreSQL DDL to {sql_output_path}...")
-    try:
-        generate_postgresql_ddl(
-            table_schemas_dir,
-            sql_config_path,
-            sql_output_path,
-            args.version,
-        )
-    except GeneratorError as exc:
-        print(f"Error: {exc}")
-        print("Processing stopped because PostgreSQL DDL generation failed.")
-        return 1
-
-    print(f"PostgreSQL DDL generation complete: {sql_output_path}")
+    # Stage 4: PostgreSQL DDL generation is intentionally disabled for LtC-DP.
+    # print(f"Generating PostgreSQL DDL to {sql_output_path}...")
+    # try:
+    #     generate_postgresql_ddl(
+    #         table_schemas_dir,
+    #         sql_config_path,
+    #         sql_output_path,
+    #         args.version,
+    #     )
+    # except GeneratorError as exc:
+    #     print(f"Error: {exc}")
+    #     print("Processing stopped because PostgreSQL DDL generation failed.")
+    #     return 1
+    #
+    # print(f"PostgreSQL DDL generation complete: {sql_output_path}")
 
     # Stage 5: publish Designer runtime files and embedded build-specific data.
-    print(f"Generating DwC-DP Designer in {designer_output_dir}...")
+    print(f"Generating LtC-DP Designer in {designer_output_dir}...")
     try:
         generate_designer(
             designer_template_dir,
@@ -2066,7 +2077,7 @@ def main(argv=None) -> int:
         return 1
 
     print(f"Designer generation complete: {designer_output_dir / 'index.html'}")
-    print("DwC-DP processing completed successfully.")
+    print("LtC-DP processing completed successfully.")
     return 0
 
 if __name__ == "__main__":
